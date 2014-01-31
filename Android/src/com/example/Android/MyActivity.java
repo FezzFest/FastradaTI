@@ -14,5 +14,6 @@ public class MyActivity extends Activity
     }
     //test jonathan
     //test peter
+    //test thomas
     //test carlo
 }
