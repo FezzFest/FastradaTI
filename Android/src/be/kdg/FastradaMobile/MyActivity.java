@@ -1,4 +1,4 @@
-package com.example.Android;
+package be.kdg.FastradaMobile;
 
 import android.app.Activity;
 import android.os.Bundle;
