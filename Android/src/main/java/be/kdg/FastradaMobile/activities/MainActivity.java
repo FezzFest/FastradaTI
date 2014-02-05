@@ -1,10 +1,10 @@
-package be.kdg.FastradaMobile.test;
+package be.kdg.FastradaMobile.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.InputDataController;
+import org.codeandmagic.android.gauge.GaugeView;
 
 public class MainActivity extends Activity
 {
@@ -16,8 +16,8 @@ public class MainActivity extends Activity
         setContentView(R.layout.main);
 
         InputDataController controller = new InputDataController();
-        TextView speed = (TextView) findViewById(R.id.hello_world);
-        speed.setText(Long.toString(controller.getSpeed()));
+        GaugeView speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
+        speed.setTargetValue(controller.getSpeed());
     }
 
 }
