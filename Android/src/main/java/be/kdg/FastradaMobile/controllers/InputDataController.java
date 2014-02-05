@@ -9,4 +9,10 @@ public class InputDataController {
     public long getSpeed() {
         return 20;
     }
+
+    public byte[] receiveUdpPacket(String s, String s1) {
+        byte[] result = {};
+
+        return result;
+    }
 }
