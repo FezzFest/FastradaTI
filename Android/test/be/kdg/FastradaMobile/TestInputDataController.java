@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class TestInputDataController {
 
-    private void sendUdpPackets(final byte[] packet) {
+    private void sendUdpPackets(final byte[] packet, final int port) {
         Thread thread = new Thread() {
             public void run() {
                 byte[] arrayStream = packet;
@@ -26,7 +26,7 @@ public class TestInputDataController {
                     DatagramSocket datagramSocket = new DatagramSocket();
                     while (true) {
                         InetAddress address = InetAddress.getByName("127.0.0.1");
-                        DatagramPacket packet = new DatagramPacket(arrayStream, arrayStream.length, address, 9000);
+                        DatagramPacket packet = new DatagramPacket(arrayStream, arrayStream.length, address, port);
                         datagramSocket.send(packet);
                         Thread.sleep(500);
                     }
@@ -42,27 +42,29 @@ public class TestInputDataController {
 
     @Test
     public void testReceiveFixedUdpPacket() throws IOException {
-  /*      sendUdpPackets("test".getBytes());
+        byte [] packet = {(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF};
+        sendUdpPackets(packet, 9000);
 
         InputDataController inputDataController = new InputDataController();
-        byte[] result = inputDataController.receiveUdpPacket("127.0.0.1", 9000);
+        byte[] result = inputDataController.receiveUdpPacket(9000);
 
-        assertArrayEquals("Send and reveive bytes must be the same", "test".getBytes(), result);
-*/
+        //byte test = (byte) Integer.parseInt("FF",16);
+
+        assertArrayEquals("Send and reveive bytes must be the same", packet, result);
     }
 
 
     @Test
     public void testReceiveVariableUdpPacket() throws IOException {
-     /*   Random random = new Random();
-        byte[] bytes = new byte[30];
-       random.nextBytes(bytes);
-        sendUdpPackets(bytes);
+        Random random = new Random();
+        byte[] bytes = new byte[10];
+        random.nextBytes(bytes);
+        sendUdpPackets(bytes, 9001);
 
         InputDataController inputDataController = new InputDataController();
-        byte[] result = inputDataController.receiveUdpPacket("127.0.0.1", 9000);
+        byte[] result = inputDataController.receiveUdpPacket(9001);
 
-        assertArrayEquals("Variable receive udp bytes must be the same", bytes, result);*/
+        assertArrayEquals("Variable receive udp bytes must be the same", bytes, result);
 
     }
 

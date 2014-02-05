@@ -16,13 +16,11 @@ public class InputDataController {
         return 20;
     }
 
-    public byte[] receiveUdpPacket(String strAddress, int port) {
-        byte[] result = new byte[100];
+    public byte[] receiveUdpPacket(int port) {
+        byte[] result = new byte[10];
         try {
-            InetAddress address = InetAddress.getByName(strAddress);
-            DatagramPacket packet = new DatagramPacket(result, result.length, address, port);
-            DatagramSocket datagramSocket = new DatagramSocket();
-            datagramSocket.setSoTimeout(5000);
+            DatagramPacket packet = new DatagramPacket(result, result.length);
+            DatagramSocket datagramSocket = new DatagramSocket(port);
             datagramSocket.receive(packet);
         } catch (IOException e) {
             e.printStackTrace();
