@@ -15,9 +15,9 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        InputDataController controller = new InputDataController();
+        /*InputDataController controller = new InputDataController();
         GaugeView speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
-        speed.setTargetValue(controller.getSpeed());
+        speed.setTargetValue(controller.getSpeed());*/
     }
 
 }

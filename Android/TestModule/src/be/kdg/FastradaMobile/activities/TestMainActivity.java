@@ -22,7 +22,7 @@ public class TestMainActivity extends ActivityUnitTestCase<MainActivity> {
         Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
         startActivity(intent, null, null);
         activity = getActivity();
-        controller = new InputDataController();
+        controller = new InputDataController(activity.getApplicationContext());
     }
 
     /*
