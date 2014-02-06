@@ -50,7 +50,7 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
         // Stop sending packets
         thread.interrupt();
 
-        assertArrayEquals("Send and reveive bytes must be the same.", packet, result);
+        assertArrayEquals("Sent and received fixed packet must be the same.", packet, result);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
         // Stop sending packets
         thread.interrupt();
 
-        assertArrayEquals("Variable receive udp bytes must be the same", bytes, result);
+        assertArrayEquals("Sent and received variable packet must be the same.", bytes, result);
     }
 
     private void sendUdpPackets(final byte[] packet, final int port) {

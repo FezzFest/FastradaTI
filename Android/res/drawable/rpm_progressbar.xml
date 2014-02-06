@@ -20,8 +20,7 @@
                     android:startColor="#00FF00"
                     android:centerColor="#0000FF"
                     android:endColor="#FF0000"
-                    android:centerX="1.0"
-                    android:angle="180" />
+                    android:centerX="1.0"/>
             </shape>
         </clip>
     </item>

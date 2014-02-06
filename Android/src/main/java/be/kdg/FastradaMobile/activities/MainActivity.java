@@ -2,14 +2,12 @@ package be.kdg.FastradaMobile.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
-import be.kdg.FastradaMobile.controllers.InputDataController;
 import org.codeandmagic.android.gauge.GaugeView;
 
 public class MainActivity extends Activity
 {
-    private int speed;
-
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -17,8 +15,20 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        /*InputDataController controller = new InputDataController();
+        // Speed gauge
         GaugeView speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
-        speed.setTargetValue(controller.getSpeed());*/
+        speed.setTargetValue(20);
+
+        // RPM indicator
+        TextView rpmIndicator = (TextView) findViewById(R.id.dashboard_rpm_units);
+        rpmIndicator.setText("4042 RPM");
+
+        // PSI indicator
+        TextView psiIndicator = (TextView) findViewById(R.id.dashboard_pressure_units);
+        psiIndicator.setText("16 PSI");
+
+        // Temperature indicator
+        TextView tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
+        tempIndicator.setText("103 °C");
     }
 }

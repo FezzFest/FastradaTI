@@ -11,6 +11,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true">
 
         <TextView
@@ -21,7 +22,7 @@
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:text="4076 RPM" />
+            android:text="0 RPM" />
 
         <TextView
             android:id="@+id/dashboard_rpm_description"
@@ -32,12 +33,14 @@
             android:textSize="12sp"
             android:text="@string/engine_rpm" />
 
-        <!--ProgressBar
+        <ProgressBar
             android:id="@+id/dashboard_rpm_indicator"
-            android:layout_width="100dp"
-            android:layout_height="10dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
             android:layout_marginTop="20dp"
-            android:indeterminateDrawable="@drawable/rpm_progressbar"/-->
+            android:progressDrawable="@drawable/rpm_progressbar"
+            android:progress="100"/>
     </LinearLayout>
 
     <org.codeandmagic.android.gauge.GaugeView
@@ -75,7 +78,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="16 PSI" />
+                android:text="0 PSI" />
 
             <TextView
                 android:id="@+id/dashboard_pressure_description"
@@ -99,7 +102,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="103 °C"
+                android:text="0 °C"
                 android:gravity="right" />
 
             <TextView
