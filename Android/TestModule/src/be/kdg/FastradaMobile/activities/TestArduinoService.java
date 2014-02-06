@@ -35,7 +35,6 @@ public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
         activity = getActivity();
     }
 
-    @Test
     public void testServiceWithFixedValue() throws IOException, InterruptedException {
         // Construct packet
         byte [] packet = {(byte)0x14,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF};
@@ -58,7 +57,6 @@ public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
         assertEquals("Speed must be 20.", 20, speed);
     }
 
-    @Test
     public void testServiceWithVariable() throws IOException, InterruptedException {
         // Construct packet
         Random random = new Random();

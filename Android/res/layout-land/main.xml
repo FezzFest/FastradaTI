@@ -7,12 +7,11 @@
                 android:padding="10dp">
 
     <LinearLayout
-        android:id="@+id/dashboard_top"
+        android:id="@+id/dashboard_left"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:id="@+id/dashboard_rpm_units"
@@ -56,44 +55,46 @@
         gauge:textUnit="km/h"/>
 
     <LinearLayout
-        android:id="@+id/dashboard_bottom"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dashboard_speed_gauge"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="40dp">
+        android:id="@+id/dashboard_right"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true">
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="right">
 
             <TextView
                 android:id="@+id/dashboard_pressure_units"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="0 PSI"/>
+                android:text="0 PSI"
+                android:gravity="right"/>
 
             <TextView
                 android:id="@+id/dashboard_pressure_description"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="12sp"
-                android:text="@string/engine_pressure"/>
+                android:text="@string/engine_pressure"
+                android:gravity="right"/>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="bottom|right">
 
             <TextView
                 android:id="@+id/dashboard_temperature_units"

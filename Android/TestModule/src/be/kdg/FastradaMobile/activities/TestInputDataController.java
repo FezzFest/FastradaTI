@@ -37,7 +37,6 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
         controller = new InputDataController(activity.getApplicationContext());
     }
 
-    @Test
     public void testFixedUdpPacket() throws IOException, InterruptedException {
         // Construct packet
         byte [] packet = {(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF};
@@ -53,7 +52,6 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
         assertArrayEquals("Sent and received fixed packet must be the same.", packet, result);
     }
 
-    @Test
     public void testVariableUdpPacket() throws IOException, InterruptedException {
         // Construct packet
         Random random = new Random();

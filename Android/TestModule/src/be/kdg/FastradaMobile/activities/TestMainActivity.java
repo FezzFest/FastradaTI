@@ -29,19 +29,16 @@ public class TestMainActivity extends ActivityUnitTestCase<MainActivity> {
         controller = new InputDataController(activity.getApplicationContext());
     }
 
-    @Test
     public void testRpmIndicator() {
         TextView rpmIndicator = (TextView) activity.findViewById(R.id.dashboard_rpm_units);
         assertEquals("RPM indicator must be set to 4042 RPM.", "4042 RPM", rpmIndicator.getText());
     }
 
-    @Test
     public void testPsiIndicator() {
         TextView psiIndicator = (TextView) activity.findViewById(R.id.dashboard_pressure_units);
         assertEquals("PSI indicator must be set to 16 PSI.", "16 PSI", psiIndicator.getText());
     }
 
-    @Test
     public void testTemperatureIndicator() {
         TextView tempIndicator = (TextView) activity.findViewById(R.id.dashboard_temperature_units);
         assertEquals("Temperature indicator must be set to 103 °C.", "103 °C", tempIndicator.getText());
