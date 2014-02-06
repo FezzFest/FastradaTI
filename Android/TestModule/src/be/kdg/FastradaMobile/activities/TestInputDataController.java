@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import android.util.Log;
 import be.kdg.FastradaMobile.controllers.InputDataController;
-import org.junit.Before;
-import org.junit.Test;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -28,7 +26,6 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
         super(MainActivity.class);
     }
 
-    @Before
     protected void setUp() throws Exception {
         super.setUp();
         Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
@@ -52,7 +49,7 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
         assertArrayEquals("Sent and received fixed packet must be the same.", packet, result);
     }
 
-    public void testVariableUdpPacket() throws IOException, InterruptedException {
+    /*public void testVariableUdpPacket() throws IOException, InterruptedException {
         // Construct packet
         Random random = new Random();
         byte[] bytes = new byte[10];
@@ -67,7 +64,7 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
         thread.interrupt();
 
         assertArrayEquals("Sent and received variable packet must be the same.", bytes, result);
-    }
+    }*/
 
     private void sendUdpPackets(final byte[] packet, final int port) {
         thread = new Thread() {

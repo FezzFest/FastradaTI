@@ -5,9 +5,6 @@ import android.test.ActivityUnitTestCase;
 import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.InputDataController;
-import org.junit.Before;
-import org.junit.Test;
-
 
 /**
  * Created by FezzFest on 4/02/14.
@@ -20,7 +17,6 @@ public class TestMainActivity extends ActivityUnitTestCase<MainActivity> {
         super(MainActivity.class);
     }
 
-    @Before
     protected void setUp() throws Exception {
         super.setUp();
         Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);

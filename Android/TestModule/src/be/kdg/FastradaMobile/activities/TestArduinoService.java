@@ -2,13 +2,10 @@ package be.kdg.FastradaMobile.activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.test.ActivityUnitTestCase;
 import android.util.Log;
+import be.kdg.FastradaMobile.controllers.BufferController;
 import be.kdg.FastradaMobile.services.ArduinoService;
-import org.junit.Before;
-import org.junit.Test;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -16,86 +13,97 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Random;
 
+import static org.junit.Assert.assertArrayEquals;
+
 /**
  * Created by FezzFest on 5/02/14.
  */
 public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
     private Activity activity;
-    private Thread thread;
+    private BufferController buffer;
 
     public TestArduinoService() {
         super(MainActivity.class);
     }
 
-    @Before
     protected void setUp() throws Exception {
         super.setUp();
         Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
         startActivity(intent, null, null);
         activity = getActivity();
+        buffer = BufferController.getInstance();
     }
 
     public void testServiceWithFixedValue() throws IOException, InterruptedException {
-        // Construct packet
-        byte [] packet = {(byte)0x14,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF};
-        sendUdpPackets(packet, 9000);
-
         // Start service
         Intent intent = new Intent(activity.getApplicationContext(), ArduinoService.class);
         activity.startService(intent);
+        Thread.sleep(5000);
 
-        // Give service the time to execute
-        Thread.sleep(3000);
+        // Construct packet
+        byte[] packet = {(byte) 0x14, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
+        sendUdpPacket(packet, 9000);
 
-        // Check value
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity.getApplicationContext());
-        int speed = prefs.getInt("speed", 0);
+        // Wait until package is processed by the service
+        Thread.sleep(50);
 
-        // Kill thread
-        thread.interrupt();
-
-        assertEquals("Speed must be 20.", 20, speed);
+        // Assert
+        assertEquals("Speed must be 20.", 20, buffer.getSpeed());
     }
 
     public void testServiceWithVariable() throws IOException, InterruptedException {
         // Construct packet
         Random random = new Random();
-        int randomInt = random.nextInt(255);
-        byte byte1 = (byte) (Integer.parseInt(Integer.toString(randomInt), 16) & 0xff);
+        int randomInt = random.nextInt(255) - 128;
+        byte randomByte = (byte) randomInt;
 
-        byte [] packet = {byte1,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF};
-        sendUdpPackets(packet, 9000);
+        // Construct packet
+        byte[] packet = {randomByte, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
+        sendUdpPacket(packet, 9000);
 
-        // Start service
-        Intent intent = new Intent(activity.getApplicationContext(), ArduinoService.class);
-        activity.startService(intent);
+        // Wait until package is processed by the service
+        Thread.sleep(50);
 
-        // Give service time to execute
-        Thread.sleep(3000);
-
-        // Check value
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity.getApplicationContext());
-        int speed = prefs.getInt("speed", 0);
-
-        assertEquals("Speed must be " + randomInt, randomInt, speed);
+        // Assert
+        assertEquals("Speed must be " + randomInt, randomInt, buffer.getSpeed());
     }
 
-    private void sendUdpPackets(final byte[] packet, final int port) {
-        thread = new Thread() {
+    public void testServiceWithMultiplePackets() throws InterruptedException {
+        // Construct packet
+        Random random = new Random();
+        int randomInts[] = new int[10];
+        int receivedInts[] = new int[10];
+
+        for (int i = 0; i < 10; i++) {
+            randomInts[i] = random.nextInt(255) - 128;
+            byte randomByte = (byte) randomInts[i];
+
+            byte[] packet = {randomByte, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
+            sendUdpPacket(packet, 9000);
+
+            // Wait until package is processed by the service
+            Thread.sleep(50);
+
+            BufferController controller = BufferController.getInstance();
+            receivedInts[i] = controller.getSpeed();
+        }
+
+        // Assert
+        assertArrayEquals("Sent and received arrays of speeds must be the same.", randomInts, receivedInts);
+    }
+
+    private void sendUdpPacket(final byte[] packet, final int port) {
+        Thread thread = new Thread() {
             public void run() {
                 byte[] arrayStream = packet;
                 try {
                     DatagramSocket datagramSocket = new DatagramSocket();
-                    while (true) {
-                        InetAddress address = InetAddress.getByName("127.0.0.1");
-                        DatagramPacket packet = new DatagramPacket(arrayStream, arrayStream.length, address, port);
-                        datagramSocket.send(packet);
-                        Log.d("Fastrada", "Sent packet: " + arrayStream[0]);
-                        Thread.sleep(500);
-                    }
+                    InetAddress address = InetAddress.getByName("127.0.0.1");
+                    DatagramPacket packet = new DatagramPacket(arrayStream, arrayStream.length, address, port);
+                    datagramSocket.send(packet);
+
+                    Log.d("Fastrada", "[UDP] Sent packet: " + arrayStream[0]);
                 } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
