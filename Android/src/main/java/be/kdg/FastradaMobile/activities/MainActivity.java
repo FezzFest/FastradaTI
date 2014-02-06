@@ -8,6 +8,8 @@ import org.codeandmagic.android.gauge.GaugeView;
 
 public class MainActivity extends Activity
 {
+    private int speed;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -19,5 +21,4 @@ public class MainActivity extends Activity
         GaugeView speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
         speed.setTargetValue(controller.getSpeed());*/
     }
-
 }

@@ -2,9 +2,11 @@ package be.kdg.FastradaMobile.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.test.ActivityUnitTestCase;
 import android.util.Log;
-import be.kdg.FastradaMobile.controllers.InputDataController;
+import be.kdg.FastradaMobile.services.ArduinoService;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,17 +16,14 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Random;
 
-import static org.junit.Assert.assertArrayEquals;
-
 /**
  * Created by FezzFest on 5/02/14.
  */
-public class TestInputDataController extends ActivityUnitTestCase<MainActivity> {
+public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
     private Activity activity;
-    private InputDataController controller;
     private Thread thread;
 
-    public TestInputDataController() {
+    public TestArduinoService() {
         super(MainActivity.class);
     }
 
@@ -34,41 +33,53 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
         Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
         startActivity(intent, null, null);
         activity = getActivity();
-        controller = new InputDataController(activity.getApplicationContext());
     }
 
     @Test
-    public void testFixedUdpPacket() throws IOException, InterruptedException {
+    public void testServiceWithFixedValue() throws IOException, InterruptedException {
         // Construct packet
-        byte [] packet = {(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF};
-        // Start sending packets
+        byte [] packet = {(byte)0x14,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF};
         sendUdpPackets(packet, 9000);
-        // Sleep for 3 seconds
+
+        // Start service
+        Intent intent = new Intent(activity.getApplicationContext(), ArduinoService.class);
+        activity.startService(intent);
+
+        // Give service the time to execute
         Thread.sleep(3000);
-        // Receive packet
-        byte[] result = controller.receiveUdpPacket();
-        // Stop sending packets
+
+        // Check value
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity.getApplicationContext());
+        int speed = prefs.getInt("speed", 0);
+
+        // Kill thread
         thread.interrupt();
 
-        assertArrayEquals("Send and reveive bytes must be the same.", packet, result);
+        assertEquals("Speed must be 20.", 20, speed);
     }
 
     @Test
-    public void testVariableUdpPacket() throws IOException, InterruptedException {
+    public void testServiceWithVariable() throws IOException, InterruptedException {
         // Construct packet
         Random random = new Random();
-        byte[] bytes = new byte[10];
-        random.nextBytes(bytes);
-        // Start sending packets
-        sendUdpPackets(bytes, 9000);
-        // Sleep for 3 seconds
-        Thread.sleep(3000);
-        // Receive packet
-        byte[] result = controller.receiveUdpPacket();
-        // Stop sending packets
-        thread.interrupt();
+        int randomInt = random.nextInt(255);
+        byte byte1 = (byte) (Integer.parseInt(Integer.toString(randomInt), 16) & 0xff);
 
-        assertArrayEquals("Variable receive udp bytes must be the same", bytes, result);
+        byte [] packet = {byte1,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF};
+        sendUdpPackets(packet, 9000);
+
+        // Start service
+        Intent intent = new Intent(activity.getApplicationContext(), ArduinoService.class);
+        activity.startService(intent);
+
+        // Give service time to execute
+        Thread.sleep(3000);
+
+        // Check value
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity.getApplicationContext());
+        int speed = prefs.getInt("speed", 0);
+
+        assertEquals("Speed must be " + randomInt, randomInt, speed);
     }
 
     private void sendUdpPackets(final byte[] packet, final int port) {
@@ -82,7 +93,6 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
                         DatagramPacket packet = new DatagramPacket(arrayStream, arrayStream.length, address, port);
                         datagramSocket.send(packet);
                         Log.d("Fastrada", "Sent packet: " + arrayStream[0]);
-
                         Thread.sleep(500);
                     }
                 } catch (IOException e) {
