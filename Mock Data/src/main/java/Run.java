@@ -17,7 +17,7 @@ public class Run {
     private static byte[] tempBytes;
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        initFile();
+        initFile();          //hallo
         tempBytes = new byte[10];
         datagramSocket = new DatagramSocket(9000);
         tempBytes = getLine();
