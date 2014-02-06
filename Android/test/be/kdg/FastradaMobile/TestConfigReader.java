@@ -2,10 +2,10 @@ package be.kdg.FastradaMobile;
 
 import be.kdg.FastradaMobile.config.ConfigReader;
 import be.kdg.FastradaMobile.config.Parameter;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -19,7 +19,7 @@ public class TestConfigReader {
 
     @BeforeClass
     public static void initializeTestConfigReader(){
-        reader = new ConfigReader();
+        reader = new ConfigReader("res/xml/testconfig.xml");
     }
 
 
@@ -89,17 +89,23 @@ public class TestConfigReader {
 
     @Test
     public void testGetFuelMapAsParameter(){
-        Parameter Rpm = reader.getParameterConfig("Fuel_map");
+        Parameter Fuelmap = reader.getParameterConfig("Fuel_map");
         Parameter p1 = new Parameter(8,8,"Intel","unsigned",1,0,0,255,"");
 
-        assertEquals(Rpm,p1);
+        assertEquals(Fuelmap,p1);
     }
 
-//    @Test
-//    public void testReadSensor100ParameterNames() {
-//        List<String> parameterNames = reader.getParameterNames(100);
-//
-//
-//        assertEquals();
-//    }
+    @Test
+    public void testReadSensor100ParameterNames() {
+        List<String> parameterNames = reader.getParameterNames(100);
+
+        List<String> controleParameterNames = new ArrayList<String>();
+        controleParameterNames.add("RPM");
+        controleParameterNames.add("Throttle_position");
+        controleParameterNames.add("Engine_Temp");
+
+        assertEquals(controleParameterNames, parameterNames);
+    }
+
+
 }

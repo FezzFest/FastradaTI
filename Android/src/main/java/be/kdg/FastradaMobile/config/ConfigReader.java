@@ -11,15 +11,16 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by philip on 5/02/14.
  */
 public class ConfigReader {
-    private String configPath = "res/xml/config.xml";
     private Document document;
 
-    public ConfigReader(){
+    public ConfigReader(String configPath){
         FileInputStream configFileStream = null;
 
         try {
@@ -45,6 +46,9 @@ public class ConfigReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        catch (NullPointerException e){
+            e.printStackTrace();
+        }
     }
 
     public String getConfigStringValue(String parameter, String parameterWaarde) {
@@ -61,7 +65,7 @@ public class ConfigReader {
 
             for(int parameterIndex = 0; parameterIndex< parameterList.getLength();parameterIndex++){
 
-                if(parameterList.item(parameterIndex).getNodeType() == Node.ELEMENT_NODE ){ //controle of lijn een xml element is of whitespace
+                if(isElementNode(parameterList.item(parameterIndex))){ //controle of lijn een xml element is of whitespace
 
                     if(parameterList.item(parameterIndex).getAttributes().getNamedItem("name").getNodeValue().equals(parameter)){
 
@@ -69,7 +73,7 @@ public class ConfigReader {
 
                         for(int waardenIndex = 0; waardenIndex<parameterWaarden.getLength();waardenIndex++){
 
-                            if(parameterWaarden.item(waardenIndex).getNodeType() == Node.ELEMENT_NODE && parameterWaarden.item(waardenIndex).getNodeName().equals(parameterWaarde)){
+                            if(isElementNode(parameterWaarden.item(waardenIndex)) && parameterWaarden.item(waardenIndex).getNodeName().equals(parameterWaarde)){
 
                                 if(parameterWaarden.item(waardenIndex).hasChildNodes()){
                                     return parameterWaarden.item(waardenIndex).getChildNodes().item(0).getNodeValue();
@@ -107,5 +111,31 @@ public class ConfigReader {
          String unit = getConfigStringValue(parameterNaam,"unit");
 
         return new Parameter(startBit,length,byteOrder,valueType,factor,offset,minimum,maximum,unit);
+    }
+
+    public List<String> getParameterNames(int sensorId) {
+        List<String> parameterNames = new ArrayList<String>();
+
+        Element root = document.getDocumentElement();
+
+        Node sensors = root.getElementsByTagName("sensors").item(0);
+
+        NodeList sensorList = sensors.getChildNodes();
+
+        for(int i = 0; i<sensorList.getLength();i++){
+            if(isElementNode(sensorList.item(i)) && sensorList.item(i).getAttributes().getNamedItem("id").getNodeValue().equals(sensorId + "")){
+                NodeList parameters = sensorList.item(i).getChildNodes();
+                for(int j = 0; j<parameters.getLength();j++){
+                    if(isElementNode(parameters.item(j))){
+                    parameterNames.add(parameters.item(j).getAttributes().getNamedItem("name").getNodeValue());
+                    }
+                }
+            }
+        }
+        return parameterNames;
+    }
+
+    private boolean isElementNode(Node node) {
+        return node.getNodeType() == Node.ELEMENT_NODE;
     }
 }
