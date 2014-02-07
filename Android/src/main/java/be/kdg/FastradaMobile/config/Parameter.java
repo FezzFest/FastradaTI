@@ -41,39 +41,4 @@ public class Parameter {
                         this.unit.equals(p.unit);
     }
 
-    public int getStartBit() {
-        return startBit;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public String getByteOrder() {
-        return byteOrder;
-    }
-
-    public String getValueType() {
-        return valueType;
-    }
-
-    public double getFactor() {
-        return factor;
-    }
-
-    public int getOffset() {
-        return offset;
-    }
-
-    public double getMinimum() {
-        return minimum;
-    }
-
-    public double getMaximum() {
-        return maximum;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
 }
