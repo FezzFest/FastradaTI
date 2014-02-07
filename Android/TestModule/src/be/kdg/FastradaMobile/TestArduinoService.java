@@ -1,9 +1,10 @@
-package be.kdg.FastradaMobile.activities;
+package be.kdg.FastradaMobile;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import android.util.Log;
+import be.kdg.FastradaMobile.activities.MainActivity;
 import be.kdg.FastradaMobile.controllers.BufferController;
 import be.kdg.FastradaMobile.services.ArduinoService;
 

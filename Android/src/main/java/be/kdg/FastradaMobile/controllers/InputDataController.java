@@ -38,7 +38,6 @@ public class InputDataController {
         byte[] result = new byte[10];
         try {
             DatagramPacket packet = new DatagramPacket(result, result.length);
-            Log.d("Fastrada", "" + socket.getPort());
             socket.receive(packet);
         } catch (IOException e) {
             e.printStackTrace();

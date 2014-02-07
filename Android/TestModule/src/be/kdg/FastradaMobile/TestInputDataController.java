@@ -1,16 +1,16 @@
-package be.kdg.FastradaMobile.activities;
+package be.kdg.FastradaMobile;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import android.util.Log;
+import be.kdg.FastradaMobile.activities.MainActivity;
 import be.kdg.FastradaMobile.controllers.InputDataController;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.util.Random;
 
 import static org.junit.Assert.assertArrayEquals;
 

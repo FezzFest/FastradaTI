@@ -1,9 +1,9 @@
-package be.kdg.FastradaMobile.activities;
+package be.kdg.FastradaMobile;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import android.widget.TextView;
-import be.kdg.FastradaMobile.R;
+import be.kdg.FastradaMobile.activities.MainActivity;
 import be.kdg.FastradaMobile.controllers.InputDataController;
 
 /**
