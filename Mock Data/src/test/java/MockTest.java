@@ -4,41 +4,48 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class MockTest {
 
+    private byte[] packet;
+
     @Test
     public void testZeros(){
-        byte[] stream;
-        stream = Run.generateData(0, 0);
+        //Generate a packet with all zeros
+        packet = Run.generateData(0, 0);
+        //Now check its content
         assertArrayEquals(new byte[]{
-                (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
-        }, stream);
+                (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
+        }, packet);
 
     }
 
     @Test
     public void testValue(){
-        byte[] stream;
-        stream = Run.generateData(0, 256);
+        //Generate a packet with a specific value
+        packet = Run.generateData(0, 256);
+        //Now check its content
         assertArrayEquals(new byte[]{
-                (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x01, (byte) 0x00
-        }, stream);
+                (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x01, (byte) 0x00
+        }, packet);
     }
 
     @Test
     public void readLine() throws IOException {
+        //Load the data file
         Run.initFile();
-        byte[] stream;
-        stream = Run.getLine();
+        //Retrieve the first line
+        packet = Run.getLine();
+        //Now check its content
         assertArrayEquals(new byte[]{
                 (byte) 0x01, (byte) 0x00, (byte) 0xff, (byte) 0xff, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
-        }, stream);
+        }, packet);
     }
 
     @Test
-    public void sendZerosFor20Secs() throws IOException {
-        byte[] stream;
-        stream = Run.generateData(0, 0);
+    public void sendZeros() throws IOException {
+        //Generate a zeros packet
+        packet = Run.generateData(0, 0);
+        //Send it 20 times, the received packets are tested on the Android device
         for(int i=0; i<20; i++){
-            Run.sendPacket(stream);
+            Run.sendPacket(packet);
         }
     }
 

@@ -6,19 +6,15 @@ import java.net.*;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-/**
- * Created by Thomas on 04/02/14.
- */
 public class Run {
 
     private static BufferedReader  br;
     private static DatagramSocket datagramSocket;
     private static int i = 0;
-    private static byte[] tempBytes;
 
     public static void main(String[] args) throws InterruptedException, IOException {
         initFile();
-        tempBytes = new byte[10];
+        byte[] tempBytes;
         datagramSocket = new DatagramSocket(9000);
         tempBytes = getLine();
         while(tempBytes != null){
@@ -90,13 +86,13 @@ public class Run {
 
     // Generate data is een functie om een custom ID en een integer value om te zetten naar bytes. Heb je niet echt nodig maar hebben het in het project laten staan.
     public static byte[] generateData(int id, int value){
-        byte[] array1 = new byte[9];
+        byte[] array1 = new byte[10];
         array1[0] = (byte)id;
         ByteBuffer b = ByteBuffer.allocate(8);
         b.order(ByteOrder.nativeOrder());
         b.putInt(value);
         for(int i = 0; i<8;i++){
-            array1[i+1] = b.array()[7-i];
+            array1[i+2] = b.array()[7-i];
         }
         return array1;
     }
