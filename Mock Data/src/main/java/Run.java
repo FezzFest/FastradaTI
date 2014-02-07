@@ -25,8 +25,8 @@ public class Run {
             System.out.println("Sending Packet..");
             System.out.println();
             sendPacket(tempBytes);
-            receivePacket();
-            Thread.sleep(100);
+            //receivePacket();
+            Thread.sleep(500);
             tempBytes = getLine();
         }
     }
@@ -59,7 +59,8 @@ public class Run {
 
 
     public static void sendPacket(byte[] stream) throws IOException {
-        InetAddress address = InetAddress.getByName("127.0.0.1"); //hier ip adress van ontvanger zetten
+        InetAddress address = InetAddress.getByName("192.168.43.1"); //hier ip adress van ontvanger zetten
+        //InetAddress address = InetAddress.getByName("127.0.0.1");
         DatagramPacket packet = new DatagramPacket(
                 stream, stream.length, address, 9000);
         DatagramSocket datagramSocket = new DatagramSocket();
