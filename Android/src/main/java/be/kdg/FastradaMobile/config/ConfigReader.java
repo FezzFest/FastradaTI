@@ -25,7 +25,7 @@ public class ConfigReader {
     public ConfigReader(Context context){
         InputStream configFileStream = null;
 
-        configFileStream = context.getResources().openRawResource(R.xml.config);
+        configFileStream = context.getResources().openRawResource(R.raw.config);
 
         readConfigInputStream(configFileStream);
     }

@@ -13,7 +13,7 @@ import static junit.framework.Assert.assertTrue;
 public class TestConfigController {
 @Test
    public void testGetSensor100Config(){
-    ConfigController controller = new ConfigController("res/xml/testconfig.xml");
+    ConfigController controller = new ConfigController("res/raw/testconfig.xml");
 
     Sensor sensor = controller.getSensorConfig(100);
 

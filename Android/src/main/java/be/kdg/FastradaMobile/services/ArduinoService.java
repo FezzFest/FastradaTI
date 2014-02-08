@@ -21,6 +21,7 @@ public class ArduinoService extends IntentService {
         InputDataController controller = new InputDataController(getApplicationContext());
         BufferController buffer = BufferController.getInstance();
         ConfigController config = new ConfigController(getApplicationContext());
+        Sensor sensor = config.getSensorConfig(101);
 
         while (true) {
             byte[] received = controller.receiveUdpPacket();

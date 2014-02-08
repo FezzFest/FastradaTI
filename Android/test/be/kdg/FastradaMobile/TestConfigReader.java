@@ -19,7 +19,7 @@ public class TestConfigReader {
 
     @BeforeClass
     public static void initializeTestConfigReader(){
-        reader = new ConfigReader("res/xml/testconfig.xml");
+        reader = new ConfigReader("res/raw/testconfig.xml");
     }
 
 
