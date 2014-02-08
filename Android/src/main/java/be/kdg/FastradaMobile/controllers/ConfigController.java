@@ -4,6 +4,7 @@ import be.kdg.FastradaMobile.config.ConfigReader;
 import be.kdg.FastradaMobile.config.Parameter;
 import be.kdg.FastradaMobile.config.Sensor;
 
+import android.content.Context;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,8 +22,10 @@ public class ConfigController {
        sensors = new HashMap<Integer, Sensor>();
     }
 
-    public ConfigController() {
-        this("res/xml/config.xml");
+    public ConfigController(Context context) {
+        configReader = new ConfigReader(context);
+
+        sensors = new HashMap<Integer, Sensor>();
     }
 
     public Sensor getSensorConfig(int sensorId) {

@@ -25,6 +25,9 @@
         <module name="FastradaMobile" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="FastradaMobile" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

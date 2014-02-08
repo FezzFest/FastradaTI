@@ -3,7 +3,9 @@ package be.kdg.FastradaMobile.services;
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
+import be.kdg.FastradaMobile.config.Sensor;
 import be.kdg.FastradaMobile.controllers.BufferController;
+import be.kdg.FastradaMobile.controllers.ConfigController;
 import be.kdg.FastradaMobile.controllers.InputDataController;
 
 /**
@@ -18,6 +20,7 @@ public class ArduinoService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         InputDataController controller = new InputDataController(getApplicationContext());
         BufferController buffer = BufferController.getInstance();
+        ConfigController config = new ConfigController(getApplicationContext());
 
         while (true) {
             byte[] received = controller.receiveUdpPacket();

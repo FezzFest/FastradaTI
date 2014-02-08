@@ -1,12 +1,14 @@
 package be.kdg.FastradaMobile.config;
 
 
+import be.kdg.FastradaMobile.R;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import android.content.Context;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -20,8 +22,16 @@ import java.util.List;
 public class ConfigReader {
     private Document document;
 
+    public ConfigReader(Context context){
+        InputStream configFileStream = null;
+
+        configFileStream = context.getResources().openRawResource(R.xml.config);
+
+        readConfigInputStream(configFileStream);
+    }
+
     public ConfigReader(String configPath){
-        FileInputStream configFileStream = null;
+        InputStream configFileStream = null;
 
         try {
             configFileStream = new FileInputStream(configPath);
@@ -29,6 +39,10 @@ public class ConfigReader {
             e.printStackTrace();
         }
 
+        readConfigInputStream(configFileStream);
+    }
+
+    private void readConfigInputStream(InputStream configFileStream) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = null;
 
