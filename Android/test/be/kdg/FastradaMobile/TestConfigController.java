@@ -1,5 +1,7 @@
 package be.kdg.FastradaMobile;
 
+import android.test.ActivityUnitTestCase;
+import be.kdg.FastradaMobile.activities.MainActivity;
 import be.kdg.FastradaMobile.config.Parameter;
 import be.kdg.FastradaMobile.config.Sensor;
 import be.kdg.FastradaMobile.controllers.ConfigController;
