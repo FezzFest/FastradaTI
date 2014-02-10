@@ -47,16 +47,27 @@ public class ArduinoService extends IntentService {
                 Map.Entry pair = (Map.Entry) it.next();
                 Parameter parameter = (Parameter) pair.getValue();
                 int rawValue = 0;
-                if (parameter.getStartBit() / 8 == 2 && parameter.getLength() / 8 == 2) {
-                    rawValue = Integer.parseInt(String.format("%02X%02X", received[parameter.getStartBit() / 8], received[parameter.getLength()/8 + parameter.getStartBit()/8 -1]), 16) & 0xffffff;
-                    Log.d("Fastrada", "startpos:" + parameter.getStartBit()/8);
-                    Log.d("Fastrada", "stoppos:" + (parameter.getStartBit()/8 + parameter.getLength()/8));
-                    Log.d("Fastrada", "Aangekregen Byte: "+ rawValue);
-                    int value = (int) (rawValue * parameter.getFactor() + 0.5);
-                    Log.d("Fastrada", "Omgerekend:  "+ value);
-                    String name = pair.getKey().toString();
-                    buffer.setValue(name, value);
+                int startByte = parameter.getStartBit() / 8;
+                int stopByte = parameter.getStartBit() / 8 + parameter.getLength() / 8 - 1;
+                switch (parameter.getLength() / 8) {
+                    case 1:
+                        rawValue = Integer.parseInt(String.format("%02X", received[startByte]), 16) & 0xffffff;
+                        break;
+                    case 2:
+                        rawValue = Integer.parseInt(String.format("%02X%02X", received[startByte], received[stopByte]), 16) & 0xffffff;
+                        break;
+                    case 3:
+                        rawValue = Integer.parseInt(String.format("%02X%02X%02X", received[startByte], received[stopByte-1], received[stopByte]), 16) & 0xffffff;
+                        break;
+                    case 4:
+                        rawValue = Integer.parseInt(String.format("%02X%02X%02X%02X", received[startByte], received[stopByte-2], received[stopByte-3], received[stopByte]), 16) & 0xffffff;
+                        break;
                 }
+                int value = (int) (rawValue * parameter.getFactor() + 0.5);
+
+                String name = pair.getKey().toString();
+                buffer.setValue(name, value);
+                Log.d("Fastrada", "Setted paramName: " + name + "Value " + value);
             }
         }
     }

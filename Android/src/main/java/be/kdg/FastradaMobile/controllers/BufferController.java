@@ -30,7 +30,7 @@ public class BufferController {
     public void setValue(String paramName, int value) {
         if (paramName.equals("Vehicle_Speed")) {
             speed = value;
-        } else if (paramName.equals("Gear")){
+        } else if (paramName.equals("Gear")) {
             gear = value;
         }
     }
