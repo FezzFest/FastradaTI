@@ -82,7 +82,7 @@ public class TestConfigReader {
     @Test
     public void testGetRpmAsParameter(){
         Parameter Rpm = reader.getParameterConfig("RPM");
-        Parameter p1 = new Parameter(8,16,"Intel","unsigned",1,0,0,65535,"r/min");
+        Parameter p1 = new Parameter("RPM",8,16,"Intel","unsigned",1,0,0,65535,"r/min");
 
         assertEquals(Rpm,p1);
     }
@@ -90,7 +90,7 @@ public class TestConfigReader {
     @Test
     public void testGetFuelMapAsParameter(){
         Parameter Fuelmap = reader.getParameterConfig("Fuel_map");
-        Parameter p1 = new Parameter(8,8,"Intel","unsigned",1,0,0,255,"");
+        Parameter p1 = new Parameter("Fuel_map",8,8,"Intel","unsigned",1,0,0,255,"");
 
         assertEquals(Fuelmap,p1);
     }

@@ -9,6 +9,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import android.content.Context;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -22,7 +23,7 @@ import java.util.List;
 public class ConfigReader {
     private Document document;
 
-    public ConfigReader(Context context){
+    public ConfigReader(Context context) {
         InputStream configFileStream = null;
 
         configFileStream = context.getResources().openRawResource(R.raw.config);
@@ -30,7 +31,7 @@ public class ConfigReader {
         readConfigInputStream(configFileStream);
     }
 
-    public ConfigReader(String configPath){
+    public ConfigReader(String configPath) {
         InputStream configFileStream = null;
 
         try {
@@ -54,45 +55,33 @@ public class ConfigReader {
 
         try {
             document = builder.parse(configFileStream);
-        }
-        catch (SAXException e) {
+        } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
     }
 
     public String getConfigStringValue(String parameter, String parameterWaarde) {
-
         Element root = document.getDocumentElement();
-
         Node sensors = root.getElementsByTagName("sensors").item(0);
-
         NodeList sensorList = sensors.getChildNodes();
 
-        for(int sensorIndex = 0; sensorIndex< sensorList.getLength();sensorIndex++){
+        for (int sensorIndex = 0; sensorIndex < sensorList.getLength(); sensorIndex++) {
             Node sensor = sensorList.item(sensorIndex);
             NodeList parameterList = sensor.getChildNodes();
-
-            for(int parameterIndex = 0; parameterIndex< parameterList.getLength();parameterIndex++){
-
-                if(isElementNode(parameterList.item(parameterIndex))){ //controle of lijn een xml element is of whitespace
-
-                    if(parameterList.item(parameterIndex).getAttributes().getNamedItem("name").getNodeValue().equals(parameter)){
-
+            for (int parameterIndex = 0; parameterIndex < parameterList.getLength(); parameterIndex++) {
+                //controle of lijn een xml element is of whitespace
+                if (isElementNode(parameterList.item(parameterIndex))) {
+                    if (parameterList.item(parameterIndex).getAttributes().getNamedItem("name").getNodeValue().equals(parameter)) {
                         NodeList parameterWaarden = parameterList.item(parameterIndex).getChildNodes();
-
-                        for(int waardenIndex = 0; waardenIndex<parameterWaarden.getLength();waardenIndex++){
-
-                            if(isElementNode(parameterWaarden.item(waardenIndex)) && parameterWaarden.item(waardenIndex).getNodeName().equals(parameterWaarde)){
-
-                                if(parameterWaarden.item(waardenIndex).hasChildNodes()){
+                        for (int waardenIndex = 0; waardenIndex < parameterWaarden.getLength(); waardenIndex++) {
+                            if (isElementNode(parameterWaarden.item(waardenIndex)) && parameterWaarden.item(waardenIndex).getNodeName().equals(parameterWaarde)) {
+                                if (parameterWaarden.item(waardenIndex).hasChildNodes()) {
                                     return parameterWaarden.item(waardenIndex).getChildNodes().item(0).getNodeValue();
-                                }
-                                else {
+                                } else {
                                     return "";
                                 }
                             }
@@ -114,18 +103,19 @@ public class ConfigReader {
     }
 
     public Parameter getParameterConfig(String parameterNaam) {
-         int startBit = getConfigIntValue(parameterNaam,"startbit");
-         int length = getConfigIntValue(parameterNaam,"length");
-         String byteOrder = getConfigStringValue(parameterNaam,"byteorder");
-         String valueType = getConfigStringValue(parameterNaam,"valuetype");
-         double factor = getConfigDoubleValue(parameterNaam,"factor");
-         int offset = getConfigIntValue(parameterNaam,"offset");
-         double minimum = getConfigDoubleValue(parameterNaam,"minimum");
-         double maximum = getConfigDoubleValue(parameterNaam,"maximum");
-         String unit = getConfigStringValue(parameterNaam,"unit");
+        int startBit = getConfigIntValue(parameterNaam, "startbit");
+        int length = getConfigIntValue(parameterNaam, "length");
+        String byteOrder = getConfigStringValue(parameterNaam, "byteorder");
+        String valueType = getConfigStringValue(parameterNaam, "valuetype");
+        double factor = getConfigDoubleValue(parameterNaam, "factor");
+        int offset = getConfigIntValue(parameterNaam, "offset");
+        double minimum = getConfigDoubleValue(parameterNaam, "minimum");
+        double maximum = getConfigDoubleValue(parameterNaam, "maximum");
+        String unit = getConfigStringValue(parameterNaam, "unit");
 
-        return new Parameter(startBit,length,byteOrder,valueType,factor,offset,minimum,maximum,unit);
+        return new Parameter(parameterNaam,startBit, length, byteOrder, valueType, factor, offset, minimum, maximum, unit);
     }
+
 
     public List<String> getParameterNames(int sensorId) {
         List<String> parameterNames = new ArrayList<String>();
@@ -136,12 +126,12 @@ public class ConfigReader {
 
         NodeList sensorList = sensors.getChildNodes();
 
-        for(int i = 0; i<sensorList.getLength();i++){
-            if(isElementNode(sensorList.item(i)) && sensorList.item(i).getAttributes().getNamedItem("id").getNodeValue().equals(sensorId + "")){
+        for (int i = 0; i < sensorList.getLength(); i++) {
+            if (isElementNode(sensorList.item(i)) && sensorList.item(i).getAttributes().getNamedItem("id").getNodeValue().equals(sensorId + "")) {
                 NodeList parameters = sensorList.item(i).getChildNodes();
-                for(int j = 0; j<parameters.getLength();j++){
-                    if(isElementNode(parameters.item(j))){
-                    parameterNames.add(parameters.item(j).getAttributes().getNamedItem("name").getNodeValue());
+                for (int j = 0; j < parameters.getLength(); j++) {
+                    if (isElementNode(parameters.item(j))) {
+                        parameterNames.add(parameters.item(j).getAttributes().getNamedItem("name").getNodeValue());
                     }
                 }
             }
@@ -151,5 +141,19 @@ public class ConfigReader {
 
     private boolean isElementNode(Node node) {
         return node.getNodeType() == Node.ELEMENT_NODE;
+    }
+
+    public int[] getSensorIds() {
+        Element root = document.getDocumentElement();
+        Node sensors = root.getElementsByTagName("sensors").item(0);
+        NodeList sensorList = sensors.getChildNodes();
+        int[] ints = new int[sensorList.getLength()];
+
+        for (int i = 0; i < sensorList.getLength(); i++) {
+            if (isElementNode(sensorList.item(i))) {
+                ints[i] = Integer.parseInt(sensorList.item(i).getAttributes().getNamedItem("id").getNodeValue());
+            }
+        }
+        return ints;
     }
 }

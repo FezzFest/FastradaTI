@@ -1,42 +1,42 @@
 package be.kdg.FastradaMobile.config;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by philip on 6/02/14.
  */
 public class Sensor {
-    private HashMap<String,Parameter> parameters;
+    private List<Parameter> parameters;
 
     public Sensor() {
-        parameters = new HashMap<String, Parameter>();
+        parameters = new ArrayList<Parameter>();
     }
 
-    public void addParamater(String parameterName, Parameter parameter) {
-        if(!parameterName.equals("")){
-            parameters.put(parameterName,parameter);
-        }
+    public void addParamater(Parameter parameter) {
+        parameters.add(parameter);
     }
 
-    public HashMap<String, Parameter> getParameters() {
+    public List<Parameter> getParameters() {
         return parameters;
     }
 
     @Override
     public boolean equals(Object o) {
         Sensor sensor2 = (Sensor) o;
-        HashMap<String,Parameter> senser2Parameters = sensor2.getParameters();
-        if(parameters.size()!=senser2Parameters.size())
+        List<Parameter> senser2Parameters = sensor2.getParameters();
+        if (parameters.size() != senser2Parameters.size())
             return false;
-
-        for(String key:parameters.keySet()){
-            if(!senser2Parameters.containsKey(key)){
+        for (int i = 0; i < parameters.size(); i++) {
+            if (!parameters.contains(senser2Parameters.get(i))) {
                 return false;
             }
-            if(!parameters.get(key).equals(senser2Parameters.get(key))){
+            if (!senser2Parameters.contains(parameters.get(i))) {
                 return false;
             }
         }
+
         return true;
     }
 }

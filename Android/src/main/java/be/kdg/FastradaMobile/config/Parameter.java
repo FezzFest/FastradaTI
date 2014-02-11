@@ -4,6 +4,7 @@ package be.kdg.FastradaMobile.config;
  * Created by philip on 5/02/14.
  */
 public class Parameter {
+    private String name;
     private int startBit;
     private int length;
     private String byteOrder;
@@ -14,7 +15,8 @@ public class Parameter {
     private double maximum;
     private String unit;
 
-    public Parameter(int startBit, int length, String byteOrder, String valueType, double factor, int offset, double minimum, double maximum, String unit) {
+    public Parameter(String name, int startBit, int length, String byteOrder, String valueType, double factor, int offset, double minimum, double maximum, String unit) {
+        this.name = name;
         this.startBit = startBit;
         this.length = length;
         this.byteOrder = byteOrder;
@@ -38,7 +40,8 @@ public class Parameter {
                         this.offset == p.offset &&
                         this.maximum == p.maximum &&
                         this.minimum == p.minimum &&
-                        this.unit.equals(p.unit);
+                        this.unit.equals(p.unit) &&
+                        this.name.equals(p.name);
     }
 
     public int getStartBit() {
@@ -52,6 +55,8 @@ public class Parameter {
     public double getFactor() {
         return factor;
     }
+
+    public String getName(){ return name; }
 
     public int getOffset() {
         return offset;

@@ -5,6 +5,7 @@ import be.kdg.FastradaMobile.config.Parameter;
 import be.kdg.FastradaMobile.config.Sensor;
 
 import android.content.Context;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,24 +14,33 @@ import java.util.List;
  */
 public class ConfigController {
     private ConfigReader configReader;
-
     private HashMap<Integer, Sensor> sensors;
 
     public ConfigController(String testConfigPath) {
-       configReader = new ConfigReader(testConfigPath);
+        configReader = new ConfigReader(testConfigPath);
+        sensors = new HashMap<Integer, Sensor>();
 
-       sensors = new HashMap<Integer, Sensor>();
+        int[] sensorIds = configReader.getSensorIds();
+        for (int sensorId : sensorIds) {
+            readSensorConfigToMap(sensorId);
+        }
+
     }
 
     public ConfigController(Context context) {
         configReader = new ConfigReader(context);
-
         sensors = new HashMap<Integer, Sensor>();
+
+        int[] sensorIds = configReader.getSensorIds();
+        for (int sensorId : sensorIds) {
+            readSensorConfigToMap(sensorId);
+        }
+
     }
 
-    public Sensor getSensorConfig(int sensorId) {
-        if(!sensors.containsKey(sensorId)){
-            readSensorConfigToMap(sensorId);
+    public Sensor getSensor(int sensorId) throws Exception {
+        if (!sensors.containsKey(sensorId)) {
+            throw new Exception("Id is not defined in config file.");
         }
         return sensors.get(sensorId);
     }
@@ -39,13 +49,11 @@ public class ConfigController {
         Sensor newSensor = new Sensor();
 
         List<String> parameterNames = configReader.getParameterNames(sensorId);
-
-        for(int parameterCounter = 0;parameterCounter < parameterNames.size();parameterCounter++){
-            String parameterName = parameterNames.get(parameterCounter);
+        for (int i = 0; i < parameterNames.size(); i++) {
+            String parameterName = parameterNames.get(i);
             Parameter newParameter = configReader.getParameterConfig(parameterName);
-
-            newSensor.addParamater(parameterName,newParameter);
+            newSensor.addParamater(newParameter);
         }
-        sensors.put(sensorId,newSensor);
+        sensors.put(sensorId, newSensor);
     }
 }
