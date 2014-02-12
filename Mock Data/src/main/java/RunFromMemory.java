@@ -65,7 +65,7 @@ public class RunFromMemory {
             byte[] speedBytes = intToByteArray(speed);
             speedStart += speedStep;
             byte[] gearBytes = intToByteArray((int)(gearStart += gearStep));
-            byte[] packet = {(byte) 0x01, (byte) 0x01, speedBytes[2], speedBytes[3], gearBytes[2], gearBytes[3],  (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
+            byte[] packet = {(byte) 0x01, (byte) 0x01, speedBytes[2], speedBytes[3], gearBytes[3], (byte) 0x00,  (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
             packets.add(packet);
         }
         return packets;
