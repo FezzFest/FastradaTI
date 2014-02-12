@@ -25,16 +25,16 @@ public class MainActivity extends Activity
         setContentView(R.layout.main);
 
         // Speed gauge
-        GaugeView speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
+        final GaugeView speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
         speed.setTargetValue(20);
 
         // RPM indicator
         final TextView rpmIndicator = (TextView) findViewById(R.id.dashboard_rpm_units);
         rpmIndicator.setText("4042 RPM");
 
-        // PSI indicator
-        TextView psiIndicator = (TextView) findViewById(R.id.dashboard_pressure_units);
-        psiIndicator.setText("16 PSI");
+        // Gear indicator
+        final TextView gearIndicator = (TextView) findViewById(R.id.dashboard_gear_units);
+        gearIndicator.setText("1");
 
         // Temperature indicator
         final TextView tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
@@ -48,8 +48,10 @@ public class MainActivity extends Activity
               BufferController bufferController =  BufferController.getInstance();
                 showRPM(bufferController.getRpm());
                 rpmIndicator.setText(bufferController.getRpm() + " RPM");
-                tempIndicator.setText(bufferController.getTemperature()+" °C");
-                handler.postDelayed(this, 200);
+                tempIndicator.setText(String.format("%.2f °C",bufferController.getTemperature()));
+                speed.setTargetValue(bufferController.getSpeed());
+                gearIndicator.setText(bufferController.getGear());
+                handler.postDelayed(this, 50);
             }
         });
     }

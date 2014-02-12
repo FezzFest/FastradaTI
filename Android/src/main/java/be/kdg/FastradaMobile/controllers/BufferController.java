@@ -50,4 +50,9 @@ public class BufferController {
     public double getTemperature() {
         return temperature;
     }
+
+    public int getGear() {
+        return gear;
+    }
+
 }

@@ -169,7 +169,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/white"
                         android:textSize="12sp"
-                        android:text="@string/engine_pressure"
+                        android:text="@string/engine_gear"
                         android:gravity="right"/>
                 </LinearLayout>
 

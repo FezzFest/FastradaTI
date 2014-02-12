@@ -28,7 +28,7 @@ public class Run {
     }
 
     public static void initFile() throws FileNotFoundException {
-        br = new BufferedReader(new FileReader("newdata.txt"));
+        br = new BufferedReader(new FileReader("engine_data.txt"));
     }
 
     public static byte[] getLine() throws IOException {

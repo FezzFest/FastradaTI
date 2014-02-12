@@ -3,6 +3,6 @@
     <string name="app_name">Fastrada Mobile</string>
 
     <string name="engine_rpm">Revolutions per minute</string>
-    <string name="engine_pressure">Engine pressure</string>
+    <string name="engine_gear">Engine gear</string>
     <string name="engine_temperature">Engine temperature</string>
 </resources>
