@@ -44,7 +44,7 @@ public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
         Thread.sleep(5000);
 
         // Construct packet
-        byte[] packet = {(byte) 0x01, (byte) 0x00, (byte) 0xD1, (byte) 0xC6, (byte) 0x01, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
+        byte[] packet = {(byte) 0x01, (byte) 0x01, (byte) 0xD1, (byte) 0xC6, (byte) 0x01, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
         sendUdpPacket(packet, 9000);
 
         // Wait until package is processed by the service
@@ -65,7 +65,7 @@ public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
         byte[] randomBytes = intToByteArray(randomFactor);
 
         // Construct packet
-        byte[] packet = {(byte) 0x01, (byte) 0x00, randomBytes[2], randomBytes[3], (byte) 0x02, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
+        byte[] packet = {(byte) 0x01, (byte) 0x01, randomBytes[2], randomBytes[3], (byte) 0x02, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
         sendUdpPacket(packet, 9000);
 
         // Wait until package is processed by the service
@@ -87,7 +87,7 @@ public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
             int randomFactor = (int) (randomInt / 0.00549324);
             byte[] randomBytes = intToByteArray(randomFactor);
 
-            byte[] packet = {(byte) 0x01, (byte) 0x00, randomBytes[2], randomBytes[3], (byte) 0x03, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
+            byte[] packet = {(byte) 0x01, (byte) 0x01, randomBytes[2], randomBytes[3], (byte) 0x03, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
             sendUdpPacket(packet, 9000);
 
             // Wait until package is processed by the service

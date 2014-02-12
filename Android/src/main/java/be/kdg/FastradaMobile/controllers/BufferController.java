@@ -32,10 +32,16 @@ public class BufferController {
             speed = value;
         } else if (paramName.equals("Gear")) {
             gear = value;
+        }   else if(paramName.equals("RPM")) {
+            rpm = value;
         }
     }
 
     public int getSpeed() {
         return speed;
+    }
+
+    public int getRpm() {
+        return rpm;
     }
 }

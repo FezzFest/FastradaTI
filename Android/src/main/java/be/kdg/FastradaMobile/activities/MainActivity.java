@@ -36,7 +36,7 @@ public class MainActivity extends Activity
         TextView tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
         tempIndicator.setText("103 °C");
 
-        showRPM(1);
+        showRPM(2500);
     }
 
     public void showRPM(int rpm){
