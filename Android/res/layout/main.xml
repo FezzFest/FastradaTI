@@ -26,92 +26,106 @@
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_margin="5dp"
-                android:id="@+id/linearImageView">
+                android:layout_height="wrap_content"
+                android:id="@+id/linearImageView"
+                android:gravity="center" android:layout_marginTop="20dp" android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" android:layout_marginBottom="5dp">
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView1" android:src="@drawable/rpmgreen" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView1" android:src="@drawable/rpmgreen"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView2" android:src="@drawable/rpmgreen" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView2" android:src="@drawable/rpmgreen"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView3" android:src="@drawable/rpmgreen" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView3" android:src="@drawable/rpmgreen"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView4" android:src="@drawable/rpmgreen" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView4" android:src="@drawable/rpmgreen"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView5" android:src="@drawable/rpmgreen" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView5" android:src="@drawable/rpmgreen"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView6" android:src="@drawable/rpmyellow" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView6" android:src="@drawable/rpmyellow"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView7" android:src="@drawable/rpmyellow" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView7" android:src="@drawable/rpmyellow"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView8" android:src="@drawable/rpmyellow" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView8" android:src="@drawable/rpmyellow"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView9" android:src="@drawable/rpmred" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView9" android:src="@drawable/rpmred"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView10" android:src="@drawable/rpmred" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView10" android:src="@drawable/rpmred"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView11" android:src="@drawable/rpmred" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView11" android:src="@drawable/rpmred"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView12" android:src="@drawable/rpmgray" android:layout_marginRight="5dp"
+                    android:id="@+id/imageView12" android:src="@drawable/rpmgray"
                     android:maxHeight="22dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp"/>
+                    android:maxWidth="22dp" android:layout_marginRight="5dp"
+                    />
         </LinearLayout>
 
 
