@@ -3,10 +3,12 @@ package be.kdg.FastradaMobile.activities;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
+import be.kdg.FastradaMobile.controllers.BufferController;
 import org.codeandmagic.android.gauge.GaugeView;
 
 public class MainActivity extends Activity
@@ -36,7 +38,15 @@ public class MainActivity extends Activity
         TextView tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
         tempIndicator.setText("103 °C");
 
-        showRPM(2500);
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                //update the view
+                showRPM(BufferController.getInstance().getRpm());
+                handler.postDelayed(this, 500);
+            }
+        });
     }
 
     public void showRPM(int rpm){
@@ -61,7 +71,7 @@ public class MainActivity extends Activity
                     else{
                         imageView.setImageResource(R.drawable.led_gray);
                     }
-                }else if(i<numberOfGreens+numberOfYellows){
+                } else if(i<numberOfGreens+numberOfYellows){
                     //orange
                     if(rpm>(rpmLimiter/ numberOfLeds)*i){
                         imageView.setImageResource(R.drawable.led_yellow);
@@ -81,4 +91,6 @@ public class MainActivity extends Activity
             }
         }
     }
+
+
 }
