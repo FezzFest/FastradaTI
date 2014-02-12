@@ -56,26 +56,26 @@ public class MainActivity extends Activity
                 if (i<numberOfGreens) {
                     //green
                     if(rpm>(rpmLimiter/ numberOfLeds)*i){
-                        imageView.setImageResource(R.drawable.rpmgreen);
+                        imageView.setImageResource(R.drawable.led_green);
                     }
                     else{
-                        imageView.setImageResource(R.drawable.rpmgray);
+                        imageView.setImageResource(R.drawable.led_gray);
                     }
                 }else if(i<numberOfGreens+numberOfYellows){
                     //orange
                     if(rpm>(rpmLimiter/ numberOfLeds)*i){
-                        imageView.setImageResource(R.drawable.rpmyellow);
+                        imageView.setImageResource(R.drawable.led_yellow);
                     }
                     else{
-                        imageView.setImageResource(R.drawable.rpmgray);
+                        imageView.setImageResource(R.drawable.led_gray);
                     }
                 } else {
                     //red
                     if(rpm>(rpmLimiter/ numberOfLeds)*i){
-                        imageView.setImageResource(R.drawable.rpmred);
+                        imageView.setImageResource(R.drawable.led_red);
                     }
                     else{
-                        imageView.setImageResource(R.drawable.rpmgray);
+                        imageView.setImageResource(R.drawable.led_gray);
                     }
                 }
             }

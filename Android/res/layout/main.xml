@@ -33,99 +33,99 @@
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView1" android:src="@drawable/rpmgreen"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView1"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView2" android:src="@drawable/rpmgreen"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView2"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView3" android:src="@drawable/rpmgreen"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView3"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView4" android:src="@drawable/rpmgreen"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView4"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView5" android:src="@drawable/rpmgreen"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView5"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView6" android:src="@drawable/rpmyellow"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView6"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView7" android:src="@drawable/rpmyellow"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView7"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView8" android:src="@drawable/rpmyellow"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView8"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView9" android:src="@drawable/rpmred"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView9"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView10" android:src="@drawable/rpmred"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView10"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView11" android:src="@drawable/rpmred"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView11"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView12" android:src="@drawable/rpmgray"
-                    android:maxHeight="22dp"
+                    android:id="@+id/imageView12"
+                    android:maxHeight="27dp"
                     android:adjustViewBounds="true"
-                    android:maxWidth="22dp" android:layout_marginRight="5dp"
-                    />
+                    android:maxWidth="27dp"
+                    android:src="@drawable/led_gray"/>
         </LinearLayout>
 
 
