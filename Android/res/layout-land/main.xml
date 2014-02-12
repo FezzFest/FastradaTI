@@ -154,17 +154,17 @@
                     android:layout_gravity="right">
 
                     <TextView
-                        android:id="@+id/dashboard_pressure_units"
+                        android:id="@+id/dashboard_gear_units"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        android:text="0 PSI"
+                        android:text="0"
                         android:gravity="right"/>
 
                     <TextView
-                        android:id="@+id/dashboard_pressure_description"
+                        android:id="@+id/dashboard_gear_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/white"

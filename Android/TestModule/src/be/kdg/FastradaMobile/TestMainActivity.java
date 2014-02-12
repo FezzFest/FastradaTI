@@ -30,9 +30,9 @@ public class TestMainActivity extends ActivityUnitTestCase<MainActivity> {
         assertEquals("RPM indicator must be set to 4042 RPM.", "4042 RPM", rpmIndicator.getText());
     }
 
-    public void testPsiIndicator() {
-        TextView psiIndicator = (TextView) activity.findViewById(R.id.dashboard_pressure_units);
-        assertEquals("PSI indicator must be set to 16 PSI.", "16 PSI", psiIndicator.getText());
+    public void testGearIndicator() {
+        TextView gearIndicator = (TextView) activity.findViewById(R.id.dashboard_gear_units);
+        assertEquals("Gear indicator must be set to 1.", "1", gearIndicator.getText());
     }
 
     public void testTemperatureIndicator() {

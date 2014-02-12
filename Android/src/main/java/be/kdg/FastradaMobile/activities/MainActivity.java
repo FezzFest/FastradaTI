@@ -49,8 +49,8 @@ public class MainActivity extends Activity
                 showRPM(bufferController.getRpm());
                 rpmIndicator.setText(bufferController.getRpm() + " RPM");
                 tempIndicator.setText(String.format("%.2f °C",bufferController.getTemperature()));
-                speed.setTargetValue(bufferController.getSpeed());
-                gearIndicator.setText(bufferController.getGear());
+               speed.setTargetValue(bufferController.getSpeed());
+                gearIndicator.setText(bufferController.getGear()+"");
                 handler.postDelayed(this, 50);
             }
         });
