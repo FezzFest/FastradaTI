@@ -3,6 +3,7 @@ package be.kdg.FastradaMobile;
 import android.app.Activity;
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
+import android.test.ServiceTestCase;
 import android.util.Log;
 import be.kdg.FastradaMobile.activities.MainActivity;
 import be.kdg.FastradaMobile.config.Sensor;
@@ -21,28 +22,28 @@ import static org.junit.Assert.assertArrayEquals;
 /**
  * Created by FezzFest on 5/02/14.
  */
-public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
-    private Activity activity;
+public class TestArduinoService extends ServiceTestCase<ArduinoService> {
     private BufferController buffer;
 
     public TestArduinoService() {
-        super(MainActivity.class);
+        super(ArduinoService.class);
     }
 
     protected void setUp() throws Exception {
         super.setUp();
-        Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
-        startActivity(intent, null, null);
-        activity = getActivity();
         buffer = BufferController.getInstance();
     }
 
-    public void testServiceFixedEngineDataPacketToSpeedValue() throws IOException, InterruptedException {
+    public void startArduinoService() throws InterruptedException {
         // Start service
-        Intent intent = new Intent(activity.getApplicationContext(), ArduinoService.class);
-        activity.startService(intent);
+        Intent intent = new Intent(getSystemContext(), ArduinoService.class);
+        startService(intent);
         Thread.sleep(5000);
+    }
 
+
+    public void test1ServiceFixedEngineDataPacketToSpeedValue() throws IOException, InterruptedException {
+        startArduinoService();
         // Construct packet
         byte[] packet = {(byte) 0x01, (byte) 0x01, (byte) 0xD1, (byte) 0xC6, (byte) 0x01, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
         sendUdpPacket(packet, 9000);
@@ -54,14 +55,12 @@ public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
         assertEquals("Speed must be 295.", 295, buffer.getSpeed());
     }
 
-    public void testServiceWithVariable() throws IOException, InterruptedException {
+    public void test2ServiceWithVariable() throws IOException, InterruptedException {
         // Construct packet
         Random random = new Random();
         int randomInt = random.nextInt(255);
-        Log.d("Fastrada", "RandomInt " + randomInt);
         int randomFactor = (int) (randomInt / 0.00549324);
 
-        Log.d("Fastrada", "Send randomfactor " + randomFactor);
         byte[] randomBytes = intToByteArray(randomFactor);
 
         // Construct packet
@@ -75,7 +74,23 @@ public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
         assertEquals("Speed must be " + randomInt, randomInt, buffer.getSpeed());
     }
 
-    public void testServiceWithMultiplePackets() throws InterruptedException {
+    public void test3TempPacket() throws InterruptedException {
+
+        int sendFactor = (int) ((-30 + 50) / 0.0030518);
+        Log.d("Fastrada", "Send randomfactor TEMP " + sendFactor);
+        byte[] randomBytes = intToByteArray(sendFactor);
+        // Construct packet
+        byte[] packet = {(byte) 0x01, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, randomBytes[2], randomBytes[3], (byte) 0xFF, (byte) 0xFF};
+        sendUdpPacket(packet, 9000);
+
+        // Wait until package is processed by the service
+        Thread.sleep(50);
+
+        // Assert
+        assertEquals("Temprature must be -30.", -30, Math.round(buffer.getTemperature()));
+    }
+
+    public void test4ServiceWithMultiplePackets() throws InterruptedException {
         // Construct packet
         Random random = new Random();
         int randomInts[] = new int[10];
@@ -100,6 +115,7 @@ public class TestArduinoService extends ActivityUnitTestCase<MainActivity> {
         // Assert
         assertArrayEquals("Sent and received arrays of speeds must be the same.", randomInts, receivedInts);
     }
+
 
     private void sendUdpPacket(final byte[] packet, final int port) {
         Thread thread = new Thread() {

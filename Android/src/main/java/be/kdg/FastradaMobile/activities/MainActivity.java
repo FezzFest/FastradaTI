@@ -11,6 +11,8 @@ import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.BufferController;
 import org.codeandmagic.android.gauge.GaugeView;
 
+import java.nio.Buffer;
+
 public class MainActivity extends Activity
 {
     private final static int rpmLimiter= 8000;
@@ -27,7 +29,7 @@ public class MainActivity extends Activity
         speed.setTargetValue(20);
 
         // RPM indicator
-        TextView rpmIndicator = (TextView) findViewById(R.id.dashboard_rpm_units);
+        final TextView rpmIndicator = (TextView) findViewById(R.id.dashboard_rpm_units);
         rpmIndicator.setText("4042 RPM");
 
         // PSI indicator
@@ -35,7 +37,7 @@ public class MainActivity extends Activity
         psiIndicator.setText("16 PSI");
 
         // Temperature indicator
-        TextView tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
+        final TextView tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
         tempIndicator.setText("103 °C");
 
         final Handler handler = new Handler();
@@ -43,8 +45,11 @@ public class MainActivity extends Activity
             @Override
             public void run() {
                 //update the view
-                showRPM(BufferController.getInstance().getRpm());
-                handler.postDelayed(this, 500);
+              BufferController bufferController =  BufferController.getInstance();
+                showRPM(bufferController.getRpm());
+                rpmIndicator.setText(bufferController.getRpm() + " RPM");
+                tempIndicator.setText(bufferController.getTemperature()+" °C");
+                handler.postDelayed(this, 200);
             }
         });
     }

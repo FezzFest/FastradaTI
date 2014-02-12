@@ -8,19 +8,17 @@ public class Parameter {
     private int startBit;
     private int length;
     private String byteOrder;
-    private String valueType;
     private double factor;
     private int offset;
     private double minimum;
     private double maximum;
     private String unit;
 
-    public Parameter(String name, int startBit, int length, String byteOrder, String valueType, double factor, int offset, double minimum, double maximum, String unit) {
+    public Parameter(String name, int startBit, int length, String byteOrder, double factor, int offset, double minimum, double maximum, String unit) {
         this.name = name;
         this.startBit = startBit;
         this.length = length;
         this.byteOrder = byteOrder;
-        this.valueType = valueType;
         this.factor = factor;
         this.offset = offset;
         this.minimum = minimum;
@@ -35,7 +33,6 @@ public class Parameter {
                 this.startBit == p.startBit &&
                         this.length == p.length &&
                         this.byteOrder.equals(p.byteOrder) &&
-                        this.valueType.equals(p.valueType) &&
                         this.factor == p.factor &&
                         this.offset == p.offset &&
                         this.maximum == p.maximum &&
@@ -56,7 +53,9 @@ public class Parameter {
         return factor;
     }
 
-    public String getName(){ return name; }
+    public String getName() {
+        return name;
+    }
 
     public int getOffset() {
         return offset;
@@ -72,10 +71,6 @@ public class Parameter {
 
     public double getMinimum() {
         return minimum;
-    }
-
-    public String getValueType() {
-        return valueType;
     }
 
     public String getByteOrder() {

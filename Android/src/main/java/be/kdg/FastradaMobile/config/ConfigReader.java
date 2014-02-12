@@ -106,14 +106,13 @@ public class ConfigReader {
         int startBit = getConfigIntValue(parameterNaam, "startbit");
         int length = getConfigIntValue(parameterNaam, "length");
         String byteOrder = getConfigStringValue(parameterNaam, "byteorder");
-        String valueType = getConfigStringValue(parameterNaam, "valuetype");
         double factor = getConfigDoubleValue(parameterNaam, "factor");
         int offset = getConfigIntValue(parameterNaam, "offset");
         double minimum = getConfigDoubleValue(parameterNaam, "minimum");
         double maximum = getConfigDoubleValue(parameterNaam, "maximum");
         String unit = getConfigStringValue(parameterNaam, "unit");
 
-        return new Parameter(parameterNaam,startBit, length, byteOrder, valueType, factor, offset, minimum, maximum, unit);
+        return new Parameter(parameterNaam,startBit, length, byteOrder, factor, offset, minimum, maximum, unit);
     }
 
 

@@ -31,8 +31,8 @@ public class ArduinoService extends IntentService {
 
         while (true) {
             byte[] received = inputDataController.receiveUdpPacket();
-            Map<String, Integer> map = byteCalculateController.calculatePacket(received);
-            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            Map<String, Double> map = byteCalculateController.calculatePacket(received);
+            for (Map.Entry<String, Double> entry : map.entrySet()) {
                 buffer.setValue(entry.getKey(), entry.getValue());
             }
         }

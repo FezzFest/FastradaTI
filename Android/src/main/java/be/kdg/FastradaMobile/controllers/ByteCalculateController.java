@@ -18,8 +18,8 @@ public class ByteCalculateController {
         this.configController = configController;
     }
 
-    public Map<String, Integer> calculatePacket(byte[] received) {
-        Map<String, Integer> map = new HashMap();
+    public Map<String, Double> calculatePacket(byte[] received) {
+        Map<String, Double> map = new HashMap();
         //Get the sensor Id
         //TODO inlezen van id is nu als integer. Wordt wel als hex beschreven in config file
         int id = Integer.parseInt(String.format("%02X%02X", received[0], received[1]), 16) & 0xffffff;
@@ -50,7 +50,8 @@ public class ByteCalculateController {
                     rawValue = Integer.parseInt(String.format("%02X%02X%02X%02X", received[startByte], received[stopByte - 2], received[stopByte - 3], received[stopByte]), 16) & 0xffffff;
                     break;
             }
-            int value = (int) (rawValue * parameter.getFactor() + 0.5);
+            Log.d("Fastrada", "Received rawValue " + rawValue);
+            double value = (rawValue * parameter.getFactor())-parameter.getOffset();
             String name = parameter.getName();
             map.put(name,value);
         }
