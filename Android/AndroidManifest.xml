@@ -16,9 +16,9 @@
 
     <application
             android:label="@string/app_name"
-            android:icon="@drawable/ic_launcher">
+            android:icon="@drawable/fastradalogo">
 
-        <!-- Main activity -->
+        <!-- Splash activity -->
         <activity
                 android:name=".activities.SplashActivity"
                 android:label="@string/app_name"
@@ -28,11 +28,20 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- Main activity -->
         <activity
                 android:name=".activities.MainActivity"
                 android:label="@string/app_name"
                 >
         </activity>
+
+        <activity
+                android:name=".activities.SettingsActivity"
+                android:label="@string/app_name"
+                >
+        </activity>
+
 
         <!-- Arduino Service -->
         <service android:name=".services.ArduinoService"/>
