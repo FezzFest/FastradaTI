@@ -6,6 +6,7 @@ import be.kdg.FastradaMobile.config.Sensor;
 
 import android.content.Context;
 
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,7 +18,12 @@ public class ConfigController {
     private HashMap<Integer, Sensor> sensors;
 
     public ConfigController(String testConfigPath) {
-        configReader = new ConfigReader(testConfigPath);
+        try {
+            configReader = new ConfigReader(testConfigPath);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
         readSensorConfigs();
     }
 
