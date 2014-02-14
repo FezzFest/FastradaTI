@@ -22,7 +22,7 @@ public class Run {
             System.out.println();
             sendPacket(tempBytes);
             //receivePacket();
-            Thread.sleep(500);
+            Thread.sleep(100);
             tempBytes = getLine();
         }
     }

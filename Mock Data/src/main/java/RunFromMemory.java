@@ -1,5 +1,3 @@
-import com.sun.java.swing.plaf.windows.resources.windows_ja;
-
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -19,33 +17,26 @@ public class RunFromMemory {
         List<byte[]> id101Packets = makePacketsId101(0, 255, 0, 6);
         List<byte[]> id102Packets = makePacketsId102(0, 255);
 
-        while (true){
+        while(true) {
 
         for (int i = 0; i < 3000; i++) {
             sendPacket(id100Packets.get(i));
-            Thread.sleep(1);
+            //Thread.sleep(2);
             sendPacket(id101Packets.get(i));
-            Thread.sleep(1);
+            //Thread.sleep(2);
             sendPacket(id102Packets.get(i));
-            Thread.sleep(3);
+            Thread.sleep(5);
         }
 
         for (int i = 2999; i > 0; i--) {
             sendPacket(id100Packets.get(i));
-            Thread.sleep(3);
+            //Thread.sleep(2);
             sendPacket(id101Packets.get(i));
-            Thread.sleep(3);
+            //Thread.sleep(2);
             sendPacket(id102Packets.get(i));
-            Thread.sleep(4);
+            Thread.sleep(5);
         }
         }
-      /*  for (int i = 0; i < 300; i++) {
-            int speed = (int) (i / 0.00549324);
-            byte[] speedBytes = intToByteArray(speed);
-            byte[] packet = {(byte) 0x01, (byte) 0x01, speedBytes[2], speedBytes[3],(byte) 0x00, (byte) 0x00,  (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
-            sendPacket(packet);
-            Thread.sleep(50);
-        }*/
     }
 
 
