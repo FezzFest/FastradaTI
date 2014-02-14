@@ -4,5 +4,5 @@
 
     <string name="engine_rpm">Revolutions per minute</string>
     <string name="engine_gear">Engine gear</string>
-    <string name="engine_temperature">Engine temperature</string>
+    <string name="temperature_alarm">Engine temperature</string>
 </resources>

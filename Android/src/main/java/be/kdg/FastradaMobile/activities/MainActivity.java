@@ -10,9 +10,13 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.EditTextPreference;
 import android.preference.PreferenceManager;
+import android.text.method.DigitsKeyListener;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,15 +27,17 @@ import org.codeandmagic.android.gauge.GaugeView;
 import java.io.IOException;
 
 public class MainActivity extends Activity {
-    private final static int rpmLimiter = 8000;
+    private static int rpmLimiter;
     private SharedPreferences prefs;
     private MediaPlayer mp;
     private AudioManager amanager;
     private GaugeView speed;
     private TextView rpmIndicator;
+    private TextView rpmDescription;
     private TextView gearIndicator;
+    private TextView gearDescription;
     private TextView tempIndicator;
-    private TextView tempLegend;
+    private TextView tempDescription;
     private boolean alarmPlaying;
     private BufferController bufferController;
 
@@ -52,15 +58,17 @@ public class MainActivity extends Activity {
 
         // RPM indicator
         rpmIndicator = (TextView) findViewById(R.id.dashboard_rpm_units);
+        rpmDescription = (TextView) findViewById(R.id.dashboard_rpm_description);
         rpmIndicator.setText("4042 RPM");
 
         // Gear indicator
         gearIndicator = (TextView) findViewById(R.id.dashboard_gear_units);
+        gearDescription = (TextView) findViewById(R.id.dashboard_gear_description);
         gearIndicator.setText("1");
 
         // Temperature indicator
         tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
-        tempLegend = (TextView) findViewById(R.id.dashboard_temperature_description);
+        tempDescription = (TextView) findViewById(R.id.dashboard_temperature_description);
         tempIndicator.setText("103 °C");
 
         // Audio Manager + Media Player
@@ -85,15 +93,60 @@ public class MainActivity extends Activity {
                 handler.postDelayed(this, 50);
             }
         });
+
+        //Update UI elements by preferences
+        final LinearLayout imageView = (LinearLayout) findViewById(R.id.linearImageView);
+        rpmLimiter = Integer.parseInt(prefs.getString("pref_max_RPM", "8000"));
+
+        if(prefs.getBoolean("pref_UI_gaugeView", true)){
+            speed.setVisibility(View.VISIBLE);
+        } else {
+            speed.setVisibility(View.INVISIBLE);
+        }
+
+        if(prefs.getBoolean("pref_UI_RPM", true)){
+            rpmIndicator.setVisibility(View.VISIBLE);
+            rpmDescription.setVisibility(View.VISIBLE);
+            imageView.setVisibility(View.VISIBLE);
+        } else {
+            rpmIndicator.setVisibility(View.INVISIBLE);
+            rpmDescription.setVisibility(View.INVISIBLE);
+            imageView.setVisibility(View.INVISIBLE);
+        }
+
+        if(prefs.getBoolean("pref_UI_engineTemp", true)){
+            gearIndicator.setVisibility(View.VISIBLE);
+            gearDescription.setVisibility(View.VISIBLE);
+        } else {
+            gearIndicator.setVisibility(View.INVISIBLE);
+            gearDescription.setVisibility(View.INVISIBLE);
+        }
+
+        if(prefs.getBoolean("pref_UI_engineTemp", true)){
+            tempIndicator.setVisibility(View.VISIBLE);
+            tempDescription.setVisibility(View.VISIBLE);
+        } else {
+            tempIndicator.setVisibility(View.INVISIBLE);
+            tempDescription.setVisibility(View.INVISIBLE);
+        }
+
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.onCreate(null);
+    }
+
+  
 
     private void showTemp(double temperature) {
         if (temperature >= prefs.getInt("temperature_alarm", 20)) {
             tempIndicator.setTextColor(Color.RED);
-            tempLegend.setTextColor(Color.RED);
+            tempDescription.setTextColor(Color.RED);
         } else {
             tempIndicator.setTextColor(Color.WHITE);
-            tempLegend.setTextColor(Color.WHITE);
+            tempDescription.setTextColor(Color.WHITE);
         }
     }
 

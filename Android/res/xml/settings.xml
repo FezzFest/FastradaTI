@@ -1,33 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <PreferenceCategory android:title="RPM" >
-        <EditTextPreference
-                android:title="Max RPM"
-                android:summary="Set the Maximum RPM."
-                android:key="prefMaxRPM"/>
+    <PreferenceCategory android:title="UI Elements" >
+        <CheckBoxPreference
+                android:key="pref_UI_gaugeView"
+                android:summary="Enable Car Speed"
+                android:title="Enable GaugeView"
+                android:defaultValue="true"/>
+        <CheckBoxPreference
+                android:key="pref_UI_RPM"
+                android:summary="Enable revolutions per minute"
+                android:title="Enable RPM"
+                android:defaultValue="true"/>
+        <CheckBoxPreference
+                android:key="pref_UI_engineGear"
+                android:summary="Enable engine gear"
+                android:title="Enable Engine Gear"
+                android:defaultValue="true"/>
+        <CheckBoxPreference
+                android:key="pref_UI_engineTemp"
+                android:summary="Enable engine temperature"
+                android:title="Enable Engine Temperature"
+                android:defaultValue="true"/>
+        <!--<ListPreference
+                android:key="pref_gaugeView_style"
+                android:entries="@array/gaugeView"
+                android:summary="Choose Number or Needle output for speed"
+                android:entryValues="@array/gaugeViewValue"
+                android:title="GaugeView"
+                android:defaultValue="1"/>    -->
     </PreferenceCategory>
     <PreferenceCategory android:title="Alarm" >
         <CheckBoxPreference
-                android:key="prefAlarmEnabled"
-                android:summary="Enable alarm when engine temperature exceeds maximum value."
-                android:title="Enable Alarm" />
+                android:key="pref_alarm_enabled"
+                android:summary="Enable alarm when engine temperature exceeds maximum value"
+                android:title="Enable Alarm"
+                android:defaultValue="false"/>
         <EditTextPreference
                 android:title="Max Temperature"
                 android:summary="Set the maximum temperature."
-                android:key="prefAlarmTemperature"
-                android:editable="false"/>
+                android:key="pref_alarm_temperature"
+                android:defaultValue="120"
+                android:inputType="number"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="GaugeView" >
-        <ListPreference
-                android:key="prefSyncFrequency"
-                android:entries="@array/gaugeView"
-                android:summary="Choose Number or Needle output for speed."
-                android:entryValues="@array/gaugeViewValue"
-        android:title="GaugeView" />
+    <PreferenceCategory android:title="RPM" >
+        <EditTextPreference
+                android:title="Max RPM"
+                android:summary="Set the Maximum RPM"
+                android:key="pref_max_RPM"
+                android:defaultValue="8000"/>
     </PreferenceCategory>
-
-
-
-
+    <!--<PreferenceCategory android:title="GPS" >
+        <CheckBoxPreference
+                android:key="pref_gps"
+                android:summary="Enable the geo location option"
+                android:title="Enable GPS"
+                android:defaultValue="true"/>
+    </PreferenceCategory>   -->
 </PreferenceScreen>
