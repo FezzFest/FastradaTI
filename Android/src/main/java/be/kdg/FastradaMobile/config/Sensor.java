@@ -26,8 +26,10 @@ public class Sensor {
     public boolean equals(Object o) {
         Sensor sensor2 = (Sensor) o;
         List<Parameter> senser2Parameters = sensor2.getParameters();
+
         if (parameters.size() != senser2Parameters.size())
             return false;
+
         for (int i = 0; i < parameters.size(); i++) {
             if (!parameters.contains(senser2Parameters.get(i))) {
                 return false;

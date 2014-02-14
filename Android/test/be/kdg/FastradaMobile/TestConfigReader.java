@@ -2,9 +2,13 @@ package be.kdg.FastradaMobile;
 
 import be.kdg.FastradaMobile.config.ConfigReader;
 import be.kdg.FastradaMobile.config.Parameter;
+import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +21,15 @@ public class TestConfigReader {
 
     private static ConfigReader reader;
 
-    @BeforeClass
-    public static void initializeTestConfigReader(){
+    @Before
+    public void initializeTestConfigReader() {
         reader = new ConfigReader("res/raw/testconfig.xml");
     }
 
+//    @Test(expected=FileNotFoundException.class)
+//    public void testReadNotFoundFile() {
+//        reader = new ConfigReader("/res/raw/NotAvailable.xml");
+//    }
 
     @Test
     public void testReadRPMStartbit() {
@@ -31,68 +39,68 @@ public class TestConfigReader {
     }
 
     @Test
-    public void testReadThrottleStartbit(){
+    public void testReadThrottleStartbit() {
         int startbit = reader.getConfigIntValue("Throttle_position", "startbit");
 
         assertEquals(24, startbit);
     }
 
     @Test
-    public void testReadVehicle_SpeedOffset(){
-       int offset = reader.getConfigIntValue("Vehicle_Speed", "offset");
+    public void testReadVehicle_SpeedOffset() {
+        int offset = reader.getConfigIntValue("Vehicle_Speed", "offset");
 
-        assertEquals(0,offset);
+        assertEquals(0, offset);
     }
 
     @Test
-    public void testReadEngine_TempOffset(){
+    public void testReadEngine_TempOffset() {
         int offset = reader.getConfigIntValue("Engine_Temp", "offset");
 
-        assertEquals(50,offset);
+        assertEquals(50, offset);
     }
 
     @Test
-         public void testReadVehicle_SpeedFactor(){
-        double offset = reader.getConfigDoubleValue("Vehicle_Speed","factor");
+    public void testReadVehicle_SpeedFactor() {
+        double offset = reader.getConfigDoubleValue("Vehicle_Speed", "factor");
 
-        assertEquals(0.00549324,offset,0);
+        assertEquals(0.00549324, offset, 0);
     }
 
     @Test
-    public void testReadGearUnit(){
-        String unit = reader.getConfigStringValue("Gear","unit");
+    public void testReadGearUnit() {
+        String unit = reader.getConfigStringValue("Gear", "unit");
 
-        assertEquals("",unit);
+        assertEquals("", unit);
     }
 
     @Test
-    public void testReadEngine_TempUnit(){
-        String unit = reader.getConfigStringValue("Engine_Temp","unit");
+    public void testReadEngine_TempUnit() {
+        String unit = reader.getConfigStringValue("Engine_Temp", "unit");
 
-        assertEquals("°C",unit);
+        assertEquals("°C", unit);
     }
 
     @Test
-    public void testReadEngine_TempMinimum(){
+    public void testReadEngine_TempMinimum() {
         Double minimum = reader.getConfigDoubleValue("Engine_Temp", "minimum");
 
-        assertEquals(-50.0014,minimum,0);
+        assertEquals(-50.0014, minimum, 0);
     }
 
     @Test
-    public void testGetRpmAsParameter(){
+    public void testGetRpmAsParameter() {
         Parameter Rpm = reader.getParameterConfig("RPM");
-        Parameter p1 = new Parameter("RPM",8,16,"Intel",1,0,0,65535,"r/min");
+        Parameter p1 = new Parameter("RPM", 8, 16, "Intel", 1, 0, 0, 65535, "r/min");
 
-        assertEquals(Rpm,p1);
+        assertEquals(Rpm, p1);
     }
 
     @Test
-    public void testGetFuelMapAsParameter(){
+    public void testGetFuelMapAsParameter() {
         Parameter Fuelmap = reader.getParameterConfig("Fuel_map");
-        Parameter p1 = new Parameter("Fuel_map",8,8,"Intel",1,0,0,255,"");
+        Parameter p1 = new Parameter("Fuel_map", 8, 8, "Intel", 1, 0, 0, 255, "");
 
-        assertEquals(Fuelmap,p1);
+        assertEquals(Fuelmap, p1);
     }
 
     @Test

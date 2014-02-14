@@ -18,24 +18,22 @@ public class ConfigController {
 
     public ConfigController(String testConfigPath) {
         configReader = new ConfigReader(testConfigPath);
-        sensors = new HashMap<Integer, Sensor>();
-
-        int[] sensorIds = configReader.getSensorIds();
-        for (int sensorId : sensorIds) {
-            readSensorConfigToMap(sensorId);
-        }
-
+        readSensorConfigs();
     }
 
     public ConfigController(Context context) {
         configReader = new ConfigReader(context);
+        readSensorConfigs();
+
+    }
+
+    private void readSensorConfigs() {
         sensors = new HashMap<Integer, Sensor>();
 
         int[] sensorIds = configReader.getSensorIds();
         for (int sensorId : sensorIds) {
             readSensorConfigToMap(sensorId);
         }
-
     }
 
     public Sensor getSensor(int sensorId) throws Exception {
@@ -49,6 +47,7 @@ public class ConfigController {
         Sensor newSensor = new Sensor();
 
         List<String> parameterNames = configReader.getParameterNames(sensorId);
+
         for (int i = 0; i < parameterNames.size(); i++) {
             String parameterName = parameterNames.get(i);
             Parameter newParameter = configReader.getParameterConfig(parameterName);

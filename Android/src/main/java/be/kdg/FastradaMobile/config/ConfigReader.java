@@ -22,25 +22,22 @@ import java.util.List;
  */
 public class ConfigReader {
     private Document document;
+    private InputStream configFileStream;
 
     public ConfigReader(Context context) {
-        InputStream configFileStream = null;
-
+        configFileStream = null;
         configFileStream = context.getResources().openRawResource(R.raw.config);
-
         readConfigInputStream(configFileStream);
     }
 
-    public ConfigReader(String configPath) {
-        InputStream configFileStream = null;
-
+    public ConfigReader(String configPath){
         try {
             configFileStream = new FileInputStream(configPath);
+            readConfigInputStream(configFileStream);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
-        readConfigInputStream(configFileStream);
+            //e.printStackTrace();
+        }
     }
 
     private void readConfigInputStream(InputStream configFileStream) {
@@ -57,6 +54,7 @@ public class ConfigReader {
             document = builder.parse(configFileStream);
         } catch (SAXException e) {
             e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
@@ -65,6 +63,11 @@ public class ConfigReader {
     }
 
     public String getConfigStringValue(String parameter, String parameterWaarde) {
+        if (document == null) {
+            //TODO raise error
+            return "";
+        }
+
         Element root = document.getDocumentElement();
         Node sensors = root.getElementsByTagName("sensors").item(0);
         NodeList sensorList = sensors.getChildNodes();
@@ -94,12 +97,19 @@ public class ConfigReader {
     }
 
     public int getConfigIntValue(String parameter, String parameterWaarde) {
+        String configStringValue = getConfigStringValue(parameter, parameterWaarde);
+        if (configStringValue.equals(""))
+            return 0;
 
-        return Integer.parseInt(getConfigStringValue(parameter, parameterWaarde));
+        return Integer.parseInt(configStringValue);
     }
 
     public double getConfigDoubleValue(String parameter, String parameterWaarde) {
-        return Double.parseDouble(getConfigStringValue(parameter, parameterWaarde));
+        String configStringValue = getConfigStringValue(parameter, parameterWaarde);
+        if (configStringValue.equals(""))
+            return 0;
+
+        return Double.parseDouble(configStringValue);
     }
 
     public Parameter getParameterConfig(String parameterNaam) {
@@ -112,7 +122,7 @@ public class ConfigReader {
         double maximum = getConfigDoubleValue(parameterNaam, "maximum");
         String unit = getConfigStringValue(parameterNaam, "unit");
 
-        return new Parameter(parameterNaam,startBit, length, byteOrder, factor, offset, minimum, maximum, unit);
+        return new Parameter(parameterNaam, startBit, length, byteOrder, factor, offset, minimum, maximum, unit);
     }
 
 

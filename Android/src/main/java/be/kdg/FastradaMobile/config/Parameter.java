@@ -61,19 +61,4 @@ public class Parameter {
         return offset;
     }
 
-    public String getUnit() {
-        return unit;
-    }
-
-    public double getMaximum() {
-        return maximum;
-    }
-
-    public double getMinimum() {
-        return minimum;
-    }
-
-    public String getByteOrder() {
-        return byteOrder;
-    }
 }
