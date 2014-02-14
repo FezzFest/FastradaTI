@@ -6,6 +6,7 @@ import android.test.ActivityUnitTestCase;
 import android.util.Log;
 import android.widget.TextView;
 import be.kdg.FastradaMobile.activities.MainActivity;
+import be.kdg.FastradaMobile.controllers.BufferController;
 import be.kdg.FastradaMobile.controllers.InputDataController;
 import be.kdg.FastradaMobile.services.ArduinoService;
 
@@ -45,5 +46,4 @@ public class TestMainActivity extends ActivityUnitTestCase<MainActivity> {
         TextView tempIndicator = (TextView) activity.findViewById(R.id.dashboard_temperature_units);
         assertEquals("Temperature indicator must be set to 103 °C.", "103 °C", tempIndicator.getText());
     }
-
 }

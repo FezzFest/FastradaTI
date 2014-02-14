@@ -802,7 +802,6 @@ public class GaugeView extends View {
         mNeedleInitialized = true;
         invalidate();
     }
-
 }
 
 	
