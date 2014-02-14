@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -19,11 +20,20 @@ import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.BufferController;
 import org.codeandmagic.android.gauge.GaugeView;
 
-import java.nio.Buffer;
+import java.io.IOException;
 
 public class MainActivity extends Activity {
     private final static int rpmLimiter = 8000;
     private SharedPreferences prefs;
+    private MediaPlayer mp;
+    private AudioManager amanager;
+    private GaugeView speed;
+    private TextView rpmIndicator;
+    private TextView gearIndicator;
+    private TextView tempIndicator;
+    private TextView tempLegend;
+    private boolean alarmPlaying;
+    private BufferController bufferController;
 
     /**
      * Called when the activity is first created.
@@ -33,42 +43,42 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        alarmPlaying = false;
+        bufferController = BufferController.getInstance();
 
         // Speed gauge
-        final GaugeView speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
+        speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
         speed.setTargetValue(195);
-        
+
         // RPM indicator
-        final TextView rpmIndicator = (TextView) findViewById(R.id.dashboard_rpm_units);
+        rpmIndicator = (TextView) findViewById(R.id.dashboard_rpm_units);
         rpmIndicator.setText("4042 RPM");
 
         // Gear indicator
-        final TextView gearIndicator = (TextView) findViewById(R.id.dashboard_gear_units);
+        gearIndicator = (TextView) findViewById(R.id.dashboard_gear_units);
         gearIndicator.setText("1");
 
         // Temperature indicator
-        final TextView tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
+        tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
+        tempLegend = (TextView) findViewById(R.id.dashboard_temperature_description);
         tempIndicator.setText("103 °C");
 
-        // Audio Manager
-        final AudioManager amanager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
-        int maxVolume = 100; //amanager.getStreamMaxVolume(AudioManager.MAX);
-        amanager.setStreamVolume(AudioManager.STREAM_ALARM, maxVolume, 0);
+        // Audio Manager + Media Player
+        /*amanager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
+        int maxVolume = amanager.getStreamMaxVolume(AudioManager.STREAM_ALARM);
+        amanager.setStreamVolume(AudioManager.STREAM_ALARM, maxVolume, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+
+        mp = MediaPlayer.create(this, R.raw.alarm_normal);*/
+
 
         final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
+                // mp.start();
                 //update the view
-                BufferController bufferController = BufferController.getInstance();
                 showRPM(bufferController.getRpm());
-                rpmIndicator.setText(bufferController.getRpm() + " RPM");
-                if (bufferController.getTemperature() >= prefs.getInt("temperatureAlarm", 100)) {
-                    tempIndicator.setTextColor(Color.RED);
-                    amanager.playSoundEffect(AudioManager.STREAM_ALARM);
-                } else {
-                    tempIndicator.setTextColor(Color.WHITE);
-                }
+                showTemp(bufferController.getTemperature());
                 tempIndicator.setText(String.format("%.1f °C", bufferController.getTemperature()));
                 speed.setTargetValue(bufferController.getSpeed());
                 gearIndicator.setText(bufferController.getGear() + "");
@@ -77,10 +87,21 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void showRPM(int rpm){
+    private void showTemp(double temperature) {
+        if (temperature >= prefs.getInt("temperature_alarm", 20)) {
+            tempIndicator.setTextColor(Color.RED);
+            tempLegend.setTextColor(Color.RED);
+        } else {
+            tempIndicator.setTextColor(Color.WHITE);
+            tempLegend.setTextColor(Color.WHITE);
+        }
+    }
+
+    public void showRPM(int rpm) {
+        rpmIndicator.setText(rpm + " RPM");
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearImageView);
         int numberOfGreens, numberOfYellows;
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             numberOfGreens = 14;
             numberOfYellows = 3;
         } else {
@@ -88,31 +109,28 @@ public class MainActivity extends Activity {
             numberOfYellows = 2;
         }
         int numberOfLeds = linearLayout.getChildCount();
-        for(int i=0; i<numberOfLeds; i++) {
+        for (int i = 0; i < numberOfLeds; i++) {
             ImageView imageView = (ImageView) linearLayout.getChildAt(i);
-            if(imageView != null){
-                if (i<numberOfGreens) {
+            if (imageView != null) {
+                if (i < numberOfGreens) {
                     //green
-                    if(rpm>(rpmLimiter/ numberOfLeds)*i){
+                    if (rpm > (rpmLimiter / numberOfLeds) * i) {
                         imageView.setImageResource(R.drawable.led_green);
-                    }
-                    else{
+                    } else {
                         imageView.setImageResource(R.drawable.led_gray);
                     }
-                } else if(i<numberOfGreens+numberOfYellows){
+                } else if (i < numberOfGreens + numberOfYellows) {
                     //orange
-                    if(rpm>(rpmLimiter/ numberOfLeds)*i){
+                    if (rpm > (rpmLimiter / numberOfLeds) * i) {
                         imageView.setImageResource(R.drawable.led_yellow);
-                    }
-                    else{
+                    } else {
                         imageView.setImageResource(R.drawable.led_gray);
                     }
                 } else {
                     //red
-                    if(rpm>(rpmLimiter/ numberOfLeds)*i){
+                    if (rpm > (rpmLimiter / numberOfLeds) * i) {
                         imageView.setImageResource(R.drawable.led_red);
-                    }
-                    else{
+                    } else {
                         imageView.setImageResource(R.drawable.led_gray);
                     }
                 }
@@ -128,7 +146,7 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.settings:
                 Intent i = new Intent(this, SettingsActivity.class);
                 startActivity(i);

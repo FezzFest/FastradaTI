@@ -50,7 +50,6 @@ public class ByteCalculateController {
                     rawValue = Integer.parseInt(String.format("%02X%02X%02X%02X", received[startByte], received[stopByte - 2], received[stopByte - 3], received[stopByte]), 16) & 0xffffff;
                     break;
             }
-            Log.d("Fastrada", "Received rawValue " + rawValue);
             double value = (rawValue * parameter.getFactor())-parameter.getOffset();
             String name = parameter.getName();
             map.put(name,value);
