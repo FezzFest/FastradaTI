@@ -114,7 +114,7 @@ public class MainActivity extends Activity {
             imageView.setVisibility(View.INVISIBLE);
         }
 
-        if(prefs.getBoolean("pref_UI_engineTemp", true)){
+        if(prefs.getBoolean("pref_UI_engineGear", true)){
             gearIndicator.setVisibility(View.VISIBLE);
             gearDescription.setVisibility(View.VISIBLE);
         } else {
@@ -141,7 +141,7 @@ public class MainActivity extends Activity {
   
 
     private void showTemp(double temperature) {
-        if (temperature >= prefs.getInt("temperature_alarm", 20)) {
+        if (temperature >= Integer.parseInt(prefs.getString("pref_alarm_temperature", "95"))&&prefs.getBoolean("pref_alarm_enabled",true)) {
             tempIndicator.setTextColor(Color.RED);
             tempDescription.setTextColor(Color.RED);
         } else {

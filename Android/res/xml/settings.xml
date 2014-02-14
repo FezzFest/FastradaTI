@@ -40,7 +40,7 @@
                 android:title="Max Temperature"
                 android:summary="Set the maximum temperature."
                 android:key="pref_alarm_temperature"
-                android:defaultValue="120"
+                android:defaultValue="95"
                 android:inputType="number"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="RPM" >
