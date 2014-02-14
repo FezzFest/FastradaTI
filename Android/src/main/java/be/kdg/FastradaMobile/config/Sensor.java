@@ -1,7 +1,6 @@
 package be.kdg.FastradaMobile.config;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**

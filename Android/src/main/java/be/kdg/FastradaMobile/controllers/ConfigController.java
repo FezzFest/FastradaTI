@@ -22,6 +22,7 @@ public class ConfigController {
             configReader = new ConfigReader(testConfigPath);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
         readSensorConfigs();
     }

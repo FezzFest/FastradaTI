@@ -2,6 +2,7 @@ package be.kdg.FastradaMobile;
 
 import be.kdg.FastradaMobile.config.ConfigReader;
 import be.kdg.FastradaMobile.config.Parameter;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,15 +20,11 @@ public class TestConfigReader {
     private static ConfigReader reader;
 
     @Before
-    public void initializeTestConfigReader() {
-        try {
+    public void initializeTestConfigReader() throws FileNotFoundException {
             reader = new ConfigReader("res/raw/testconfig.xml");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
-    @Test( expected = FileNotFoundException.class)
+    @Test(expected = FileNotFoundException.class)
     public void testReadNotFoundFile() throws FileNotFoundException {
         reader = new ConfigReader("/res/raw/NotAvailable.xml");
     }

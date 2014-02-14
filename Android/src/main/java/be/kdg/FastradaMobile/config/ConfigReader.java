@@ -31,12 +31,8 @@ public class ConfigReader {
     }
 
     public ConfigReader(String configPath) throws FileNotFoundException {
-//        try {
             configFileStream = new FileInputStream(configPath);
             readConfigInputStream(configFileStream);
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
     }
 
     private void readConfigInputStream(InputStream configFileStream) {
