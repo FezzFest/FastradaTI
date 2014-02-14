@@ -3,6 +3,7 @@ package be.kdg.FastradaMobile.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.services.ArduinoService;
 
 /**
@@ -12,15 +13,16 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Start service
-        Intent intent = new Intent(getApplicationContext(), ArduinoService.class);
-        startService(intent);
+        setContentView(R.layout.splash);
+
+        // Start service
+        Intent service = new Intent(getApplicationContext(), ArduinoService.class);
+        startService(service);
         try {
             Thread.sleep(5000);
-        } catch (InterruptedException e) {
+        } catch (InterruptedException e) {}
 
-        }
-        Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent2);
+        Intent main = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(main);
     }
 }
