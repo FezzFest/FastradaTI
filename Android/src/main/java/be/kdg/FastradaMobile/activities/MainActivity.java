@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
 
         // Speed gauge
         speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
-        speed.setTargetValue(195);
+        speed.setFixedTargetValue(195);
 
         // RPM indicator
         rpmIndicator = (TextView) findViewById(R.id.dashboard_rpm_units);
@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
                 showRPM(bufferController.getRpm());
                 showTemp(bufferController.getTemperature());
                 tempIndicator.setText(String.format("%.1f °C", bufferController.getTemperature()));
-                speed.setTargetValue(bufferController.getSpeed());
+                speed.setFixedTargetValue(bufferController.getSpeed());
                 gearIndicator.setText(bufferController.getGear() + "");
                 handler.postDelayed(this, 50);
             }
@@ -193,14 +193,14 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.options_menu, menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.settings:
+            case R.id.menu_settings:
                 Intent i = new Intent(this, SettingsActivity.class);
                 startActivity(i);
                 break;

@@ -16,13 +16,13 @@
 
     <application
             android:label="@string/app_name"
-            android:icon="@drawable/ic_launcher">
+            android:icon="@drawable/fastradalogo"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
 
         <!-- Splash activity -->
         <activity
                 android:name=".activities.SplashActivity"
-                android:label="@string/app_name"
-                android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+                android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -32,16 +32,14 @@
         <!-- Main activity -->
         <activity
                 android:name=".activities.MainActivity"
-                android:label="@string/app_name"
-                >
+                android:label="@string/app_name">
         </activity>
 
+        <!-- Settings activity -->
         <activity
                 android:name=".activities.SettingsActivity"
-                android:label="@string/app_name"
-                >
+                android:label="@string/app_name">
         </activity>
-
 
         <!-- Arduino Service -->
         <service android:name=".services.ArduinoService"/>

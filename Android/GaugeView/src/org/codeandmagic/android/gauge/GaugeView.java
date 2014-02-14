@@ -615,7 +615,7 @@ public class GaugeView extends View {
             drawText(canvas);
         }
 
-        computeCurrentValue();
+        //computeCurrentValue();
     }
 
     private void drawBackground(final Canvas canvas) {
@@ -749,6 +749,7 @@ public class GaugeView extends View {
         return (mScaleRotation + (value / mSubdivisionValue) * mSubdivisionAngle) % 360;
     }
 
+    /*
     private void computeCurrentValue() {
         // Logger.log.warn(String.format("velocity=%f, acceleration=%f", mNeedleVelocity,
         // mNeedleAcceleration));
@@ -799,6 +800,12 @@ public class GaugeView extends View {
         } else {
             mTargetValue = value;
         }
+        mNeedleInitialized = true;
+        invalidate();
+    } */
+
+    public void setFixedTargetValue(final float value) {
+        mCurrentValue = value;
         mNeedleInitialized = true;
         invalidate();
     }

@@ -135,17 +135,6 @@
                     android:maxWidth="27dp"
                     android:src="@drawable/led_gray"/>
         </LinearLayout>
-
-
-        <!--<ProgressBar-->
-        <!--android:id="@+id/dashboard_rpm_indicator"-->
-        <!--style="?android:attr/progressBarStyleHorizontal"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="15dp"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:progressDrawable="@drawable/rpm_progressbar"-->
-        <!--android:progress="100"/>-->
-
     </LinearLayout>
 
     <org.codeandmagic.android.gauge.GaugeView
@@ -155,9 +144,9 @@
             android:layout_centerInParent="true"
             gauge:showOuterShadow="true"
             gauge:showOuterRim="false"
-            gauge:showNeedle="true"
-            gauge:showRanges="true"
-            gauge:showText="false"
+            gauge:showNeedle="false"
+            gauge:showRanges="false"
+            gauge:showText="true"
             gauge:textUnit="km/h"/>
 
     <LinearLayout
