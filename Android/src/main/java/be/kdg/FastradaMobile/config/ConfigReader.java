@@ -30,14 +30,13 @@ public class ConfigReader {
         readConfigInputStream(configFileStream);
     }
 
-    public ConfigReader(String configPath){
-        try {
+    public ConfigReader(String configPath) throws FileNotFoundException {
+//        try {
             configFileStream = new FileInputStream(configPath);
             readConfigInputStream(configFileStream);
-        } catch (FileNotFoundException e) {
-
-            //e.printStackTrace();
-        }
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void readConfigInputStream(InputStream configFileStream) {
