@@ -35,7 +35,7 @@
                 android:key="pref_alarm_enabled"
                 android:summary="Enable alarm when engine temperature exceeds maximum value"
                 android:title="Enable Alarm"
-                android:defaultValue="false"/>
+                android:defaultValue="true"/>
         <EditTextPreference
                 android:title="Max Temperature"
                 android:summary="Set the maximum temperature."
@@ -48,7 +48,8 @@
                 android:title="Max RPM"
                 android:summary="Set the Maximum RPM"
                 android:key="pref_max_RPM"
-                android:defaultValue="8000"/>
+                android:defaultValue="8000"
+                android:inputType="number"/>
     </PreferenceCategory>
     <!--<PreferenceCategory android:title="GPS" >
         <CheckBoxPreference
