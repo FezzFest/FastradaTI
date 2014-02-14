@@ -1,10 +1,15 @@
 package be.kdg.FastradaMobile.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -16,21 +21,23 @@ import org.codeandmagic.android.gauge.GaugeView;
 
 import java.nio.Buffer;
 
-public class MainActivity extends Activity
-{
-    private final static int rpmLimiter= 8000;
+public class MainActivity extends Activity {
+    private final static int rpmLimiter = 8000;
+    private SharedPreferences prefs;
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // Speed gauge
         final GaugeView speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
-        speed.setTargetValue(20);
-
+        speed.setTargetValue(195);
+        
         // RPM indicator
         final TextView rpmIndicator = (TextView) findViewById(R.id.dashboard_rpm_units);
         rpmIndicator.setText("4042 RPM");
@@ -43,17 +50,28 @@ public class MainActivity extends Activity
         final TextView tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
         tempIndicator.setText("103 °C");
 
+        // Audio Manager
+        final AudioManager amanager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
+        int maxVolume = 100; //amanager.getStreamMaxVolume(AudioManager.MAX);
+        amanager.setStreamVolume(AudioManager.STREAM_ALARM, maxVolume, 0);
+
         final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
                 //update the view
-              BufferController bufferController =  BufferController.getInstance();
+                BufferController bufferController = BufferController.getInstance();
                 showRPM(bufferController.getRpm());
                 rpmIndicator.setText(bufferController.getRpm() + " RPM");
-                tempIndicator.setText(String.format("%.2f °C",bufferController.getTemperature()));
-               speed.setTargetValue(bufferController.getSpeed());
-                gearIndicator.setText(bufferController.getGear()+"");
+                if (bufferController.getTemperature() >= prefs.getInt("temperatureAlarm", 100)) {
+                    tempIndicator.setTextColor(Color.RED);
+                    amanager.playSoundEffect(AudioManager.STREAM_ALARM);
+                } else {
+                    tempIndicator.setTextColor(Color.WHITE);
+                }
+                tempIndicator.setText(String.format("%.1f °C", bufferController.getTemperature()));
+                speed.setTargetValue(bufferController.getSpeed());
+                gearIndicator.setText(bufferController.getGear() + "");
                 handler.postDelayed(this, 50);
             }
         });

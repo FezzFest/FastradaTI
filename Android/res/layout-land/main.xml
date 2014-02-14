@@ -115,7 +115,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:text="0 RPM"/>
+                   />
 
                 <TextView
                     android:id="@+id/dashboard_rpm_description"
@@ -160,7 +160,6 @@
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        android:text="0"
                         android:gravity="right"/>
 
                     <TextView
@@ -187,7 +186,6 @@
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        android:text="0 °C"
                         android:gravity="right"/>
 
                     <TextView

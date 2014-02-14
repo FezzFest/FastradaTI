@@ -1,16 +1,23 @@
 package be.kdg.FastradaMobile;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.test.ActivityUnitTestCase;
+import android.util.Log;
 import android.widget.TextView;
 import be.kdg.FastradaMobile.activities.MainActivity;
 import be.kdg.FastradaMobile.controllers.InputDataController;
+import be.kdg.FastradaMobile.services.ArduinoService;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 
 /**
  * Created by FezzFest on 4/02/14.
  */
 public class TestMainActivity extends ActivityUnitTestCase<MainActivity> {
-    private InputDataController controller;
     private MainActivity activity;
 
     public TestMainActivity() {
@@ -22,7 +29,6 @@ public class TestMainActivity extends ActivityUnitTestCase<MainActivity> {
         Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
         startActivity(intent, null, null);
         activity = getActivity();
-        controller = new InputDataController(activity.getApplicationContext());
     }
 
     public void testRpmIndicator() {
@@ -39,4 +45,5 @@ public class TestMainActivity extends ActivityUnitTestCase<MainActivity> {
         TextView tempIndicator = (TextView) activity.findViewById(R.id.dashboard_temperature_units);
         assertEquals("Temperature indicator must be set to 103 °C.", "103 °C", tempIndicator.getText());
     }
+
 }
