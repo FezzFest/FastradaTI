@@ -25,7 +25,7 @@ public class RunFromMemory {
             sendPacket(id101Packets.get(i));
             //Thread.sleep(2);
             sendPacket(id102Packets.get(i));
-            Thread.sleep(5);
+            Thread.sleep(2);
         }
 
         for (int i = 2999; i > 0; i--) {
@@ -34,7 +34,7 @@ public class RunFromMemory {
             sendPacket(id101Packets.get(i));
             //Thread.sleep(2);
             sendPacket(id102Packets.get(i));
-            Thread.sleep(5);
+            Thread.sleep(2);
         }
         }
     }

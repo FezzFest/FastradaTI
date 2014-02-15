@@ -1,22 +1,19 @@
 package be.kdg.FastradaMobile.activities;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.EditTextPreference;
 import android.preference.PreferenceManager;
-import android.text.method.DigitsKeyListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,13 +21,9 @@ import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.BufferController;
 import org.codeandmagic.android.gauge.GaugeView;
 
-import java.io.IOException;
-
 public class MainActivity extends Activity {
     private static int rpmLimiter;
     private SharedPreferences prefs;
-    private MediaPlayer mp;
-    private AudioManager amanager;
     private GaugeView speed;
     private TextView rpmIndicator;
     private TextView rpmDescription;
@@ -38,8 +31,12 @@ public class MainActivity extends Activity {
     private TextView gearDescription;
     private TextView tempIndicator;
     private TextView tempDescription;
-    private boolean alarmPlaying;
     private BufferController bufferController;
+    private SoundPool sp;
+    private int soundId;
+    private int streamId;
+    private boolean alarmPlaying;
+
 
     /**
      * Called when the activity is first created.
@@ -49,8 +46,12 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        alarmPlaying = false;
         bufferController = BufferController.getInstance();
+
+        // Alarm sound
+        sp = new SoundPool(5, AudioManager.STREAM_ALARM, 0);
+        soundId = sp.load(this, R.raw.alarm_hell, 1);
+        alarmPlaying = false;
 
         // Speed gauge
         speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
@@ -71,19 +72,10 @@ public class MainActivity extends Activity {
         tempDescription = (TextView) findViewById(R.id.dashboard_temperature_description);
         tempIndicator.setText("103 °C");
 
-        // Audio Manager + Media Player
-        /*amanager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
-        int maxVolume = amanager.getStreamMaxVolume(AudioManager.STREAM_ALARM);
-        amanager.setStreamVolume(AudioManager.STREAM_ALARM, maxVolume, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
-
-        mp = MediaPlayer.create(this, R.raw.alarm_normal);*/
-
-
         final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
-                // mp.start();
                 //update the view
                 showRPM(bufferController.getRpm());
                 showTemp(bufferController.getTemperature());
@@ -94,17 +86,18 @@ public class MainActivity extends Activity {
             }
         });
 
+
         //Update UI elements by preferences
         final LinearLayout imageView = (LinearLayout) findViewById(R.id.linearImageView);
         rpmLimiter = Integer.parseInt(prefs.getString("pref_max_RPM", "8000"));
 
-        if(prefs.getBoolean("pref_UI_gaugeView", true)){
+        if (prefs.getBoolean("pref_UI_gaugeView", true)) {
             speed.setVisibility(View.VISIBLE);
         } else {
             speed.setVisibility(View.INVISIBLE);
         }
 
-        if(prefs.getBoolean("pref_UI_RPM", true)){
+        if (prefs.getBoolean("pref_UI_RPM", true)) {
             rpmIndicator.setVisibility(View.VISIBLE);
             rpmDescription.setVisibility(View.VISIBLE);
             imageView.setVisibility(View.VISIBLE);
@@ -114,7 +107,7 @@ public class MainActivity extends Activity {
             imageView.setVisibility(View.INVISIBLE);
         }
 
-        if(prefs.getBoolean("pref_UI_engineGear", true)){
+        if (prefs.getBoolean("pref_UI_engineGear", true)) {
             gearIndicator.setVisibility(View.VISIBLE);
             gearDescription.setVisibility(View.VISIBLE);
         } else {
@@ -122,15 +115,15 @@ public class MainActivity extends Activity {
             gearDescription.setVisibility(View.INVISIBLE);
         }
 
-        if(prefs.getBoolean("pref_UI_engineTemp", true)){
+        if (prefs.getBoolean("pref_UI_engineTemp", true)) {
             tempIndicator.setVisibility(View.VISIBLE);
             tempDescription.setVisibility(View.VISIBLE);
         } else {
             tempIndicator.setVisibility(View.INVISIBLE);
             tempDescription.setVisibility(View.INVISIBLE);
         }
-
     }
+
 
     @Override
     protected void onResume() {
@@ -138,15 +131,23 @@ public class MainActivity extends Activity {
         this.onCreate(null);
     }
 
-  
 
     private void showTemp(double temperature) {
-        if (temperature >= Integer.parseInt(prefs.getString("pref_alarm_temperature", "95"))&&prefs.getBoolean("pref_alarm_enabled",true)) {
+        if (temperature >= Integer.parseInt(prefs.getString("pref_alarm_temperature", "95")) && prefs.getBoolean("pref_alarm_enabled", true)) {
             tempIndicator.setTextColor(Color.RED);
             tempDescription.setTextColor(Color.RED);
+            if (!alarmPlaying) {
+                streamId = sp.play(soundId, 1, 1, 0, 0, 1);
+                alarmPlaying = true;
+            }
+
         } else {
             tempIndicator.setTextColor(Color.WHITE);
             tempDescription.setTextColor(Color.WHITE);
+            if (alarmPlaying) {
+                sp.pause(streamId);
+                alarmPlaying = false;
+            }
         }
     }
 
