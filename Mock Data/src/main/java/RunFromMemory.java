@@ -17,25 +17,25 @@ public class RunFromMemory {
         List<byte[]> id101Packets = makePacketsId101(0, 255, 0, 6);
         List<byte[]> id102Packets = makePacketsId102(0, 255);
 
-        while(true) {
+        while (true) {
 
-        for (int i = 0; i < 3000; i++) {
-            sendPacket(id100Packets.get(i));
-            //Thread.sleep(2);
-            sendPacket(id101Packets.get(i));
-            //Thread.sleep(2);
-            sendPacket(id102Packets.get(i));
-            Thread.sleep(2);
-        }
+            for (int i = 0; i < 3000; i++) {
+                sendPacket(id100Packets.get(i));
+                //Thread.sleep(2);
+                sendPacket(id101Packets.get(i));
+                //Thread.sleep(2);
+                sendPacket(id102Packets.get(i));
+                Thread.sleep(2);
+            }
 
-        for (int i = 2999; i > 0; i--) {
-            sendPacket(id100Packets.get(i));
-            //Thread.sleep(2);
-            sendPacket(id101Packets.get(i));
-            //Thread.sleep(2);
-            sendPacket(id102Packets.get(i));
-            Thread.sleep(2);
-        }
+            for (int i = 2999; i > 0; i--) {
+                sendPacket(id100Packets.get(i));
+                //Thread.sleep(2);
+                sendPacket(id101Packets.get(i));
+                //Thread.sleep(2);
+                sendPacket(id102Packets.get(i));
+                Thread.sleep(2);
+            }
         }
     }
 
@@ -46,7 +46,7 @@ public class RunFromMemory {
         double throttleStep = (throttleEnd - throttleStart) / 3000;
         double tempStep = (tempEnd - tempStart) / 3000;
         for (int i = 0; i < 3000; i++) {
-            byte[] rpmBytes = intToByteArray((int)(rpmStart += rpmStep));
+            byte[] rpmBytes = intToByteArray((int) (rpmStart += rpmStep));
             int throttle = (int) (throttleStart / 0.0015259);
             byte[] throttleBytes = intToByteArray(throttle);
             throttleStart += throttleStep;
@@ -67,8 +67,8 @@ public class RunFromMemory {
             int speed = (int) (speedStart / 0.00549324);
             byte[] speedBytes = intToByteArray(speed);
             speedStart += speedStep;
-            byte[] gearBytes = intToByteArray((int)(gearStart += gearStep));
-            byte[] packet = {(byte) 0x01, (byte) 0x01, speedBytes[2], speedBytes[3], gearBytes[3], (byte) 0x00,  (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
+            byte[] gearBytes = intToByteArray((int) (gearStart += gearStep));
+            byte[] packet = {(byte) 0x01, (byte) 0x01, speedBytes[2], speedBytes[3], gearBytes[3], (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
             packets.add(packet);
         }
         return packets;
@@ -78,8 +78,8 @@ public class RunFromMemory {
         List<byte[]> packets = new ArrayList<byte[]>();
         double fuelStep = (fuelEnd - fuelStart) / 3000;
         for (int i = 0; i < 3000; i++) {
-            byte[] fuelBytes = intToByteArray((int)(fuelStart += fuelStep));
-            byte[] packet = {(byte) 0x01, (byte) 0x02, fuelBytes[2], fuelBytes[3], (byte) 0x00, (byte) 0x00,  (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
+            byte[] fuelBytes = intToByteArray((int) (fuelStart += fuelStep));
+            byte[] packet = {(byte) 0x01, (byte) 0x02, fuelBytes[2], fuelBytes[3], (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
             packets.add(packet);
         }
         return packets;

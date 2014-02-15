@@ -27,32 +27,32 @@ public class ByteCalculateController {
         Sensor sensor = null;
         try {
             sensor = configController.getSensor(id);
+            Iterator it = sensor.getParameters().iterator();
+            while (it.hasNext()) {
+                      Parameter parameter = (Parameter) it.next();
+                      int rawValue = 0;
+                      int startByte = parameter.getStartBit() / 8;
+                      int stopByte = parameter.getStartBit() / 8 + parameter.getLength() / 8 - 1;
+                      switch (parameter.getLength() / 8) {
+                          case 1:
+                              rawValue = Integer.parseInt(String.format("%02X", received[startByte]), 16) & 0xffffff;
+                              break;
+                          case 2:
+                              rawValue = Integer.parseInt(String.format("%02X%02X", received[startByte], received[stopByte]), 16) & 0xffffff;
+                              break;
+                          case 3:
+                              rawValue = Integer.parseInt(String.format("%02X%02X%02X", received[startByte], received[stopByte - 1], received[stopByte]), 16) & 0xffffff;
+                              break;
+                          case 4:
+                              rawValue = Integer.parseInt(String.format("%02X%02X%02X%02X", received[startByte], received[stopByte - 2], received[stopByte - 3], received[stopByte]), 16) & 0xffffff;
+                              break;
+                      }
+                      double value = (rawValue * parameter.getFactor())-parameter.getOffset();
+                      String name = parameter.getName();
+                      map.put(name,value);
+                  }
         } catch (Exception e) {
             Log.e("Fastrada", e.getMessage());
-        }
-        Iterator it = sensor.getParameters().iterator();
-        while (it.hasNext()) {
-            Parameter parameter = (Parameter) it.next();
-            int rawValue = 0;
-            int startByte = parameter.getStartBit() / 8;
-            int stopByte = parameter.getStartBit() / 8 + parameter.getLength() / 8 - 1;
-            switch (parameter.getLength() / 8) {
-                case 1:
-                    rawValue = Integer.parseInt(String.format("%02X", received[startByte]), 16) & 0xffffff;
-                    break;
-                case 2:
-                    rawValue = Integer.parseInt(String.format("%02X%02X", received[startByte], received[stopByte]), 16) & 0xffffff;
-                    break;
-                case 3:
-                    rawValue = Integer.parseInt(String.format("%02X%02X%02X", received[startByte], received[stopByte - 1], received[stopByte]), 16) & 0xffffff;
-                    break;
-                case 4:
-                    rawValue = Integer.parseInt(String.format("%02X%02X%02X%02X", received[startByte], received[stopByte - 2], received[stopByte - 3], received[stopByte]), 16) & 0xffffff;
-                    break;
-            }
-            double value = (rawValue * parameter.getFactor())-parameter.getOffset();
-            String name = parameter.getName();
-            map.put(name,value);
         }
         return map;
     }
