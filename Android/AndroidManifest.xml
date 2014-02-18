@@ -11,7 +11,7 @@
 
     <!-- Require Android 4.0+ -->
     <uses-sdk
-            android:minSdkVersion="14"
+            android:minSdkVersion="9"
             android:targetSdkVersion="19"/>
 
     <application

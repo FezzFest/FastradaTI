@@ -655,13 +655,13 @@ public class GaugeView extends View {
         final float textValueWidth = mTextValuePaint.measureText(textValue);
         final float textUnitWidth = !TextUtils.isEmpty(mTextUnit) ? mTextUnitPaint.measureText(mTextUnit) : 0;
 
-        final float startX = CENTER - textUnitWidth / 2;
-        final float startY = CENTER + 0.1f;
+        final float startX = 0.5f;
+        final float startY = CENTER + 0.04f;
 
         canvas.drawText(textValue, startX, startY, mTextValuePaint);
 
         if (!TextUtils.isEmpty(mTextUnit)) {
-            canvas.drawText(mTextUnit, CENTER + textValueWidth / 2 + 0.03f, CENTER, mTextUnitPaint);
+            canvas.drawText(mTextUnit, 0.5f, 0.7f, mTextUnitPaint);
         }
     }
 
