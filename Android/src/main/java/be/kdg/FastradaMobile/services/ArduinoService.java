@@ -2,7 +2,7 @@ package be.kdg.FastradaMobile.services;
 
 import android.app.IntentService;
 import android.content.Intent;
-import be.kdg.FastradaMobile.controllers.BufferController;
+import be.kdg.FastradaMobile.controllers.UserInterfaceController;
 import be.kdg.FastradaMobile.controllers.ByteCalculateController;
 import be.kdg.FastradaMobile.controllers.ConfigController;
 import be.kdg.FastradaMobile.controllers.InputDataController;
@@ -20,7 +20,7 @@ public class ArduinoService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         InputDataController inputDataController = new InputDataController(getApplicationContext());
-        BufferController buffer = BufferController.getInstance();
+        UserInterfaceController buffer = UserInterfaceController.getInstance();
         ConfigController config = new ConfigController(getApplicationContext());
         ByteCalculateController byteCalculateController = new ByteCalculateController(config);
 

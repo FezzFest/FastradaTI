@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
-import be.kdg.FastradaMobile.controllers.BufferController;
+import be.kdg.FastradaMobile.controllers.UserInterfaceController;
 import org.codeandmagic.android.gauge.GaugeView;
 
 public class MainActivity extends Activity {
@@ -32,12 +31,11 @@ public class MainActivity extends Activity {
     private TextView gearDescription;
     private TextView tempIndicator;
     private TextView tempDescription;
-    private BufferController bufferController;
+    private UserInterfaceController bufferController;
     private SoundPool sp;
     private int soundId;
     private int streamId;
     private boolean alarmPlaying;
-
 
     /**
      * Called when the activity is first created.
@@ -47,7 +45,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        bufferController = BufferController.getInstance();
+        bufferController = UserInterfaceController.getInstance();
 
         //Keeps the screen on while activity is running
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);

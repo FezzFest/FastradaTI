@@ -3,8 +3,6 @@ package be.kdg.FastradaMobile.controllers;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
-import be.kdg.FastradaMobile.config.ConfigReader;
 
 import java.io.IOException;
 import java.net.*;

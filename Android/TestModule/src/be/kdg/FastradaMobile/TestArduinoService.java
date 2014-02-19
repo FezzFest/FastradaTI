@@ -1,20 +1,15 @@
 package be.kdg.FastradaMobile;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.test.ActivityUnitTestCase;
 import android.test.ServiceTestCase;
 import android.util.Log;
-import be.kdg.FastradaMobile.activities.MainActivity;
-import be.kdg.FastradaMobile.config.Sensor;
-import be.kdg.FastradaMobile.controllers.BufferController;
+import be.kdg.FastradaMobile.controllers.UserInterfaceController;
 import be.kdg.FastradaMobile.services.ArduinoService;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.nio.ByteBuffer;
 import java.util.Random;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -23,7 +18,7 @@ import static org.junit.Assert.assertArrayEquals;
  * Created by FezzFest on 5/02/14.
  */
 public class TestArduinoService extends ServiceTestCase<ArduinoService> {
-    private BufferController buffer;
+    private UserInterfaceController buffer;
 
     public TestArduinoService() {
         super(ArduinoService.class);
@@ -31,7 +26,7 @@ public class TestArduinoService extends ServiceTestCase<ArduinoService> {
 
     protected void setUp() throws Exception {
         super.setUp();
-        buffer = BufferController.getInstance();
+        buffer = UserInterfaceController.getInstance();
     }
 
     public void startArduinoService() throws InterruptedException {
@@ -87,7 +82,7 @@ public class TestArduinoService extends ServiceTestCase<ArduinoService> {
         Thread.sleep(50);
 
         // Assert
-        assertEquals("Temprature must be -30.", -30, Math.round(buffer.getTemperature()));
+        assertEquals("Temperature must be -30.", -30, Math.round(buffer.getTemperature()));
     }
 
     public void test4ServiceWithMultiplePackets() throws InterruptedException {
@@ -108,7 +103,7 @@ public class TestArduinoService extends ServiceTestCase<ArduinoService> {
             // Wait until package is processed by the service
             Thread.sleep(50);
 
-            BufferController controller = BufferController.getInstance();
+            UserInterfaceController controller = UserInterfaceController.getInstance();
             receivedInts[i] = controller.getSpeed();
         }
 

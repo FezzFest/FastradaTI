@@ -1,19 +1,9 @@
 package be.kdg.FastradaMobile;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.test.ActivityUnitTestCase;
-import android.util.Log;
 import android.widget.TextView;
 import be.kdg.FastradaMobile.activities.MainActivity;
-import be.kdg.FastradaMobile.controllers.BufferController;
-import be.kdg.FastradaMobile.controllers.InputDataController;
-import be.kdg.FastradaMobile.services.ArduinoService;
-
-import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
 
 /**
  * Created by FezzFest on 4/02/14.

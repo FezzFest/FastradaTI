@@ -36,7 +36,7 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
 
     public void testFixedUdpPacket() throws IOException, InterruptedException {
         // Construct packet
-        byte [] packet = {(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF,(byte)0xFF};
+        byte[] packet = {(byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
         // Start sending packets
         sendUdpPackets(packet, 9000);
         // Sleep for 3 seconds
