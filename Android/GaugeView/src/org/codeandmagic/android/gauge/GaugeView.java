@@ -462,10 +462,10 @@ public class GaugeView extends View {
         return paint;
     }
 
-    public void setDefaultRanges() {
+   /* public void setDefaultRanges() {
         mRangeValues = new float[]{16, 25, 40, 100};
         mRangeColors = new int[]{Color.rgb(231, 32, 43), Color.rgb(232, 111, 33), Color.rgb(232, 231, 33), Color.rgb(27, 202, 33)};
-    }
+    }   */
 
     public void setDefaultScaleRangePaints() {
         final int length = mRangeValues.length;
@@ -652,8 +652,8 @@ public class GaugeView extends View {
 
     private void drawText(final Canvas canvas) {
         final String textValue = !TextUtils.isEmpty(mTextValue) ? mTextValue : valueString(mCurrentValue);
-        final float textValueWidth = mTextValuePaint.measureText(textValue);
-        final float textUnitWidth = !TextUtils.isEmpty(mTextUnit) ? mTextUnitPaint.measureText(mTextUnit) : 0;
+        //final float textValueWidth = mTextValuePaint.measureText(textValue);
+        //final float textUnitWidth = !TextUtils.isEmpty(mTextUnit) ? mTextUnitPaint.measureText(mTextUnit) : 0;
 
         final float startX = 0.5f;
         final float startY = CENTER + 0.04f;
