@@ -14,6 +14,7 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,6 +48,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         bufferController = BufferController.getInstance();
+
+        //Keeps the screen on while activity is running
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         // Alarm sound
         sp = new SoundPool(5, AudioManager.STREAM_ALARM, 0);
