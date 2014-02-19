@@ -35,7 +35,7 @@ public class MockTest {
         packet = Run.getLine();
         //Now check its content
         assertArrayEquals(new byte[]{
-                (byte) 0x01, (byte) 0x00, (byte) 0xff, (byte) 0xff, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
+                (byte) 0x01, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0xFF, (byte) 0x00, (byte) 0x00
         }, packet);
     }
 
