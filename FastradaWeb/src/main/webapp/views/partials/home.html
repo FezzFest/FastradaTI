@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse">
     <div class="navbar-inner">
         <div class="container">
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -6,12 +6,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">Fastrada</a>
+            <a class="brand" href="#">Temperatuur</a>
+            <a class="brand" href="#">Snelheid</a>
+
             <!--/.nav-collapse -->
         </div>
     </div>
-            <li><a href="#/1"></a></li>
     <div>
-        <ul>{{sessions}}</ul>
+        <ul>
+            <li ng-repeat="session in sessions">{{session.value}}</li>
+        </ul>
     </div>
 </div>
