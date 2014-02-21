@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/splash_background"
+              android:padding="10dp">
+    <TextView
+            android:id="@+id/session_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="@string/session_details" android:layout_gravity="center"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:paddingTop="10dp" android:paddingBottom="10dp">
+        <TextView
+                android:id="@+id/session_track_name"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="@string/session_name"/>
+        <EditText android:layout_width="200dp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/session_name_input"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:paddingTop="10dp" android:paddingBottom="10dp">
+
+        <TextView
+                android:id="@+id/session_vehicle_name"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="@string/session_vehicle_name"/>
+        <EditText android:layout_width="200dp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/session_vehicle_name_input"/>
+
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:paddingTop="10dp" android:paddingBottom="10dp">
+        <TextView
+                android:id="@+id/session_gps"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="@string/session_gps"/>
+        <CheckBox android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/session_gps_input"/>
+
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="bottom"
+            android:layout_gravity="bottom">
+
+        <Button
+                android:text="@string/session_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/session_btn_input"/>
+    </LinearLayout>
+
+
+</LinearLayout>
+
