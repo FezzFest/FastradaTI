@@ -1,56 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="UI Elements" >
+    <PreferenceCategory android:title="User Interface">
         <CheckBoxPreference
-                android:key="pref_UI_gaugeView"
-                android:summary="Enable Car Speed"
-                android:title="Enable GaugeView"
-                android:defaultValue="true"/>
+            android:key="pref_UI_gaugeView"
+            android:title="Enable Speed"
+            android:summary="Enable speed indicator"
+            android:defaultValue="true"/>
         <CheckBoxPreference
-                android:key="pref_UI_RPM"
-                android:summary="Enable revolutions per minute"
-                android:title="Enable RPM"
-                android:defaultValue="true"/>
+            android:key="pref_UI_RPM"
+            android:title="Enable RPM"
+            android:summary="Enable RPM indicator"
+            android:defaultValue="true"/>
         <CheckBoxPreference
-                android:key="pref_UI_engineGear"
-                android:summary="Enable engine gear"
-                android:title="Enable Engine Gear"
-                android:defaultValue="true"/>
+            android:key="pref_UI_engineGear"
+            android:title="Enable Gear"
+            android:summary="Enable gear indicator"
+            android:defaultValue="true"/>
         <CheckBoxPreference
-                android:key="pref_UI_engineTemp"
-                android:summary="Enable engine temperature"
-                android:title="Enable Engine Temperature"
-                android:defaultValue="true"/>
-        <!--<ListPreference
-                android:key="pref_gaugeView_style"
-                android:entries="@array/gaugeView"
-                android:summary="Choose Number or Needle output for speed"
-                android:entryValues="@array/gaugeViewValue"
-                android:title="GaugeView"
-                android:defaultValue="1"/>    -->
-    </PreferenceCategory>
-    <PreferenceCategory android:title="Alarm" >
-        <CheckBoxPreference
-                android:key="pref_alarm_enabled"
-                android:summary="Enable alarm when engine temperature exceeds maximum value"
-                android:title="Enable Alarm"
-                android:defaultValue="true"/>
+            android:key="pref_UI_engineTemp"
+            android:title="Enable Temperature"
+            android:summary="Enable temperature indicator"
+            android:defaultValue="true"/>
         <EditTextPreference
-                android:title="Max Temperature"
-                android:summary="Set the maximum temperature."
-                android:key="pref_alarm_temperature"
-                android:defaultValue="95"
-                android:inputType="number"/>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="RPM" >
+            android:key="pref_max_speed"
+            android:title="Speed scale"
+            android:summary="Set the maximum speed"
+            android:defaultValue="250"
+            android:inputType="number"/>
         <EditTextPreference
-                android:title="Max RPM"
-                android:summary="Set the Maximum RPM"
-                android:key="pref_max_RPM"
-                android:defaultValue="8000"
-                android:inputType="number"/>
+            android:key="pref_max_RPM"
+            android:title="RPM scale"
+            android:summary="Set the maximum RPM"
+            android:defaultValue="8000"
+            android:inputType="number"/>
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="Communication">
+        <EditTextPreference
+            android:key="pref_service_address"
+            android:title="Server address"
+            android:summary="Specify the address for the external service"/>
+        <EditTextPreference
+            android:key="pref_service_port"
+            android:title="Server port"
+            android:summary="Specify the port for the external service"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Buffer">
+        <EditTextPreference
+            android:key="pref_buffer_size"
+            android:title="Buffer size"
+            android:summary="Specify buffer size"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Alarm">
+        <CheckBoxPreference
+            android:key="pref_alarm_enabled"
+            android:title="Enable alarm"
+            android:summary="Enable alarm when engine temperature exceeds maximum value"
+            android:defaultValue="true"/>
+        <EditTextPreference
+            android:key="pref_alarm_temperature"
+            android:title="Temperature"
+            android:summary="Set the alarm temperature"
+            android:defaultValue="95"
+            android:inputType="number"/>
+    </PreferenceCategory>
+
     <!--<PreferenceCategory android:title="GPS" >
         <CheckBoxPreference
                 android:key="pref_gps"
@@ -58,4 +75,12 @@
                 android:title="Enable GPS"
                 android:defaultValue="true"/>
     </PreferenceCategory>   -->
+
+    <PreferenceCategory android:title="Debug">
+        <CheckBoxPreference
+            android:key="pref_hotspot_disabled"
+            android:title="Disable hotspot"
+            android:summary="Disable hotspot on startup"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
 </PreferenceScreen>

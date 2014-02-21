@@ -1,13 +1,8 @@
 package be.kdg.FastradaMobile.activities;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.*;
-import android.text.method.DigitsKeyListener;
-import android.view.View;
-import android.widget.EditText;
 import be.kdg.FastradaMobile.R;
-import org.codeandmagic.android.gauge.GaugeView;
 
 /**
  * Created by Thomas on 13/02/14.
@@ -19,7 +14,6 @@ public class SettingsActivity extends PreferenceActivity {
         addPreferencesFromResource(R.xml.settings);
         getPrefs();
     }
-
 
     private void getPrefs(){
         CheckBoxPreference checkBoxPreferenceAlarm = (CheckBoxPreference) findPreference("pref_alarm_enabled");
@@ -37,9 +31,5 @@ public class SettingsActivity extends PreferenceActivity {
                 return true;
             }
         });
-
     }
-
-
-
 }

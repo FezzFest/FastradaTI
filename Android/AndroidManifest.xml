@@ -43,5 +43,8 @@
 
         <!-- Arduino Service -->
         <service android:name=".services.ArduinoService"/>
+
+        <!-- Communication Service -->
+        <service android:name=".services.CommunicationService"/>
     </application>
 </manifest>

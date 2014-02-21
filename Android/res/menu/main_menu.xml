@@ -2,9 +2,12 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/menu_start_session"
+        android:title="@string/new_session"/>
+    <item
         android:id="@+id/menu_settings"
-        android:title="Settings"/>
+        android:title="@string/settings"/>
     <item
         android:id="@+id/menu_exit"
-        android:title="Exit"/>
+        android:title="@string/exit"/>
 </menu>

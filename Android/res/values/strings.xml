@@ -2,13 +2,20 @@
 <resources>
     <string name="app_name">Fastrada Mobile</string>
 
-    <string name="engine_rpm">Revolutions per minute</string>
-    <string name="engine_gear">Gear</string>
-
+    <!-- Splash activity -->
     <string name="splash_welcome">Welcome to Fastrada Mobile</string>
     <string name="splash_progress_tethering">Enabling hotspot…</string>
     <string name="splash_progress_service">Starting service…</string>
     <string name="splash_start_btn">Start</string>
-    <string name="temperature_alarm">Engine temperature</string>
     <string name="splash_start">Press start to begin…</string>
+
+    <!-- Main activity -->
+    <string name="engine_rpm">Revolutions per minute</string>
+    <string name="engine_gear">Gear</string>
+    <string name="temperature_alarm">Engine temperature</string>
+
+    <!-- Options menu -->
+    <string name="new_session">New session</string>
+    <string name="settings">Settings</string>
+    <string name="exit">Exit</string>
 </resources>

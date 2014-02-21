@@ -10,7 +10,7 @@ import java.util.zip.GZIPOutputStream;
  * Created by FezzFest on 19/02/14.
  */
 public class CompressorController {
-    public byte[] compress(byte[] packets) {
+    public static byte[] compress(byte[] packets) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
         try {
@@ -18,8 +18,8 @@ public class CompressorController {
             stream.write(packets);
             stream.close();
 
-            Log.d("Fastrada", "Compressed: " + packets.length + " bytes");
-            Log.d("Fastrada", "Ratio: " + 1.0f * packets.length / out.size());
+            /*Log.d("Fastrada", "Compressed: " + packets.length + " bytes");
+            Log.d("Fastrada", "Ratio: " + 1.0f * packets.length / out.size());*/
         } catch (IOException e) {
             e.printStackTrace();
         }

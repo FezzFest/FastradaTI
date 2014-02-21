@@ -36,7 +36,6 @@ public class TestArduinoService extends ServiceTestCase<ArduinoService> {
         Thread.sleep(5000);
     }
 
-
     public void test1ServiceFixedEngineDataPacketToSpeedValue() throws IOException, InterruptedException {
         startArduinoService();
         // Construct packet

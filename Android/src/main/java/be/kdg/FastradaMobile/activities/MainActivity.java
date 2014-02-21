@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         bufferController = UserInterfaceController.getInstance();
 
-        //Keeps the screen on while activity is running
+        // Keeps the screen on while activity is running
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         // Alarm sound
@@ -89,7 +89,7 @@ public class MainActivity extends Activity {
         });
 
 
-        //Update UI elements by preferences
+        // Update UI elements by preferences
         final LinearLayout imageView = (LinearLayout) findViewById(R.id.linearImageView);
         rpmLimiter = Integer.parseInt(prefs.getString("pref_max_RPM", "8000"));
 
@@ -125,14 +125,6 @@ public class MainActivity extends Activity {
             tempDescription.setVisibility(View.INVISIBLE);
         }
     }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        this.onCreate(null);
-    }
-
 
     private void showTemp(double temperature) {
         if (temperature >= Integer.parseInt(prefs.getString("pref_alarm_temperature", "95")) && prefs.getBoolean("pref_alarm_enabled", true)) {
@@ -203,9 +195,16 @@ public class MainActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_start_session:
+                Intent sessionActivity = new Intent(this, SessionActivity.class);
+                startActivity(sessionActivity);
+                break;
             case R.id.menu_settings:
-                Intent i = new Intent(this, SettingsActivity.class);
-                startActivity(i);
+                Intent settingsActivity = new Intent(this, SettingsActivity.class);
+                startActivity(settingsActivity);
+                break;
+            case R.id.menu_exit:
+                System.exit(0);
                 break;
         }
         return true;

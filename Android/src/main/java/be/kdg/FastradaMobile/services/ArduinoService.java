@@ -2,10 +2,7 @@ package be.kdg.FastradaMobile.services;
 
 import android.app.IntentService;
 import android.content.Intent;
-import be.kdg.FastradaMobile.controllers.UserInterfaceController;
-import be.kdg.FastradaMobile.controllers.ByteCalculateController;
-import be.kdg.FastradaMobile.controllers.ConfigController;
-import be.kdg.FastradaMobile.controllers.InputDataController;
+import be.kdg.FastradaMobile.controllers.*;
 
 import java.util.Map;
 
@@ -20,15 +17,20 @@ public class ArduinoService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         InputDataController inputDataController = new InputDataController(getApplicationContext());
-        UserInterfaceController buffer = UserInterfaceController.getInstance();
         ConfigController config = new ConfigController(getApplicationContext());
+        UserInterfaceController userInterface = UserInterfaceController.getInstance();
+        BufferController buffer = BufferController.getInstance();
         ByteCalculateController byteCalculateController = new ByteCalculateController(config);
 
         while (true) {
+            // Receive packet
             byte[] received = inputDataController.receiveUdpPacket();
+            // Add packet to buffer
+            buffer.addPacket(received);
+            // Calculate values for packet
             Map<String, Double> map = byteCalculateController.calculatePacket(received);
             for (Map.Entry<String, Double> entry : map.entrySet()) {
-                buffer.setValue(entry.getKey(), entry.getValue());
+                userInterface.setValue(entry.getKey(), entry.getValue());
             }
         }
     }

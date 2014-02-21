@@ -8,13 +8,11 @@ public class UserInterfaceController {
 
     private int speed;
     private int rpm;
-    private int pressure;
     private double temperature;
     private int gear;
 
     private UserInterfaceController() {
     }
-
 
     public static UserInterfaceController getInstance() {
         if (instance == null) createInstance();
@@ -52,5 +50,4 @@ public class UserInterfaceController {
     public int getGear() {
         return gear;
     }
-
 }
