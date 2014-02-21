@@ -1,0 +1,43 @@
+.chart {
+
+    height: 500px;
+    width: 500px;
+}
+
+.session {
+    font-size: 1.2em;
+}
+
+.session:hover {
+    background-color: #158cba;
+}
+
+.session:hover h3 {
+    color: white;
+}
+
+.session:hover p {
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.logo {
+    width: 200px;
+}
+
+.logo_text {
+    padding: 50px 0 0 0;
+}
+
+.subtext {
+    margin: 0 0 0 250px;
+    color: green;
+}
+
+.withborder {
+    border-right: 1px solid #e7e7e7;
+    border-width: 0 2px 0 0 ;
+}

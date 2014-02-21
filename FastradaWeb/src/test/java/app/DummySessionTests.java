@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class DummySessionTests {
 
-    private HashMap<Integer, Integer> SessionTemperatures;
+    private List<Parameter> SessionTemperatures;
     private SessionController sessioncontroller;
 
     @Before
@@ -22,19 +22,6 @@ public class DummySessionTests {
         sessioncontroller = new SessionController();
     }
 
-    //
-//  @Test
-//  public void saveAndGet() {
-//    Book book = new Book();
-//    book.setAuthor(this.testAuthor);
-//    book.setTitle("Pro Spring");
-//
-//    book = this.repository.save(book);
-//    assertNotNull(book.getId());
-//
-//    Book book2 = this.repository.findById(book.getId());
-//    assertEquals(book, book2);
-//  }
     @Test
     public void getSessionSpeed() {
         SessionTemperatures = sessioncontroller.getParameterBySessionId(1, "temperature");
@@ -47,12 +34,12 @@ public class DummySessionTests {
 
         Assert.assertEquals(controlMap, SessionTemperatures);
     }
-//
+
 //    @Test
 //    public void getSessionList() {
-//        List<Integer> sessionList =  sessioncontroller.list();
+//        List<Session> sessionList =  sessioncontroller.list();
 //
-//        List<Integer> controlList = new ArrayList<Integer>();
+//        List<Session> controlList = new ArrayList<Integer>();
 //        for (int teller = 0; teller < 10; teller++) {
 //            controlList.add(teller);
 //        }

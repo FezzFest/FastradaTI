@@ -1,31 +1,14 @@
-toastr = {
-    success: function (msg) {
-        console.log(msg);
-    }
-}
 describe('Controllers', function () {
-    beforeEach(module('fastrada.services'));
+    describe('users loads page', function () {
+        var scope, ctrl;
 
-    beforeEach(function () {
-        this.addMatchers({
-            toEqualData: function (expected) {
-                return angular.equals(this.actual, expected);
-            }
-        });
-    });
-
-    describe('HomeController', function () {
-        var scope, controller, http;
-
-        beforeEach(inject(function ($httpBackend, $rootScope, $controller) {
-            http = $httpBackend;
-            http.expectGET('/api/sessions').respond([
-                0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-            ]);
+        beforeEach(inject(function ($controller, $rootScope) {
+            scope = $rootScope.$new();
+            ctrl = $controller('HomeController', {$scope: scope});
         }));
 
-        it('should return list from 0 to 9', function () {
-
+        it('should be 6', function () {
+            expect(scope.sessions.length).toEqual(12);
         });
     });
 });
