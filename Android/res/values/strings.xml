@@ -20,7 +20,7 @@
     <string name="exit">Exit</string>
 
     <!--Session activity -->
-    <string name="session_details">Session Details: </string>
+    <string name="session_details">Session Details</string>
     <string name="session_name">Name: </string>
     <string name="session_vehicle_name">Vehicle Name: </string>
     <string name="session_gps">Submit GPS Data: </string>

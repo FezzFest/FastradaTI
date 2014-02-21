@@ -263,8 +263,6 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_centerInParent="true"
-        android:layout_below="@id/linearImageView"
-        android:layout_marginTop="10dp"
         gauge:showOuterShadow="true"
         gauge:showOuterRim="false"
         gauge:showNeedle="false"
