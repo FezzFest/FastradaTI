@@ -1,4 +1,4 @@
-package app;
+ /*  package app;
 
 import junit.framework.Assert;
 import org.junit.Before;
@@ -12,17 +12,17 @@ import static junit.framework.Assert.assertNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+
 public class DummySessionTests {
 
     private List<Parameter> SessionTemperatures;
     private SessionController sessioncontroller;
-
     @Before
     public void before() {
         sessioncontroller = new SessionController();
     }
 
-    @Test
+  @Test
     public void getSessionSpeed() {
         SessionTemperatures = sessioncontroller.getParameterBySessionId(1, "temperature");
 
@@ -48,3 +48,4 @@ public class DummySessionTests {
 //
 //    }
 }
+     */
