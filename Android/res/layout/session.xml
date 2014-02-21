@@ -79,7 +79,7 @@
                 android:text="@string/session_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/session_btn_input"/>
+                android:id="@+id/session_btn"/>
     </LinearLayout>
 
 
