@@ -1,4 +1,3 @@
-/*
 package persistence;
 import app.SessionData;
 import com.datastax.driver.core.Cluster;
@@ -7,10 +6,10 @@ import org.junit.*;
 
 import java.util.HashMap;
 
-*/
+
 /**
  * Created by Jonathan on 21/02/14.
- *//*
+ */
 
 public class TestCassandraDB {
 
@@ -18,7 +17,7 @@ public class TestCassandraDB {
 
     @BeforeClass
     public static void init() {
-        Cluster cluster = Cluster.builder().addContactPoints("127.0.0.1").build();
+        Cluster cluster = Cluster.builder().addContactPoints("").build();
         Session session = cluster.connect("fastradatest");
         session.execute("TRUNCATE metadata;");
         String serverIP = "127.0.0.1";
@@ -57,7 +56,4 @@ public class TestCassandraDB {
 
         Assert.assertEquals("Session ids must be consecutive", sessionId1 + 1, sessionId2);
     }
-
-
 }
-*/
