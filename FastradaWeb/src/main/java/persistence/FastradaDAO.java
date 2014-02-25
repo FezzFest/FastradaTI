@@ -13,7 +13,6 @@ public class FastradaDAO {
     private String keyspace;
     private Session session;
 
-
     public FastradaDAO(String serverIP, String keyspace) {
         this.serverIP = serverIP;
         this.keyspace = keyspace;
@@ -30,27 +29,17 @@ public class FastradaDAO {
         return 0;
     }
 
-
     public int createNextSession(SessionData sessionData) {
         String sessionName = sessionData.getName();
-        PreparedStatement insertStatement = session.prepare(
-                "INSERT INTO metadata " +
-                        "(sessionid, parameter, value) " +
-                        "VALUES (?, ?, ?);");
+        PreparedStatement insertStatement = session.prepare("INSERT INTO metadata " + "(sessionid, parameter, value) " + "VALUES (?, ?, ?);");
         BoundStatement boundStatement = new BoundStatement(insertStatement);
-        session.execute(boundStatement.bind(
-                "1",
-                "name",
-                sessionName));
-
-
+        session.execute(boundStatement.bind("1", "name", sessionName));
         String statement = "select sessionid from metadata;";
         System.out.println(session.execute(statement));
         return 0;
     }
 
     public HashMap<Integer, SessionData> getAllSessionsData() {
-
         return new HashMap<Integer, SessionData>();
     }
 }
