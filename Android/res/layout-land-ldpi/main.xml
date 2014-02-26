@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:gauge="http://schemas.android.com/apk/res/be.kdg.FastradaMobile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#404141"
+                android:padding="10dp">
+
+    <!-- RPM LEDs -->
+    <LinearLayout
+        android:id="@id/linearImageView"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView1"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView2"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView3"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView4"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView5"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView6"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView7"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView8"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView9"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView10"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView11"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView12"
+            android:maxHeight="20dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView13"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView14"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView15"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView16"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView17"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView18"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView19"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView20"
+            android:maxHeight="22dp"
+            android:maxWidth="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/led_gray"/>
+    </LinearLayout>
+
+    <!-- Left part of screen -->
+    <LinearLayout
+        android:id="@+id/dashboard_left"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/linearImageView"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/dashboard_rpm_units"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="left"/>
+
+            <TextView
+                android:id="@+id/dashboard_rpm_description"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:text="@string/engine_rpm"
+                android:gravity="left"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom|left">
+
+            <TextView
+                android:id="@+id/dashboard_gear_units"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="left"/>
+
+            <TextView
+                android:id="@+id/dashboard_gear_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:text="@string/engine_gear"
+                android:gravity="left"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Center of screen -->
+    <org.codeandmagic.android.gauge.GaugeView
+        android:id="@+id/dashboard_speed_gauge"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        gauge:showOuterShadow="true"
+        gauge:showOuterRim="false"
+        gauge:showNeedle="false"
+        gauge:showRanges="false"
+        gauge:showText="true"
+        gauge:textUnit="km/h"/>
+
+    <!-- Right part of screen -->
+    <LinearLayout
+        android:id="@+id/dashboard_right"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/linearImageView"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom|right">
+
+            <TextView
+                android:id="@+id/dashboard_temperature_units"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="right"/>
+
+            <TextView
+                android:id="@+id/dashboard_temperature_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:text="@string/temperature_alarm"
+                android:gravity="right"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

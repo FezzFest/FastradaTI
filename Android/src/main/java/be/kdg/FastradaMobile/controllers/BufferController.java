@@ -1,7 +1,5 @@
 package be.kdg.FastradaMobile.controllers;
 
-import android.util.Log;
-
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;

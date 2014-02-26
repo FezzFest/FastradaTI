@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:gauge="http://schemas.android.com/apk/res/be.kdg.FastradaMobile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:background="#404141">
+
+    <LinearLayout
+        android:id="@+id/dashboard_top"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/dashboard_rpm_units"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/dashboard_rpm_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:text="@string/engine_rpm"/>
+
+        <LinearLayout
+            android:id="@+id/linearImageView"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView1"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView2"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView3"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView4"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView5"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView6"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView7"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView8"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView9"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView10"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView11"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView12"
+                android:maxHeight="22dp"
+                android:maxWidth="22dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/led_gray"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <org.codeandmagic.android.gauge.GaugeView
+        android:id="@+id/dashboard_speed_gauge"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        gauge:showOuterShadow="true"
+        gauge:showOuterRim="false"
+        gauge:showNeedle="false"
+        gauge:showRanges="false"
+        gauge:showText="true"
+        gauge:textUnit="km/h"/>
+
+    <LinearLayout
+        android:id="@+id/dashboard_bottom"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dashboard_speed_gauge"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/dashboard_gear_units"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/dashboard_gear_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:text="@string/engine_gear"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/dashboard_temperature_units"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="right"/>
+
+            <TextView
+                android:id="@+id/dashboard_temperature_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:text="@string/temperature_alarm"
+                android:gravity="right"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
