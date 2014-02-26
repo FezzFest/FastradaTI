@@ -1,9 +1,11 @@
 package persistence;
+
 import app.SessionData;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
 import org.junit.*;
 
+import java.util.Date;
 import java.util.HashMap;
 
 
@@ -33,13 +35,15 @@ public class TestCassandraDB {
 
     @Test
     public void testGetASessionId() {
-        Assert.assertEquals("Next session id must be integer >= 0", true, fastradaDAO.createNextSession(new SessionData("Run1")) >= 0);
+        SessionData run1 = new SessionData("Run1", new Date(System.currentTimeMillis()), "Zalig ritje met mooi weer", "Spa Francorchamps");
+        Assert.assertEquals("Next session id must be integer >= 0", true, fastradaDAO.createNextSession(run1) >= 0);
     }
 
     @Test
     public void testUniqueSessionId() {
+        SessionData run1 = new SessionData("Run2", new Date(System.currentTimeMillis()), "Zalig ritje met mooi weer", "Spa Francorchamps");
         boolean unique = true;
-        int nextSessionId = fastradaDAO.createNextSession(new SessionData("Run1"));
+        int nextSessionId = fastradaDAO.createNextSession(run1);
         HashMap<Integer, SessionData> sessionDataHashMap = fastradaDAO.getAllSessionsData();
         for (Integer id : sessionDataHashMap.keySet()) {
             if (nextSessionId == id) {
@@ -49,11 +53,13 @@ public class TestCassandraDB {
         Assert.assertEquals("Next session id must be unique", true, unique);
     }
 
-/*    @Test
+    @Test
     public void testCreate2Sessions() {
-        int sessionId1 = fastradaDAO.createNextSession(new SessionData("Run1"));
-        int sessionId2 = fastradaDAO.createNextSession(new SessionData("Run2"));
+        SessionData run1 = new SessionData("Run3", new Date(System.currentTimeMillis()), "Zalig ritje met mooi weer", "Spa Francorchamps");
+        SessionData run2 = new SessionData("Run4", new Date(System.currentTimeMillis()), "Zeer veel commentaar is hier geschreven", "Spa Francorchamps");
+        int sessionId1 = fastradaDAO.createNextSession(run1);
+        int sessionId2 = fastradaDAO.createNextSession(run2);
 
         Assert.assertEquals("Session ids must be consecutive", sessionId1 + 1, sessionId2);
-    }*/
+    }
 }
