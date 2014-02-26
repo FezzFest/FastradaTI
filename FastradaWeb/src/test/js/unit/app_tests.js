@@ -7,7 +7,7 @@ describe('Controllers', function () {
             ctrl = $controller('HomeController', {$scope: scope});
         }));
 
-        it('should be 6', function () {
+        it('should be 12', function () {
             expect(scope.sessions.length).toEqual(12);
         });
     });

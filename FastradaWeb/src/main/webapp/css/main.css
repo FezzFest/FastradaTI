@@ -1,7 +1,13 @@
+
+
 .chart {
 
     height: 500px;
     width: 500px;
+}
+
+.icons{
+    padding:15px 0 5px;
 }
 
 .session {

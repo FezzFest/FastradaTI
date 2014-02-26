@@ -9,19 +9,33 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Parameter</a>
+            <span class="navbar-brand">Session {{sessionId}}</span>
 
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Temperature</a></li>
-                <li><a href="#">Speed</a></li>
-                <li><a href="#">Fuel Map</a></li>
-                <li><a href="#">RPM</a></li>
-                <li><a href="#">Gear</a></li>
+                <li ng-repeat="parameter in parameters" ng-class="{active: isActiveParameter(parameter)}"><a href="#/sessiondetail/{{sessionId}}/{{parameter}}">{{parameter}}</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<div google-chart chart="chart" style="{{chart.cssStyle}}"/>
+<div class="row">
+    <div class="col-md-11">
+        <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
+    </div>
+    <div class="col-md-1">
+        <div class="navbar-default the-icons text-center icons">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="type in chartTypes" ng-click="setChartType($index)" ng-class="{active: isActiveChartType($index)}"><a class="icon-{{type}}"></a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <!--<a ng-repeat="type in chartTypes" ng-click="setChartType($index)" class="icon-{{type}}" ></a>-->
+            <!--<p ng-click="setChartType(1)" class="icon-chart-line"></p>-->
+            <!--<p ng-click="setChartType(2)" class="icon-chart-area"></p>-->
+            <!--<p ng-click="setChartType(3)" class="icon-chart-bar"></p>-->
+            <!--<p  ng-click="setChartType(4)" class="icon-chart-bar-horizontal"></p>-->
+            <!--<p ng-click="setChartType(5)" class="icon-table"></p>-->
+        </div>
+    </div>
+</div>

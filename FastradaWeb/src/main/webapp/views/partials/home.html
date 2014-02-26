@@ -5,7 +5,7 @@
 
     <div class="panel-body">
 
-        <div class="row">
+        <div class="row" ng-show="hasSessions()">
             <div class="col-sx-4 col-md-2" ng-repeat="session in sessions">
                 <a href="#/sessiondetail/{{session.sessionId}}">
                     <div class="thumbnail session">
@@ -22,5 +22,7 @@
                 </a>
             </div>
         </div>
+
+        <p ng-show="!hasSessions()">Unfortunately there are no sessions yet. Start racing green!</p>
     </div>
 </div>
