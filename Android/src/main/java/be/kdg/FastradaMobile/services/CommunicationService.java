@@ -10,7 +10,7 @@ import be.kdg.FastradaMobile.controllers.CompressorController;
  * Created by FezzFest on 18/02/14.
  */
 public class CommunicationService extends IntentService {
-    public static boolean running = false;
+    public static boolean isRunning = false;
 
     public CommunicationService() {
         super("CommunicationService");
@@ -18,7 +18,7 @@ public class CommunicationService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        running = true;
+        isRunning = true;
 
         BufferController buffer = BufferController.getInstance();
         CompressorController compressor = new CompressorController();

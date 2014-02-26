@@ -10,6 +10,8 @@ import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.services.CommunicationService;
 
+import java.nio.ByteBuffer;
+
 /**
  * Created by FezzFest on 21/02/14.
  */

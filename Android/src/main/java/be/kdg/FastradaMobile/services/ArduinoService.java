@@ -27,7 +27,7 @@ public class ArduinoService extends IntentService {
             byte[] received = inputDataController.receiveUdpPacket();
 
             // Add packet to buffer
-            if (CommunicationService.running) {
+            if (CommunicationService.isRunning) {
                 buffer.addPacket(received);
             }
 

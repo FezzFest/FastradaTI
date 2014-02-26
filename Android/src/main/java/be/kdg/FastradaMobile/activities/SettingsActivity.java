@@ -1,5 +1,6 @@
 package be.kdg.FastradaMobile.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.*;
 import be.kdg.FastradaMobile.R;
@@ -12,22 +13,19 @@ public class SettingsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
-        getPrefs();
+
+        // About Preference
+        addAboutListener();
     }
 
-    private void getPrefs(){
-        CheckBoxPreference checkBoxPreferenceAlarm = (CheckBoxPreference) findPreference("pref_alarm_enabled");
-        final EditTextPreference editTextPreferenceAlarm = (EditTextPreference) findPreference("pref_alarm_temperature");
+    private void addAboutListener() {
+        Preference aboutPreference = (Preference) findPreference("pref_about");
+        aboutPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);
+                startActivity(intent);
 
-        checkBoxPreferenceAlarm.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                editTextPreferenceAlarm.setShouldDisableView(true);
-                if ((Boolean) newValue) {
-                   editTextPreferenceAlarm.setEnabled(true);
-                } else {
-                    editTextPreferenceAlarm.setEnabled(false);
-                }
                 return true;
             }
         });
