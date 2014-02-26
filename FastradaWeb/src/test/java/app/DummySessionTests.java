@@ -37,9 +37,9 @@ public class DummySessionTests {
 
 //    @Test
 //    public void getSessionList() {
-//        List<Session> sessionList =  sessioncontroller.list();
+//        List<SessionData> sessionList =  sessioncontroller.list();
 //
-//        List<Session> controlList = new ArrayList<Integer>();
+//        List<SessionData> controlList = new ArrayList<Integer>();
 //        for (int teller = 0; teller < 10; teller++) {
 //            controlList.add(teller);
 //        }

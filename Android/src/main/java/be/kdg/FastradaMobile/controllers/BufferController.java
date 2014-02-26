@@ -1,5 +1,8 @@
 package be.kdg.FastradaMobile.controllers;
 
+import android.util.Log;
+
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -8,7 +11,9 @@ import java.util.ListIterator;
  * Created by FezzFest on 19/02/14.
  */
 public class BufferController {
+    private final int PACKET_SIZE = 18;
     private static BufferController instance;
+
     private boolean primaryBufferEnabled = true;
     private List<byte[]> primaryBuffer = new ArrayList<byte[]>();
     private List<byte[]> alternateBuffer = new ArrayList<byte[]>();
@@ -26,10 +31,16 @@ public class BufferController {
     }
 
     public void addPacket(byte[] packet) {
+        long timestamp = System.currentTimeMillis();
+        byte[] bTimeStamp = ByteBuffer.allocate(8).putLong(timestamp).array();
+        byte[] newPacket = new byte[PACKET_SIZE];
+        System.arraycopy(bTimeStamp, 0, newPacket, 0, 8);
+        System.arraycopy(packet, 0, newPacket, 8, 10);
+
         if (primaryBufferEnabled) {
-            primaryBuffer.add(packet);
+            primaryBuffer.add(newPacket);
         } else {
-            alternateBuffer.add(packet);
+            alternateBuffer.add(newPacket);
         }
     }
 
@@ -57,7 +68,7 @@ public class BufferController {
 
             // Packets to array
             int counter = 0;
-            result = new byte[10 * primaryBuffer.size()];
+            result = new byte[PACKET_SIZE * primaryBuffer.size()];
             ListIterator<byte[]> it = primaryBuffer.listIterator();
             while (it.hasNext()) {
                 byte[] next = it.next();
@@ -75,7 +86,7 @@ public class BufferController {
 
             // Packets to array
             int counter = 0;
-            result = new byte[10 * alternateBuffer.size()];
+        result = new byte[PACKET_SIZE * alternateBuffer.size()];
             ListIterator<byte[]> it = alternateBuffer.listIterator();
             while (it.hasNext()) {
                 byte[] next = it.next();

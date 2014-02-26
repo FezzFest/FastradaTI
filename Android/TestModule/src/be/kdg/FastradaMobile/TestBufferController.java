@@ -7,6 +7,7 @@ import be.kdg.FastradaMobile.activities.MainActivity;
 import be.kdg.FastradaMobile.controllers.BufferController;
 import org.junit.Assert;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -41,7 +42,7 @@ public class TestBufferController extends ActivityUnitTestCase<MainActivity> {
         buffer.addPacket(packet);
 
         // Assert
-        assertArrayEquals("Packets must be equal", packet, buffer.getPackets());
+        assertArrayEquals("Packets must be equal", packet, stripTimeStamp(buffer.getPackets()));
     }
 
     public void testLotsOfPackets() {
@@ -49,11 +50,11 @@ public class TestBufferController extends ActivityUnitTestCase<MainActivity> {
 
         // Define packets
         Random random = new Random();
-
         byte[][] packets = new byte[numerOfPackets][10];
         for (int i = 0; i < numerOfPackets; i++) {
             packets[i] = new byte[10];
             random.nextBytes(packets[i]);
+
             buffer.addPacket(packets[i]);
         }
 
@@ -70,7 +71,7 @@ public class TestBufferController extends ActivityUnitTestCase<MainActivity> {
 
         // Assert
         byte[] bufferBytes = buffer.getPackets();
-        assertArrayEquals("Arrays must be equal", result, bufferBytes);
+        assertArrayEquals("Arrays must be equal", result, stripTimeStamp(bufferBytes));
     }
 
     public void testSwitchingBuffers() throws InterruptedException {
@@ -127,15 +128,24 @@ public class TestBufferController extends ActivityUnitTestCase<MainActivity> {
         sendPackets.start();
         getPackets.start();
 
-        Thread.sleep(100000);
+        Thread.sleep(10000);
         byte[] result = convertDoubleToSingle(packets);
         byte[] bufferResult = convertDoubleToSingle(bufferList.toArray(new byte[][]{}));
-        assertArrayEquals("Arrays must be equal", result, bufferResult);
+        assertArrayEquals("Arrays must be equal", result, stripTimeStamp(bufferResult));
     }
 
     private byte[] convertDoubleToSingle(byte[][] array) {
         int counter = 0;
-        byte[] result = new byte[1000];
+
+        // Determine result size
+        int size = 0;
+        for (int i=0; i<array.length; i++) {
+            for (int j=0; j<array[i].length; j++) {
+                size++;
+            }
+        }
+
+        byte[] result = new byte[size];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 byte b = array[i][j];
@@ -144,6 +154,16 @@ public class TestBufferController extends ActivityUnitTestCase<MainActivity> {
             }
         }
 
+        return result;
+    }
+
+    private byte[] stripTimeStamp(byte[] buffer) {
+        int packets = buffer.length / 18;
+
+        byte[] result = new byte[packets * 10];
+        for(int i=0;i<packets;i++){
+            System.arraycopy(buffer, (i*18)+8, result, i*10, 10);
+        }
         return result;
     }
 }
