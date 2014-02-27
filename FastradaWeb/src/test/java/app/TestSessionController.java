@@ -48,7 +48,7 @@ public class TestSessionController {
     @Test
     public void testCreateColumnFamily() {
         int rowCount = 0;
-        SessionData run1 = new SessionData("Run3", new Date(System.currentTimeMillis()), "Zalig ritje met mooi weer", "Spa Francorchamps");
+        SessionData run1 = new SessionData("Run3", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
         Gson gson = new Gson();
 
         String json1 = gson.toJson(run1);
