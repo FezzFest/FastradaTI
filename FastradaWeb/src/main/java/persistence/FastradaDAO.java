@@ -4,6 +4,7 @@ import app.SessionData;
 import com.datastax.driver.core.*;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.Serializable;
 import java.util.HashMap;
 
@@ -28,6 +29,7 @@ public class FastradaDAO implements Serializable {
         makeConnection();
     }
 
+    //@PostConstruct
     public int makeConnection() {
         try {
             Cluster cluster = Cluster.builder().addContactPoints(serverIP).build();
@@ -55,7 +57,6 @@ public class FastradaDAO implements Serializable {
                 sessionId = Integer.parseInt(row.getString(0)) + 1;
             }
         }
-
         session.execute(boundStatement.bind(String.format("%d", sessionId), "name", name));
         session.execute(boundStatement.bind(String.format("%d", sessionId), "date", date));
         session.execute(boundStatement.bind(String.format("%d", sessionId), "comment", comment));
