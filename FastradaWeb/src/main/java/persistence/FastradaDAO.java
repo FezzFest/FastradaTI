@@ -42,10 +42,10 @@ public class FastradaDAO implements Serializable {
 
     public int createNextSession(SessionData sessionData) {
         int sessionId = 0;
-        String name = sessionData.getName();
+        String name = sessionData.getSessionName();
         String date = sessionData.getDate().toString();
         String comment = sessionData.getComment();
-        String track = sessionData.getTrack();
+        String track = sessionData.getTrackName();
 
         PreparedStatement insertStatement = session.prepare("INSERT INTO metadata" + "(sessionid, parameter, value) " + "VALUES (?, ?, ?);");
         BoundStatement boundStatement = new BoundStatement(insertStatement);

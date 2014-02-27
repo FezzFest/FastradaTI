@@ -27,8 +27,8 @@ public class TestSessionController {
 
     @Test
     public void testNewSessionPost() {
-        SessionData run1 = new SessionData("Run3", new Date(System.currentTimeMillis()), "Zalig ritje met mooi weer", "Spa Francorchamps");
-        SessionData run2 = new SessionData("Run4", new Date(System.currentTimeMillis()), "Zeer veel commentaar is hier geschreven", "Spa Francorchamps");
+        SessionData run1 = new SessionData("Run3", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
+        SessionData run2 = new SessionData("Run4", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
         Gson gson = new Gson();
 
         String json1 = gson.toJson(run1);

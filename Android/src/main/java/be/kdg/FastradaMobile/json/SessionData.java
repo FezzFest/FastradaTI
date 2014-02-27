@@ -1,4 +1,4 @@
-package app;
+package be.kdg.FastradaMobile.json;
 
 import java.io.Serializable;
 import java.util.Date;

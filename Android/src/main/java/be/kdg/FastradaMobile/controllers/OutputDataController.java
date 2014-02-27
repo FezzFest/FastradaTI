@@ -1,5 +1,7 @@
 package be.kdg.FastradaMobile.controllers;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -38,9 +40,19 @@ public class OutputDataController {
             URL url = new URL(s);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
+            // Headers
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Host", "vps42465.ovh.net:8080");
+            conn.setRequestProperty("Content-Type", "text/plain;charset=UTF-8");
+
             conn.setDoOutput(true);
             DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
             dos.writeBytes(params);
+
+            // Log
+            Log.d("Fastrada", "URL: " + s);
+            Log.d("Fastrada", "Params: " + params);
+            Log.d("Fastrada", "Response code: " + conn.getResponseCode());
 
             InputStreamReader isr = new InputStreamReader(conn.getInputStream());
             BufferedReader in = new BufferedReader(isr);

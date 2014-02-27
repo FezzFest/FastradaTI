@@ -35,13 +35,13 @@ public class TestCassandraDB {
 
     @Test
     public void testGetASessionId() {
-        SessionData run1 = new SessionData("Run1", new Date(System.currentTimeMillis()), "Zalig ritje met mooi weer", "Spa Francorchamps");
+        SessionData run1 = new SessionData("Run1", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
         Assert.assertEquals("Next session id must be integer >= 0", true, fastradaDAO.createNextSession(run1) >= 0);
     }
 
     @Test
     public void testUniqueSessionId() {
-        SessionData run1 = new SessionData("Run2", new Date(System.currentTimeMillis()), "Zalig ritje met mooi weer", "Spa Francorchamps");
+        SessionData run1 = new SessionData("Run2", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
         boolean unique = true;
         int nextSessionId = fastradaDAO.createNextSession(run1);
         HashMap<Integer, SessionData> sessionDataHashMap = fastradaDAO.getAllSessionsData();
@@ -55,8 +55,8 @@ public class TestCassandraDB {
 
     @Test
     public void testCreate2Sessions() {
-        SessionData run1 = new SessionData("Run3", new Date(System.currentTimeMillis()), "Zalig ritje met mooi weer", "Spa Francorchamps");
-        SessionData run2 = new SessionData("Run4", new Date(System.currentTimeMillis()), "Zeer veel commentaar is hier geschreven", "Spa Francorchamps");
+        SessionData run1 = new SessionData("Run3", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
+        SessionData run2 = new SessionData("Run4", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
         int sessionId1 = fastradaDAO.createNextSession(run1);
         int sessionId2 = fastradaDAO.createNextSession(run2);
 
