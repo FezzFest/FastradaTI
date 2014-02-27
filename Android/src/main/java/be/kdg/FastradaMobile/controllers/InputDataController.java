@@ -22,7 +22,7 @@ public class InputDataController {
     private void initializeSocket() {
         // Get port from SharedPreferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int port = prefs.getInt("port", 9000);
+        int port = Integer.parseInt(prefs.getString("pref_arduino_port", "9000"));
 
         // Create socket
         try {

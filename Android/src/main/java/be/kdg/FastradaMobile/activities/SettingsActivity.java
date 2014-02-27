@@ -17,6 +17,7 @@ public class SettingsActivity extends PreferenceActivity {
 
         // Listeners
         addGaugeListener();
+        addWiFiListener();
         addAboutListener();
     }
 
@@ -26,6 +27,20 @@ public class SettingsActivity extends PreferenceActivity {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 Toast.makeText(SettingsActivity.this, "Please restart the application.", Toast.LENGTH_LONG).show();
+
+                return true;
+            }
+        });
+    }
+
+    private void addWiFiListener() {
+        Preference wifiPreference = (Preference) findPreference("pref_arduino_wifi");
+        wifiPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent tetherSettings = new Intent();
+                tetherSettings.setClassName("com.android.settings", "com.android.settings.TetherSettings");
+                startActivity(tetherSettings);
 
                 return true;
             }

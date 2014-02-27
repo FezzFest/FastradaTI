@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Settings -->
     <PreferenceCategory android:title="Settings">
+        <!-- Basic Settings -->
         <PreferenceScreen android:title="Basic Settings">
             <PreferenceCategory android:title="Elements">
-                <CheckBoxPreference
-                    android:key="pref_UI_gaugeView"
-                    android:title="Enable Speed"
-                    android:summary="Enable speed indicator"
-                    android:defaultValue="true"/>
                 <CheckBoxPreference
                     android:key="pref_UI_RPM"
                     android:title="Enable RPM"
@@ -52,18 +47,37 @@
             </PreferenceCategory>
         </PreferenceScreen>
 
-        <PreferenceScreen android:title="Advanced Settings">
-            <PreferenceCategory android:title="Communication">
+        <!-- Communication Settings -->
+        <PreferenceScreen android:title="Communication">
+            <PreferenceCategory android:title="External">
                 <EditTextPreference
                     android:key="pref_service_address"
                     android:title="Server address"
-                    android:summary="Specify the address for the external service"/>
+                    android:summary="Specify the address for the external service"
+                    android:defaultValue="http://vps42465.ovh.net"/>
                 <EditTextPreference
                     android:key="pref_service_port"
                     android:title="Server port"
-                    android:summary="Specify the port for the external service"/>
+                    android:summary="Specify the port for the external service"
+                    android:defaultValue="8080"
+                    android:inputType="number"/>
             </PreferenceCategory>
+            <PreferenceCategory android:title="Internal">
+                <EditTextPreference
+                    android:key="pref_arduino_port"
+                    android:title="Arduino port"
+                    android:summary="Specify the port for the Arduino client"
+                    android:defaultValue="9000"
+                    android:inputType="number"/>
+                <Preference
+                    android:key="pref_arduino_wifi"
+                    android:title="WiFi settings"
+                    android:summary="Specify the settings for the WiFi hotspot"/>
+            </PreferenceCategory>
+        </PreferenceScreen>
 
+        <!-- Advanced Settings -->
+        <PreferenceScreen android:title="Advanced Settings">
             <PreferenceCategory android:title="Buffer">
                 <EditTextPreference
                     android:key="pref_buffer_size"

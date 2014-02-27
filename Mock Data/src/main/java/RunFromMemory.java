@@ -18,7 +18,6 @@ public class RunFromMemory {
         List<byte[]> id102Packets = makePacketsId102(0, 255);
 
         while (true) {
-
             for (int i = 0; i < 3000; i++) {
                 sendPacket(id100Packets.get(i));
                 //Thread.sleep(2);
