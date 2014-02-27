@@ -47,3 +47,7 @@ a:hover {
     border-right: 1px solid #e7e7e7;
     border-width: 0 2px 0 0 ;
 }
+
+.google-visualization-table-table td{
+    text-align: center;
+}

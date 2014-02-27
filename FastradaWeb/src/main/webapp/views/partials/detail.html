@@ -25,17 +25,11 @@
         <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
     </div>
     <div class="col-md-1">
-        <div class="navbar-default the-icons text-center icons">
+        <div class="navbar navbar-default the-icons text-center icons">
             <ul class="nav navbar-nav">
                 <li ng-repeat="type in chartTypes" ng-click="setChartType($index)" ng-class="{active: isActiveChartType($index)}"><a class="icon-{{type}}"></a></li>
             </ul>
             <div class="clearfix"></div>
-            <!--<a ng-repeat="type in chartTypes" ng-click="setChartType($index)" class="icon-{{type}}" ></a>-->
-            <!--<p ng-click="setChartType(1)" class="icon-chart-line"></p>-->
-            <!--<p ng-click="setChartType(2)" class="icon-chart-area"></p>-->
-            <!--<p ng-click="setChartType(3)" class="icon-chart-bar"></p>-->
-            <!--<p  ng-click="setChartType(4)" class="icon-chart-bar-horizontal"></p>-->
-            <!--<p ng-click="setChartType(5)" class="icon-table"></p>-->
         </div>
     </div>
 </div>
