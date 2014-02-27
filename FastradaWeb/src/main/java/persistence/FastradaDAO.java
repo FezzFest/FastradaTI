@@ -60,7 +60,6 @@ public class FastradaDAO implements Serializable {
         session.execute(boundStatement.bind(String.format("%d", sessionId), "date", date));
         session.execute(boundStatement.bind(String.format("%d", sessionId), "comment", comment));
         session.execute(boundStatement.bind(String.format("%d", sessionId), "track", track));
-        System.out.println(sessionId);
         return sessionId;
     }
 

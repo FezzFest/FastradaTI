@@ -53,7 +53,6 @@ public class OutputDataController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return response.toString();
     }
 }

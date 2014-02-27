@@ -15,7 +15,7 @@ import java.util.List;
 public class SessionController {
     //TODO autowiring in orde maken
     //@Autowired
-    FastradaDAO fastradaDAO  = new FastradaDAO();
+    FastradaDAO fastradaDAO = new FastradaDAO();
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
@@ -42,13 +42,14 @@ public class SessionController {
         return parameters;
     }
 
-    @RequestMapping(value = "new", method = RequestMethod.POST)
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
     @ResponseBody
     public SessionId getNewSessionId(@RequestBody String sessionDataString) {
         Gson gson = new Gson();
+        System.out.println(sessionDataString);
         SessionData sessionData = gson.fromJson(sessionDataString, SessionData.class);
-        System.out.println(sessionData.getName());
         int sessionId = fastradaDAO.createNextSession(sessionData);
+
         return new SessionId(sessionId);
     }
 
