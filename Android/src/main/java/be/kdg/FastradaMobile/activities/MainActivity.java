@@ -10,16 +10,16 @@ import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
+import android.text.Layout;
+import android.util.Log;
+import android.view.*;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.UserInterfaceController;
 import org.codeandmagic.android.gauge.GaugeView;
+import org.w3c.dom.Text;
 
 public class MainActivity extends Activity {
     private static final int GREEN_LED_PORTRAIT = 8;
@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
     private int streamId;
     private int rpmLimiter;
     private boolean alarmPlaying;
+    int id=0;
 
     /**
      * Called when the activity is first created.
@@ -134,6 +135,8 @@ public class MainActivity extends Activity {
             tempIndicator.setVisibility(View.INVISIBLE);
             tempDescription.setVisibility(View.INVISIBLE);
         }
+
+
     }
 
     private void showTemp(double temperature) {
@@ -217,6 +220,64 @@ public class MainActivity extends Activity {
                 System.exit(0);
                 break;
         }
+        return true;
+    }
+
+    public boolean onTouchEvent(MotionEvent event) {
+        if (!prefs.getBoolean("pref_UI_change", true)){
+            int eventaction = event.getAction();
+
+            int X = (int)event.getX();
+            int Y = (int)event.getY();
+            LinearLayout linearLayout1;
+            LinearLayout linearLayout2;
+
+            if (getResources().getConfiguration().orientation ==1){
+                linearLayout1 = (LinearLayout) findViewById(R.id.dashboard_top);
+                linearLayout2 = (LinearLayout) findViewById(R.id.dashboard_bottom);
+            }   else {
+                linearLayout1 = (LinearLayout) findViewById(R.id.dashboard_left);
+                linearLayout2 = (LinearLayout) findViewById(R.id.dashboard_right);
+            }
+
+            GaugeView gaugeView = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
+            LinearLayout[] viewGroups= new LinearLayout[2];
+
+            viewGroups[0] = linearLayout1;
+            viewGroups[1] = linearLayout2;
+
+            switch(eventaction){
+
+                case MotionEvent.ACTION_DOWN:
+                    id=0;
+                    for (LinearLayout UIelement : viewGroups) {
+
+                        if (X > UIelement.getX() && X < UIelement.getX()+UIelement.getWidth() && Y > UIelement.getY() && Y < UIelement.getY()+UIelement.getHeight()){
+                            break;
+                        }
+                        id++;
+                    }
+                    if (id==2){
+                        if (X > gaugeView.getX() && X < gaugeView.getX()+gaugeView.getWidth() && Y > gaugeView.getY() && Y < gaugeView.getY()+gaugeView.getHeight()){
+                            break;
+                        }
+                        id++;
+                    }
+
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    if (id<2){
+                        viewGroups[id].setX(X - viewGroups[id].getWidth() / 2);
+                        viewGroups[id].setY(Y - viewGroups[id].getHeight() / 2);
+                    } else if(id==2){
+                        gaugeView.setX(X - gaugeView.getWidth()/2);
+                        gaugeView.setY(Y - gaugeView.getWidth()/2);
+
+                    }
+                    break;
+            }
+        }
+
         return true;
     }
 }

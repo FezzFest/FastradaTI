@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+>
 
         <TextView
             android:id="@+id/dashboard_rpm_units"
@@ -30,7 +31,8 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@android:color/white"
             android:textSize="12sp"
-            android:text="@string/engine_rpm"/>
+            android:text="@string/engine_rpm"
+            android:layout_weight="100"/>
 
         <LinearLayout
             android:id="@+id/linearImageView"

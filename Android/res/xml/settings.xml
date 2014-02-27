@@ -19,6 +19,12 @@
                     android:title="Enable Temperature"
                     android:summary="Enable temperature indicator"
                     android:defaultValue="true"/>
+                <CheckBoxPreference
+                        android:key="pref_UI_change"
+                        android:title="Lock UI"
+                        android:summary="Disable UI movement by user."
+                        android:defaultValue="true"/>
+
             </PreferenceCategory>
 
             <PreferenceCategory android:title="Style">
