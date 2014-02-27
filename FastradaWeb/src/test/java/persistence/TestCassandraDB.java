@@ -2,6 +2,7 @@ package persistence;
 
 import app.SessionData;
 import com.datastax.driver.core.Cluster;
+import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 import org.junit.*;
 
@@ -19,9 +20,16 @@ public class TestCassandraDB {
 
     @BeforeClass
     public static void init() {
+        //reinitialize DB
         Cluster cluster = Cluster.builder().addContactPoints("127.0.0.1").build();
         Session session = cluster.connect("fastradatest");
         session.execute("TRUNCATE metadata;");
+        String cqlStatement = "SELECT columnfamily_name FROM system.schema_columnfamilies WHERE keyspace_name='fastradatest';";
+        for (Row row : session.execute(cqlStatement)) {
+            if (!row.getString("columnfamily_name").equals("metadata")) {
+                session.execute("drop table " + row.getString("columnfamily_name"));
+            }
+        }
         String serverIP = "127.0.0.1";
         String keyspace = "fastradatest";
         fastradaDAO = new FastradaDAO(serverIP, keyspace);
@@ -30,7 +38,7 @@ public class TestCassandraDB {
 
     @Test
     public void testConnection() {
-        Assert.assertEquals("Connection with fastrada keyspace failed", 0, fastradaDAO.makeConnection());
+        Assert.assertEquals("Connection with fastrada keyspace failed", FastradaDAO.CONNECTION_SUCCESFULL, fastradaDAO.makeConnection());
     }
 
     @Test

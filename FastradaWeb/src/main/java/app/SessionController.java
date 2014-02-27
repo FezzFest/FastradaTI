@@ -41,14 +41,13 @@ public class SessionController {
         return parameters;
     }
 
+    //TODO concurrent request not allowed
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     @ResponseBody
     public SessionId getNewSessionId(@RequestBody String sessionDataString) {
         Gson gson = new Gson();
-        System.out.println(sessionDataString);
         SessionData sessionData = gson.fromJson(sessionDataString, SessionData.class);
         int sessionId = fastradaDAO.createNextSession(sessionData);
-
         return new SessionId(sessionId);
     }
 

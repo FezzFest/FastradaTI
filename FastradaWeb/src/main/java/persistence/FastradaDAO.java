@@ -16,6 +16,8 @@ public class FastradaDAO implements Serializable {
     private String serverIP;
     private String keyspace;
     private Session session;
+    public static final int CONNECTION_SUCCESFULL = 0;
+    public static final int CONNECTION_FAILED = 1;
 
     public FastradaDAO(String serverIP, String keyspace) {
         this.serverIP = serverIP;
@@ -35,12 +37,13 @@ public class FastradaDAO implements Serializable {
             Cluster cluster = Cluster.builder().addContactPoints(serverIP).build();
             session = cluster.connect(keyspace);
         } catch (Exception e) {
-            return 1;
+            return CONNECTION_FAILED;
         }
-        return 0;
+        return CONNECTION_SUCCESFULL;
     }
 
     public int createNextSession(SessionData sessionData) {
+        //TODO iterate over all fields from SessionData
         int sessionId = 0;
         String name = sessionData.getSessionName();
         String date = sessionData.getDate().toString();
@@ -51,7 +54,7 @@ public class FastradaDAO implements Serializable {
         BoundStatement boundStatement = new BoundStatement(insertStatement);
 
         //TODO get max sessionId refactoren
-        String cqlStatement = "SELECT sessionid FROM metadata";
+        String cqlStatement = "SELECT sessionid FROM metadata;";
         for (Row row : session.execute(cqlStatement)) {
             if (Integer.parseInt(row.getString(0)) >= sessionId) {
                 sessionId = Integer.parseInt(row.getString(0)) + 1;
@@ -61,7 +64,14 @@ public class FastradaDAO implements Serializable {
         session.execute(boundStatement.bind(String.format("%d", sessionId), "date", date));
         session.execute(boundStatement.bind(String.format("%d", sessionId), "comment", comment));
         session.execute(boundStatement.bind(String.format("%d", sessionId), "track", track));
+
+        createSessionTable(sessionId);
         return sessionId;
+    }
+
+    public void createSessionTable(int sessionId) {
+        String cqlStatement = "CREATE TABLE s" + sessionId + " ( sessionid text, parameter text, value text, PRIMARY KEY (sessionid, parameter) ) WITH COMPACT STORAGE;";
+        session.execute(cqlStatement);
     }
 
     public HashMap<Integer, SessionData> getAllSessionsData() {
