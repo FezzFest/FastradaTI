@@ -7,7 +7,7 @@ describe('Controllers', function () {
             ctrl = $controller('HomeController', {$scope: scope});
         }));
 
-        it('should be 12', function () {
+        it('should contain 12 sessions', function () {
             expect(scope.sessions.length).toEqual(12);
         });
     });
@@ -79,11 +79,17 @@ describe('Controllers', function () {
                 'value': '99'
             }
         ];
-        var scope, ctrl;
+        var scope, ctrl, session, $httpBackend;
         var params = {'sessionId': '0', 'parameterName': 'Speed'};
-        beforeEach(inject(function ($rootScope, $controller) {
+        beforeEach(module('fastrada.services'));
+
+        beforeEach(inject(function ($rootScope, $controller, SessionData, _$httpBackend_) {
             scope = $rootScope.$new();
-            ctrl = $controller('SessionDetailController', {$scope: scope, $routeParams: params});
+            session = SessionData;
+            $httpBackend = _$httpBackend_;
+            $httpBackend.expectGET("/api/sessions").respond({});
+
+            ctrl = $controller('SessionDetailController', {$scope: scope, $routeParams: params, SessionData: session});
         }));
 
         it('should return graph data with 5 points', function () {
@@ -92,8 +98,19 @@ describe('Controllers', function () {
         });
 
         it('should have the same data as our resultData', function () {
-            scope.createGraphData(rawJson);
+             scope.createGraphData(rawJson);
             expect(scope.chart.data == resultData);
+        });
+
+        it('should display 500 chartpoints', function () {
+            scope.random500Data();
+            expect(scope.chart.data.rows.length).toBe(500);
+        });
+
+        it('should return 100 chartpoints', function () {
+            scope.chartMinMax.max = 100;
+            scope.updateGraph(scope.chartMinMax.min, scope.chartMinMax.max);
+            expect(scope.chart.data.rows.length).toBe(102);
         });
     });
 })

@@ -1,5 +1,4 @@
 function HomeController($scope) {
-
     $scope.sessions = [
         {
             'sessionId': '0',
@@ -83,11 +82,18 @@ function HomeController($scope) {
     }
 }
 
-function SessionDetailController($scope, $routeParams) {
+function SessionDetailController($scope, $routeParams, SessionData) {
     $scope.parameters = ['Temperature', 'Speed', 'FuelMap', 'RPM', 'Gear'];
 
     $scope.chartTypes = ['LineChart', 'AreaChart', 'ColumnChart', 'BarChart', 'Table']; //'PieChart',
 
+    // chart variables
+    var result = [];
+    var resultRows = [];
+    var minSeconds = 0;
+    var maxSeconds = 0;
+
+    // move test data to tests
     var rawJson = [
         {    'timestamp': '1393405044000',
             'value': '100'
@@ -110,6 +116,9 @@ function SessionDetailController($scope, $routeParams) {
 
     var parameter = "Temperature";
 
+    $scope.chartMinMax = {"min": 0, "max": 500};
+
+
     if ($routeParams.parameterName != null) {
         parameter = $routeParams.parameterName;
     }
@@ -126,7 +135,7 @@ function SessionDetailController($scope, $routeParams) {
         "cssStyle": "height:400px; width:100%;border: 1px #ccc solid",
         "data": [],
         "options": {
-            "pointSize": 5,
+            "pointSize": 0,
             "title": "Temperature",
             "isStacked": "true",
             "fill": 20,
@@ -135,7 +144,9 @@ function SessionDetailController($scope, $routeParams) {
                 "title": "Temperature in °C",
                 "gridlines": {
                     "count": 10
-                }
+                },
+                "minValue": 0,
+                "maxValue": 130
             },
             "hAxis": {
                 "title": "Seconds"
@@ -144,6 +155,18 @@ function SessionDetailController($scope, $routeParams) {
         "displayed": true
     }
     ;
+
+    $scope.updateGraph = function (minSec, maxSec) {
+        if (minSec < maxSec) {
+            $scope.chart.data.rows = [];
+
+            for (var count = 0; count < resultRows.length; count++) {
+                if (resultRows[count].c[0].v >= minSec && resultRows[count].c[0].v <= maxSec) {
+                    $scope.chart.data.rows.push(resultRows[count]);
+                }
+            }
+        }
+    };
 
     $scope.setChartType = function (index) {
         $scope.chart.type = $scope.chartTypes[index];
@@ -157,7 +180,7 @@ function SessionDetailController($scope, $routeParams) {
     };
 
     $scope.createGraphData = function (rawJSON) {
-        var result = {
+        result = {
             "cols": [
                 {
                     "id": "seconds",
@@ -175,8 +198,11 @@ function SessionDetailController($scope, $routeParams) {
             "rows": [
             ]
         };
+
         var firstTime = 0;
         var formattedTime = 0;
+
+        resultRows = [];
 
         for (var parameterRecord = 0; parameterRecord < rawJSON.length; parameterRecord++) {
             if (firstTime == 0) {
@@ -186,18 +212,38 @@ function SessionDetailController($scope, $routeParams) {
                 formattedTime = formattedTime / 1000;
             }
 
-            result.rows.push({
+            resultRows.push({
                     'c': [
                         {"v": formattedTime },
                         {"v": rawJSON[parameterRecord].value}
                     ]
                 }
-            )
+            );
+
+            result.rows = resultRows;
+
+            if (parameterRecord == rawJSON.length - 1) {
+                maxSeconds = formattedTime;
+            }
         }
 
         $scope.chart.data = result;
         $scope.chart.options.title = parameter;
     };
 
-    $scope.createGraphData(rawJson);
+    $scope.random500Data = function () {
+        var newData = [];
+        for (var extraDataIndex = 0; extraDataIndex < 500; extraDataIndex++) {
+            var random = Math.floor((Math.random() * 20) + 1);
+            newData.push({'timestamp': extraDataIndex * 1000, 'value': 100 + random});
+        }
+        $scope.createGraphData(newData);
+    };
+
+    $scope.random500Data();
+    $scope.updateGraph($scope.chartMinMax.min, $scope.chartMinMax.max);
+
+    SessionData.getSessions().success(function (d) {
+        console.log(d);
+    });
 }
