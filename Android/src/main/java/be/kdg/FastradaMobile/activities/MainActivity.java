@@ -22,7 +22,11 @@ import be.kdg.FastradaMobile.controllers.UserInterfaceController;
 import org.codeandmagic.android.gauge.GaugeView;
 
 public class MainActivity extends Activity {
-    private static int rpmLimiter;
+    private static final int GREEN_LED_PORTRAIT = 8;
+    private static final int GREEN_LED_LAND = 14;
+    private static final int YELLOW_LED_PORTRAIT = 2;
+    private static final int YELLOW_LED_LAND = 3;
+
     private SharedPreferences prefs;
     private GaugeView speed;
     private TextView rpmIndicator;
@@ -35,6 +39,7 @@ public class MainActivity extends Activity {
     private SoundPool sp;
     private int soundId;
     private int streamId;
+    private int rpmLimiter;
     private boolean alarmPlaying;
 
     /**
@@ -155,32 +160,32 @@ public class MainActivity extends Activity {
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearImageView);
         int numberOfGreens, numberOfYellows;
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            numberOfGreens = 14;
-            numberOfYellows = 3;
+            numberOfGreens = GREEN_LED_LAND;
+            numberOfYellows = YELLOW_LED_LAND;
         } else {
-            numberOfGreens = 8;
-            numberOfYellows = 2;
+            numberOfGreens = GREEN_LED_PORTRAIT;
+            numberOfYellows = YELLOW_LED_PORTRAIT;
         }
         int numberOfLeds = linearLayout.getChildCount();
         for (int i = 0; i < numberOfLeds; i++) {
             ImageView imageView = (ImageView) linearLayout.getChildAt(i);
             if (imageView != null) {
                 if (i < numberOfGreens) {
-                    //green
+                    // GREEN
                     if (rpm > (rpmLimiter / numberOfLeds) * i) {
                         imageView.setImageResource(R.drawable.led_green);
                     } else {
                         imageView.setImageResource(R.drawable.led_gray);
                     }
                 } else if (i < numberOfGreens + numberOfYellows) {
-                    //orange
+                    // YELLOW
                     if (rpm > (rpmLimiter / numberOfLeds) * i) {
                         imageView.setImageResource(R.drawable.led_yellow);
                     } else {
                         imageView.setImageResource(R.drawable.led_gray);
                     }
                 } else {
-                    //red
+                    // RED
                     if (rpm > (rpmLimiter / numberOfLeds) * i) {
                         imageView.setImageResource(R.drawable.led_red);
                     } else {

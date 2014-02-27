@@ -11,7 +11,7 @@ import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
 
 /**
- * Created by FezzFest on 26/02/14.
+ * Created by Peter Van Akelyen on 26/02/14.
  */
 public class AboutActivity extends Activity {
     private int clicks = 0;

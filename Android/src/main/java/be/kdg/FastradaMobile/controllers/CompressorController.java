@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
 
 /**
- * Created by FezzFest on 19/02/14.
+ * Created by Peter Van Akelyen on 19/02/14.
  */
 public class CompressorController {
     public static byte[] compress(byte[] packets) {

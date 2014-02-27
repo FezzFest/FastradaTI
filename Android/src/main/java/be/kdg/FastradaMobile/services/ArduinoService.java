@@ -7,7 +7,7 @@ import be.kdg.FastradaMobile.controllers.*;
 import java.util.Map;
 
 /**
- * Created by FezzFest on 5/02/14.
+ * Created by Peter Van Akelyen on 5/02/14.
  */
 public class ArduinoService extends IntentService {
     public ArduinoService() {

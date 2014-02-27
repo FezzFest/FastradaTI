@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
- * Created by FezzFest on 19/02/14.
+ * Created by Peter Van Akelyen on 19/02/14.
  */
 public class BufferController {
     private final int PACKET_SIZE = 18;

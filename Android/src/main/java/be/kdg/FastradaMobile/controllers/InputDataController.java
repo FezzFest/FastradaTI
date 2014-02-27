@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.*;
 
 /**
- * Created by FezzFest on 4/02/14.
+ * Created by Peter Van Akelyen on 4/02/14.
  */
 public class InputDataController {
     Context context;

@@ -7,7 +7,7 @@ import be.kdg.FastradaMobile.controllers.BufferController;
 import be.kdg.FastradaMobile.controllers.CompressorController;
 
 /**
- * Created by FezzFest on 18/02/14.
+ * Created by Peter Van Akelyen on 18/02/14.
  */
 public class CommunicationService extends IntentService {
     public static boolean isRunning = false;

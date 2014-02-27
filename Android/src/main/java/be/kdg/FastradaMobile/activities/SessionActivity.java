@@ -13,7 +13,7 @@ import be.kdg.FastradaMobile.services.CommunicationService;
 import java.nio.ByteBuffer;
 
 /**
- * Created by FezzFest on 21/02/14.
+ * Created by Peter Van Akelyen on 21/02/14.
  */
 public class SessionActivity extends Activity {
     String name, vehicle;

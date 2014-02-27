@@ -1,7 +1,7 @@
 package be.kdg.FastradaMobile.controllers;
 
 /**
- * Created by FezzFest on 6/02/14.
+ * Created by Peter Van Akelyen on 6/02/14.
  */
 public class UserInterfaceController {
     private static UserInterfaceController instance;
