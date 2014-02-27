@@ -20,14 +20,15 @@ public class AboutActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
+
         TextView noteView = (TextView) findViewById(R.id.about);
         Linkify.addLinks(noteView, Linkify.ALL);
-        final ImageView image = (ImageView)findViewById(R.id.aboutpicture);
+        final ImageView image = (ImageView) findViewById(R.id.aboutpicture);
         image.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 clicks++;
-                if (clicks==7){
+                if (clicks == 7) {
                     image.setImageResource(R.drawable.fastrada2);
                 }
                 return false;

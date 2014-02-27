@@ -3,7 +3,7 @@
     <!-- Settings -->
     <PreferenceCategory android:title="Settings">
         <PreferenceScreen android:title="Basic Settings">
-            <PreferenceCategory android:title="User Interface">
+            <PreferenceCategory android:title="Elements">
                 <CheckBoxPreference
                     android:key="pref_UI_gaugeView"
                     android:title="Enable Speed"
@@ -24,6 +24,16 @@
                     android:title="Enable Temperature"
                     android:summary="Enable temperature indicator"
                     android:defaultValue="true"/>
+            </PreferenceCategory>
+
+            <PreferenceCategory android:title="Style">
+                <ListPreference
+                    android:key="pref_gauge_style"
+                    android:title="Speed indicator"
+                    android:summary="Set the style of the speed indicator"
+                    android:entries="@array/gaugeView"
+                    android:entryValues="@array/gaugeViewValues"
+                    android:defaultValue="text"/>
             </PreferenceCategory>
 
             <PreferenceCategory android:title="Scale">

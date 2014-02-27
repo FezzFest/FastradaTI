@@ -57,6 +57,11 @@ public class MainActivity extends Activity {
 
         // Speed gauge
         speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
+        if (prefs.getString("pref_gauge_style", "text").equals("needle")) {
+            // Get max speed
+            int maxSpeed = Integer.parseInt(prefs.getString("pref_max_speed", "250"));
+            speed.setNeedleEnabled(maxSpeed);
+        }
         speed.setFixedTargetValue(195);
 
         // RPM indicator

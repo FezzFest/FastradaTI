@@ -150,8 +150,6 @@ public class GaugeView extends View {
     private Path mNeedleRightPath;
     private Path mNeedleLeftPath;
 
-    // *--------------------------------------------------------------------- *//
-
     private float mScaleRotation;
     private float mDivisionValue;
     private float mSubdivisionValue;
@@ -165,8 +163,12 @@ public class GaugeView extends View {
     private long mNeedleLastMoved = -1;
     private boolean mNeedleInitialized;
 
+    // Peter Van Akelyen
+    private Context context;
+
     public GaugeView(final Context context, final AttributeSet attrs, final int defStyle) {
         super(context, attrs, defStyle);
+        this.context = context;
         readAttrs(context, attrs, defStyle);
         init();
     }
@@ -185,6 +187,7 @@ public class GaugeView extends View {
         mShowOuterBorder = a.getBoolean(R.styleable.GaugeView_showOuterBorder, SHOW_OUTER_BORDER);
         mShowOuterRim = a.getBoolean(R.styleable.GaugeView_showOuterRim, SHOW_OUTER_RIM);
         mShowInnerRim = a.getBoolean(R.styleable.GaugeView_showInnerRim, SHOW_INNER_RIM);
+
         mShowNeedle = a.getBoolean(R.styleable.GaugeView_showNeedle, SHOW_NEEDLE);
         mShowScale = a.getBoolean(R.styleable.GaugeView_showScale, SHOW_SCALE);
         mShowRanges = a.getBoolean(R.styleable.GaugeView_showRanges, SHOW_RANGES);
@@ -238,8 +241,7 @@ public class GaugeView extends View {
             final String[] ranges = res.getStringArray(R.array.ranges);
             final String[] colors = res.getStringArray(R.array.rangeColors);
             if (ranges.length != colors.length) {
-                throw new IllegalArgumentException(
-                        "The ranges and colors arrays must have the same length.");
+                throw new IllegalArgumentException("The ranges and colors arrays must have the same length.");
             }
 
             final int length = ranges.length;
@@ -252,6 +254,20 @@ public class GaugeView extends View {
         } else {
             mRangeValues = RANGE_VALUES;
             mRangeColors = RANGE_COLORS;
+        }
+    }
+
+    private void readRangesFixed(final Resources res, final String[] ranges, final String[] colors) {
+        if (ranges.length != colors.length) {
+            throw new IllegalArgumentException("The ranges and colors arrays must have the same length.");
+        }
+
+        final int length = ranges.length;
+        mRangeValues = new float[length];
+        mRangeColors = new int[length];
+        for (int i = 0; i < length; i++) {
+            mRangeValues[i] = Float.parseFloat(ranges[i]);
+            mRangeColors[i] = Color.parseColor(colors[i]);
         }
     }
 
@@ -543,10 +559,6 @@ public class GaugeView extends View {
 
     @Override
     protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
-        // Loggable.log.debug(String.format("widthMeasureSpec=%s, heightMeasureSpec=%s",
-        // View.MeasureSpec.toString(widthMeasureSpec),
-        // View.MeasureSpec.toString(heightMeasureSpec)));
-
         final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         final int widthSize = MeasureSpec.getSize(widthMeasureSpec);
@@ -614,8 +626,6 @@ public class GaugeView extends View {
         if (mShowText) {
             drawText(canvas);
         }
-
-        //computeCurrentValue();
     }
 
     private void drawBackground(final Canvas canvas) {
@@ -716,7 +726,6 @@ public class GaugeView extends View {
     private void drawNeedle(final Canvas canvas) {
         if (mNeedleInitialized) {
             final float angle = getAngleForValue(mCurrentValue);
-            // Logger.log.info(String.format("value=%f -> angle=%f", mCurrentValue, angle));
 
             canvas.save(Canvas.MATRIX_SAVE_FLAG);
             canvas.rotate(angle, 0.5f, 0.5f);
@@ -750,44 +759,6 @@ public class GaugeView extends View {
     }
 
     /*
-    private void computeCurrentValue() {
-        // Logger.log.warn(String.format("velocity=%f, acceleration=%f", mNeedleVelocity,
-        // mNeedleAcceleration));
-
-        if (!(Math.abs(mCurrentValue - mTargetValue) > 0.01f)) {
-            return;
-        }
-
-        if (-1 != mNeedleLastMoved) {
-            final float time = (System.currentTimeMillis() - mNeedleLastMoved) / 1000.0f;
-            final float direction = Math.signum(mNeedleVelocity);
-            if (Math.abs(mNeedleVelocity) < 90.0f) {
-                mNeedleAcceleration = 5.0f * (mTargetValue - mCurrentValue);
-            } else {
-                mNeedleAcceleration = 0.0f;
-            }
-
-            mNeedleAcceleration = 5.0f * (mTargetValue - mCurrentValue);
-            mCurrentValue += mNeedleVelocity * time;
-            mNeedleVelocity += mNeedleAcceleration * time;
-
-            if ((mTargetValue - mCurrentValue) * direction < 0.01f * direction) {
-                mCurrentValue = mTargetValue;
-                mNeedleVelocity = 0.0f;
-                mNeedleAcceleration = 0.0f;
-                mNeedleLastMoved = -1L;
-            } else {
-                mNeedleLastMoved = System.currentTimeMillis();
-            }
-
-            invalidate();
-
-        } else {
-            mNeedleLastMoved = System.currentTimeMillis();
-            computeCurrentValue();
-        }
-    }
-
     public void setTargetValue(final float value) {
         if (mShowScale || mShowRanges) {
             if (value < mScaleStartValue) {
@@ -808,6 +779,28 @@ public class GaugeView extends View {
         mCurrentValue = value;
         mNeedleInitialized = true;
         invalidate();
+    }
+
+    public void setNeedleEnabled(int maxRange) {
+        mShowText = false;
+        mShowNeedle = true;
+        mShowRanges = true;
+
+        // Set scale
+        mScaleEndValue = (float) maxRange;
+
+        String[] colors = context.getResources().getStringArray(R.array.rangeColors);
+        String[] percent = context.getResources().getStringArray(R.array.rangeValues);
+        String[] ranges = new String[4];
+        for (int i = 0; i < 4; i++) {
+            int percentage = Integer.parseInt(percent[i]);
+            float result = ((float) maxRange / 100) * (float) percentage;
+            ranges[i] = String.valueOf(result);
+        }
+        readRangesFixed(context.getResources(), ranges, colors);
+
+        // Execute init() function
+        init();
     }
 }
 

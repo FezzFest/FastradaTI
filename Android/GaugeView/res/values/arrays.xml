@@ -6,12 +6,18 @@
         <item>40</item>
         <item>100</item>
     </string-array>
-    
-    <string-array name="rangeColors">
-        <item>#E7202B</item>
-        <item>#E86F21</item>
-        <item>#E8E721</item>
-        <item>#1BCA21</item>
+
+    <string-array name="rangeValues">
+        <item>50</item>
+        <item>67</item>
+        <item>84</item>
+        <item>100</item>
     </string-array>
     
+    <string-array name="rangeColors">
+        <item>#1BCA21</item>
+        <item>#E8E721</item>
+        <item>#E86F21</item>
+        <item>#E7202B</item>
+    </string-array>
 </resources>

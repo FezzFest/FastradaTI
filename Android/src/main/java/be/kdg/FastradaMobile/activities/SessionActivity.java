@@ -28,8 +28,8 @@ public class SessionActivity extends Activity {
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = ((TextView) findViewById(R.id.session_name_input)).getText().toString();
-                vehicle = ((TextView) findViewById(R.id.session_vehicle_name_input)).getText().toString();
+                name = ((TextView) findViewById(R.id.session_track_input)).getText().toString();
+                vehicle = ((TextView) findViewById(R.id.session_vehicle_input)).getText().toString();
                 gps = ((CheckBox) findViewById(R.id.session_gps_input)).isChecked();
 
                 // Start service
