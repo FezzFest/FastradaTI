@@ -3,6 +3,7 @@ package be.kdg.FastradaMobile.controllers;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.io.IOException;
 import java.net.*;
@@ -28,7 +29,7 @@ public class InputDataController {
         try {
             socket = new DatagramSocket(port);
         } catch (SocketException e) {
-            e.printStackTrace();
+            Log.e("Fastrada", "Could not open socket: " + e.getMessage());
         }
     }
 
@@ -39,7 +40,7 @@ public class InputDataController {
             DatagramPacket packet = new DatagramPacket(result, result.length);
             socket.receive(packet);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e("Fastrada", "Could not receive packet: " + e.getMessage());
         }
         return result;
     }

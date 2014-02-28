@@ -42,7 +42,6 @@ public class OutputDataController {
 
             // Headers
             conn.setRequestMethod("POST");
-            conn.setRequestProperty("Host", "vps42465.ovh.net:8080");
             conn.setRequestProperty("Content-Type", "text/plain;charset=UTF-8");
 
             conn.setDoOutput(true);

@@ -1,23 +1,24 @@
 package be.kdg.FastradaMobile.activities;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.SessionController;
 import be.kdg.FastradaMobile.services.CommunicationService;
-
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Peter Van Akelyen on 21/02/14.
  */
 public class SessionActivity extends Activity {
+    private static final int NO_SESSION_ID = -1;
+    private ProgressDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,21 +34,16 @@ public class SessionActivity extends Activity {
                 String comment = ((TextView) findViewById(R.id.session_comment_input)).getText().toString();
                 String[] params = {session, track, vehicle, comment};
 
+                // Show Progress Dialog
+                dialog = new ProgressDialog(SessionActivity.this);
+                dialog.setTitle("Contacting server...");
+                dialog.setMessage("Requesting session...");
+                dialog.setIndeterminate(true);
+                dialog.show();
+
                 // Send metadata
                 SessionController sessionController = new SessionController(SessionActivity.this);
-                int sessionId = 0;
-                try {
-                    sessionId = sessionController.execute(params).get();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
-
-                Log.d("Fastrada", "Session ID: " + sessionId);
-
-                // Start service
-                //startService();
+                sessionController.execute(params);
             }
         });
     }
@@ -55,5 +51,24 @@ public class SessionActivity extends Activity {
     private void startService() {
         Intent intent = new Intent(this, CommunicationService.class);
         startService(intent);
+    }
+
+    public void gotSessionId(int sessionId) {
+        if (sessionId != NO_SESSION_ID) {
+            // Start service
+            startService();
+
+            // Cancel dialog
+            dialog.cancel();
+
+            // Finish
+            finish();
+        } else {
+            // Cancel dialog
+            dialog.cancel();
+
+            // Display message
+            Toast.makeText(this, "Unable to request session ID.", Toast.LENGTH_LONG).show();
+        }
     }
 }

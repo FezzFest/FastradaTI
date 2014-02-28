@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+import be.kdg.FastradaMobile.activities.SessionActivity;
 import be.kdg.FastradaMobile.json.SessionData;
 import be.kdg.FastradaMobile.json.SessionId;
 import com.google.gson.Gson;
@@ -14,9 +15,15 @@ import java.util.Date;
  * Created by Thomas on 21/02/14.
  */
 public class SessionController extends AsyncTask<String[], Void, Integer> {
+    private static final int NO_SESSION_ID = -1;
+
+    private Context context;
     private SharedPreferences prefs;
 
-    public SessionController(Context context) {
+    public SessionController(Context context){
+        this.context = context;
+
+        // Initialize shared preferences
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
@@ -62,6 +69,16 @@ public class SessionController extends AsyncTask<String[], Void, Integer> {
 
         // Parse JSON result
         SessionId sessionId = gson.fromJson(jsonResult, SessionId.class);
-        return sessionId.getSessionId();
+        if (sessionId != null) {
+            return sessionId.getSessionId();
+        } else {
+            return NO_SESSION_ID;
+        }
+    }
+
+    @Override
+    protected void onPostExecute(Integer sessionId) {
+        super.onPostExecute(sessionId);
+        ((SessionActivity) context).gotSessionId(sessionId);
     }
 }

@@ -5,73 +5,96 @@
                 android:padding="10dp">
 
     <!-- Session name -->
-    <TextView
+    <LinearLayout
         android:id="@+id/session_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:text="@string/session_name"/>
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/session_name_input"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:text="@string/session_name"/>
+
+        <EditText
+            android:id="@+id/session_name_input"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+    </LinearLayout>
 
     <!-- Track name -->
-    <TextView
-        android:id="@+id/session_track_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/track_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/session_name"
         android:layout_marginTop="10dp"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:text="@string/session_track"/>
+        android:layout_below="@id/session_name"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/session_track_input"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/session_name_input"
-        android:layout_alignParentRight="true"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:text="@string/session_track"/>
+
+        <EditText
+            android:id="@+id/session_track_input"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+    </LinearLayout>
 
     <!-- Vehicle name -->
-    <TextView
-        android:id="@+id/session_vehicle_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/vehicle_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/session_track_name"
         android:layout_marginTop="10dp"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:text="@string/session_vehicle"/>
+        android:layout_below="@id/track_name"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/session_vehicle_input"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/session_track_input"
-        android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/session_vehicle_name"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:text="@string/session_vehicle"/>
+
+        <EditText
+            android:id="@+id/session_vehicle_input"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+    </LinearLayout>
 
     <!-- Comment -->
-    <TextView
-        android:id="@+id/session_comment_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/session_comment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/session_vehicle_name"
         android:layout_marginTop="10dp"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:text="@string/session_comment"/>
+        android:layout_below="@id/vehicle_name"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/session_comment_input"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/session_vehicle_input"
-        android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/session_comment_name"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:text="@string/session_comment"/>
+
+        <EditText
+            android:id="@+id/session_comment_input"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+    </LinearLayout>
 
     <!-- Submit -->
     <Button
@@ -79,7 +102,7 @@
         android:text="@string/session_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/session_comment_input"
+        android:layout_below="@id/session_comment"
         android:layout_marginTop="10dp"/>
 </RelativeLayout>
 

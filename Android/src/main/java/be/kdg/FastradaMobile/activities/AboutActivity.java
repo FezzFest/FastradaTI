@@ -3,7 +3,6 @@ package be.kdg.FastradaMobile.activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.util.Linkify;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -35,6 +34,4 @@ public class AboutActivity extends Activity {
             }
         });
     }
-
-
 }

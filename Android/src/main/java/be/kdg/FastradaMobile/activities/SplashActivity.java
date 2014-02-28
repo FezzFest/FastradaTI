@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
  * Created by Jonathan on 12/02/14.
  */
 public class SplashActivity extends Activity {
-    SharedPreferences prefs;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
