@@ -1,5 +1,6 @@
 package persistence;
 
+import app.Parameter;
 import app.SessionData;
 import com.datastax.driver.core.*;
 import org.springframework.stereotype.Component;
@@ -84,7 +85,6 @@ public class FastradaDAO implements Serializable {
         for (Row row : session.execute(cqlSelectIds)) {
             ids.add(Integer.parseInt(row.getString(0)));
         }
-
         for (Integer id : ids) {
             String cqlSelectData = "SELECT parameter, value FROM metadata WHERE sessionid='" + id + "';";
             SessionData sessionData = new SessionData();
@@ -118,7 +118,19 @@ public class FastradaDAO implements Serializable {
         String cqlSelect = "SELECT parameter FROM s" + sessionId + ";";
         for (Row row : session.execute(cqlSelect)) {
             params.add(row.getString(0));
-               }
+        }
         return new ArrayList<>(params);
+    }
+
+    public List<Parameter> getParameterValuesBySessionId(Integer sessionId, String parameter) {
+        List<Parameter> params = new ArrayList<>();
+        String statement = "SELECT * FROM s" + sessionId + "WHERE parameter='speed' ALLOW FILTERING;";
+       // PreparedStatement insertStatement = session.prepare("SELECT * FROM s" + sessionId + "WHERE parameter = "+parameter+" ALLOW FILTERING;");
+       // BoundStatement boundStatement = new BoundStatement(insertStatement);
+        for (Row row : session.execute(statement)) {
+            System.out.println(row);
+        }
+
+        return params;
     }
 }

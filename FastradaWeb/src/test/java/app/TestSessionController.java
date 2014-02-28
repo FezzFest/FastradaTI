@@ -83,7 +83,6 @@ public class TestSessionController {
     public void testGetSessionParameters() throws InterruptedException {
         reinitializeDB();
         boolean check = true;
-
         List<String> sendParams = new ArrayList<>();
         List<String> receivedParams;
         String speed = "speed";
@@ -115,15 +114,54 @@ public class TestSessionController {
         Assert.assertTrue("3 parameters must be returned", check);
     }
 
-    @Test
+/*    @Test
     public void testGetParameterValues() {
+        reinitializeDB();
+        boolean check = true;
+        long currentTimestamp = System.currentTimeMillis();
+        long averageTimestamp = 500 + currentTimestamp;
+        List<Parameter> sendParams = new ArrayList<>();
+        List<Parameter> receivedParams;
         SessionData run1 = new SessionData("Run1", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
         Gson gson = new Gson();
         String json1 = gson.toJson(run1);
         run1.setSessionId(sessioncontroller.getNewSessionId(json1).getSessionId());
 
-        String insertCql = "INSERT INTO s" + run1.getSessionId() + "(time, parameter, value) values(dateOf(now()),'" + "speed" + "',25);";
-    }
+        double sum = 0;
+        int count = 0;
+        for (int i = 0; i < 1000; i++) {
+            int speed = i / 5;
+            if (i == 0) {
+                sendParams.add(new Parameter(new Date(currentTimestamp), speed));
+            }
+            if (currentTimestamp - averageTimestamp >= 1000) {
+                double avg = (Math.floor(sum/count*100))/100;
+                sendParams.add(new Parameter(new Date(currentTimestamp), avg));
+                averageTimestamp = currentTimestamp;
+                sum = 0;
+                count = 0;
+            } else if (currentTimestamp - averageTimestamp > 0) {
+                sum += speed;
+                count++;
+            }
+            if (i == 999) {
+                sendParams.add(new Parameter(new Date(currentTimestamp), speed));
+            }
+            session.execute("INSERT INTO s" + run1.getSessionId() + "(time, parameter, value) values(" + currentTimestamp + ",'speed'," + speed + ");");
+            currentTimestamp += 10;
+        }
+
+        receivedParams = sessioncontroller.getParameterValuesBySessionId(run1.getSessionId(), "speed");
+
+        check = sendParams.containsAll(receivedParams);
+        if (sendParams.size() != receivedParams.size()) {
+            check = false;
+        }
+        for (Parameter sendParam : sendParams) {
+            System.out.println(sendParam.getTimestamp() + " " + sendParam.getValue());
+        }
+        Assert.assertTrue("Values in DB must be the same as received from API", check);
+    }*/
 
     public static void makeConnection() {
         try {

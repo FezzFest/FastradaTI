@@ -39,15 +39,19 @@ public class SessionController {
     }
 
     @RequestMapping(value = "/{id}/{parameter}", method = RequestMethod.GET)
-    public List<Parameter> getParameterValuesBySessionId(int sessionId, String parameter) {
-        List<Parameter> parameters = new ArrayList<Parameter>();
-        for (int teller = 0; teller < 10; teller++) {
-            Parameter x = new Parameter();
-            x.value = teller * 25;
-            parameters.add(x);
-        }
-        return parameters;
+    public List<Parameter> getParameterValuesBySessionId(@PathVariable("id") Integer sessionId, @PathVariable("parameter") String parameter) {
+        return fastradaDAO.getParameterValuesBySessionId(sessionId, parameter);
     }
+
+
+/*    @RequestMapping(method = RequestMethod.POST, consumes = {"application/json"})
+    @ResponseStatus(HttpStatus.CREATED)
+    public HttpEntity<?> create(@RequestBody Book book, @Value("#{request.requestURL}") StringBuffer parentUri) {
+        book = this.bookRepository.save(book);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(childLocation(parentUri, book.getId()));
+        return new HttpEntity<Object>(headers);
+    }*/
 
 
 //    @RequestMapping(value = "/{id}/{parameter}", method = RequestMethod.GET)
