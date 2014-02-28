@@ -6,8 +6,10 @@ import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 import org.junit.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Jonathan on 21/02/14.
@@ -42,18 +44,20 @@ public class TestCassandraDB {
 
     @Test
     public void testGetASessionId() {
-        SessionData run1 = new SessionData("Run1", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
+        SessionData run1 = new SessionData("Run1", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
         Assert.assertEquals("Next session id must be integer >= 0", true, fastradaDAO.createNextSession(run1) >= 0);
     }
 
     @Test
     public void testUniqueSessionId() {
-        SessionData run1 = new SessionData("Run2", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
+        SessionData run1 = new SessionData("Run2", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
         boolean unique = true;
+        List<SessionData> sessionDatas = fastradaDAO.getAllSessionsData();
+
         int nextSessionId = fastradaDAO.createNextSession(run1);
-        HashMap<Integer, SessionData> sessionDataHashMap = fastradaDAO.getAllSessionsData();
-        for (Integer id : sessionDataHashMap.keySet()) {
-            if (nextSessionId == id) {
+
+        for (SessionData sessionData : sessionDatas) {
+            if (sessionData.getSessionId()==nextSessionId){
                 unique = false;
             }
         }
@@ -62,8 +66,8 @@ public class TestCassandraDB {
 
     @Test
     public void testCreate2Sessions() {
-        SessionData run1 = new SessionData("Run3", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
-        SessionData run2 = new SessionData("Run4", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", new Date(System.currentTimeMillis()));
+        SessionData run1 = new SessionData("Run3", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        SessionData run2 = new SessionData("Run4", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
         int sessionId1 = fastradaDAO.createNextSession(run1);
         int sessionId2 = fastradaDAO.createNextSession(run2);
 

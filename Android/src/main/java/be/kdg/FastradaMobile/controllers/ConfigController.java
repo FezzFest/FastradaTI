@@ -30,7 +30,6 @@ public class ConfigController {
     public ConfigController(Context context) {
         configReader = new ConfigReader(context);
         readSensorConfigs();
-
     }
 
     private void readSensorConfigs() {

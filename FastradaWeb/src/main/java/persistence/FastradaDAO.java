@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.Serializable;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * Created by Jonathan on 21/02/14.
@@ -46,9 +46,10 @@ public class FastradaDAO implements Serializable {
         //TODO iterate over all fields from SessionData
         int sessionId = 0;
         String name = sessionData.getSessionName();
-        String date = sessionData.getDate().toString();
-        String comment = sessionData.getComment();
         String track = sessionData.getTrackName();
+        String vehicleName = sessionData.getVehicleName();
+        String comment = sessionData.getComment();
+        String date = "" + sessionData.getDate();
 
         PreparedStatement insertStatement = session.prepare("INSERT INTO metadata" + "(sessionid, parameter, value) " + "VALUES (?, ?, ?);");
         BoundStatement boundStatement = new BoundStatement(insertStatement);
@@ -60,21 +61,64 @@ public class FastradaDAO implements Serializable {
                 sessionId = Integer.parseInt(row.getString(0)) + 1;
             }
         }
-        session.execute(boundStatement.bind(String.format("%d", sessionId), "name", name));
-        session.execute(boundStatement.bind(String.format("%d", sessionId), "date", date));
+        session.execute(boundStatement.bind(String.format("%d", sessionId), "sessionName", name));
+        session.execute(boundStatement.bind(String.format("%d", sessionId), "trackName", track));
+        session.execute(boundStatement.bind(String.format("%d", sessionId), "vehicleName", vehicleName));
         session.execute(boundStatement.bind(String.format("%d", sessionId), "comment", comment));
-        session.execute(boundStatement.bind(String.format("%d", sessionId), "track", track));
+        session.execute(boundStatement.bind(String.format("%d", sessionId), "date", date));
 
         createSessionTable(sessionId);
         return sessionId;
     }
 
     public void createSessionTable(int sessionId) {
-        String cqlStatement = "CREATE TABLE s" + sessionId + " ( sessionid text, parameter text, value text, PRIMARY KEY (sessionid, parameter) ) WITH COMPACT STORAGE;";
+        String cqlStatement = "CREATE TABLE s" + sessionId + " ( time timestamp, parameter text, value double, PRIMARY KEY (time, parameter) ) WITH COMPACT STORAGE;";
         session.execute(cqlStatement);
     }
 
-    public HashMap<Integer, SessionData> getAllSessionsData() {
-        return new HashMap<Integer, SessionData>();
+    public List<SessionData> getAllSessionsData() {
+        Set<Integer> ids = new HashSet<Integer>();
+        List<SessionData> sessions = new ArrayList<SessionData>();
+
+        String cqlSelectIds = "SELECT sessionid FROM metadata;";
+        for (Row row : session.execute(cqlSelectIds)) {
+            ids.add(Integer.parseInt(row.getString(0)));
+        }
+
+        for (Integer id : ids) {
+            String cqlSelectData = "SELECT parameter, value FROM metadata WHERE sessionid='" + id + "';";
+            SessionData sessionData = new SessionData();
+            for (Row row : session.execute(cqlSelectData)) {
+                switch (row.getString("parameter")) {
+                    case "sessionName":
+                        sessionData.setSessionName(row.getString("value"));
+                        break;
+                    case "trackName":
+                        sessionData.setTrackName(row.getString("value"));
+                        break;
+                    case "vehicleName":
+                        sessionData.setVehicleName(row.getString("value"));
+                        break;
+                    case "comment":
+                        sessionData.setComment(row.getString("value"));
+                        break;
+                    case "date":
+                        sessionData.setDate(Long.parseLong(row.getString("value")));
+                        break;
+                }
+            }
+            sessionData.setSessionId(id);
+            sessions.add(sessionData);
+        }
+        return sessions;
+    }
+
+    public List<String> getParametersBySessionId(int sessionId) {
+        Set<String> params = new HashSet<>();
+        String cqlSelect = "SELECT parameter FROM s" + sessionId + ";";
+        for (Row row : session.execute(cqlSelect)) {
+            params.add(row.getString(0));
+               }
+        return new ArrayList<>(params);
     }
 }
