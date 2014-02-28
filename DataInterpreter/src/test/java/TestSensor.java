@@ -1,19 +1,17 @@
-package be.kdg.FastradaMobile;
-
-import be.kdg.FastradaMobile.config.Parameter;
-import be.kdg.FastradaMobile.config.Sensor;
+import dataInterpreter.Parameter;
+import dataInterpreter.Sensor;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
 /**
- * Created by philip on 6/02/14.
+ * Created by Carlo on 28/02/14.
  */
 public class TestSensor {
-  /*  @Test
+    @Test
     public void testAddParameterTwice(){
         Sensor testSensor = new Sensor();
-        Parameter testParameter = new Parameter("RPM",8,16,"Intel","unsigned",1,0,0,65535,"r/min");
+        Parameter testParameter = new Parameter("RPM",8,16,"unsigned",1,0,0,65535,"r/min");
         testSensor.addParamater(testParameter);
         testSensor.addParamater(testParameter);
 
@@ -23,9 +21,9 @@ public class TestSensor {
     @Test
     public void testAddParameterEmptyName(){
         Sensor testSensor = new Sensor();
-        Parameter testParameter = new Parameter("RPM",8,16,"Intel","unsigned",1,0,0,65535,"r/min");
+        Parameter testParameter = new Parameter("",8,16,"unsigned",1,0,0,65535,"r/min");
         testSensor.addParamater(testParameter);
 
         assertEquals(0,testSensor.getParameters().size());
-    }*/
+    }
 }

@@ -1,10 +1,10 @@
-package be.kdg.FastradaMobile.config;
+package dataInterpreter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by philip on 6/02/14.
+ * Created by Carlo on 28/02/14.
  */
 public class Sensor {
     private List<Parameter> parameters;
@@ -14,7 +14,21 @@ public class Sensor {
     }
 
     public void addParamater(Parameter parameter) {
-        parameters.add(parameter);
+        if(parameter.getName().isEmpty()) {
+            return;
+        }
+
+        boolean exists = false;
+        for(Parameter checkParam : parameters) {
+            if(checkParam.equals(parameter)) {
+               exists = true;
+            }
+        }
+
+        if(!exists) {
+            parameters.add(parameter);
+        }
+
     }
 
     public List<Parameter> getParameters() {

@@ -1,17 +1,12 @@
-package be.kdg.FastradaMobile.controllers;
-
-import be.kdg.FastradaMobile.config.ConfigReader;
-import be.kdg.FastradaMobile.config.Parameter;
-import be.kdg.FastradaMobile.config.Sensor;
-
-import android.content.Context;
+package dataInterpreter;
 
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by philip on 6/02/14.
+ * Created by Carlo on 28/02/14.
  */
 public class ConfigController {
     private ConfigReader configReader;
@@ -27,8 +22,11 @@ public class ConfigController {
         readSensorConfigs();
     }
 
-    public ConfigController(Context context) {
-        configReader = new ConfigReader(context);
+    public ConfigController(InputStream configFileStream) {
+        // TODO Android app should call this method with the InputStream;
+        //configFileStream = null;
+        //configFileStream = context.getResources().openRawResource(R.raw.config);
+        configReader = new ConfigReader(configFileStream);
         readSensorConfigs();
     }
 

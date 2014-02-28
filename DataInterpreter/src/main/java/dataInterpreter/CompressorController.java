@@ -1,11 +1,11 @@
-package be.kdg.FastradaMobile.controllers;
+package dataInterpreter;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
 
 /**
- * Created by Peter Van Akelyen on 19/02/14.
+ * Created by Carlo on 28/02/14.
  */
 public class CompressorController {
     public static byte[] compress(byte[] packets) {

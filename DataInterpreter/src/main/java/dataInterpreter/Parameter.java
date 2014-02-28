@@ -1,7 +1,7 @@
-package be.kdg.FastradaMobile.config;
+package dataInterpreter;
 
 /**
- * Created by philip on 5/02/14.
+ * Created by Carlo on 28/02/14.
  */
 public class Parameter {
     private String name;

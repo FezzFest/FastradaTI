@@ -1,0 +1,76 @@
+<config>
+    <sensors>
+        <sensor id="100" name="Engine_Data">
+            <parameter name="RPM">
+                <startbit>8</startbit>
+                <length>16</length>
+                <byteorder>Intel</byteorder>
+                <valuetype>unsigned</valuetype>
+                <factor>1</factor>
+                <offset>0</offset>
+                <minimum>0</minimum>
+                <maximum>65535</maximum>
+                <unit>r/min</unit>
+            </parameter>
+            <parameter name="Throttle_position">
+                <startbit>24</startbit>
+                <length>16</length>
+                <byteorder>Intel</byteorder>
+                <valuetype>unsigned</valuetype>
+                <factor>0.0015259</factor>
+                <offset>0</offset>
+                <minimum>0</minimum>
+                <maximum>99.9999</maximum>
+                <unit>%</unit>
+            </parameter>
+            <parameter name="Engine_Temp">
+                <startbit>40</startbit>
+                <length>16</length>
+                <byteorder>Intel</byteorder>
+                <valuetype>signed</valuetype>
+                <factor>0.0030518</factor>
+                <offset>50</offset>
+                <minimum>-50.0014</minimum>
+                <maximum>149.998</maximum>
+                <unit>°C</unit>
+            </parameter>
+        </sensor>
+        <sensor id="101" name="Car_Data">
+            <parameter name="Vehicle_Speed">
+                <startbit>8</startbit>
+                <length>16</length>
+                <byteorder>Intel</byteorder>
+                <valuetype>unsigned</valuetype>
+                <factor>0.00549324</factor>
+                <offset>0</offset>
+                <minimum>0</minimum>
+                <maximum>359.999</maximum>
+                <unit>Km/h</unit>
+            </parameter>
+            <parameter name="Gear">
+                <startbit>24</startbit>
+                <length>8</length>
+                <byteorder>Intel</byteorder>
+                <valuetype>unsigned</valuetype>
+                <factor>1</factor>
+                <offset>0</offset>
+                <minimum>0</minimum>
+                <maximum>255</maximum>
+                <unit></unit>
+            </parameter>
+        </sensor>
+        <sensor id="102" name="APP_Data">
+            <parameter name="Fuel_map">
+                <startbit>8</startbit>
+                <length>8</length>
+                <byteorder>Intel</byteorder>
+                <valuetype>unsigned</valuetype>
+                <factor>1</factor>
+                <offset>0</offset>
+                <minimum>0</minimum>
+                <maximum>255</maximum>
+                <unit></unit>
+            </parameter>
+        </sensor>
+    </sensors>
+</config>

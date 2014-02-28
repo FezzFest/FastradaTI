@@ -1,19 +1,17 @@
-package be.kdg.FastradaMobile;
-
-import be.kdg.FastradaMobile.config.Parameter;
-import be.kdg.FastradaMobile.config.Sensor;
-import be.kdg.FastradaMobile.controllers.ConfigController;
+import dataInterpreter.ConfigController;
+import dataInterpreter.Parameter;
+import dataInterpreter.Sensor;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 /**
- * Created by philip on 5/02/14.
+ * Created by Carlo on 28/02/14.
  */
 public class TestConfigController {
     @Test
     public void testGetSensor100Config() throws Exception {
-        ConfigController controller = new ConfigController("res/raw/testconfig.xml");
+        ConfigController controller = new ConfigController("src/main/resources/testconfig.xml");
 
         Sensor sensor = controller.getSensor(100);
 

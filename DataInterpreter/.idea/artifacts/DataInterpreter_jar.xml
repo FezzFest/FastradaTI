@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="DataInterpreter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DataInterpreter_jar</output-path>
+    <root id="archive" name="DataInterpreter.jar">
+      <element id="module-output" name="DataInterpreter" />
+      <element id="module-test-output" name="DataInterpreter" />
+    </root>
+  </artifact>
+</component>

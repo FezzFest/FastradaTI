@@ -1,13 +1,11 @@
-package be.kdg.FastradaMobile;
-
-import be.kdg.FastradaMobile.config.Parameter;
+import dataInterpreter.Parameter;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
 
 /**
- * Created by philip on 5/02/14.
+ * Created by Carlo on 28/02/14.
  */
 public class TestParameter {
 

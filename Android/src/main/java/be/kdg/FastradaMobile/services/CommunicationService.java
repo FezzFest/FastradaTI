@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 import be.kdg.FastradaMobile.controllers.BufferController;
-import be.kdg.FastradaMobile.controllers.CompressorController;
+import dataInterpreter.CompressorController;
 
 /**
  * Created by Peter Van Akelyen on 18/02/14.

@@ -46,7 +46,7 @@ public class TestBufferController extends ActivityUnitTestCase<MainActivity> {
     }
 
     public void testLotsOfPackets() {
-        int numerOfPackets = 100000;
+        int numerOfPackets = 100;
 
         // Define packets
         Random random = new Random();

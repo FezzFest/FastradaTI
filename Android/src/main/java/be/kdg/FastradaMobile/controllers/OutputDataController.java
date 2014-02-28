@@ -19,10 +19,6 @@ public class OutputDataController {
             URL url = new URL(s);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-            // Log
-            Log.d("Fastrada", "GET: " + s);
-            Log.d("Fastrada", "Response code: " + conn.getResponseCode());
-
             InputStreamReader isr = new InputStreamReader(conn.getInputStream());
             BufferedReader in = new BufferedReader(isr);
 
@@ -46,15 +42,15 @@ public class OutputDataController {
 
             // Headers
             conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "text/plain;charset=UTF-8");
 
             conn.setDoOutput(true);
             DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
             dos.writeBytes(params);
 
             // Log
-            Log.d("Fastrada", "POST: " + s);
-            Log.d("Fastrada", "Response code: " + conn.getResponseCode());
+            // Log.d("Fastrada", "URL: " + s);
+            // Log.d("Fastrada", "Params: " + params);
+            // Log.d("Fastrada", "Response code: " + conn.getResponseCode());
 
             InputStreamReader isr = new InputStreamReader(conn.getInputStream());
             BufferedReader in = new BufferedReader(isr);

@@ -1,9 +1,7 @@
-package be.kdg.FastradaMobile;
-
-import be.kdg.FastradaMobile.controllers.CompressorController;
-import org.apache.commons.io.IOUtils;
+import dataInterpreter.CompressorController;
 import org.junit.Test;
 
+import org.apache.commons.io.IOUtils;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -12,7 +10,7 @@ import java.util.zip.GZIPInputStream;
 import static junit.framework.Assert.assertEquals;
 
 /**
- * Created by FezzFest on 20/02/14.
+ * Created by Carlo on 28/02/14.
  */
 public class TestCompressorController {
     @Test

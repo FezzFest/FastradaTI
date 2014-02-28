@@ -1,38 +1,35 @@
-package be.kdg.FastradaMobile.config;
+package dataInterpreter;
 
-
-import be.kdg.FastradaMobile.R;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import android.content.Context;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by philip on 5/02/14.
+ * Created by Carlo on 28/02/14.
  */
 public class ConfigReader {
     private Document document;
     private InputStream configFileStream;
 
-    public ConfigReader(Context context) {
-        configFileStream = null;
-        configFileStream = context.getResources().openRawResource(R.raw.config);
+    public ConfigReader(InputStream configFileStream) {
         readConfigInputStream(configFileStream);
     }
 
     public ConfigReader(String configPath) throws FileNotFoundException {
-            configFileStream = new FileInputStream(configPath);
-            readConfigInputStream(configFileStream);
+        configFileStream = new FileInputStream(configPath);
+        readConfigInputStream(configFileStream);
     }
 
     private void readConfigInputStream(InputStream configFileStream) {
@@ -161,3 +158,4 @@ public class ConfigReader {
         return ints;
     }
 }
+
