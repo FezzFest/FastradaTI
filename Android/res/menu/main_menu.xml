@@ -2,6 +2,10 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/menu_stop_session"
+        android:title="@string/end_session"
+        android:visible="false"/>
+    <item
         android:id="@+id/menu_start_session"
         android:title="@string/new_session"/>
     <item

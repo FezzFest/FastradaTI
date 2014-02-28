@@ -23,40 +23,46 @@ public class SettingsActivity extends PreferenceActivity {
 
     private void addGaugeListener() {
         Preference stylePreference = (Preference) findPreference("pref_gauge_style");
-        stylePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                Toast.makeText(SettingsActivity.this, "Please restart the application.", Toast.LENGTH_LONG).show();
+        if (stylePreference != null) {
+            stylePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    Toast.makeText(SettingsActivity.this, "Please restart the application.", Toast.LENGTH_LONG).show();
 
-                return true;
-            }
-        });
+                    return true;
+                }
+            });
+        }
     }
 
     private void addWiFiListener() {
         Preference wifiPreference = (Preference) findPreference("pref_arduino_wifi");
-        wifiPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                Intent tetherSettings = new Intent();
-                tetherSettings.setClassName("com.android.settings", "com.android.settings.TetherSettings");
-                startActivity(tetherSettings);
+        if (wifiPreference != null) {
+            wifiPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    Intent tetherSettings = new Intent();
+                    tetherSettings.setClassName("com.android.settings", "com.android.settings.TetherSettings");
+                    startActivity(tetherSettings);
 
-                return true;
-            }
-        });
+                    return true;
+                }
+            });
+        }
     }
 
     private void addAboutListener() {
         Preference aboutPreference = (Preference) findPreference("pref_about");
-        aboutPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);
-                startActivity(intent);
+        if (aboutPreference != null) {
+            aboutPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);
+                    startActivity(intent);
 
-                return true;
-            }
-        });
+                    return true;
+                }
+            });
+        }
     }
 }

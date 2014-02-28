@@ -2,7 +2,9 @@ package be.kdg.FastradaMobile.services;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 import be.kdg.FastradaMobile.controllers.BufferController;
 import be.kdg.FastradaMobile.controllers.CompressorController;
 
@@ -11,15 +13,37 @@ import be.kdg.FastradaMobile.controllers.CompressorController;
  */
 public class CommunicationService extends IntentService {
     public static boolean isRunning = false;
+    private Handler mHandler;
 
     public CommunicationService() {
         super("CommunicationService");
     }
 
     @Override
-    protected void onHandleIntent(Intent intent) {
-        isRunning = true;
+    public void onCreate() {
+        super.onCreate();
+        mHandler = new Handler();
+    }
 
+    @Override
+    protected void onHandleIntent(Intent intent) {
+        // Change service status
+        isRunning = true;
+        Log.i("Fastrada", "Communication Service started.");
+
+        // Get session ID
+        final int sessionId = intent.getIntExtra("sessionId", -1);
+        Log.i("Fastrada", "Session with ID #" + sessionId + " started.");
+
+        // Show toast
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(CommunicationService.this, "Session with ID #" + sessionId + " started.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // New controllers
         BufferController buffer = BufferController.getInstance();
         CompressorController compressor = new CompressorController();
 

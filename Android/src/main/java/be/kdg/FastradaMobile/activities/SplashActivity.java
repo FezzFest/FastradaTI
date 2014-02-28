@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -72,7 +73,8 @@ public class SplashActivity extends Activity {
             if (method.getName().equals("setWifiApEnabled")) {
                 try {
                     method.invoke(wifiManager, null, true);
-                } catch (Exception ex) {
+                } catch (Exception e) {
+                    Log.e("Fastrada", "WiFi tethering not enabled: " + e.getMessage());
                 }
                 break;
             }

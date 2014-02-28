@@ -19,6 +19,10 @@ public class OutputDataController {
             URL url = new URL(s);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
+            // Log
+            Log.d("Fastrada", "GET: " + s);
+            Log.d("Fastrada", "Response code: " + conn.getResponseCode());
+
             InputStreamReader isr = new InputStreamReader(conn.getInputStream());
             BufferedReader in = new BufferedReader(isr);
 
@@ -49,8 +53,7 @@ public class OutputDataController {
             dos.writeBytes(params);
 
             // Log
-            Log.d("Fastrada", "URL: " + s);
-            Log.d("Fastrada", "Params: " + params);
+            Log.d("Fastrada", "POST: " + s);
             Log.d("Fastrada", "Response code: " + conn.getResponseCode());
 
             InputStreamReader isr = new InputStreamReader(conn.getInputStream());
