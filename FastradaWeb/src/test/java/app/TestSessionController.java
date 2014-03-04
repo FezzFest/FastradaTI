@@ -120,15 +120,13 @@ public class TestSessionController {
         List<Parameter> sendParams = new ArrayList<>();
         List<Parameter> receivedParams;
         SessionData session1 = makeNewSession();
-        //System.out.println("Before insert DB\t\t\t" + new Date(System.currentTimeMillis()));
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             speed += 10;
             session.execute("INSERT INTO s" + session1.getSessionId() + "(time, parameter, value) values(" + timestamp + ",'speed', " + speed + ");");
             session.execute("INSERT INTO s" + session1.getSessionId() + "(time, parameter, value) values(" + timestamp + ",'gear', " + speed + ");");
             sendParams.add(new Parameter(new Date(timestamp), speed));
             timestamp += 1000;
         }
-        //System.out.println("After insert DB\t\t\t\t" + new Date(System.currentTimeMillis()));
         receivedParams = sessioncontroller.getParameterValuesBySessionId(session1.getSessionId(), "speed");
 
         check = sendParams.containsAll(receivedParams);

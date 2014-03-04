@@ -123,20 +123,34 @@ public class FastradaDAO implements Serializable {
     }
 
     public List<Parameter> getParameterValuesBySessionId(Integer sessionId, String parameter) {
-        Map<Date, Double> allParam = new TreeMap();
-        List<Parameter> params = new ArrayList<>();
-        //System.out.println("Before select statement\t\t" + new Date(System.currentTimeMillis()));
+        boolean loop = true;
+        TreeMap<Date, Double> allParam = new TreeMap<>();
+        List<Parameter> returnParams = new ArrayList<>();
         PreparedStatement insertStatement = session.prepare("SELECT time, value FROM s" + sessionId + " WHERE parameter = ? ALLOW FILTERING;");
         BoundStatement boundStatement = new BoundStatement(insertStatement);
         for (Row row : session.execute(boundStatement.bind(parameter))) {
             allParam.put(row.getDate(0), row.getDouble(1));
         }
-        // System.out.println("After put in map\t\t\t" + new Date(System.currentTimeMillis()));
-        for (Map.Entry<Date, Double> dateDoubleEntry : allParam.entrySet()) {
-            // System.out.println("MAP "+ dateDoubleEntry.getKey()+" " +dateDoubleEntry.getValue());
-            params.add(new Parameter(dateDoubleEntry.getKey(), dateDoubleEntry.getValue()));
+        Date fromDate = new Date(allParam.firstKey().getTime() - 500);
+        Date toDate = new Date(allParam.firstKey().getTime() + 500);
+        while (loop) {
+            double sum = 0;
+            int counter = 0;
+            SortedMap<Date, Double> submap = allParam.subMap(fromDate, toDate);
+            for (Map.Entry<Date, Double> dateDoubleEntry : submap.entrySet()) {
+                sum += dateDoubleEntry.getValue();
+                counter++;
+            }
+            double average = sum / counter;
+            if (counter != 0) {
+                returnParams.add(new Parameter(new Date(fromDate.getTime() + 500), average));
+            }
+            fromDate.setTime(fromDate.getTime() + 1000);
+            toDate.setTime(toDate.getTime() + 1000);
+            if (fromDate.after(allParam.lastKey())) {
+                loop = false;
+            }
         }
-        // System.out.println("After put in list\t\t\t" + new Date(System.currentTimeMillis()));
-        return params;
+        return returnParams;
     }
 }
