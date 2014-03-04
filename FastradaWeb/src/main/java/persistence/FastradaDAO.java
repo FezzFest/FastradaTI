@@ -123,14 +123,20 @@ public class FastradaDAO implements Serializable {
     }
 
     public List<Parameter> getParameterValuesBySessionId(Integer sessionId, String parameter) {
+        Map<Date, Double> allParam = new TreeMap();
         List<Parameter> params = new ArrayList<>();
-        String statement = "SELECT * FROM s" + sessionId + "WHERE parameter='speed' ALLOW FILTERING;";
-       // PreparedStatement insertStatement = session.prepare("SELECT * FROM s" + sessionId + "WHERE parameter = "+parameter+" ALLOW FILTERING;");
-       // BoundStatement boundStatement = new BoundStatement(insertStatement);
-        for (Row row : session.execute(statement)) {
-            System.out.println(row);
+        //System.out.println("Before select statement\t\t" + new Date(System.currentTimeMillis()));
+        PreparedStatement insertStatement = session.prepare("SELECT time, value FROM s" + sessionId + " WHERE parameter = ? ALLOW FILTERING;");
+        BoundStatement boundStatement = new BoundStatement(insertStatement);
+        for (Row row : session.execute(boundStatement.bind(parameter))) {
+            allParam.put(row.getDate(0), row.getDouble(1));
         }
-
+        // System.out.println("After put in map\t\t\t" + new Date(System.currentTimeMillis()));
+        for (Map.Entry<Date, Double> dateDoubleEntry : allParam.entrySet()) {
+            // System.out.println("MAP "+ dateDoubleEntry.getKey()+" " +dateDoubleEntry.getValue());
+            params.add(new Parameter(dateDoubleEntry.getKey(), dateDoubleEntry.getValue()));
+        }
+        // System.out.println("After put in list\t\t\t" + new Date(System.currentTimeMillis()));
         return params;
     }
 }

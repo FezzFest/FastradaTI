@@ -12,9 +12,6 @@ public class SessionId implements Serializable {
         this.sessionId = sessionId;
     }
 
-    public SessionId() {
-    }
-
     public int getSessionId() {
         return sessionId;
     }

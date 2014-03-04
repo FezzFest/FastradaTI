@@ -18,12 +18,13 @@ import java.util.List;
 public class TestCassandraDB {
 
     private static FastradaDAO fastradaDAO;
+    static Session session;
 
     @BeforeClass
     public static void init() {
         //reinitialize DB
         Cluster cluster = Cluster.builder().addContactPoints("127.0.0.1").build();
-        Session session = cluster.connect("fastradatest");
+        session = cluster.connect("fastradatest");
         session.execute("TRUNCATE metadata;");
         String cqlStatement = "SELECT columnfamily_name FROM system.schema_columnfamilies WHERE keyspace_name='fastradatest';";
         for (Row row : session.execute(cqlStatement)) {
@@ -57,7 +58,7 @@ public class TestCassandraDB {
         int nextSessionId = fastradaDAO.createNextSession(run1);
 
         for (SessionData sessionData : sessionDatas) {
-            if (sessionData.getSessionId()==nextSessionId){
+            if (sessionData.getSessionId() == nextSessionId) {
                 unique = false;
             }
         }
@@ -73,4 +74,28 @@ public class TestCassandraDB {
 
         Assert.assertEquals("Session ids must be consecutive", sessionId1 + 1, sessionId2);
     }
+
+    @Test
+    public void testGetSingleSessionParam() {
+        SessionData run = new SessionData("Run5", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        int sessionId = fastradaDAO.createNextSession(run);
+        String insertCql = "INSERT INTO s" + sessionId + "(time, parameter, value) values(dateOf(now()),'" + "speed" + "',25);";
+        session.execute(insertCql);
+        String parameter = fastradaDAO.getParametersBySessionId(sessionId).get(0);
+
+        Assert.assertEquals("Returned parameter must be speed", "speed", parameter);
+    }
+
+    @Test
+    public void testGetOneParameterValue(){
+        SessionData run = new SessionData("Run5", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        int sessionId = fastradaDAO.createNextSession(run);
+        String insertCql = "INSERT INTO s" + sessionId + "(time, parameter, value) values(dateOf(now()),'" + "speed" + "',25);";
+        session.execute(insertCql);
+        Double speed = fastradaDAO.getParameterValuesBySessionId(sessionId,"speed").get(0).getValue();
+
+        Assert.assertEquals("Returned speed must be 25", 25, speed,0);
+    }
+
+
 }

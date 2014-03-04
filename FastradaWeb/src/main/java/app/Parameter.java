@@ -26,4 +26,17 @@ public class Parameter {
     public void setValue(double value) {
         this.value = value;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Parameter parameter = (Parameter) o;
+
+        if (Double.compare(parameter.value, value) != 0) return false;
+        if (!timestamp.equals(parameter.timestamp)) return false;
+
+        return true;
+    }
 }

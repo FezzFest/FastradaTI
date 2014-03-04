@@ -25,7 +25,7 @@ public class TestSessionController {
         makeConnection();
         sessioncontroller = new SessionController();
 
-        //reinitialize DB
+
         reinitializeDB();
     }
 
@@ -91,21 +91,18 @@ public class TestSessionController {
         sendParams.add(speed);
         sendParams.add(throttle);
         sendParams.add(gear);
-        SessionData run1 = new SessionData("Run1", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
-        Gson gson = new Gson();
-        String json1 = gson.toJson(run1);
-        run1.setSessionId(sessioncontroller.getNewSessionId(json1).getSessionId());
+        SessionData session1 = makeNewSession();
 
-        String insertCql = "INSERT INTO s" + run1.getSessionId() + "(time, parameter, value) values(dateOf(now()),'" + speed + "',25);";
-        String insertCql2 = "INSERT INTO s" + run1.getSessionId() + "(time, parameter, value) values(dateOf(now()),'" + gear + "',25);";
-        String insertCql3 = "INSERT INTO s" + run1.getSessionId() + "(time, parameter, value) values(dateOf(now()),'" + throttle + "',25);";
+        String insertCql = "INSERT INTO s" + session1.getSessionId() + "(time, parameter, value) values(dateOf(now()),'" + speed + "',25);";
+        String insertCql2 = "INSERT INTO s" + session1.getSessionId() + "(time, parameter, value) values(dateOf(now()),'" + gear + "',25);";
+        String insertCql3 = "INSERT INTO s" + session1.getSessionId() + "(time, parameter, value) values(dateOf(now()),'" + throttle + "',25);";
         for (int i = 0; i < 20; i++) {
             session.execute(insertCql);
             session.execute(insertCql2);
         }
         session.execute(insertCql3);
 
-        receivedParams = sessioncontroller.getParametersBySessionId(run1.getSessionId());
+        receivedParams = sessioncontroller.getParametersBySessionId(session1.getSessionId());
 
         check = sendParams.containsAll(receivedParams);
         if (sendParams.size() != receivedParams.size()) {
@@ -113,6 +110,35 @@ public class TestSessionController {
         }
         Assert.assertTrue("3 parameters must be returned", check);
     }
+
+    @Test
+    public void testGet10ParameterValues() {
+        reinitializeDB();
+        boolean check = true;
+        double speed = 0;
+        long timestamp = System.currentTimeMillis();
+        List<Parameter> sendParams = new ArrayList<>();
+        List<Parameter> receivedParams;
+        SessionData session1 = makeNewSession();
+        //System.out.println("Before insert DB\t\t\t" + new Date(System.currentTimeMillis()));
+        for (int i = 0; i < 100; i++) {
+            speed += 10;
+            session.execute("INSERT INTO s" + session1.getSessionId() + "(time, parameter, value) values(" + timestamp + ",'speed', " + speed + ");");
+            session.execute("INSERT INTO s" + session1.getSessionId() + "(time, parameter, value) values(" + timestamp + ",'gear', " + speed + ");");
+            sendParams.add(new Parameter(new Date(timestamp), speed));
+            timestamp += 1000;
+        }
+        //System.out.println("After insert DB\t\t\t\t" + new Date(System.currentTimeMillis()));
+        receivedParams = sessioncontroller.getParameterValuesBySessionId(session1.getSessionId(), "speed");
+
+        check = sendParams.containsAll(receivedParams);
+        if (sendParams.size() != receivedParams.size()) {
+            check = false;
+        }
+        Assert.assertTrue("Values returned from DB must be same as inserted", check);
+    }
+
+
 
 /*    @Test
     public void testGetParameterValues() {
@@ -135,7 +161,7 @@ public class TestSessionController {
                 sendParams.add(new Parameter(new Date(currentTimestamp), speed));
             }
             if (currentTimestamp - averageTimestamp >= 1000) {
-                double avg = (Math.floor(sum/count*100))/100;
+                double avg = (Math.floor(sum / count * 100)) / 100;
                 sendParams.add(new Parameter(new Date(currentTimestamp), avg));
                 averageTimestamp = currentTimestamp;
                 sum = 0;
@@ -162,6 +188,14 @@ public class TestSessionController {
         }
         Assert.assertTrue("Values in DB must be the same as received from API", check);
     }*/
+
+    private SessionData makeNewSession() {
+        SessionData session = new SessionData("Run1", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        Gson gson = new Gson();
+        String json1 = gson.toJson(session);
+        session.setSessionId(sessioncontroller.getNewSessionId(json1).getSessionId());
+        return session;
+    }
 
     public static void makeConnection() {
         try {
