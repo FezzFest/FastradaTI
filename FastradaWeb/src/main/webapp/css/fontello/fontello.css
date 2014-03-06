@@ -50,9 +50,9 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-ColumnChart:before { content: '\e805'; } /* '' */
+.icon-BarChart:before { content: '\e805'; } /* '' */
 .icon-Table:before { content: '\e804'; } /* '' */
 .icon-PieChart:before { content: '\e800'; } /* '' */
 .icon-LineChart:before { content: '\e801'; } /* '' */
-.icon-BarChart:before { content: '\e802'; } /* '' */
+.icon-ColumnChart:before { content: '\e802'; } /* '' */
 .icon-AreaChart:before { content: '\e803'; } /* '' */

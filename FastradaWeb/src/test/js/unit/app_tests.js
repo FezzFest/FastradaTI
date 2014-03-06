@@ -1,14 +1,19 @@
 describe('Controllers', function () {
     describe('users loads page', function () {
-        var scope, ctrl;
+        var scope, ctrl, session, $httpBackend;
 
-        beforeEach(inject(function ($controller, $rootScope) {
+        beforeEach(module('fastrada.services'));
+        beforeEach(inject(function ($controller, $rootScope, SessionData, _$httpBackend_) {
             scope = $rootScope.$new();
-            ctrl = $controller('HomeController', {$scope: scope});
+            session = SessionData;
+
+            $httpBackend = _$httpBackend_;
+            $httpBackend.expectGET("/api/sessions").respond({});
+            ctrl = $controller('HomeController', {$scope: scope, SessionData: session});
         }));
 
-        it('should contain 12 sessions', function () {
-            expect(scope.sessions.length).toEqual(12);
+        it('should contain 0 sessions without a successfull GET', function () {
+            expect(scope.sessions.length).toEqual(0);
         });
     });
 
@@ -87,18 +92,19 @@ describe('Controllers', function () {
             scope = $rootScope.$new();
             session = SessionData;
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET("/api/sessions").respond({});
+            $httpBackend.expectGET("/api/sessions/0/speed").respond({});
+//            $httpBackend.expectGET("/api/sessions").respond({});
 
             ctrl = $controller('SessionDetailController', {$scope: scope, $routeParams: params, SessionData: session});
         }));
 
         it('should return graph data with 5 points', function () {
-            scope.createGraphData(rawJson);
+            scope.createGraphData([rawJson]);
             expect(scope.chart.data.rows.length).toBe(5);
         });
 
         it('should have the same data as our resultData', function () {
-             scope.createGraphData(rawJson);
+            scope.createGraphData([rawJson]);
             expect(scope.chart.data == resultData);
         });
 
@@ -108,9 +114,20 @@ describe('Controllers', function () {
         });
 
         it('should return 100 chartpoints', function () {
-            scope.chartMinMax.max = 100;
-            scope.updateGraph(scope.chartMinMax.min, scope.chartMinMax.max);
+            scope.random500Data();
+            scope.updateGraph([0, 100]);
             expect(scope.chart.data.rows.length).toBe(102);
+        });
+
+        it('should contain 2 parameters in the graph', function () {
+            scope.random500Data();
+            var success = true;
+            angular.forEach(scope.chart.data.rows, function (aRow) {
+                if (aRow.length != 3) {
+                    success = false;
+                }
+            });
+            expect(success, true);
         });
     });
 })

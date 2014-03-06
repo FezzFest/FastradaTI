@@ -22,9 +22,9 @@
 </nav>
 
 <div class="row">
-    <div class="col-md-11">
+    <div ng-show="visibleGraph" class="col-md-11">
         <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
-        <div ui-slider="{range: true}" min="0" max="500" step="5" use-decimals ng-model="sliderValues"></div>
+        <div ui-slider="{range: true}" min="0" max="{{sliderMaxValue}}" step="1" use-decimals ng-model="sliderValues"></div>
         {{updateGraph(sliderValues)}}
     </div>
     <div class="col-md-1">

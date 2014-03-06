@@ -1,78 +1,5 @@
-function HomeController($scope) {
-    $scope.sessions = [
-        {
-            'sessionId': '0',
-            'name': 'PJ',
-            'startTime': '13:00',
-            'date': '21-2-2014'
-        },
-        {
-            'sessionId': '1',
-            'name': 'Philip',
-            'startTime': '14:00',
-            'date': '21-2-2014'
-        },
-        {
-            'sessionId': '2',
-            'name': 'Thomas',
-            'startTime': '14:00',
-            'date': '21-2-2014'
-        },
-        {
-            'sessionId': '3',
-            'name': 'Peter',
-            'startTime': '14:00',
-            'date': '21-2-2014'
-        },
-        {
-            'sessionId': '4',
-            'name': 'Carlo',
-            'startTime': '14:00',
-            'date': '21-2-2014'
-        } ,
-        {
-            'sessionId': '5',
-            'name': 'Jonathan',
-            'startTime': '14:00',
-            'date': '21-2-2014'
-        },
-        {
-            'sessionId': '0',
-            'name': 'PJ',
-            'startTime': '13:00',
-            'date': '21-2-2014'
-        },
-        {
-            'sessionId': '1',
-            'name': 'Philip',
-            'startTime': '14:00',
-            'date': '21-2-2014'
-        },
-        {
-            'sessionId': '2',
-            'name': 'Thomas',
-            'startTime': '14:00',
-            'date': '21-2-2014'
-        },
-        {
-            'sessionId': '3',
-            'name': 'Peter',
-            'startTime': '14:00',
-            'date': '21-2-2014'
-        },
-        {
-            'sessionId': '4',
-            'name': 'Carlo',
-            'startTime': '14:00',
-            'date': '21-2-2014'
-        } ,
-        {
-            'sessionId': '5',
-            'name': 'Jonathan',
-            'startTime': '14:00',
-            'date': '21-2-2014'
-        }
-    ];
+function HomeController($scope, SessionData) {
+    $scope.sessions = [];
 
     $scope.hasSessions = function () {
         if ($scope.sessions.length > 0)
@@ -80,6 +7,10 @@ function HomeController($scope) {
 
         return false;
     }
+
+    SessionData.getSessions().success(function (d) {
+        $scope.sessions = d;
+    });
 }
 
 function SessionDetailController($scope, $routeParams, SessionData) {
@@ -88,12 +19,17 @@ function SessionDetailController($scope, $routeParams, SessionData) {
     $scope.parameters = ['Temperature', 'Speed', 'FuelMap', 'RPM', 'Gear'];
 
     $scope.chartTypes = ['LineChart', 'AreaChart', 'ColumnChart', 'BarChart', 'Table']; //'PieChart',
+    $scope.visibleGraph = false;
 
     // chart variables
+    var rawD1;
+    var rawD2;
     var result = [];
     var resultRows = [];
     var minSeconds = 0;
     var maxSeconds = 0;
+
+    $scope.sliderMaxValue = 100;
 
     // move test data to tests
     var rawJson = [
@@ -159,7 +95,8 @@ function SessionDetailController($scope, $routeParams, SessionData) {
                 "1": {
                     minValue: 0,
                     maxValue: 260,
-                    label: 'speed in kmh'
+                    label: 'speed in kmh',
+                    textColor: "#ff0000"
                 }
             },
             "hAxis": {
@@ -172,13 +109,13 @@ function SessionDetailController($scope, $routeParams, SessionData) {
 
     //herschreven voor slider
     $scope.updateGraph = function (sliderValues) {
-            $scope.chart.data.rows = [];
+        $scope.chart.data.rows = [];
 
-            for (var count = 0; count < resultRows.length; count++) {
-                if (resultRows[count].c[0].v >= sliderValues[0] && resultRows[count].c[0].v <= sliderValues[1]) {
-                    $scope.chart.data.rows.push(resultRows[count]);
-                }
+        for (var count = 0; count < resultRows.length; count++) {
+            if (resultRows[count].c[0].v >= sliderValues[0] && resultRows[count].c[0].v <= sliderValues[1]) {
+                $scope.chart.data.rows.push(resultRows[count]);
             }
+        }
     };
 
     $scope.setChartType = function (index) {
@@ -193,60 +130,6 @@ function SessionDetailController($scope, $routeParams, SessionData) {
     };
 
     $scope.createGraphData = function (rawJSON) {
-        result = {
-            "cols": [
-                {
-                    "id": "seconds",
-                    "label": "Seconds",
-                    "type": "number",
-                    "p": {}
-                },
-                {
-                    "id": "Car",
-                    "label": parameter,
-                    "type": "number",
-                    "p": {}
-                }
-            ],
-            "rows": [
-            ]
-        };
-
-        var firstTime = 0;
-        var formattedTime = 0;
-
-        resultRows = [];
-
-        for (var parameterRecord = 0; parameterRecord < rawJSON.length; parameterRecord++) {
-            if (firstTime == 0) {
-                firstTime = rawJSON[parameterRecord].timestamp;
-            } else {
-                formattedTime = rawJSON[parameterRecord].timestamp - firstTime;
-                formattedTime = formattedTime / 1000;
-            }
-
-            resultRows.push({
-                    'c': [
-                        {"v": formattedTime },
-                        {"v": rawJSON[parameterRecord].value}
-                    ]
-                }
-            );
-
-            result.rows = resultRows;
-
-            if (parameterRecord == rawJSON.length - 1) {
-                maxSeconds = formattedTime;
-            }
-        }
-
-        $scope.chart.data = result;
-        $scope.chart.options.title = parameter;
-    };
-
-
-    //kopie van createGraphData voor 2 parameters
-    $scope.createGraphData = function (rawJSON, rawJSON2) {
         result = {
             "cols": [
                 {
@@ -277,32 +160,41 @@ function SessionDetailController($scope, $routeParams, SessionData) {
 
         resultRows = [];
 
-        for (var parameterRecord = 0; parameterRecord < rawJSON.length; parameterRecord++) {
-            if (firstTime == 0) {
-                firstTime = rawJSON[parameterRecord].timestamp;
-            } else {
-                formattedTime = rawJSON[parameterRecord].timestamp - firstTime;
-                formattedTime = formattedTime / 1000;
-            }
-
-            resultRows.push({
-                    'c': [
-                        {"v": formattedTime },
-                        {"v": rawJSON[parameterRecord].value},
-                        {"v": rawJSON2[parameterRecord].value}
-                    ]
+        angular.forEach(rawJSON, function (rawDataSet) {
+            for (var parameterRecord = 0; parameterRecord < rawDataSet.length; parameterRecord++) {
+                if (firstTime == 0) {
+                    firstTime = rawDataSet[parameterRecord].timestamp;
+                } else {
+                    formattedTime = rawDataSet[parameterRecord].timestamp - firstTime;
+                    formattedTime = formattedTime / 1000;
                 }
-            );
+
+                if (resultRows[parameterRecord] != null) {
+                    resultRows[parameterRecord].c.push({"v": rawDataSet[parameterRecord].value});
+                } else {
+                    resultRows.push({
+                            'c': [
+                                {"v": formattedTime },
+                                {"v": rawDataSet[parameterRecord].value}
+                            ]
+                        }
+                    );
+                }
+
+                if (parameterRecord == rawDataSet.length - 1) {
+                    maxSeconds = formattedTime;
+                }
+            }
 
             result.rows = resultRows;
+            $scope.sliderValues = [0, maxSeconds];
+            $scope.sliderMaxValue = maxSeconds;
+        });
 
-            if (parameterRecord == rawJSON.length - 1) {
-                maxSeconds = formattedTime;
-            }
-        }
 
         $scope.chart.data = result;
         $scope.chart.options.title = parameter;
+        $scope.visibleGraph = true;
     };
 
     $scope.random500Data = function () {
@@ -312,15 +204,21 @@ function SessionDetailController($scope, $routeParams, SessionData) {
             var random = Math.floor((Math.random() * 20) + 1);
             newData.push({'timestamp': extraDataIndex * 1000, 'value': 100 + random});
             random = Math.floor((Math.random() * 20) + 1);
-            newData2.push({'timestamp': extraDataIndex * 1000, 'value': 100 + random});
+            newData2.push({'timestamp': extraDataIndex * 1000, 'value': 50 + random});
         }
-       $scope.createGraphData(newData,newData2);
+        $scope.createGraphData([newData, newData2]);
     };
 
-    $scope.random500Data();
-    $scope.updateGraph($scope.chartMinMax.min, $scope.chartMinMax.max);
+    var getData = function () {
+        SessionData.getSessionParameter($scope.sessionId, 'speed')
+            .then(function (raw1) {
+                SessionData.getSessionParameter($scope.sessionId, 'gear').then(
+                    function (raw2) {
+                        $scope.createGraphData([raw1.data, raw2.data]);
+                    });
+            });
+    };
 
-    SessionData.getSessions().success(function (d) {
-        console.log(d);
-    });
+    getData();
+
 }

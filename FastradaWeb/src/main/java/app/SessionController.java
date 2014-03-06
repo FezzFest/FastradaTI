@@ -39,6 +39,7 @@ public class SessionController {
     }
 
     @RequestMapping(value = "/{id}/{parameter}", method = RequestMethod.GET)
+    @ResponseBody
     public List<Parameter> getParameterValuesBySessionId(@PathVariable("id") Integer sessionId, @PathVariable("parameter") String parameter) {
         return fastradaDAO.getParameterValuesBySessionId(sessionId, parameter);
     }
