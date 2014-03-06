@@ -1,4 +1,4 @@
-angular.module('fastrada', ['fastrada.services', 'googlechart']).
+angular.module('fastrada', ['fastrada.services', 'googlechart','ui.slider']).
     config(function ($routeProvider) {
         $routeProvider
             .when('/', {templateUrl: '/views/partials/home.html', controller: HomeController})

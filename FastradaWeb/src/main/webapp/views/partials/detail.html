@@ -21,15 +21,11 @@
     </div>
 </nav>
 
-<div>
-    <input type="text" ng-model="chartMinMax.min"/>
-    <input type="text" ng-model="chartMinMax.max"/>
-    {{updateGraph(chartMinMax.min,chartMinMax.max)}}
-</div>
-
 <div class="row">
     <div class="col-md-11">
         <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
+        <div ui-slider="{range: true}" min="0" max="500" step="5" use-decimals ng-model="sliderValues"></div>
+        {{updateGraph(sliderValues)}}
     </div>
     <div class="col-md-1">
         <div class="navbar navbar-default the-icons text-center icons">
@@ -41,3 +37,4 @@
         </div>
     </div>
 </div>
+

@@ -83,6 +83,8 @@ function HomeController($scope) {
 }
 
 function SessionDetailController($scope, $routeParams, SessionData) {
+    $scope.sliderValues = [0, 500];
+
     $scope.parameters = ['Temperature', 'Speed', 'FuelMap', 'RPM', 'Gear'];
 
     $scope.chartTypes = ['LineChart', 'AreaChart', 'ColumnChart', 'BarChart', 'Table']; //'PieChart',
@@ -140,13 +142,25 @@ function SessionDetailController($scope, $routeParams, SessionData) {
             "isStacked": "true",
             "fill": 20,
             "displayExactValues": true,
-            "vAxis": {
-                "title": "Temperature in °C",
-                "gridlines": {
-                    "count": 10
+            "series": {
+                "0": {
+                    targetAxisIndex: 0
                 },
-                "minValue": 0,
-                "maxValue": 130
+                "1": {
+                    targetAxisIndex: 1
+                }
+            },
+            "vAxes": {
+                "0": {
+                    minValue: 0,
+                    maxValue: 130,
+                    label: 'temperature in °C'
+                },
+                "1": {
+                    minValue: 0,
+                    maxValue: 260,
+                    label: 'speed in kmh'
+                }
             },
             "hAxis": {
                 "title": "Seconds"
@@ -156,16 +170,15 @@ function SessionDetailController($scope, $routeParams, SessionData) {
     }
     ;
 
-    $scope.updateGraph = function (minSec, maxSec) {
-        if (minSec < maxSec) {
+    //herschreven voor slider
+    $scope.updateGraph = function (sliderValues) {
             $scope.chart.data.rows = [];
 
             for (var count = 0; count < resultRows.length; count++) {
-                if (resultRows[count].c[0].v >= minSec && resultRows[count].c[0].v <= maxSec) {
+                if (resultRows[count].c[0].v >= sliderValues[0] && resultRows[count].c[0].v <= sliderValues[1]) {
                     $scope.chart.data.rows.push(resultRows[count]);
                 }
             }
-        }
     };
 
     $scope.setChartType = function (index) {
@@ -231,13 +244,77 @@ function SessionDetailController($scope, $routeParams, SessionData) {
         $scope.chart.options.title = parameter;
     };
 
+
+    //kopie van createGraphData voor 2 parameters
+    $scope.createGraphData = function (rawJSON, rawJSON2) {
+        result = {
+            "cols": [
+                {
+                    "id": "seconds",
+                    "label": "Seconds",
+                    "type": "number",
+                    "p": {}
+                },
+                {
+                    "id": "temperature",
+                    "label": "temperature",
+                    "type": "number",
+                    "p": {}
+                },
+                {
+                    "id": "speed",
+                    "label": "speed",
+                    "type": "number",
+                    "p": {}
+                }
+            ],
+            "rows": [
+            ]
+        };
+
+        var firstTime = 0;
+        var formattedTime = 0;
+
+        resultRows = [];
+
+        for (var parameterRecord = 0; parameterRecord < rawJSON.length; parameterRecord++) {
+            if (firstTime == 0) {
+                firstTime = rawJSON[parameterRecord].timestamp;
+            } else {
+                formattedTime = rawJSON[parameterRecord].timestamp - firstTime;
+                formattedTime = formattedTime / 1000;
+            }
+
+            resultRows.push({
+                    'c': [
+                        {"v": formattedTime },
+                        {"v": rawJSON[parameterRecord].value},
+                        {"v": rawJSON2[parameterRecord].value}
+                    ]
+                }
+            );
+
+            result.rows = resultRows;
+
+            if (parameterRecord == rawJSON.length - 1) {
+                maxSeconds = formattedTime;
+            }
+        }
+
+        $scope.chart.data = result;
+        $scope.chart.options.title = parameter;
+    };
+
     $scope.random500Data = function () {
         var newData = [];
+        var newData2 = [];
         for (var extraDataIndex = 0; extraDataIndex < 500; extraDataIndex++) {
             var random = Math.floor((Math.random() * 20) + 1);
             newData.push({'timestamp': extraDataIndex * 1000, 'value': 100 + random});
+            random = Math.floor((Math.random() * 20) + 1);
+            newData2.push({'timestamp': extraDataIndex * 1000, 'value': 100 + random});
         }
-        $scope.createGraphData(newData);
+       $scope.createGraphData(newData,newData2);
     };
 
     $scope.random500Data();
