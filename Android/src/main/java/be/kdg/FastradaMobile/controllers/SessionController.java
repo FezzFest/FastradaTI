@@ -40,16 +40,13 @@ public class SessionController extends AsyncTask<String[], Void, Integer> {
         OutputDataController output = new OutputDataController();
         Gson gson = new Gson();
 
-        // Current date
-        Date date = new Date(System.currentTimeMillis());
-
-        // New SessionData object
+          // New SessionData object
         SessionData sessionData = new SessionData();
         sessionData.setSessionName(session);
         sessionData.setTrackName(track);
         sessionData.setVehicleName(vehicle);
         sessionData.setComment(comment);
-        sessionData.setDate(date);
+        sessionData.setDate(System.currentTimeMillis());
 
         // Parse JSON request
         String jsonRequest = gson.toJson(sessionData);

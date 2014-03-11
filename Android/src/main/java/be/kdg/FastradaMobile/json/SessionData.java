@@ -8,17 +8,26 @@ public class SessionData implements Serializable {
     private String trackName;
     private String vehicleName;
     private String comment;
-    private Date date;
+    private long date;
+    private int sessionId;
 
     public SessionData() {
     }
 
-    public SessionData(String sessionName, String trackName, String vehicleName, String comment, Date date) {
+    public SessionData(String sessionName, String trackName, String vehicleName, String comment, long date) {
         this.sessionName = sessionName;
         this.trackName = trackName;
         this.vehicleName = vehicleName;
         this.comment = comment;
         this.date = date;
+    }
+
+    public int getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(int sessionId) {
+        this.sessionId = sessionId;
     }
 
     public String getSessionName() {
@@ -53,11 +62,11 @@ public class SessionData implements Serializable {
         this.comment = comment;
     }
 
-    public Date getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(long date) {
         this.date = date;
     }
 }

@@ -128,12 +128,27 @@ public class TestSessionController {
             timestamp += 1000;
         }
         receivedParams = sessioncontroller.getParameterValuesBySessionId(session1.getSessionId(), "speed");
-
         check = sendParams.containsAll(receivedParams);
         if (sendParams.size() != receivedParams.size()) {
             check = false;
         }
         Assert.assertTrue("Values returned from DB must be same as inserted", check);
+    }
+
+    @Test
+    public void testDeleteSession() {
+        SessionData run1 = new SessionData("Run1", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        SessionData run2 = new SessionData("Run2", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        Gson gson = new Gson();
+
+        String json1 = gson.toJson(run1);
+        String json2 = gson.toJson(run2);
+
+        int sessionId1 = sessioncontroller.getNewSessionId(json1).getSessionId();
+        sessioncontroller.deleteSession(sessionId1);
+        int sessionId2 = sessioncontroller.getNewSessionId(json2).getSessionId();
+
+        Assert.assertEquals("Session ids must be the same", sessionId1, sessionId2);
     }
 
 

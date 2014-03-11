@@ -153,4 +153,11 @@ public class FastradaDAO implements Serializable {
         }
         return returnParams;
     }
+
+    public void deleteSession(int sessionId) {
+        String cqlDropTable = "DROP TABLE s" + sessionId + ";";
+        session.execute(cqlDropTable);
+        String cqlDeleteMetadata = "DELETE FROM metadata where sessionid = '" + sessionId + "';";
+        session.execute(cqlDeleteMetadata);
+    }
 }

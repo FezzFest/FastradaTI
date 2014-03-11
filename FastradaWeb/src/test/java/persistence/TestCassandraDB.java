@@ -87,14 +87,25 @@ public class TestCassandraDB {
     }
 
     @Test
-    public void testGetOneParameterValue(){
+    public void testGetOneParameterValue() {
         SessionData run = new SessionData("Run5", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
         int sessionId = fastradaDAO.createNextSession(run);
         String insertCql = "INSERT INTO s" + sessionId + "(time, parameter, value) values(dateOf(now()),'" + "speed" + "',25);";
         session.execute(insertCql);
-        Double speed = fastradaDAO.getParameterValuesBySessionId(sessionId,"speed").get(0).getValue();
+        Double speed = fastradaDAO.getParameterValuesBySessionId(sessionId, "speed").get(0).getValue();
 
-        Assert.assertEquals("Returned speed must be 25", 25, speed,0);
+        Assert.assertEquals("Returned speed must be 25", 25, speed, 0);
+    }
+
+    @Test
+    public void testDeleteSession() {
+        SessionData run1 = new SessionData("Run3", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        SessionData run2 = new SessionData("Run4", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        int sessionId1 = fastradaDAO.createNextSession(run1);
+        fastradaDAO.deleteSession(sessionId1);
+        int sessionId2 = fastradaDAO.createNextSession(run2);
+
+        Assert.assertEquals("Session ids must be the same", sessionId1, sessionId2);
     }
 
 

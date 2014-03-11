@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/sessions")
 public class SessionController {
-     //TODO autowiring in orde maken
+    //TODO autowiring in orde maken
     //@Autowired
     FastradaDAO fastradaDAO = new FastradaDAO();
 
@@ -44,6 +44,11 @@ public class SessionController {
         return fastradaDAO.getParameterValuesBySessionId(sessionId, parameter);
     }
 
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public void deleteSession(@PathVariable("id") Integer sessionId) {
+        fastradaDAO.deleteSession(sessionId);
+    }
 
 /*    @RequestMapping(method = RequestMethod.POST, consumes = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
