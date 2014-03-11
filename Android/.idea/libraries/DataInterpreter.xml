@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="DataInterpreter">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../DataInterpreter/out/artifacts/DataInterpreter_jar/DataInterpreter.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../DataInterpreter/DataInterpreter.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
