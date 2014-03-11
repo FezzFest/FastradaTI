@@ -34,7 +34,7 @@ public class OutputDataController {
         return response.toString();
     }
 
-    public String doPost(String s, String params) {
+    public String doPost(String s, Object params) {
         StringBuilder response = new StringBuilder();
         try {
             URL url = new URL(s);
@@ -42,15 +42,23 @@ public class OutputDataController {
 
             // Headers
             conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "text/plain;charset=UTF-8");
+            if (params instanceof byte[]) {
+                conn.setRequestProperty("Content-Encoding", "gzip");
+            }
 
             conn.setDoOutput(true);
             DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
-            dos.writeBytes(params);
+            if (params instanceof String) {
+                dos.writeBytes((String) params);
+            } else if (params instanceof byte[]) {
+                dos.write((byte[]) params);
+            }
 
             // Log
-            // Log.d("Fastrada", "URL: " + s);
-            // Log.d("Fastrada", "Params: " + params);
-            // Log.d("Fastrada", "Response code: " + conn.getResponseCode());
+            Log.d("Fastrada", "URL: " + s);
+            Log.d("Fastrada", "Params: " + params);
+            Log.d("Fastrada", "Response code: " + conn.getResponseCode());
 
             InputStreamReader isr = new InputStreamReader(conn.getInputStream());
             BufferedReader in = new BufferedReader(isr);
@@ -61,8 +69,9 @@ public class OutputDataController {
             }
             in.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e("Fastrada", "POST request failed: " + e.getMessage());
         }
+
         return response.toString();
     }
 }
