@@ -1,6 +1,7 @@
 package be.kdg.FastradaMobile.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -9,9 +10,12 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
-import android.text.Layout;
+
 import android.util.Log;
+
+import android.util.Xml;
 import android.view.*;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -19,7 +23,15 @@ import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.UserInterfaceController;
 import org.codeandmagic.android.gauge.GaugeView;
-import org.w3c.dom.Text;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+import org.xmlpull.v1.XmlSerializer;
+
+import java.io.*;
+import java.util.ArrayList;
+
 
 public class MainActivity extends Activity {
     private static final int GREEN_LED_PORTRAIT = 8;
@@ -42,15 +54,19 @@ public class MainActivity extends Activity {
     private int rpmLimiter;
     private boolean alarmPlaying;
     int id = 0;
+    String[] values = new String[12];
 
     /**
      * Called when the activity is first created.
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        setPositionUIElements();
         bufferController = UserInterfaceController.getInstance();
 
         // Keeps the screen on while activity is running
@@ -135,6 +151,8 @@ public class MainActivity extends Activity {
             tempIndicator.setVisibility(View.INVISIBLE);
             tempDescription.setVisibility(View.INVISIBLE);
         }
+
+
     }
 
     private void showTemp(double temperature) {
@@ -221,49 +239,62 @@ public class MainActivity extends Activity {
         return true;
     }
 
+    boolean longPressed = false;
+    final GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
+        public void onLongPress(MotionEvent e) {
+            longPressed = true;
+
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(50);
+        }
+    });
+
+
     public boolean onTouchEvent(MotionEvent event) {
-        if (!prefs.getBoolean("pref_UI_change", true)) {
-            int eventaction = event.getAction();
+        gestureDetector.onTouchEvent(event);
 
-            int X = (int) event.getX();
-            int Y = (int) event.getY();
-            LinearLayout linearLayout1;
-            LinearLayout linearLayout2;
+        int eventaction = event.getAction();
 
-            if (getResources().getConfiguration().orientation == 1) {
-                linearLayout1 = (LinearLayout) findViewById(R.id.dashboard_top);
-                linearLayout2 = (LinearLayout) findViewById(R.id.dashboard_bottom);
-            } else {
-                linearLayout1 = (LinearLayout) findViewById(R.id.dashboard_left);
-                linearLayout2 = (LinearLayout) findViewById(R.id.dashboard_right);
-            }
+        int X = (int) event.getX();
+        int Y = (int) event.getY();
+        LinearLayout linearLayout1;
+        LinearLayout linearLayout2;
 
-            GaugeView gaugeView = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
-            LinearLayout[] viewGroups = new LinearLayout[2];
+        if (getResources().getConfiguration().orientation == 1) {
+            linearLayout1 = (LinearLayout) findViewById(R.id.dashboard_top);
+            linearLayout2 = (LinearLayout) findViewById(R.id.dashboard_bottom);
+        } else {
+            linearLayout1 = (LinearLayout) findViewById(R.id.dashboard_left);
+            linearLayout2 = (LinearLayout) findViewById(R.id.dashboard_right);
+        }
 
-            viewGroups[0] = linearLayout1;
-            viewGroups[1] = linearLayout2;
+        GaugeView gaugeView = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
+        LinearLayout[] viewGroups = new LinearLayout[2];
 
-            switch (eventaction) {
+        viewGroups[0] = linearLayout1;
+        viewGroups[1] = linearLayout2;
 
-                case MotionEvent.ACTION_DOWN:
-                    id = 0;
-                    for (LinearLayout UIelement : viewGroups) {
+        switch (eventaction) {
 
-                        if (X > UIelement.getX() && X < UIelement.getX() + UIelement.getWidth() && Y > UIelement.getY() && Y < UIelement.getY() + UIelement.getHeight()) {
-                            break;
-                        }
-                        id++;
+            case MotionEvent.ACTION_DOWN:
+                id = 0;
+                for (LinearLayout UIelement : viewGroups) {
+
+                    if (X > UIelement.getX() && X < UIelement.getX() + UIelement.getWidth() && Y > UIelement.getY() && Y < UIelement.getY() + UIelement.getHeight()) {
+                        break;
                     }
-                    if (id == 2) {
-                        if (X > gaugeView.getX() && X < gaugeView.getX() + gaugeView.getWidth() && Y > gaugeView.getY() && Y < gaugeView.getY() + gaugeView.getHeight()) {
-                            break;
-                        }
-                        id++;
+                    id++;
+                }
+                if (id == 2) {
+                    if (X > gaugeView.getX() && X < gaugeView.getX() + gaugeView.getWidth() && Y > gaugeView.getY() && Y < gaugeView.getY() + gaugeView.getHeight()) {
+                        break;
                     }
+                    id++;
+                }
 
-                    break;
-                case MotionEvent.ACTION_MOVE:
+                break;
+            case MotionEvent.ACTION_MOVE:
+                if (longPressed) {
                     if (id < 2) {
                         viewGroups[id].setX(X - viewGroups[id].getWidth() / 2);
                         viewGroups[id].setY(Y - viewGroups[id].getHeight() / 2);
@@ -272,10 +303,61 @@ public class MainActivity extends Activity {
                         gaugeView.setY(Y - gaugeView.getWidth() / 2);
 
                     }
-                    break;
-            }
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                longPressed = false;
+                SharedPreferences.Editor editor = prefs.edit();
+                if (getResources().getConfiguration().orientation == 1) {
+                    editor.putString("pref_UI_topLayout_X", "" + viewGroups[0].getTranslationX());
+                    editor.putString("pref_UI_topLayout_Y", "" + viewGroups[0].getTranslationY());
+                    editor.putString("pref_UI_bottomLayout_X", "" + viewGroups[1].getTranslationX());
+                    editor.putString("pref_UI_bottomLayout_Y", "" + viewGroups[1].getTranslationY());
+                    editor.putString("pref_UI_gaugeViewPort_X", "" + gaugeView.getTranslationX());
+                    editor.putString("pref_UI_gaugeViewPort_Y", "" + gaugeView.getTranslationY());
+                } else {
+                    editor.putString("pref_UI_leftLayout_X", "" + viewGroups[0].getTranslationX());
+                    editor.putString("pref_UI_leftLayout_Y", "" + viewGroups[0].getTranslationY());
+                    editor.putString("pref_UI_rightLayout_X", "" + viewGroups[1].getTranslationX());
+                    editor.putString("pref_UI_rightLayout_Y", "" + viewGroups[1].getTranslationY());
+                    editor.putString("pref_UI_gaugeViewLand_X", "" + gaugeView.getTranslationX());
+                    editor.putString("pref_UI_gaugeViewLand_Y", "" + gaugeView.getTranslationY());
+                }
+
+                editor.commit();
+
+
         }
+
 
         return true;
     }
+
+
+    private void setPositionUIElements() {
+        GaugeView gaugeView = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
+        if (getResources().getConfiguration().orientation == 1) {
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.dashboard_top);
+            linearLayout.setX(Float.parseFloat(prefs.getString("pref_UI_topLayout_X", "0")));
+            linearLayout.setY(Float.parseFloat(prefs.getString("pref_UI_topLayout_Y", "0")));
+            LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.dashboard_bottom);
+            linearLayout2.setX(Float.parseFloat(prefs.getString("pref_UI_bottomLayout_X", "0")));
+            linearLayout2.setY(Float.parseFloat(prefs.getString("pref_UI_bottomLayout_Y", "0")));
+            gaugeView.setX(Float.parseFloat(prefs.getString("pref_UI_gaugeViewPort_X", "0")));
+            gaugeView.setY(Float.parseFloat(prefs.getString("pref_UI_gaugeViewPort_Y", "0")));
+        } else {
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.dashboard_left);
+            linearLayout.setX(Float.parseFloat(prefs.getString("pref_UI_leftLayout_X", "0")));
+            linearLayout.setY(Float.parseFloat(prefs.getString("pref_UI_leftLayout_Y", "0")));
+            LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.dashboard_right);
+            linearLayout2.setX(Float.parseFloat(prefs.getString("pref_UI_rightLayout_X", "0")));
+            linearLayout2.setY(Float.parseFloat(prefs.getString("pref_UI_rightLayout_Y", "0")));
+            gaugeView.setX(Float.parseFloat(prefs.getString("pref_UI_gaugeViewLand_X", "0")));
+            gaugeView.setY(Float.parseFloat(prefs.getString("pref_UI_gaugeViewLand_Y", "0")));
+        }
+    }
+
+
+
+
 }

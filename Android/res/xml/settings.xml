@@ -5,20 +5,20 @@
         <PreferenceScreen android:title="Basic Settings">
             <PreferenceCategory android:title="Elements">
                 <CheckBoxPreference
-                    android:key="pref_UI_RPM"
-                    android:title="Enable RPM"
-                    android:summary="Enable RPM indicator"
-                    android:defaultValue="true"/>
+                        android:key="pref_UI_RPM"
+                        android:title="Enable RPM"
+                        android:summary="Enable RPM indicator"
+                        android:defaultValue="true"/>
                 <CheckBoxPreference
-                    android:key="pref_UI_engineGear"
-                    android:title="Enable Gear"
-                    android:summary="Enable gear indicator"
-                    android:defaultValue="true"/>
+                        android:key="pref_UI_engineGear"
+                        android:title="Enable Gear"
+                        android:summary="Enable gear indicator"
+                        android:defaultValue="true"/>
                 <CheckBoxPreference
-                    android:key="pref_UI_engineTemp"
-                    android:title="Enable Temperature"
-                    android:summary="Enable temperature indicator"
-                    android:defaultValue="true"/>
+                        android:key="pref_UI_engineTemp"
+                        android:title="Enable Temperature"
+                        android:summary="Enable temperature indicator"
+                        android:defaultValue="true"/>
                 <CheckBoxPreference
                         android:key="pref_UI_change"
                         android:title="Lock UI"
@@ -29,27 +29,27 @@
 
             <PreferenceCategory android:title="Style">
                 <ListPreference
-                    android:key="pref_gauge_style"
-                    android:title="Speed indicator"
-                    android:summary="Set the style of the speed indicator"
-                    android:entries="@array/gaugeView"
-                    android:entryValues="@array/gaugeViewValues"
-                    android:defaultValue="text"/>
+                        android:key="pref_gauge_style"
+                        android:title="Speed indicator"
+                        android:summary="Set the style of the speed indicator"
+                        android:entries="@array/gaugeView"
+                        android:entryValues="@array/gaugeViewValues"
+                        android:defaultValue="text"/>
             </PreferenceCategory>
 
             <PreferenceCategory android:title="Scale">
                 <EditTextPreference
-                    android:key="pref_max_speed"
-                    android:title="Speed scale"
-                    android:summary="Set the maximum speed"
-                    android:defaultValue="250"
-                    android:inputType="number"/>
+                        android:key="pref_max_speed"
+                        android:title="Speed scale"
+                        android:summary="Set the maximum speed"
+                        android:defaultValue="250"
+                        android:inputType="number"/>
                 <EditTextPreference
-                    android:key="pref_max_RPM"
-                    android:title="RPM scale"
-                    android:summary="Set the maximum RPM"
-                    android:defaultValue="8000"
-                    android:inputType="number"/>
+                        android:key="pref_max_RPM"
+                        android:title="RPM scale"
+                        android:summary="Set the maximum RPM"
+                        android:defaultValue="8000"
+                        android:inputType="number"/>
             </PreferenceCategory>
         </PreferenceScreen>
 
@@ -57,28 +57,28 @@
         <PreferenceScreen android:title="Communication">
             <PreferenceCategory android:title="External">
                 <EditTextPreference
-                    android:key="pref_service_address"
-                    android:title="Server address"
-                    android:summary="Specify the address for the external service"
-                    android:defaultValue="http://vps42465.ovh.net"/>
+                        android:key="pref_service_address"
+                        android:title="Server address"
+                        android:summary="Specify the address for the external service"
+                        android:defaultValue="http://vps42465.ovh.net"/>
                 <EditTextPreference
-                    android:key="pref_service_port"
-                    android:title="Server port"
-                    android:summary="Specify the port for the external service"
-                    android:defaultValue="8080"
-                    android:inputType="number"/>
+                        android:key="pref_service_port"
+                        android:title="Server port"
+                        android:summary="Specify the port for the external service"
+                        android:defaultValue="8080"
+                        android:inputType="number"/>
             </PreferenceCategory>
             <PreferenceCategory android:title="Internal">
                 <EditTextPreference
-                    android:key="pref_arduino_port"
-                    android:title="Arduino port"
-                    android:summary="Specify the port for the Arduino client"
-                    android:defaultValue="9000"
-                    android:inputType="number"/>
+                        android:key="pref_arduino_port"
+                        android:title="Arduino port"
+                        android:summary="Specify the port for the Arduino client"
+                        android:defaultValue="9000"
+                        android:inputType="number"/>
                 <Preference
-                    android:key="pref_arduino_wifi"
-                    android:title="WiFi settings"
-                    android:summary="Specify the settings for the WiFi hotspot"/>
+                        android:key="pref_arduino_wifi"
+                        android:title="WiFi settings"
+                        android:summary="Specify the settings for the WiFi hotspot"/>
             </PreferenceCategory>
         </PreferenceScreen>
 
@@ -86,31 +86,113 @@
         <PreferenceScreen android:title="Advanced Settings">
             <PreferenceCategory android:title="Buffer">
                 <EditTextPreference
-                    android:key="pref_buffer_size"
-                    android:title="Buffer size"
-                    android:summary="Specify buffer size"/>
+                        android:key="pref_buffer_size"
+                        android:title="Buffer size"
+                        android:summary="Specify buffer size"/>
             </PreferenceCategory>
 
             <PreferenceCategory android:title="Alarm">
                 <CheckBoxPreference
-                    android:key="pref_alarm_enabled"
-                    android:title="Enable alarm"
-                    android:summary="Enable alarm when engine temperature exceeds maximum value"
-                    android:defaultValue="true"/>
+                        android:key="pref_alarm_enabled"
+                        android:title="Enable alarm"
+                        android:summary="Enable alarm when engine temperature exceeds maximum value"
+                        android:defaultValue="true"/>
                 <EditTextPreference
-                    android:key="pref_alarm_temperature"
-                    android:title="Temperature"
-                    android:summary="Set the alarm temperature"
-                    android:defaultValue="95"
-                    android:inputType="number"/>
+                        android:key="pref_alarm_temperature"
+                        android:title="Temperature"
+                        android:summary="Set the alarm temperature"
+                        android:defaultValue="95"
+                        android:inputType="number"/>
             </PreferenceCategory>
 
             <PreferenceCategory android:title="Debug">
                 <CheckBoxPreference
-                    android:key="pref_hotspot_disabled"
-                    android:title="Disable hotspot"
-                    android:summary="Disable hotspot on startup"
-                    android:defaultValue="false"/>
+                        android:key="pref_hotspot_disabled"
+                        android:title="Disable hotspot"
+                        android:summary="Disable hotspot on startup"
+                        android:defaultValue="false"/>
+            </PreferenceCategory>
+        </PreferenceScreen>
+        <PreferenceScreen android:title="UI Settings">
+            <PreferenceCategory android:title="Elements">
+                <EditTextPreference
+                        android:key="pref_UI_topLayout_X"
+                        android:title="X TopLayout"
+                        android:summary="Set X TopLayout"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_topLayout_Y"
+                        android:title="Y TopLayout"
+                        android:summary="Set Y TopLayout"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_bottomLayout_X"
+                        android:title="X BottomLayout"
+                        android:summary="Set X BottomLayout"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_bottomLayout_Y"
+                        android:title="Y BottomLayout"
+                        android:summary="Set Y BottomLayout"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_gaugeViewPort_X"
+                        android:title="X GaugeView"
+                        android:summary="Set X GaugeView"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_gaugeViewPort_Y"
+                        android:title="Y GaugeView"
+                        android:summary="Set Y GaugeView"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_leftLayout_X"
+                        android:title="X BottomLayout"
+                        android:summary="Set X BottomLayout"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_leftLayout_Y"
+                        android:title="Y BottomLayout"
+                        android:summary="Set Y BottomLayout"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_rightLayout_X"
+                        android:title="X BottomLayout"
+                        android:summary="Set X BottomLayout"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_rightLayout_Y"
+                        android:title="Y BottomLayout"
+                        android:summary="Set Y BottomLayout"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_gaugeViewLand_X"
+                        android:title="X BottomLayout"
+                        android:summary="Set X BottomLayout"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+                <EditTextPreference
+                        android:key="pref_UI_gaugeViewLand_Y"
+                        android:title="Y BottomLayout"
+                        android:summary="Set Y BottomLayout"
+                        android:defaultValue="0"
+                        android:inputType="number"/>
+
+                <Preference android:key="pref_reset_UI"
+                            android:title="Reset UI"
+                            android:summary="Press to Reset UI elements."/>
+
+
             </PreferenceCategory>
         </PreferenceScreen>
     </PreferenceCategory>
@@ -118,8 +200,8 @@
     <!-- About -->
     <PreferenceCategory android:title="About">
         <Preference
-            android:key="pref_about"
-            android:title="About">
+                android:key="pref_about"
+                android:title="About">
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
