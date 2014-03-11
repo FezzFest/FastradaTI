@@ -6,9 +6,6 @@ import android.preference.*;
 import android.widget.Toast;
 import be.kdg.FastradaMobile.R;
 
-/**
- * Created by Thomas on 13/02/14.
- */
 public class SettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +19,7 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     private void addGaugeListener() {
-        Preference stylePreference = (Preference) findPreference("pref_gauge_style");
+        Preference stylePreference = findPreference("pref_gauge_style");
         if (stylePreference != null) {
             stylePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
@@ -36,7 +33,7 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     private void addWiFiListener() {
-        Preference wifiPreference = (Preference) findPreference("pref_arduino_wifi");
+        Preference wifiPreference = findPreference("pref_arduino_wifi");
         if (wifiPreference != null) {
             wifiPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
@@ -52,7 +49,7 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     private void addAboutListener() {
-        Preference aboutPreference = (Preference) findPreference("pref_about");
+        Preference aboutPreference = findPreference("pref_about");
         if (aboutPreference != null) {
             aboutPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
