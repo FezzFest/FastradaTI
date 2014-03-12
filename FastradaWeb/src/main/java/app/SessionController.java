@@ -1,12 +1,12 @@
 package app;
 
 import com.google.gson.Gson;
-import org.springframework.beans.factory.annotation.Autowired;
+import json.SessionData;
+import json.SessionId;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import persistence.FastradaDAO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -49,6 +49,12 @@ public class SessionController {
     public void deleteSession(@PathVariable("id") Integer sessionId) {
         fastradaDAO.deleteSession(sessionId);
     }
+
+    @RequestMapping(value = "/gps/{id}", method = RequestMethod.GET)
+      @ResponseBody
+      public List<GpsValue> getGpsFromSession(@PathVariable("id") Integer sessionId) {
+         return fastradaDAO.getGpsById(sessionId);
+      }
 
 /*    @RequestMapping(method = RequestMethod.POST, consumes = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)

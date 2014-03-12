@@ -1,4 +1,4 @@
-package app;
+package json;
 
 import java.io.Serializable;
 

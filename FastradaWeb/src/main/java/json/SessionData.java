@@ -1,7 +1,6 @@
-package app;
+package json;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by Jonathan on 26/02/14.

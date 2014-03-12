@@ -1,14 +1,12 @@
 package persistence;
 
-import app.SessionData;
+import app.GpsValue;
+import json.SessionData;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 import org.junit.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -107,6 +105,26 @@ public class TestCassandraDB {
 
         Assert.assertEquals("Session ids must be the same", sessionId1, sessionId2);
     }
+
+    @Test
+       public void testGpsCoordinate() throws InterruptedException {
+           SessionData run1 = new SessionData("Run7", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+           int sessionId = fastradaDAO.createNextSession(run1);
+           long time = System.currentTimeMillis();
+           double latitude = 51.222998;
+           double longitude = 4.508343;
+
+           String insertCoordinate = "INSERT INTO s" + sessionId + "(time, parameter, value) values(" + time + ",'" + "latitude" + "'," + latitude + ");";
+           String insertCoordinate2 = "INSERT INTO s" + sessionId + "(time, parameter, value) values(" + time + ",'" + "longitude" + "'," + longitude + ");";
+
+           session.execute(insertCoordinate);
+           session.execute(insertCoordinate2);
+
+           List<GpsValue> receivedGpsValues = fastradaDAO.getGpsById(sessionId);
+           double sum = receivedGpsValues.get(0).getCoordinate().getLatitude() + receivedGpsValues.get(0).getCoordinate().getLongitude();
+
+           Assert.assertEquals("Gps coordinates must be the same as inserted", sum, latitude + longitude, 0);
+       }
 
 
 }

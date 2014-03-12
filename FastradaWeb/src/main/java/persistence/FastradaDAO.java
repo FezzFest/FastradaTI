@@ -1,11 +1,12 @@
 package persistence;
 
+import app.Coordinate;
+import app.GpsValue;
 import app.Parameter;
-import app.SessionData;
+import json.SessionData;
 import com.datastax.driver.core.*;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.io.Serializable;
 import java.util.*;
 
@@ -160,4 +161,28 @@ public class FastradaDAO implements Serializable {
         String cqlDeleteMetadata = "DELETE FROM metadata where sessionid = '" + sessionId + "';";
         session.execute(cqlDeleteMetadata);
     }
+
+    public List<GpsValue> getGpsById(Integer sessionId) {
+         List<GpsValue> returnGpsValues = new ArrayList<>();
+         Map<Date, Double> latitudes = new HashMap<>();
+         Map<Date, Double> longitudes = new HashMap<>();
+         String cqlSelectLatitudes = "SELECT time, value FROM S" + sessionId + " WHERE parameter = 'latitude' ALLOW FILTERING;";
+         String cqlSelectLongitudes = "SELECT time, value FROM S" + sessionId + " WHERE parameter = 'longitude' ALLOW FILTERING;";
+
+         for (Row row : session.execute(cqlSelectLatitudes)) {
+             latitudes.put(row.getDate(0), row.getDouble(1));
+         }
+
+         for (Row row : session.execute(cqlSelectLongitudes)) {
+             longitudes.put(row.getDate(0), row.getDouble(1));
+         }
+
+         for (Map.Entry<Date, Double> dateDoubleEntry : latitudes.entrySet()) {
+             if (longitudes.containsKey(dateDoubleEntry.getKey())) {
+                 GpsValue gpsValue = new GpsValue(dateDoubleEntry.getKey().getTime(), new Coordinate(dateDoubleEntry.getValue(), longitudes.get(dateDoubleEntry.getKey())));
+                 returnGpsValues.add(gpsValue);
+             }
+         }
+         return returnGpsValues;
+     }
 }
