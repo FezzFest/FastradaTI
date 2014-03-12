@@ -16,6 +16,7 @@ import dataInterpreter.CompressorController;
  */
 public class CommunicationService extends IntentService {
     public static boolean isRunning = false;
+    private int sessionId;
     private Handler mHandler;
 
     public CommunicationService() {
@@ -35,16 +36,14 @@ public class CommunicationService extends IntentService {
         Log.i("Fastrada", "Communication Service started.");
 
         // Get session ID
-        final int sessionId = intent.getIntExtra("sessionId", -1);
-        Log.i("Fastrada", "Session with ID #" + sessionId + " started.");
+        sessionId = intent.getIntExtra("sessionId", -1);
+
+        // Log
+        String sessionStarted = "Session with ID #" + sessionId + " started";
+        Log.i("Fastrada", sessionStarted);
 
         // Show toast
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(CommunicationService.this, "Session with ID #" + sessionId + " started.", Toast.LENGTH_SHORT).show();
-            }
-        });
+        showToast(sessionStarted);
 
         // New controllers
         BufferController buffer = BufferController.getInstance();
@@ -56,7 +55,7 @@ public class CommunicationService extends IntentService {
 
             // Compress packets
             byte[] compressed = CompressorController.compress(packets);
-            Log.d("Fastrada", "Compression ratio: " + packets.length/compressed.length);
+            Log.d("Fastrada", "Compression ratio: " + packets.length / compressed.length);
 
             // Send request
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -80,5 +79,27 @@ public class CommunicationService extends IntentService {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        isRunning = false;
+        String sessionStopped = "Session with ID #" + sessionId + " stopped.";
+
+        // Log
+        Log.d("Fastrada", sessionStopped);
+
+        // Show toast
+        showToast(sessionStopped);
+    }
+
+    private void showToast(final String text) {
+        //Handler mHandler = new Handler();
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(CommunicationService.this, text, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

@@ -9,29 +9,19 @@ import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 
-import android.util.Log;
-
-import android.util.Xml;
 import android.view.*;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.UserInterfaceController;
+import be.kdg.FastradaMobile.services.CommunicationService;
 import org.codeandmagic.android.gauge.GaugeView;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
-import org.xmlpull.v1.XmlSerializer;
-
-import java.io.*;
-import java.util.ArrayList;
-
 
 public class MainActivity extends Activity {
     private static final int GREEN_LED_PORTRAIT = 8;
@@ -61,9 +51,12 @@ public class MainActivity extends Activity {
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        // Fullscreen w/ hidden ActionBar
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getActionBar().hide();
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         setPositionUIElements();
@@ -151,8 +144,6 @@ public class MainActivity extends Activity {
             tempIndicator.setVisibility(View.INVISIBLE);
             tempDescription.setVisibility(View.INVISIBLE);
         }
-
-
     }
 
     private void showTemp(double temperature) {
@@ -163,7 +154,6 @@ public class MainActivity extends Activity {
                 streamId = sp.play(soundId, 1, 1, 0, 0, 1);
                 alarmPlaying = true;
             }
-
         } else {
             tempIndicator.setTextColor(Color.WHITE);
             tempDescription.setTextColor(Color.WHITE);
@@ -216,6 +206,19 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (CommunicationService.isRunning) {
+            menu.findItem(R.id.menu_start_session).setVisible(false);
+            menu.findItem(R.id.menu_stop_session).setVisible(true);
+        } else {
+            menu.findItem(R.id.menu_start_session).setVisible(true);
+            menu.findItem(R.id.menu_stop_session).setVisible(false);
+        }
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
@@ -224,18 +227,20 @@ public class MainActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_stop_session:
+                stopService(new Intent(this, CommunicationService.class));
+                break;
             case R.id.menu_start_session:
-                Intent sessionActivity = new Intent(this, SessionActivity.class);
-                startActivity(sessionActivity);
+                startActivity(new Intent(this, SessionActivity.class));
                 break;
             case R.id.menu_settings:
-                Intent settingsActivity = new Intent(this, SettingsActivity.class);
-                startActivity(settingsActivity);
+                startActivity(new Intent(this, SettingsActivity.class));
                 break;
             case R.id.menu_exit:
                 System.exit(0);
                 break;
         }
+
         return true;
     }
 
@@ -249,11 +254,8 @@ public class MainActivity extends Activity {
         }
     });
 
-
     public boolean onTouchEvent(MotionEvent event) {
         gestureDetector.onTouchEvent(event);
-
-        int eventaction = event.getAction();
 
         int X = (int) event.getX();
         int Y = (int) event.getY();
@@ -274,12 +276,15 @@ public class MainActivity extends Activity {
         viewGroups[0] = linearLayout1;
         viewGroups[1] = linearLayout2;
 
-        switch (eventaction) {
-
+        int eventAction = event.getAction();
+        switch (eventAction) {
             case MotionEvent.ACTION_DOWN:
+                // Show ActionBar
+                getActionBar().show();
+                hideActionBar(5000);
+
                 id = 0;
                 for (LinearLayout UIelement : viewGroups) {
-
                     if (X > UIelement.getX() && X < UIelement.getX() + UIelement.getWidth() && Y > UIelement.getY() && Y < UIelement.getY() + UIelement.getHeight()) {
                         break;
                     }
@@ -325,14 +330,10 @@ public class MainActivity extends Activity {
                 }
 
                 editor.commit();
-
-
         }
-
 
         return true;
     }
-
 
     private void setPositionUIElements() {
         GaugeView gaugeView = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
@@ -357,7 +358,17 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void hideActionBar(int timeout) {
+        new CountDownTimer(timeout, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                // Do nothing
+            }
 
-
-
+            @Override
+            public void onFinish() {
+                getActionBar().hide();
+            }
+        }.start();
+    }
 }

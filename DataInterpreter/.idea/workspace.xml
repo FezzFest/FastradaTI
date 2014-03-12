@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e39dd18b-2c0c-4d4d-ace4-c7f05c3862c9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/DataInterpreter.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__com_datastax_cassandra_cassandra_driver_core_1_0_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__com_github_stephenc_high_scale_lib_high_scale_lib_1_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__com_github_stephenc_jamm_0_2_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__com_google_code_gson_gson_2_2_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__com_google_guava_guava_14_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__com_googlecode_concurrentlinkedhashmap_concurrentlinkedhashmap_lru_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__com_jayway_jsonpath_json_path_0_8_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__com_ning_compress_lzf_0_8_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__com_yammer_metrics_metrics_core_2_2_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__commons_cli_commons_cli_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__commons_codec_commons_codec_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__edu_stanford_ppl_snaptree_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__io_netty_netty_3_6_3_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__jline_jline_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__junit_junit_4_8_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__net_jpountz_lz4_lz4_1_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__net_minidev_json_smart_1_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_antlr_antlr_3_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_antlr_antlr_runtime_3_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_antlr_stringtemplate_3_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_apache_cassandra_cassandra_all_1_2_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_apache_cassandra_cassandra_thrift_1_2_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_apache_cassandra_deps_avro_1_4_0_cassandra_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_apache_thrift_libthrift_0_7_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_12.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_12.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_mindrot_jbcrypt_0_3m.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_mortbay_jetty_jetty_6_1_22.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_22.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_mortbay_jetty_servlet_api_2_5_20081211.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_springframework_spring_aop_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_springframework_spring_beans_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_springframework_spring_context_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_springframework_spring_core_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_springframework_spring_expression_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_springframework_spring_test_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_springframework_spring_web_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_springframework_spring_webmvc_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_xerial_snappy_snappy_java_1_0_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/libraries/Maven__org_yaml_snakeyaml_1_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/artifacts/spring_angularjs_war.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/artifacts/spring_angularjs_war_exploded.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FastradaWeb/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataInterpreter.jar" afterPath="$PROJECT_DIR$/DataInterpreter.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../Android/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/services/CommunicationService.java" afterPath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/services/CommunicationService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dataInterpreter/CompressorController.java" afterPath="$PROJECT_DIR$/src/main/java/dataInterpreter/CompressorController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FastradaWeb/src/main/java/persistence/FastradaDAO.java" afterPath="$PROJECT_DIR$/../FastradaWeb/src/main/java/persistence/FastradaDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/MainActivity.java" afterPath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/SessionActivity.java" afterPath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/SessionActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/controllers/SessionController.java" afterPath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/controllers/SessionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FastradaWeb/src/main/java/app/SessionController.java" afterPath="$PROJECT_DIR$/../FastradaWeb/src/main/java/app/SessionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/res/layout/about.xml" afterPath="$PROJECT_DIR$/../Android/res/layout/about.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/res/layout/main.xml" afterPath="$PROJECT_DIR$/../Android/res/layout/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/res/layout/session.xml" afterPath="$PROJECT_DIR$/../Android/res/layout/session.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/res/layout/splash.xml" afterPath="$PROJECT_DIR$/../Android/res/layout/splash.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FastradaWeb/spring-angularjs.iml" afterPath="$PROJECT_DIR$/../FastradaWeb/spring-angularjs.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/res/values/strings.xml" afterPath="$PROJECT_DIR$/../Android/res/values/strings.xml" />
+    </list>
+    <ignored path="DataInterpreter.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="DataInterpreter" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/dataInterpreter/CompressorController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="Undo Check Out" />
+    <OptionsSetting value="true" id="Get Latest Version" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="META-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataInterpreter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="LayoutCode.rearrangeEntriesJava" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <list size="0" />
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e39dd18b-2c0c-4d4d-ace4-c7f05c3862c9" name="Default" comment="" />
+      <created>1394552568478</created>
+      <updated>1394552568478</updated>
+      <workItem from="1394552568907" duration="908000" />
+      <workItem from="1394610685908" duration="599000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1507000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dataInterpreter/ConfigController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestCompressorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="887" selection-end="1215" vertical-scroll-proportion="0.5802048" vertical-offset="0" max-vertical-offset="595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="586" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dataInterpreter/CompressorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="8" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.8259386" vertical-offset="60" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

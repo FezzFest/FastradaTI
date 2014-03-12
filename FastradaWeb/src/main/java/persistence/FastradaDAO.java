@@ -3,10 +3,11 @@ package persistence;
 import app.Coordinate;
 import app.GpsValue;
 import app.Parameter;
-import json.SessionData;
 import com.datastax.driver.core.*;
+import json.SessionData;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.Serializable;
 import java.util.*;
 
@@ -160,6 +161,15 @@ public class FastradaDAO implements Serializable {
         session.execute(cqlDropTable);
         String cqlDeleteMetadata = "DELETE FROM metadata where sessionid = '" + sessionId + "';";
         session.execute(cqlDeleteMetadata);
+    }
+
+    public void insertPacketValues(int sessionId, long timestamp, HashMap<String, Double> map) {
+        PreparedStatement insertStatement = session.prepare("INSERT INTO s" + sessionId + "(time, parameter, value) " + "VALUES (?, ?, ?);");
+        BoundStatement boundStatement = new BoundStatement(insertStatement);
+
+        for (Map.Entry<String, Double> entry : map.entrySet()) {
+            session.execute(boundStatement.bind(timestamp, entry.getKey(), entry.getValue()));
+        }
     }
 
     public List<GpsValue> getGpsById(Integer sessionId) {

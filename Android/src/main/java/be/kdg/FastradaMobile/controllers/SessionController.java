@@ -16,7 +16,6 @@ import java.util.Date;
  */
 public class SessionController extends AsyncTask<String[], Void, Integer> {
     private static final int NO_SESSION_ID = -1;
-
     private Context context;
     private SharedPreferences prefs;
 
