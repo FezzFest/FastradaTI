@@ -10,6 +10,10 @@ angular.module("fastrada.services", []).
         };
 
         this.getSessionParameters = function (id) {
-            return $http.get('/api/sessions/' + id );
+            return $http.get('/api/sessions/' + id);
+        };
+
+        this.deleteSession = function (id) {
+            return $http.delete('api/sessions/delete/' + id);
         };
     }]);

@@ -1,13 +1,12 @@
 
-
 .chart {
 
     height: 500px;
     width: 500px;
 }
 
-.icons{
-    padding:15px 0 5px;
+.icons {
+    padding: 15px 0 5px;
     font-size: 1.6em;
 }
 
@@ -19,11 +18,9 @@
     background-color: #158cba;
 }
 
-.session:hover h3 {
-    color: white;
-}
-
-.session:hover p {
+.session:hover h3,
+.session:hover p,
+.session:hover span {
     color: white;
 }
 
@@ -46,9 +43,31 @@ a:hover {
 
 .withborder {
     border-right: 1px solid #e7e7e7;
-    border-width: 0 2px 0 0 ;
+    border-width: 0 2px 0 0;
 }
 
-.google-visualization-table-table td{
+.google-visualization-table-table td {
     text-align: center;
+}
+
+.delete {
+    float: right;
+    padding: 20px 5px 5px 5px;
+}
+
+
+.alerts{
+    -webkit-transition:all linear 0.5;
+    -moz-transition:all linear 0.5s;
+    -ms-transition:all linear 0.5s;
+    -o-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+    opacity:1;
+}
+
+.alerts.ng-hide-add {
+    opacity: 1;
+}
+.alerts.ng-hide-remove {
+    opacity: 0;
 }

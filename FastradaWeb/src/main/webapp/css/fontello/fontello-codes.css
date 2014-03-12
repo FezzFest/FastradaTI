@@ -1,4 +1,5 @@
 
+.icon-cancel-circled:before { content: '\e807'; } /* '' */
 .icon-BarChart:before { content: '\e805'; } /* '' */
 .icon-Table:before { content: '\e804'; } /* '' */
 .icon-PieChart:before { content: '\e800'; } /* '' */

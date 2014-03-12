@@ -8,9 +8,37 @@ function HomeController($scope, SessionData) {
         return false;
     }
 
-    SessionData.getSessions().success(function (d) {
-        $scope.sessions = d;
-    });
+    var getData = function () {
+        SessionData.getSessions().success(function (d) {
+            $scope.sessions = d;
+            $scope.visuals = [];
+            angular.forEach(d, function (allsessions) {
+                $scope.visuals.push(false);
+            });
+        });
+    }
+    getData();
+
+    $scope.showMessage = function (value) {
+        if ($scope.visuals.length >= value) {
+            return $scope.visuals[value];
+        }
+        return false;
+    };
+
+    $scope.setVisual = function (value) {
+        if ($scope.visuals.length >= value) {
+            $scope.visuals[value] = !$scope.visuals[value];
+        }
+    };
+
+    $scope.delete = function (id) {
+        console.log("going to delete " + id);
+        SessionData.deleteSession(id).then(function () {
+            getData();
+        });
+
+    };
 }
 
 function SessionDetailController($scope, $routeParams, SessionData, $q) {
@@ -59,7 +87,7 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
         "cssStyle": "height:400px; width:100%;border: 1px #ccc solid",
         "data": [],
         "options": {
-            "legend" : {position: 'top'},
+            "legend": {position: 'top'},
             "pointSize": 0,
             "title": "Temperature",
             "isStacked": "true",
