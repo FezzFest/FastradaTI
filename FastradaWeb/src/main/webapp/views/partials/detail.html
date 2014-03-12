@@ -12,17 +12,18 @@
             <span class="navbar-brand">Session {{sessionId}}</span>
 
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse the-icons">
             <ul class="nav navbar-nav">
-                <li ng-repeat="parameter in parameters" ng-class="{active: isActiveParameter(parameter)}"><a
-                        href="#/sessiondetail/{{sessionId}}/{{parameter}}">{{parameter}}</a></li>
+                <li ng-repeat="parameter in parameters" ng-class="{active: isActiveParameter($index)}" ng-click="selectParameter($index)">
+                    <a ng-class="{'icon-ok-circle': isActiveParameter($index)}">{{parameter}}</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 
 <div class="row">
-    <div ng-show="visibleGraph" class="col-md-11">
+    <div class="col-md-11">
         <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
         <div ui-slider="{range: true}" min="0" max="{{sliderMaxValue}}" step="1" use-decimals ng-model="sliderValues"></div>
         {{updateGraph(sliderValues)}}
@@ -37,4 +38,3 @@
         </div>
     </div>
 </div>
-

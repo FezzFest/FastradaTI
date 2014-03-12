@@ -1,7 +1,8 @@
 
-.icon-chart-bar-horizontal:before { content: '\e805'; } /* '' */
-.icon-table:before { content: '\e804'; } /* '' */
-.icon-chart-pie:before { content: '\e800'; } /* '' */
-.icon-chart-line:before { content: '\e801'; } /* '' */
-.icon-chart-bar:before { content: '\e802'; } /* '' */
-.icon-chart-area:before { content: '\e803'; } /* '' */
+.icon-BarChart:before { content: '\e805'; } /* '' */
+.icon-Table:before { content: '\e804'; } /* '' */
+.icon-PieChart:before { content: '\e800'; } /* '' */
+.icon-LineChart:before { content: '\e801'; } /* '' */
+.icon-ColumnChart:before { content: '\e802'; } /* '' */
+.icon-AreaChart:before { content: '\e803'; } /* '' */
+.icon-ok-circle:before { content: '\e806'; } /* '' */

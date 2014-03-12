@@ -92,19 +92,20 @@ describe('Controllers', function () {
             scope = $rootScope.$new();
             session = SessionData;
             $httpBackend = _$httpBackend_;
+            $httpBackend.expectGET("/api/sessions/0").respond({});
             $httpBackend.expectGET("/api/sessions/0/speed").respond({});
-//            $httpBackend.expectGET("/api/sessions").respond({});
+
 
             ctrl = $controller('SessionDetailController', {$scope: scope, $routeParams: params, SessionData: session});
         }));
 
         it('should return graph data with 5 points', function () {
-            scope.createGraphData([rawJson]);
+            scope.createGraphData([rawJson], ["TestData"]);
             expect(scope.chart.data.rows.length).toBe(5);
         });
 
         it('should have the same data as our resultData', function () {
-            scope.createGraphData([rawJson]);
+            scope.createGraphData([rawJson], ["TestData"]);
             expect(scope.chart.data == resultData);
         });
 
