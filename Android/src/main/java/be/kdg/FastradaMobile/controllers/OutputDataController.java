@@ -1,6 +1,7 @@
 package be.kdg.FastradaMobile.controllers;
 
 import android.util.Log;
+import be.kdg.FastradaMobile.Constants;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -56,9 +57,9 @@ public class OutputDataController {
             }
 
             // Log
-            Log.d("Fastrada", "URL: " + s);
-            Log.d("Fastrada", "Params: " + params);
-            Log.d("Fastrada", "Response code: " + conn.getResponseCode());
+            Log.d(Constants.TAG, "URL: " + s);
+            Log.d(Constants.TAG, "Params: " + params);
+            Log.d(Constants.TAG, "Response code: " + conn.getResponseCode());
 
             InputStreamReader isr = new InputStreamReader(conn.getInputStream());
             BufferedReader in = new BufferedReader(isr);
@@ -69,7 +70,7 @@ public class OutputDataController {
             }
             in.close();
         } catch (IOException e) {
-            Log.e("Fastrada", "POST request failed: " + e.getMessage());
+            Log.e(Constants.TAG, "POST request failed: " + e.getMessage());
         }
 
         return response.toString();

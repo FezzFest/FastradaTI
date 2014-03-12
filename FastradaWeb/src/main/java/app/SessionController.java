@@ -70,14 +70,17 @@ public class SessionController {
         byte[] decompressed = CompressorController.decompress(compressedDataBytes);
         int numberOfPackets = decompressed.length / 18;
         for (int i = 0; i < numberOfPackets; i++) {
-            // Get session ID
-            int sessionId = 0;
-
             // Split array
+            byte[] bSessionId = new byte[4];
             byte[] bTimestamp = new byte[8];
             byte[] bPacket = new byte[10];
-            System.arraycopy(decompressed, (18*i), bTimestamp, 0, 8);
-            System.arraycopy(decompressed, (18*i)+8, bPacket, 0, 10);
+            System.arraycopy(decompressed, 0, bSessionId, 0, 4);
+            System.arraycopy(decompressed, (18 * i), bTimestamp, 0, 8);
+            System.arraycopy(decompressed, (18 * i) + 8, bPacket, 0, 10);
+
+            // Get session ID
+            ByteBuffer sessionBuffer = ByteBuffer.wrap(bSessionId);
+            int sessionId = sessionBuffer.getInt();
 
             // Get timestamp
             ByteBuffer timestampBuffer = ByteBuffer.wrap(bTimestamp);
@@ -95,10 +98,10 @@ public class SessionController {
     }
 
     @RequestMapping(value = "/gps/{id}", method = RequestMethod.GET)
-      @ResponseBody
-      public List<GpsValue> getGpsFromSession(@PathVariable("id") Integer sessionId) {
-         return fastradaDAO.getGpsById(sessionId);
-      }
+    @ResponseBody
+    public List<GpsValue> getGpsFromSession(@PathVariable("id") Integer sessionId) {
+        return fastradaDAO.getGpsById(sessionId);
+    }
 
 /*    @RequestMapping(method = RequestMethod.POST, consumes = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)

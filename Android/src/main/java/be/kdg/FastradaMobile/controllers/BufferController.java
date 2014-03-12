@@ -9,12 +9,11 @@ import java.util.ListIterator;
  * Created by Peter Van Akelyen on 19/02/14.
  */
 public class BufferController {
-    private final int PACKET_SIZE = 18;
-    private static BufferController instance;
-
+    private static final int PACKET_SIZE = 18;
     private boolean primaryBufferEnabled = true;
     private List<byte[]> primaryBuffer = new ArrayList<byte[]>();
     private List<byte[]> alternateBuffer = new ArrayList<byte[]>();
+    private static BufferController instance;
 
     private BufferController() {
     }
@@ -29,12 +28,7 @@ public class BufferController {
     }
 
     public void addPacket(byte[] packet) {
-        long timestamp = System.currentTimeMillis();
-        byte[] bTimeStamp = ByteBuffer.allocate(8).putLong(timestamp).array();
-        byte[] newPacket = new byte[PACKET_SIZE];
-        System.arraycopy(bTimeStamp, 0, newPacket, 0, 8);
-        System.arraycopy(packet, 0, newPacket, 8, 10);
-
+        byte[] newPacket = addTimestamp(packet);
         if (primaryBufferEnabled) {
             primaryBuffer.add(newPacket);
         } else {
@@ -56,6 +50,16 @@ public class BufferController {
                 e.printStackTrace();
             }
         }
+    }
+
+    private byte[] addTimestamp(byte[] packet) {
+        long timestamp = System.currentTimeMillis();
+        byte[] bTimeStamp = ByteBuffer.allocate(8).putLong(timestamp).array();
+        byte[] newPacket = new byte[packet.length + bTimeStamp.length];
+        System.arraycopy(bTimeStamp, 0, newPacket, 0, bTimeStamp.length);
+        System.arraycopy(packet, 0, newPacket, bTimeStamp.length, packet.length);
+
+        return newPacket;
     }
 
     private byte[] getBuffer() {

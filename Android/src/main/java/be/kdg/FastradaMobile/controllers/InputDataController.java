@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import be.kdg.FastradaMobile.Constants;
 
 import java.io.IOException;
 import java.net.*;
@@ -23,13 +24,13 @@ public class InputDataController {
     private void initializeSocket() {
         // Get port from SharedPreferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int port = Integer.parseInt(prefs.getString("pref_arduino_port", "9000"));
+        int port = Integer.parseInt(prefs.getString("pref_arduino_port", Constants.DEF_ARDUINO_PORT));
 
         // Create socket
         try {
             socket = new DatagramSocket(port);
         } catch (SocketException e) {
-            Log.e("Fastrada", "Could not open socket: " + e.getMessage());
+            Log.e(Constants.TAG, "Could not open socket: " + e.getMessage());
         }
     }
 
@@ -40,8 +41,9 @@ public class InputDataController {
             DatagramPacket packet = new DatagramPacket(result, result.length);
             socket.receive(packet);
         } catch (IOException e) {
-            Log.e("Fastrada", "Could not receive packet: " + e.getMessage());
+            Log.e(Constants.TAG, "Could not receive packet: " + e.getMessage());
         }
+
         return result;
     }
 }

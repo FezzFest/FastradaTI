@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import be.kdg.FastradaMobile.Constants;
 import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.services.ArduinoService;
 
@@ -74,7 +75,7 @@ public class SplashActivity extends Activity {
                 try {
                     method.invoke(wifiManager, null, true);
                 } catch (Exception e) {
-                    Log.e("Fastrada", "WiFi tethering not enabled: " + e.getMessage());
+                    Log.e(Constants.TAG, "WiFi tethering not enabled: " + e.getMessage());
                 }
                 break;
             }
