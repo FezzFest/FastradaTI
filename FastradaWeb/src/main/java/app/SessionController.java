@@ -79,11 +79,13 @@ public class SessionController {
             System.arraycopy(decompressed, (18 * i) + 12, bPacket, 0, 10);
 
             // Get session ID
-            ByteBuffer sessionBuffer = ByteBuffer.wrap(bSessionId);
+            ByteBuffer sessionBuffer = ByteBuffer.allocate(bSessionId.length);
+            sessionBuffer.put(bSessionId,0,bSessionId.length).flip();
             int sessionId = sessionBuffer.getInt();
 
             // Get timestamp
-            ByteBuffer timestampBuffer = ByteBuffer.wrap(bTimestamp);
+            ByteBuffer timestampBuffer = ByteBuffer.allocate(bTimestamp.length);
+            timestampBuffer.put(bTimestamp,0,bTimestamp.length).flip();
             long timestamp = timestampBuffer.getLong();
 
             // Parse packet data
