@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spring-angularjs:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="spring-angularjs.war">
+      <element id="artifact" artifact-name="spring-angularjs:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="DataInterpreter" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

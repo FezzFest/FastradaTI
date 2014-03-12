@@ -6,9 +6,9 @@ import java.net.*;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-public class Run {
-
-    private static BufferedReader  br;
+public class RunFromFile {
+    private static final String IP_ADDRESS = "192.168.43.1";
+    private static BufferedReader br;
     private static DatagramSocket datagramSocket;
     private static int i = 0;
 
@@ -17,7 +17,7 @@ public class Run {
         byte[] tempBytes;
         datagramSocket = new DatagramSocket(9000);
         tempBytes = getLine();
-        while(tempBytes != null){
+        while (tempBytes != null) {
             System.out.println("Sending Packet..");
             System.out.println();
             sendPacket(tempBytes);
@@ -33,11 +33,11 @@ public class Run {
 
     public static byte[] getLine() throws IOException {
         String line;
-        if ((line = br.readLine()) != null){
+        if ((line = br.readLine()) != null) {
             byte[] bytearray = new byte[10];
-            for (int i =0;i<20;i+=2){
-                byte byte1 = (byte) (Integer.parseInt(line.substring(i, i+2), 16) & 0xff);
-                bytearray[i/2] = byte1;
+            for (int i = 0; i < 20; i += 2) {
+                byte byte1 = (byte) (Integer.parseInt(line.substring(i, i + 2), 16) & 0xff);
+                bytearray[i / 2] = byte1;
             }
             return bytearray;
         } else {
@@ -48,17 +48,15 @@ public class Run {
 
     public static String bytArrayToHex(byte[] a) {
         StringBuilder sb = new StringBuilder();
-        for(byte b: a)
-            sb.append(String.format("%02x ", b&0xff));
+        for (byte b : a)
+            sb.append(String.format("%02x ", b & 0xff));
         return sb.toString();
     }
 
 
     public static void sendPacket(byte[] stream) throws IOException {
-        InetAddress address = InetAddress.getByName("192.168.43.1"); //hier ip adress van ontvanger zetten
-        //InetAddress address = InetAddress.getByName("127.0.0.1");
-        DatagramPacket packet = new DatagramPacket(
-                stream, stream.length, address, 9000);
+        InetAddress address = InetAddress.getByName(IP_ADDRESS); // IP-adres van de ontvanger hier zetten
+        DatagramPacket packet = new DatagramPacket(stream, stream.length, address, 9000);
         DatagramSocket datagramSocket = new DatagramSocket();
         datagramSocket.send(packet);
     }
@@ -73,7 +71,7 @@ public class Run {
                     DatagramPacket packet = new DatagramPacket(buffer2, buffer2.length);
                     datagramSocket.receive(packet);
                     buffer2 = packet.getData();
-                    if(buffer2 != null){
+                    if (buffer2 != null) {
                         System.out.println("UDP Packet " + i + ": " + bytArrayToHex(buffer2));
                     }
                 } catch (IOException e) {
@@ -85,14 +83,14 @@ public class Run {
     }
 
     // Generate data is een functie om een custom ID en een integer value om te zetten naar bytes. Heb je niet echt nodig maar hebben het in het project laten staan.
-    public static byte[] generateData(int id, int value){
+    public static byte[] generateData(int id, int value) {
         byte[] array1 = new byte[10];
-        array1[0] = (byte)id;
+        array1[0] = (byte) id;
         ByteBuffer b = ByteBuffer.allocate(8);
         b.order(ByteOrder.nativeOrder());
         b.putInt(value);
-        for(int i = 0; i<8;i++){
-            array1[i+2] = b.array()[7-i];
+        for (int i = 0; i < 8; i++) {
+            array1[i + 2] = b.array()[7 - i];
         }
         return array1;
     }

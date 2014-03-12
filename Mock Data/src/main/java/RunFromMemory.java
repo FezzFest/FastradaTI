@@ -9,6 +9,7 @@ import java.util.List;
  * Created by Jonathan on 12/02/14.
  */
 public class RunFromMemory {
+    private static final String IP_ADDRESS = "192.168.43.1";
     private static DatagramSocket datagramSocket;
 
     public static void main(String[] args) throws InterruptedException, IOException {
@@ -38,8 +39,7 @@ public class RunFromMemory {
         }
     }
 
-
-    public static List<byte[]> makePacketsId100(double rpmStart, double rpmEnd, double throttleStart, double throttleEnd, double tempStart, double tempEnd) {
+    private static List<byte[]> makePacketsId100(double rpmStart, double rpmEnd, double throttleStart, double throttleEnd, double tempStart, double tempEnd) {
         List<byte[]> packets = new ArrayList<byte[]>();
         double rpmStep = (rpmEnd - rpmStart) / 3000;
         double throttleStep = (throttleEnd - throttleStart) / 3000;
@@ -58,7 +58,7 @@ public class RunFromMemory {
         return packets;
     }
 
-    public static List<byte[]> makePacketsId101(double speedStart, double speedEnd, double gearStart, double gearEnd) {
+    private static List<byte[]> makePacketsId101(double speedStart, double speedEnd, double gearStart, double gearEnd) {
         List<byte[]> packets = new ArrayList<byte[]>();
         double speedStep = (speedEnd - speedStart) / 3000;
         double gearStep = (gearEnd - gearStart) / 3000;
@@ -73,7 +73,7 @@ public class RunFromMemory {
         return packets;
     }
 
-    public static List<byte[]> makePacketsId102(double fuelStart, double fuelEnd) {
+    private static List<byte[]> makePacketsId102(double fuelStart, double fuelEnd) {
         List<byte[]> packets = new ArrayList<byte[]>();
         double fuelStep = (fuelEnd - fuelStart) / 3000;
         for (int i = 0; i < 3000; i++) {
@@ -84,7 +84,6 @@ public class RunFromMemory {
         return packets;
     }
 
-
     public static byte[] intToByteArray(int a) {
         return new byte[]{
                 (byte) ((a >> 24) & 0xFF),
@@ -94,9 +93,8 @@ public class RunFromMemory {
         };
     }
 
-    public static void sendPacket(byte[] stream) throws IOException {
-        InetAddress address = InetAddress.getByName("192.168.43.1"); //hier ip adress van ontvanger zetten
-        //InetAddress address = InetAddress.getByName("127.0.0.1");
+    private static void sendPacket(byte[] stream) throws IOException {
+        InetAddress address = InetAddress.getByName(IP_ADDRESS); // IP-adres van de ontvanger hier zetten
         DatagramPacket packet = new DatagramPacket(stream, stream.length, address, 9000);
         datagramSocket.send(packet);
     }
