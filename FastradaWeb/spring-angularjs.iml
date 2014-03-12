@@ -78,6 +78,7 @@
     <orderEntry type="library" name="Maven: com.github.stephenc:jamm:0.2.5" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.2.4" level="project" />
     <orderEntry type="library" name="DataInterpreter" level="project" />
+    <orderEntry type="library" name="commons-io:commons-io:2.1" level="project" />
   </component>
 </module>
 

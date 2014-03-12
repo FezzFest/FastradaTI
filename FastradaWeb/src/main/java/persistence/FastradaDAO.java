@@ -164,11 +164,11 @@ public class FastradaDAO implements Serializable {
     }
 
     public void insertPacketValues(int sessionId, long timestamp, HashMap<String, Double> map) {
-        PreparedStatement insertStatement = session.prepare("INSERT INTO s" + sessionId + "(time, parameter, value) " + "VALUES (?, ?, ?);");
+        PreparedStatement insertStatement = session.prepare("INSERT INTO s" + sessionId + " (time, parameter, value) " + "VALUES (?, ?, ?);");
         BoundStatement boundStatement = new BoundStatement(insertStatement);
 
         for (Map.Entry<String, Double> entry : map.entrySet()) {
-            session.execute(boundStatement.bind(timestamp, entry.getKey(), entry.getValue()));
+            session.execute(boundStatement.bind(new Date(timestamp), entry.getKey(), entry.getValue()));
         }
     }
 

@@ -20,20 +20,20 @@ public class RunFromMemory {
         while (true) {
             for (int i = 0; i < 3000; i++) {
                 sendPacket(id100Packets.get(i));
-                //Thread.sleep(2);
+                Thread.sleep(2);
                 sendPacket(id101Packets.get(i));
-                //Thread.sleep(2);
+                Thread.sleep(2);
                 sendPacket(id102Packets.get(i));
-                //Thread.sleep(5);
+                Thread.sleep(5);
             }
 
             for (int i = 2999; i > 0; i--) {
                 sendPacket(id100Packets.get(i));
-                //Thread.sleep(2);
+                Thread.sleep(2);
                 sendPacket(id101Packets.get(i));
-                //Thread.sleep(2);
+                Thread.sleep(2);
                 sendPacket(id102Packets.get(i));
-                //Thread.sleep(5);
+                Thread.sleep(5);
             }
         }
     }

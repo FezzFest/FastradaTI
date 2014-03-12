@@ -12,6 +12,10 @@ public class ConfigController {
     private ConfigReader configReader;
     private HashMap<Integer, Sensor> sensors;
 
+    public static void main(String[] args) {
+
+    }
+
     public ConfigController(String testConfigPath) {
         try {
             configReader = new ConfigReader(testConfigPath);
