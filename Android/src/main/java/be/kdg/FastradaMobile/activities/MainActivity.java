@@ -236,6 +236,9 @@ public class MainActivity extends Activity {
             case R.id.menu_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 break;
+            case R.id.menu_GPS:
+                Intent gpsActivity = new Intent(this, GPSActivity.class);
+                startActivity(gpsActivity);
             case R.id.menu_exit:
                 System.exit(0);
                 break;
