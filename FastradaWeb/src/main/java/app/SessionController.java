@@ -75,8 +75,8 @@ public class SessionController {
             byte[] bTimestamp = new byte[8];
             byte[] bPacket = new byte[10];
             System.arraycopy(decompressed, 0, bSessionId, 0, 4);
-            System.arraycopy(decompressed, (18 * i), bTimestamp, 0, 8);
-            System.arraycopy(decompressed, (18 * i) + 8, bPacket, 0, 10);
+            System.arraycopy(decompressed, (18 * i) + 4, bTimestamp, 0, 8);
+            System.arraycopy(decompressed, (18 * i) + 12, bPacket, 0, 10);
 
             // Get session ID
             ByteBuffer sessionBuffer = ByteBuffer.wrap(bSessionId);
