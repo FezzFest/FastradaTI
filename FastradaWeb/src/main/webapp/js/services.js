@@ -8,4 +8,8 @@ angular.module("fastrada.services", []).
         this.getSessionParameter = function (id, parameter) {
             return $http.get('/api/sessions/' + id + '/' + parameter);
         };
+
+        this.getSessionParameters = function (id) {
+            return $http.get('/api/sessions/' + id );
+        };
     }]);

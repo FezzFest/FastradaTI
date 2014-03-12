@@ -13,10 +13,23 @@ function HomeController($scope, SessionData) {
     });
 }
 
-function SessionDetailController($scope, $routeParams, SessionData) {
+function SessionDetailController($scope, $routeParams, SessionData,$q) {
     $scope.sliderValues = [0, 500];
 
-    $scope.parameters = ['Temperature', 'Speed', 'FuelMap', 'RPM', 'Gear'];
+    var parameter;
+
+    SessionData.getSessionParameters($routeParams.sessionId).success(function (d) {
+        $scope.parameters = d;
+
+        if($routeParams.parameterName==null){
+            parameter = $scope.parameters[0];
+        }
+        else {
+            parameter = $routeParams.parameterName;
+        }
+
+        getData();
+    });
 
     $scope.chartTypes = ['LineChart', 'AreaChart', 'ColumnChart', 'BarChart', 'Table']; //'PieChart',
     $scope.visibleGraph = false;
@@ -51,15 +64,6 @@ function SessionDetailController($scope, $routeParams, SessionData) {
     ];
 
     $scope.sessionId = $routeParams.sessionId;
-
-    var parameter = "Temperature";
-
-    $scope.chartMinMax = {"min": 0, "max": 500};
-
-
-    if ($routeParams.parameterName != null) {
-        parameter = $routeParams.parameterName;
-    }
 
     $scope.isActiveParameter = function (name) {
         if (name == parameter)
@@ -104,6 +108,7 @@ function SessionDetailController($scope, $routeParams, SessionData) {
             }
         },
         "displayed": true
+       // "view": {columns: [0,1,2]}
     }
     ;
 
@@ -129,24 +134,12 @@ function SessionDetailController($scope, $routeParams, SessionData) {
         return false;
     };
 
-    $scope.createGraphData = function (rawJSON) {
+    $scope.createGraphData = function (rawJSON,parameterNames) {
         result = {
             "cols": [
                 {
                     "id": "seconds",
                     "label": "Seconds",
-                    "type": "number",
-                    "p": {}
-                },
-                {
-                    "id": "temperature",
-                    "label": "temperature",
-                    "type": "number",
-                    "p": {}
-                },
-                {
-                    "id": "speed",
-                    "label": "speed",
                     "type": "number",
                     "p": {}
                 }
@@ -160,8 +153,36 @@ function SessionDetailController($scope, $routeParams, SessionData) {
 
         resultRows = [];
 
+        var asCounter = 0;
+
+        var axisColors = ['#3366cc','#dc3912']
+
+        $scope.chart.options.vAxes={};
+
         angular.forEach(rawJSON, function (rawDataSet) {
+            var maxYValue = 0;
+            var minYValue = 0;
+
+            var maxDataSetLength = 0;
+
+            for(var index = 0;index<rawJSON.length;index++){
+                if(maxDataSetLength<rawJSON[index].length){
+                    maxDataSetLength=rawJSON[index].length;
+                }
+            }
+
             for (var parameterRecord = 0; parameterRecord < rawDataSet.length; parameterRecord++) {
+
+                console.log(rawDataSet);
+
+                if(maxYValue <rawDataSet[parameterRecord].value){
+                    maxYValue = rawDataSet[parameterRecord].value;
+                }
+
+                if(minYValue>rawDataSet[parameterRecord].value){
+                    minYValue=rawDataSet[parameterRecord].value;
+                }
+
                 if (firstTime == 0) {
                     firstTime = rawDataSet[parameterRecord].timestamp;
                 } else {
@@ -181,14 +202,38 @@ function SessionDetailController($scope, $routeParams, SessionData) {
                     );
                 }
 
+                if(parameterRecord >=rawDataSet.length-1){
+
+                }
+
                 if (parameterRecord == rawDataSet.length - 1) {
+                    if(maxSeconds < formattedTime){
                     maxSeconds = formattedTime;
+                    }
                 }
             }
+
+            result.cols.push(
+                {
+                    "id": parameterNames[asCounter],
+                    "label": parameterNames[asCounter],
+                    "type": "number",
+                    "p": {}
+                });
 
             result.rows = resultRows;
             $scope.sliderValues = [0, maxSeconds];
             $scope.sliderMaxValue = maxSeconds;
+
+            $scope.chart.options.vAxes[asCounter] = {
+//                minValue: minYValue,
+//                    maxValue: maxYValue,
+                label: parameterNames[asCounter],
+                textColor: axisColors[asCounter]
+
+            };
+
+            asCounter++;
         });
 
 
@@ -209,16 +254,59 @@ function SessionDetailController($scope, $routeParams, SessionData) {
         $scope.createGraphData([newData, newData2]);
     };
 
-    var getData = function () {
-        SessionData.getSessionParameter($scope.sessionId, 'speed')
-            .then(function (raw1) {
-                SessionData.getSessionParameter($scope.sessionId, 'gear').then(
-                    function (raw2) {
-                        $scope.createGraphData([raw1.data, raw2.data]);
-                    });
-            });
-    };
+//    var getData = function () {
+//        SessionData.getSessionParameter($scope.sessionId, parameter)
+//            .then(function (raw1) {
+//                SessionData.getSessionParameter($scope.sessionId, 'gear').then(
+//                    function (raw2) {
+//                        $scope.createGraphData([raw1.data, raw2.data],[parameter,'gear']);
+//                    });
+//            });
+//    };
 
-    getData();
+//    var getData = function () {
+//        SessionData.getSessionParameter($scope.sessionId, parameter)
+//            .then(function (raw1) {
+//                $scope.createGraphData([raw1.data],[parameter]);
+//            });
+//    };
+//
+//    var getData = function () {
+//    var promiselijst = [];
+//
+//    for(var index = 0;index<$scope.parameters.length;index++){
+//        promiselijst[index]= SessionData.getSessionParameter($scope.sessionId, $scope.parameters[index])
+//    }
+//
+//    $q.all(promiselijst).then(function (results) {
+//        var graphRawJsonData = [];
+//
+//        angular.forEach(results, function (result) {
+//        graphRawJsonData.push(result.data);
+//        });
+//
+//            $scope.createGraphData(graphRawJsonData,$scope.parameters);
+//    });
+//    }
+
+
+    var getData = function () {
+        var rawDataLijst = [];
+        var counter = 0;
+
+        var getParameterValue = function(parameterName){
+            SessionData.getSessionParameter($scope.sessionId,parameterName).then(function (raw){
+            rawDataLijst[counter]=raw.data;
+                counter++;
+                if($scope.parameters[counter]!=null){
+                    getParameterValue($scope.parameters[counter]);
+                }
+                else{
+                    $scope.createGraphData(rawDataLijst,$scope.parameters);
+                }
+            })};
+
+        getParameterValue($scope.parameters[counter]);
+    }
 
 }
