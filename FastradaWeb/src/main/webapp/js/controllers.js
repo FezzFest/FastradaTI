@@ -14,7 +14,7 @@ function HomeController($scope, SessionData) {
 }
 
 function SessionDetailController($scope, $routeParams, SessionData, $q) {
-    $scope.sliderValues = [0, 500];
+//    $scope.sliderValues = [0, 500];
 
     var parameter;
 
@@ -42,7 +42,7 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
     var minSeconds = 0;
     var maxSeconds = 0;
 
-    $scope.sliderMaxValue = 100;
+//    $scope.sliderMaxValue = 100;
 
     $scope.sessionId = $routeParams.sessionId;
 
@@ -59,6 +59,7 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
         "cssStyle": "height:400px; width:100%;border: 1px #ccc solid",
         "data": [],
         "options": {
+            "legend" : {position: 'top'},
             "pointSize": 0,
             "title": "Temperature",
             "isStacked": "true",
@@ -214,8 +215,7 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
                 });
 
             result.rows = resultRows;
-            $scope.sliderValues = [0, maxSeconds];
-            $scope.sliderMaxValue = maxSeconds;
+
 
             $scope.chart.options.vAxes[asCounter] = {
 //                minValue: minYValue,
@@ -228,6 +228,8 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
             asCounter++;
         });
 
+        $scope.sliderValues = [0, maxSeconds];
+        $scope.sliderMaxValue = maxSeconds;
 
         $scope.chart.data = result;
         $scope.chart.options.title = parameter;
