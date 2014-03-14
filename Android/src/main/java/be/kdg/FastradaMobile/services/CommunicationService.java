@@ -55,7 +55,7 @@ public class CommunicationService extends IntentService {
         BufferController buffer = BufferController.getInstance();
         OutputDataController output = new OutputDataController();
 
-        //Start Location Service
+        // Start Location Service
         startService(new Intent(this,LocationService.class));
 
         while (true) {
@@ -103,7 +103,6 @@ public class CommunicationService extends IntentService {
     }
 
     private void showToast(final String text) {
-        //Handler mHandler = new Handler();
         mHandler.post(new Runnable() {
             @Override
             public void run() {

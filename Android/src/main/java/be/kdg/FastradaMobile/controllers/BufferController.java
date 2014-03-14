@@ -12,14 +12,14 @@ import java.util.logging.Logger;
  */
 public class BufferController {
     private static final int PACKET_SIZE = 18;
+
     private boolean primaryBufferEnabled = true;
     private List<byte[]> primaryBuffer = new ArrayList<byte[]>();
     private List<byte[]> alternateBuffer = new ArrayList<byte[]>();
     private static BufferController instance;
     private static Logger log = Logger.getLogger(BufferController.class.getClass().getName());
 
-    private BufferController() {
-    }
+    private BufferController() {}
 
     public static BufferController getInstance() {
         if (instance == null) createInstance();
@@ -41,7 +41,7 @@ public class BufferController {
 
     public byte[] getPackets() {
         while (true) {
-            byte[] result = getBuffer();
+            byte[] result = getDataFromBuffer();
             if (result.length != 0) {
                 return result;
             }
@@ -55,6 +55,11 @@ public class BufferController {
         }
     }
 
+    public void clear() {
+        primaryBuffer.clear();
+        alternateBuffer.clear();
+    }
+
     private byte[] addTimestamp(byte[] packet) {
         long timestamp = System.currentTimeMillis();
         byte[] bTimeStamp = ByteBuffer.allocate(8).putLong(timestamp).array();
@@ -65,7 +70,7 @@ public class BufferController {
         return newPacket;
     }
 
-    private byte[] getBuffer() {
+    private byte[] getDataFromBuffer() {
         byte[] result;
         if (primaryBufferEnabled) {
             // Switch to alternative buffer
@@ -91,7 +96,7 @@ public class BufferController {
 
             // Packets to array
             int counter = 0;
-        result = new byte[PACKET_SIZE * alternateBuffer.size()];
+            result = new byte[PACKET_SIZE * alternateBuffer.size()];
             ListIterator<byte[]> it = alternateBuffer.listIterator();
             while (it.hasNext()) {
                 byte[] next = it.next();
@@ -104,6 +109,7 @@ public class BufferController {
             // Clear buffer
             alternateBuffer.clear();
         }
+
         return result;
     }
 }

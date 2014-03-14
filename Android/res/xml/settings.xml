@@ -42,7 +42,7 @@
                         android:key="pref_max_RPM"
                         android:title="RPM scale"
                         android:summary="Set the maximum RPM"
-                        android:defaultValue="8000"
+                        android:defaultValue="10000"
                         android:inputType="number"/>
             </PreferenceCategory>
         </PreferenceScreen>
@@ -95,7 +95,7 @@
                         android:key="pref_alarm_temperature"
                         android:title="Temperature"
                         android:summary="Set the alarm temperature"
-                        android:defaultValue="95"
+                        android:defaultValue="100"
                         android:inputType="number"/>
             </PreferenceCategory>
 

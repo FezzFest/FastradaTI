@@ -18,12 +18,11 @@ import android.view.*;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import be.kdg.FastradaMobile.Constants;
 import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.UserInterfaceController;
 import be.kdg.FastradaMobile.services.CommunicationService;
 import org.codeandmagic.android.gauge.GaugeView;
-
-import java.util.logging.Logger;
 
 public class MainActivity extends Activity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static final int GREEN_LED_PORTRAIT = 8;
@@ -45,9 +44,6 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
     private int streamId;
     private int rpmLimiter;
     private boolean alarmPlaying;
-    int id = 0;
-    String[] values = new String[12];
-
 
     /**
      * Called when the activity is first created.
@@ -80,7 +76,7 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
         speed = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
         if (prefs.getString("pref_gauge_style", "text").equals("needle")) {
             // Get max speed
-            int maxSpeed = Integer.parseInt(prefs.getString("pref_max_speed", "250"));
+            int maxSpeed = Integer.parseInt(prefs.getString("pref_max_speed", Constants.DEF_MAX_SPEED));
             speed.setNeedleEnabled(maxSpeed);
         }
         speed.setFixedTargetValue(195);
@@ -119,7 +115,7 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
 
     private void updateUiByPrefs(){
         final LinearLayout imageView = (LinearLayout) findViewById(R.id.linearImageView);
-        rpmLimiter = Integer.parseInt(prefs.getString("pref_max_RPM", "8000"));
+        rpmLimiter = Integer.parseInt(prefs.getString("pref_max_RPM", Constants.DEF_MAX_RPM));
 
         if (prefs.getBoolean("pref_UI_gaugeView", true)) {
             speed.setVisibility(View.VISIBLE);
@@ -155,7 +151,7 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
     }
 
     private void showTemp(double temperature) {
-        if (temperature >= Integer.parseInt(prefs.getString("pref_alarm_temperature", "95")) && prefs.getBoolean("pref_alarm_enabled", true)) {
+        if (temperature >= Integer.parseInt(prefs.getString("pref_alarm_temperature", Constants.DEF_TEMP_ALARM)) && prefs.getBoolean("pref_alarm_enabled", true)) {
             tempIndicator.setTextColor(Color.RED);
             tempDescription.setTextColor(Color.RED);
             if (!alarmPlaying) {
@@ -284,12 +280,13 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
         viewGroups[0] = linearLayout1;
         viewGroups[1] = linearLayout2;
 
+        int id = 0;
         int eventAction = event.getAction();
         switch (eventAction) {
             case MotionEvent.ACTION_DOWN:
                 // Show ActionBar
                 getActionBar().show();
-                hideActionBar(5000);
+                hideActionBar(Constants.AB_TIMEOUT);
 
                 id = 0;
                 for (LinearLayout UIelement : viewGroups) {
@@ -399,7 +396,6 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
             updateUiByPrefs();
             recreate();
         }
-
     }
 
 }

@@ -1,7 +1,6 @@
 package be.kdg.FastradaMobile.services;
 
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -15,7 +14,6 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,13 +22,13 @@ import java.util.logging.Logger;
  * Created by Jonathan on 13/03/14.
  */
 public class LocationService extends Service implements LocationListener {
-    private Location location;
-    private LocationManager locationManager;
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 3;
     private static final long MIN_TIME_BW_UPDATES = 500;
     private static Logger log = Logger.getLogger(LocationService.class.getClass().getName());
 
 
+    private Location location;
+    private LocationManager locationManager;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -46,9 +44,11 @@ public class LocationService extends Service implements LocationListener {
                     MIN_TIME_BW_UPDATES,
                     MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
         }
+
         if (locationManager != null) {
             location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         }
+
         return location;
     }
 
@@ -60,18 +60,20 @@ public class LocationService extends Service implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        Log.d(Constants.TAG, "updated longitude" + location.getLongitude());
-        int longitude = (int) (Math.floor(location.getLongitude() * 1000000));
-        Log.d(Constants.TAG, "updated integer longitude" + longitude);
-        Log.d(Constants.TAG, "updated latitude" + location.getLatitude());
+        // Latitude
+        Log.d(Constants.TAG, "Updated latitude: " + location.getLatitude());
         int latitude = (int) (Math.floor(location.getLatitude() * 1000000));
-        Log.d(Constants.TAG, "updated integer latitude" + latitude);
+        Log.d(Constants.TAG, "Updated integer latitude: " + latitude);
 
-        byte[] longitudeBytes =  ByteBuffer.allocate(4).putInt(longitude).array();
+        // Longitude
+        Log.d(Constants.TAG, "Updated longitude: " + location.getLongitude());
+        int longitude = (int) (Math.floor(location.getLongitude() * 1000000));
+        Log.d(Constants.TAG, "Updated integer longitude: " + longitude);
+
         byte[] latitudeBytes = ByteBuffer.allocate(4).putInt(latitude).array();
+        byte[] longitudeBytes =  ByteBuffer.allocate(4).putInt(longitude).array();
 
         byte[] packet = {(byte) 0x00, (byte) 0x10, longitudeBytes[0], longitudeBytes[1], longitudeBytes[2], longitudeBytes[3], latitudeBytes[0], latitudeBytes[1], latitudeBytes[2], latitudeBytes[3]};
-
         sendUdpPacket(packet, 9000);
     }
 
@@ -85,7 +87,7 @@ public class LocationService extends Service implements LocationListener {
                     DatagramPacket packet = new DatagramPacket(arrayStream, arrayStream.length, address, port);
                     datagramSocket.send(packet);
 
-                    Log.d("Fastrada", "[UDP] Sent packet: " + arrayStream[0]);
+                    Log.d(Constants.TAG, "[UDP] Sent packet: " + arrayStream[0]);
                 } catch (IOException e) {
                     log.log(Level.WARNING, e.getMessage(), e);
                 }
