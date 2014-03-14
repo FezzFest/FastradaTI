@@ -1,5 +1,6 @@
+// loading circle settings
 var opts = {
-    lines: 13, // The number of lines to draw
+    lines: 12, // The number of lines to draw
     length: 0, // The length of each line
     width: 15, // The line thickness
     radius: 43, // The radius of the inner circle
