@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -21,6 +22,7 @@ public class FastradaDAO implements Serializable {
     private Session session;
     public static final int CONNECTION_SUCCESFULL = 0;
     public static final int CONNECTION_FAILED = 1;
+    private static final String[] IGNORED_PARAMETERS = {"longitude", "latitude"};
 
     public FastradaDAO(String serverIP, String keyspace) {
         this.serverIP = serverIP;
@@ -121,6 +123,11 @@ public class FastradaDAO implements Serializable {
         String cqlSelect = "SELECT parameter FROM s" + sessionId + ";";
         for (Row row : session.execute(cqlSelect)) {
             params.add(row.getString(0));
+        }
+        for (String ignoredParameter : IGNORED_PARAMETERS) {
+            if (params.contains(ignoredParameter)) {
+                params.remove(ignoredParameter);
+            }
         }
         return new ArrayList<>(params);
     }
