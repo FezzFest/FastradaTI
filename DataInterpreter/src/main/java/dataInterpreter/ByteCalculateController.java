@@ -1,5 +1,6 @@
 package dataInterpreter;
 
+import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -31,15 +32,19 @@ public class ByteCalculateController {
                 int stopByte = parameter.getStartBit() / 8 + parameter.getLength() / 8 - 1;
                 switch (parameter.getLength() / 8) {
                     case 1:
-                        rawValue = Integer.parseInt(String.format("%02X", received[startByte]), 16) & 0xffffff;
+                       // rawValue = ByteBuffer.wrap(received, startByte, 1).getInt();
+                        rawValue =   Integer.parseInt(String.format("%02X", received[startByte]), 16) & 0xffffff;
                         break;
                     case 2:
+                        //rawValue = ByteBuffer.wrap(received, startByte, 2).getInt();
                         rawValue = Integer.parseInt(String.format("%02X%02X", received[startByte], received[stopByte]), 16) & 0xffffff;
                         break;
                     case 3:
+                       // rawValue = ByteBuffer.wrap(received, startByte, 3).getInt();
                         rawValue = Integer.parseInt(String.format("%02X%02X%02X", received[startByte], received[stopByte - 1], received[stopByte]), 16) & 0xffffff;
                         break;
                     case 4:
+                        //rawValue = ByteBuffer.wrap(received, startByte, 4).getInt();
                         rawValue = Integer.parseInt(String.format("%02X%02X%02X%02X", received[startByte], received[stopByte - 2], received[stopByte - 3], received[stopByte]), 16) & 0xffffff;
                         break;
                 }

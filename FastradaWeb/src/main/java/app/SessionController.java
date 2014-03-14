@@ -20,8 +20,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/sessions")
 public class SessionController {
-    //TODO autowiring in orde maken
-    //@Autowired
     FastradaDAO fastradaDAO = new FastradaDAO();
 
     //TODO concurrent request not allowed
@@ -95,7 +93,6 @@ public class SessionController {
             // Insert into database
             fastradaDAO.insertPacketValues(sessionId, timestamp, hashMap);
         }
-
         return "Processed " + numberOfPackets + " packets.";
     }
 

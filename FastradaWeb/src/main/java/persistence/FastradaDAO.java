@@ -34,7 +34,6 @@ public class FastradaDAO implements Serializable {
         makeConnection();
     }
 
-    //@PostConstruct
     public int makeConnection() {
         try {
             Cluster cluster = Cluster.builder().addContactPoints(serverIP).build();

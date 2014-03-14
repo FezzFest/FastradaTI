@@ -10,6 +10,8 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Required for test purposes -->
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
 
     <!-- Require Android 2.3+ -->
     <uses-sdk
@@ -70,5 +72,6 @@
         <!-- Services -->
         <service android:name=".services.ArduinoService"/>
         <service android:name=".services.CommunicationService"/>
+        <service android:name=".services.LocationService"/>
     </application>
 </manifest>

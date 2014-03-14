@@ -24,8 +24,6 @@ public class TestSessionController {
     public static void before() {
         makeConnection();
         sessioncontroller = new SessionController();
-
-
         reinitializeDB();
     }
 

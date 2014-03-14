@@ -53,9 +53,6 @@ public class GPSActivity extends Activity implements LocationListener{
         ((TextView) findViewById(R.id.log)).setText("Location Update N°0");
     }
 
-
-
-
     public Location getLocation() {
         try {
             locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);

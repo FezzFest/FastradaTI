@@ -52,6 +52,9 @@ public class CommunicationService extends IntentService {
         BufferController buffer = BufferController.getInstance();
         OutputDataController output = new OutputDataController();
 
+        //Start Location Service
+        startService(new Intent(this,LocationService.class));
+
         while (true) {
             // Get packets from buffer and add session ID
             byte[] packets = addSessionId(buffer.getPackets());
