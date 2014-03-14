@@ -1,8 +1,8 @@
 <config>
     <sensors>
-        <sensor id="100" name="Engine_Data">
+        <sensor id="256" name="Engine_Data">
             <parameter name="RPM">
-                <startbit>8</startbit>
+                <startbit>16</startbit>
                 <length>16</length>
                 <byteorder>Intel</byteorder>
                 <valuetype>unsigned</valuetype>
@@ -13,7 +13,7 @@
                 <unit>r/min</unit>
             </parameter>
             <parameter name="Throttle_position">
-                <startbit>24</startbit>
+                <startbit>32</startbit>
                 <length>16</length>
                 <byteorder>Intel</byteorder>
                 <valuetype>unsigned</valuetype>
@@ -24,7 +24,7 @@
                 <unit>%</unit>
             </parameter>
             <parameter name="Engine_Temp">
-                <startbit>40</startbit>
+                <startbit>48</startbit>
                 <length>16</length>
                 <byteorder>Intel</byteorder>
                 <valuetype>signed</valuetype>
@@ -35,9 +35,9 @@
                 <unit>°C</unit>
             </parameter>
         </sensor>
-        <sensor id="101" name="Car_Data">
+        <sensor id="257" name="Car_Data">
             <parameter name="Vehicle_Speed">
-                <startbit>8</startbit>
+                <startbit>16</startbit>
                 <length>16</length>
                 <byteorder>Intel</byteorder>
                 <valuetype>unsigned</valuetype>
@@ -48,7 +48,7 @@
                 <unit>Km/h</unit>
             </parameter>
             <parameter name="Gear">
-                <startbit>24</startbit>
+                <startbit>32</startbit>
                 <length>8</length>
                 <byteorder>Intel</byteorder>
                 <valuetype>unsigned</valuetype>
@@ -59,9 +59,9 @@
                 <unit></unit>
             </parameter>
         </sensor>
-        <sensor id="102" name="APP_Data">
+        <sensor id="258" name="APP_Data">
             <parameter name="Fuel_map">
-                <startbit>8</startbit>
+                <startbit>16</startbit>
                 <length>8</length>
                 <byteorder>Intel</byteorder>
                 <valuetype>unsigned</valuetype>
@@ -69,6 +69,30 @@
                 <offset>0</offset>
                 <minimum>0</minimum>
                 <maximum>255</maximum>
+                <unit></unit>
+            </parameter>
+        </sensor>
+        <sensor id="16" name="GPS">
+            <parameter name="longitude">
+                <startbit>16</startbit>
+                <length>32</length>
+                <byteorder>Intel</byteorder>
+                <valuetype>unsigned</valuetype>
+                <factor>0.000001</factor>
+                <offset>0</offset>
+                <minimum>0</minimum>
+                <maximum>0</maximum>
+                <unit></unit>
+            </parameter>
+            <parameter name="latitude">
+                <startbit>48</startbit>
+                <length>32</length>
+                <byteorder>Intel</byteorder>
+                <valuetype>unsigned</valuetype>
+                <factor>0.000001</factor>
+                <offset>0</offset>
+                <minimum>0</minimum>
+                <maximum>0</maximum>
                 <unit></unit>
             </parameter>
         </sensor>

@@ -19,7 +19,7 @@ public class TestOutputDataController {
         assertEquals("Server must return success", "Success", result);
     }
 
-    @Test
+   /* @Test
     public void testPostRequest() {
         OutputDataController outputDataController = new OutputDataController();
         String url = "http://vps42465.ovh.net/fastrada/post.php";
@@ -27,5 +27,5 @@ public class TestOutputDataController {
         String result = outputDataController.doPost(url, parameters);
 
         assertEquals("Server must return success", "Success", result);
-    }
+    }*/
 }

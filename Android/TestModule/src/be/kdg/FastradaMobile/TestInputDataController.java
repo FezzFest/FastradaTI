@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import android.util.Log;
 import be.kdg.FastradaMobile.activities.MainActivity;
+import be.kdg.FastradaMobile.activities.SplashActivity;
 import be.kdg.FastradaMobile.controllers.InputDataController;
 
 import java.io.IOException;
@@ -19,19 +20,19 @@ import static org.junit.Assert.assertArrayEquals;
 /**
  * Created by FezzFest on 5/02/14.
  */
-public class TestInputDataController extends ActivityUnitTestCase<MainActivity> {
+public class TestInputDataController extends ActivityUnitTestCase<SplashActivity> {
     private Activity activity;
     private InputDataController controller;
     private Thread thread;
     private static Logger log = Logger.getLogger(TestBufferController.class.getClass().getName());
 
     public TestInputDataController() {
-        super(MainActivity.class);
+        super(SplashActivity.class);
     }
 
     protected void setUp() throws Exception {
         super.setUp();
-        Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
+        Intent intent = new Intent(getInstrumentation().getTargetContext(), SplashActivity.class);
         startActivity(intent, null, null);
         activity = getActivity();
         controller = new InputDataController(activity.getApplicationContext());

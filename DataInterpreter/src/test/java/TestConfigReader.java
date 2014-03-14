@@ -30,14 +30,14 @@ public class TestConfigReader {
     public void testReadRPMStartbit() {
         int startbit = reader.getConfigIntValue("RPM", "startbit");
 
-        assertEquals(8, startbit);
+        assertEquals(16, startbit);
     }
 
     @Test
     public void testReadThrottleStartbit() {
         int startbit = reader.getConfigIntValue("Throttle_position", "startbit");
 
-        assertEquals(24, startbit);
+        assertEquals(32, startbit);
     }
 
     @Test
@@ -83,7 +83,7 @@ public class TestConfigReader {
     @Test
     public void testGetRpmAsParameter() {
         Parameter Rpm = reader.getParameterConfig("RPM");
-        Parameter p1 = new Parameter("RPM", 8, 16, "Intel", 1, 0, 0, 65535, "r/min");
+        Parameter p1 = new Parameter("RPM", 16, 16, "Intel", 1, 0, 0, 65535, "r/min");
 
         assertEquals(Rpm, p1);
     }
@@ -91,14 +91,14 @@ public class TestConfigReader {
     @Test
     public void testGetFuelMapAsParameter() {
         Parameter Fuelmap = reader.getParameterConfig("Fuel_map");
-        Parameter p1 = new Parameter("Fuel_map", 8, 8, "Intel", 1, 0, 0, 255, "");
+        Parameter p1 = new Parameter("Fuel_map", 16, 8, "Intel", 1, 0, 0, 255, "");
 
         assertEquals(Fuelmap, p1);
     }
 
     @Test
     public void testReadSensor100ParameterNames() {
-        List<String> parameterNames = reader.getParameterNames(100);
+        List<String> parameterNames = reader.getParameterNames(256);
 
         List<String> controleParameterNames = new ArrayList<String>();
         controleParameterNames.add("RPM");

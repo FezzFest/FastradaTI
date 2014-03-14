@@ -54,12 +54,12 @@
                         android:key="pref_service_address"
                         android:title="Server address"
                         android:summary="Specify the address for the external service"
-                        android:defaultValue="http://vps42465.ovh.net"/>
+                        android:defaultValue="http://carlo.duckdns.org"/>
                 <EditTextPreference
                         android:key="pref_service_port"
                         android:title="Server port"
                         android:summary="Specify the port for the external service"
-                        android:defaultValue="8080"
+                        android:defaultValue="18080"
                         android:inputType="number"/>
             </PreferenceCategory>
             <PreferenceCategory android:title="Internal">

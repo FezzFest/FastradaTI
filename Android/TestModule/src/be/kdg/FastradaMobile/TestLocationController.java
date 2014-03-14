@@ -17,6 +17,7 @@ import dataInterpreter.ConfigController;
 import org.junit.Assert;
 
 import java.io.InputStream;
+import java.nio.ByteBuffer;
 import java.util.Map;
 
 /**
@@ -25,9 +26,9 @@ import java.util.Map;
 public class TestLocationController extends ActivityUnitTestCase<SplashActivity> {
     private Activity activity;
     private LocationManager locationManager;
-    private static final double UPDATED_LATITUDE = 51.349215899999990000;
-    private static final double LATITUDE = 51.219215899999990000;
-    private static final double LONGITUDE = 4.402881799999932000;
+    private static final double UPDATED_LATITUDE = 51.349215;
+    private static final double LATITUDE = 51.219215;
+    private static final double LONGITUDE = 4.402881;
     private byte[] locationResult;
 
     public TestLocationController() {
@@ -75,7 +76,7 @@ public class TestLocationController extends ActivityUnitTestCase<SplashActivity>
         double latitude = map.get("latitude");
         double longitude = map.get("longitude");
 
-        Assert.assertEquals("Latitude must be " + LATITUDE, LATITUDE, latitude, 0);
+        Assert.assertEquals("Latitude must be " + UPDATED_LATITUDE, UPDATED_LATITUDE, latitude, 0);
         Assert.assertEquals("Longitude must be " + LONGITUDE, LONGITUDE, longitude, 0);
         unbindLocation();
     }

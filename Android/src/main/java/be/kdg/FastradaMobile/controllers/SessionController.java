@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+import be.kdg.FastradaMobile.Constants;
 import be.kdg.FastradaMobile.activities.SessionActivity;
 import be.kdg.FastradaMobile.json.SessionData;
 import be.kdg.FastradaMobile.json.SessionId;
@@ -52,8 +53,8 @@ public class SessionController extends AsyncTask<String[], Void, Integer> {
 
         // Build URL
         StringBuilder url = new StringBuilder();
-        String server = prefs.getString("pref_service_address", "http://vps42465.ovh.net");
-        String port = prefs.getString("pref_service_port", "8080");
+        String server = prefs.getString("pref_service_address", Constants.DEF_SERVER_ADDR);
+        String port = prefs.getString("pref_service_port", Constants.DEF_SERVER_PORT);
         String path = "/api/sessions/new";
         url.append(server);
         url.append(":");

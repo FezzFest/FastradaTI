@@ -1,9 +1,11 @@
 package be.kdg.FastradaMobile;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import android.util.Log;
 import be.kdg.FastradaMobile.activities.MainActivity;
+import be.kdg.FastradaMobile.activities.SplashActivity;
 import be.kdg.FastradaMobile.controllers.BufferController;
 import org.junit.Assert;
 
@@ -20,18 +22,18 @@ import static org.junit.Assert.assertArrayEquals;
 /**
  * Created by FezzFest on 19/02/14.
  */
-public class TestBufferController extends ActivityUnitTestCase<MainActivity> {
-    private MainActivity activity;
+public class TestBufferController extends ActivityUnitTestCase<SplashActivity> {
+    private Activity activity;
     private BufferController buffer;
     private static Logger log = Logger.getLogger(TestBufferController.class.getClass().getName());
 
     public TestBufferController() {
-        super(MainActivity.class);
+        super(SplashActivity.class);
     }
 
     protected void setUp() throws Exception {
         super.setUp();
-        Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
+        Intent intent = new Intent(getInstrumentation().getTargetContext(), SplashActivity.class);
         startActivity(intent, null, null);
         activity = getActivity();
         buffer = BufferController.getInstance();
