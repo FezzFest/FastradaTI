@@ -153,7 +153,7 @@ public class FastradaDAO implements Serializable {
             }
             double average = sum / counter;
             if (counter != 0) {
-                returnParams.add(new Parameter(new Date(fromDate.getTime() + 500), average));
+                    returnParams.add(new Parameter(new Date(fromDate.getTime() + 500), Math.round(average)));
             }
             fromDate.setTime(fromDate.getTime() + 1000);
             toDate.setTime(toDate.getTime() + 1000);
