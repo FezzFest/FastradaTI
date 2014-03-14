@@ -16,5 +16,5 @@ var opts = {
     top: 'auto', // Top position relative to parent in px
     left: 'auto' // Left position relative to parent in px
 };
-var target = document.getElementById('foo');
+var target = document.getElementById('loading');
 var spinner = new Spinner(opts).spin(target);
