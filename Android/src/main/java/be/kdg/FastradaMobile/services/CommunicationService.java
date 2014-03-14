@@ -13,6 +13,8 @@ import be.kdg.FastradaMobile.controllers.OutputDataController;
 import dataInterpreter.CompressorController;
 
 import java.nio.ByteBuffer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Peter Van Akelyen on 18/02/14.
@@ -21,6 +23,7 @@ public class CommunicationService extends IntentService {
     public static boolean isRunning = false;
     private int sessionId;
     private Handler mHandler;
+    private static Logger log = Logger.getLogger(CommunicationService.class.getClass().getName());
 
     public CommunicationService() {
         super("CommunicationService");
@@ -82,7 +85,7 @@ public class CommunicationService extends IntentService {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.log(Level.WARNING, e.getMessage(), e);
             }
         }
     }

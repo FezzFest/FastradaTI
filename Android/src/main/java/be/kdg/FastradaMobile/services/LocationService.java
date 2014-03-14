@@ -17,6 +17,8 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Jonathan on 13/03/14.
@@ -26,6 +28,8 @@ public class LocationService extends Service implements LocationListener {
     private LocationManager locationManager;
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 3;
     private static final long MIN_TIME_BW_UPDATES = 500;
+    private static Logger log = Logger.getLogger(LocationService.class.getClass().getName());
+
 
 
     @Override
@@ -83,7 +87,7 @@ public class LocationService extends Service implements LocationListener {
 
                     Log.d("Fastrada", "[UDP] Sent packet: " + arrayStream[0]);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.log(Level.WARNING, e.getMessage(), e);
                 }
             }
         };

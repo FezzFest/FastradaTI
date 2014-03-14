@@ -14,12 +14,15 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by FezzFest on 7/02/14.
  */
 public class TestSimultaneousConnections extends ActivityUnitTestCase<MainActivity> {
     private Activity activity;
+    private static Logger log = Logger.getLogger(TestSimultaneousConnections.class.getClass().getName());
 
     public TestSimultaneousConnections() {
         super(MainActivity.class);
@@ -68,9 +71,9 @@ public class TestSimultaneousConnections extends ActivityUnitTestCase<MainActivi
                         Thread.sleep(1000);
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.log(Level.WARNING, e.getMessage(), e);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    log.log(Level.WARNING, e.getMessage(), e);
                 }
             }
         };
@@ -86,6 +89,7 @@ public class TestSimultaneousConnections extends ActivityUnitTestCase<MainActivi
                 try {
                     method.invoke(wifiManager, null, enable);
                 } catch (Exception ex) {
+
                 }
                 break;
             }

@@ -9,11 +9,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Peter Van Akelyen on 19/02/14.
  */
 public class OutputDataController {
+    private static Logger log = Logger.getLogger(OutputDataController.class.getClass().getName());
+
     public String doGet(String s) {
         StringBuilder response = new StringBuilder();
         try {
@@ -29,7 +33,7 @@ public class OutputDataController {
             }
             in.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.log(Level.WARNING, e.getMessage(), e);
         }
 
         return response.toString();

@@ -29,7 +29,7 @@ public class SettingsActivity extends PreferenceActivity {
     private void addResetUIListener() {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = prefs.edit();
-
+        //Inserts 0 into X and Y values preferences
         Preference stylePreference = (Preference) findPreference("pref_reset_UI");
         stylePreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
@@ -48,7 +48,7 @@ public class SettingsActivity extends PreferenceActivity {
                 editor.putString("pref_UI_gaugeViewLand_X", "" + "0");
                 editor.putString("pref_UI_gaugeViewLand_Y", "" + "0");
                 editor.commit();
-                Toast.makeText(SettingsActivity.this, "Please restart the application.", Toast.LENGTH_LONG).show();
+                Toast.makeText(SettingsActivity.this, "UI Reset", Toast.LENGTH_LONG).show();
                 return true;
             }
         });
@@ -60,7 +60,6 @@ public class SettingsActivity extends PreferenceActivity {
             stylePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    Toast.makeText(SettingsActivity.this, "Please restart the application.", Toast.LENGTH_LONG).show();
 
                     return true;
                 }

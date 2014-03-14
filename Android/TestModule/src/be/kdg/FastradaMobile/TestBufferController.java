@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -21,6 +23,7 @@ import static org.junit.Assert.assertArrayEquals;
 public class TestBufferController extends ActivityUnitTestCase<MainActivity> {
     private MainActivity activity;
     private BufferController buffer;
+    private static Logger log = Logger.getLogger(TestBufferController.class.getClass().getName());
 
     public TestBufferController() {
         super(MainActivity.class);
@@ -97,7 +100,7 @@ public class TestBufferController extends ActivityUnitTestCase<MainActivity> {
                     try {
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        log.log(Level.WARNING, e.getMessage(), e);
                     }
                 }
             }
@@ -119,7 +122,7 @@ public class TestBufferController extends ActivityUnitTestCase<MainActivity> {
                     try {
                         Thread.sleep(30);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        log.log(Level.WARNING, e.getMessage(), e);
                     }
                 }
             }

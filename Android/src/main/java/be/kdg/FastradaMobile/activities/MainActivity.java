@@ -23,7 +23,9 @@ import be.kdg.FastradaMobile.controllers.UserInterfaceController;
 import be.kdg.FastradaMobile.services.CommunicationService;
 import org.codeandmagic.android.gauge.GaugeView;
 
-public class MainActivity extends Activity {
+import java.util.logging.Logger;
+
+public class MainActivity extends Activity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static final int GREEN_LED_PORTRAIT = 8;
     private static final int GREEN_LED_LAND = 14;
     private static final int YELLOW_LED_PORTRAIT = 2;
@@ -46,6 +48,7 @@ public class MainActivity extends Activity {
     int id = 0;
     String[] values = new String[12];
 
+
     /**
      * Called when the activity is first created.
      */
@@ -58,7 +61,10 @@ public class MainActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getActionBar().hide();
 
+
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.registerOnSharedPreferenceChangeListener(this);
+
         setPositionUIElements();
         bufferController = UserInterfaceController.getInstance();
 
@@ -107,9 +113,11 @@ public class MainActivity extends Activity {
                 handler.postDelayed(this, 50);
             }
         });
+        updateUiByPrefs();
 
+    }
 
-        // Update UI elements by preferences
+    private void updateUiByPrefs(){
         final LinearLayout imageView = (LinearLayout) findViewById(R.id.linearImageView);
         rpmLimiter = Integer.parseInt(prefs.getString("pref_max_RPM", "8000"));
 
@@ -236,9 +244,6 @@ public class MainActivity extends Activity {
             case R.id.menu_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 break;
-            case R.id.menu_GPS:
-                Intent gpsActivity = new Intent(this, GPSActivity.class);
-                startActivity(gpsActivity);
             case R.id.menu_exit:
                 System.exit(0);
                 break;
@@ -374,4 +379,27 @@ public class MainActivity extends Activity {
             }
         }.start();
     }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        //If a shared preference is changed, check if MainActivity needs UI refresh.
+        if (key.equals("pref_UI_RPM")) {
+            recreate();
+        } else if (key.equals("pref_UI_engineGear")) {
+            recreate();
+        } else if (key.equals("pref_UI_engineTemp")) {
+            recreate();
+        } else if (key.equals("pref_gauge_style")) {
+            recreate();
+        } else if (key.equals("pref_max_speed")){
+            recreate();
+        } else if (key.equals("pref_max_RPM")){
+            recreate();
+        } else if (key.equals("pref_UI_topLayout_X") ||key.equals("pref_UI_topLayout_Y") ||key.equals("pref_UI_bottomLayout_X") ||key.equals("pref_UI_bottomLayout_Y") ||key.equals("pref_UI_gaugeViewPort_X") ||key.equals("pref_UI_gaugeViewPort_Y") ||key.equals("pref_UI_leftLayout_X") ||key.equals("pref_UI_leftLayout_Y") ||key.equals("pref_UI_rightLayout_X") ||key.equals("pref_UI_rightLayout_Y") ||key.equals("pref_UI_gaugeViewLand_X") ||key.equals("pref_UI_gaugeViewLand_Y")){
+            updateUiByPrefs();
+            recreate();
+        }
+
+    }
+
 }

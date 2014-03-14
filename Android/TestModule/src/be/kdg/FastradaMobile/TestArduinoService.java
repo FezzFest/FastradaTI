@@ -11,6 +11,8 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -19,6 +21,7 @@ import static org.junit.Assert.assertArrayEquals;
  */
 public class TestArduinoService extends ServiceTestCase<ArduinoService> {
     private UserInterfaceController buffer;
+    private static Logger log = Logger.getLogger(TestArduinoService.class.getClass().getName());
 
     public TestArduinoService() {
         super(ArduinoService.class);
@@ -123,7 +126,7 @@ public class TestArduinoService extends ServiceTestCase<ArduinoService> {
 
                     Log.d("Fastrada", "[UDP] Sent packet: " + arrayStream[0]);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.log(Level.WARNING, e.getMessage(), e);
                 }
             }
         };

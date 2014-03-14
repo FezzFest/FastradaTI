@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -21,6 +23,7 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
     private Activity activity;
     private InputDataController controller;
     private Thread thread;
+    private static Logger log = Logger.getLogger(TestBufferController.class.getClass().getName());
 
     public TestInputDataController() {
         super(MainActivity.class);
@@ -81,9 +84,9 @@ public class TestInputDataController extends ActivityUnitTestCase<MainActivity> 
                         Thread.sleep(500);
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.log(Level.WARNING, e.getMessage(), e);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    log.log(Level.WARNING, e.getMessage(), e);
                 }
             }
         };

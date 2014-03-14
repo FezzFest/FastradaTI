@@ -4,6 +4,8 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Peter Van Akelyen on 19/02/14.
@@ -14,6 +16,7 @@ public class BufferController {
     private List<byte[]> primaryBuffer = new ArrayList<byte[]>();
     private List<byte[]> alternateBuffer = new ArrayList<byte[]>();
     private static BufferController instance;
+    private static Logger log = Logger.getLogger(BufferController.class.getClass().getName());
 
     private BufferController() {
     }
@@ -47,7 +50,7 @@ public class BufferController {
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.log(Level.WARNING, e.getMessage(), e);
             }
         }
     }

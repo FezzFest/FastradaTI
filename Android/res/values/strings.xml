@@ -33,5 +33,4 @@
     <!-- About activity -->
     <string name="about">Fastrada is a project developed by the Karel De Grote-Hogeschool in Antwerp. You can follow our project\&apos;s progress on Facebook:\nhttps://www.facebook.com/pages/Fastrada/520630621304267\n\nThis app is developed by: \n-Thomas D\&apos;haen\n-Peter Van Akelyen\n-Carlo Vanhoutte\n-Jonathan Heirbaut\n-Philip Vissenaekens\n-Pieter-Jan Pauwels</string>
 
-    <string name="btnStop">Stop GPS</string>
 </resources>

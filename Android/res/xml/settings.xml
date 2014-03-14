@@ -19,12 +19,6 @@
                         android:title="Enable Temperature"
                         android:summary="Enable temperature indicator"
                         android:defaultValue="true"/>
-                <CheckBoxPreference
-                        android:key="pref_UI_change"
-                        android:title="Lock UI"
-                        android:summary="Disable UI movement by user."
-                        android:defaultValue="true"/>
-
             </PreferenceCategory>
 
             <PreferenceCategory android:title="Style">
@@ -115,12 +109,16 @@
         </PreferenceScreen>
         <PreferenceScreen android:title="UI Settings">
             <PreferenceCategory android:title="Elements">
+                <Preference android:key="pref_reset_UI"
+                            android:title="Reset UI"
+                            android:summary="Press to Reset UI elements."/>
                 <EditTextPreference
                         android:key="pref_UI_topLayout_X"
                         android:title="X TopLayout"
                         android:summary="Set X TopLayout"
                         android:defaultValue="0"
-                        android:inputType="number"/>
+                        android:inputType="number"
+                       />
                 <EditTextPreference
                         android:key="pref_UI_topLayout_Y"
                         android:title="Y TopLayout"
@@ -153,46 +151,40 @@
                         android:inputType="number"/>
                 <EditTextPreference
                         android:key="pref_UI_leftLayout_X"
-                        android:title="X BottomLayout"
-                        android:summary="Set X BottomLayout"
+                        android:title="X LeftLayout"
+                        android:summary="Set X LeftLayout"
                         android:defaultValue="0"
                         android:inputType="number"/>
                 <EditTextPreference
                         android:key="pref_UI_leftLayout_Y"
-                        android:title="Y BottomLayout"
-                        android:summary="Set Y BottomLayout"
+                        android:title="Y LeftLayout"
+                        android:summary="Set Y LeftLayout"
                         android:defaultValue="0"
                         android:inputType="number"/>
                 <EditTextPreference
                         android:key="pref_UI_rightLayout_X"
-                        android:title="X BottomLayout"
-                        android:summary="Set X BottomLayout"
+                        android:title="X RightLayout"
+                        android:summary="Set X RightLayout"
                         android:defaultValue="0"
                         android:inputType="number"/>
                 <EditTextPreference
                         android:key="pref_UI_rightLayout_Y"
-                        android:title="Y BottomLayout"
-                        android:summary="Set Y BottomLayout"
+                        android:title="Y RightLayout"
+                        android:summary="Set Y RightLayout"
                         android:defaultValue="0"
                         android:inputType="number"/>
                 <EditTextPreference
                         android:key="pref_UI_gaugeViewLand_X"
-                        android:title="X BottomLayout"
-                        android:summary="Set X BottomLayout"
+                        android:title="X GaugeView Landscape"
+                        android:summary="Set X GaugeView"
                         android:defaultValue="0"
                         android:inputType="number"/>
                 <EditTextPreference
                         android:key="pref_UI_gaugeViewLand_Y"
-                        android:title="Y BottomLayout"
-                        android:summary="Set Y BottomLayout"
+                        android:title="Y GaugeView Landscape"
+                        android:summary="Set Y GaugeView"
                         android:defaultValue="0"
                         android:inputType="number"/>
-
-                <Preference android:key="pref_reset_UI"
-                            android:title="Reset UI"
-                            android:summary="Press to Reset UI elements."/>
-
-
             </PreferenceCategory>
         </PreferenceScreen>
     </PreferenceCategory>

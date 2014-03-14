@@ -63,12 +63,6 @@
             android:label="@string/app_name">
         </activity>
 
-        <!-- GPS activity -->
-        <activity
-                android:name=".activities.GPSActivity"
-                android:label="@string/app_name">
-        </activity>
-
         <!-- Services -->
         <service android:name=".services.ArduinoService"/>
         <service android:name=".services.CommunicationService"/>
