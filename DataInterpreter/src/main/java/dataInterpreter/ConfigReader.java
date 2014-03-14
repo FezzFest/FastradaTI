@@ -16,12 +16,16 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Created by Carlo on 28/02/14.
  */
 public class ConfigReader {
     private Document document;
     private InputStream configFileStream;
+    private static Logger log = Logger.getLogger(ConfigReader.class.getClass().getName());
 
     public ConfigReader(InputStream configFileStream) {
         readConfigInputStream(configFileStream);
@@ -39,18 +43,17 @@ public class ConfigReader {
         try {
             builder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            log.log(Level.WARNING, e.getMessage(), e);
         }
-
         try {
             document = builder.parse(configFileStream);
         } catch (SAXException e) {
-            e.printStackTrace();
+            log.log(Level.WARNING, e.getMessage(), e);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.log(Level.WARNING, e.getMessage(), e);
         } catch (NullPointerException e) {
-            e.printStackTrace();
+            log.log(Level.WARNING, e.getMessage(), e);
         }
     }
 
@@ -60,32 +63,48 @@ public class ConfigReader {
             return "";
         }
 
+        String result;
+
         Element root = document.getDocumentElement();
         Node sensors = root.getElementsByTagName("sensors").item(0);
         NodeList sensorList = sensors.getChildNodes();
 
+        NodeList parameterWaarden = getParameter(sensorList, parameter).getChildNodes();
+        result = getParameterWaarde(parameterWaarde, parameterWaarden);
+
+        return result;
+    }
+
+    private Node getParameter(NodeList sensorList, String parameter) {
+
         for (int sensorIndex = 0; sensorIndex < sensorList.getLength(); sensorIndex++) {
             Node sensor = sensorList.item(sensorIndex);
             NodeList parameterList = sensor.getChildNodes();
+
             for (int parameterIndex = 0; parameterIndex < parameterList.getLength(); parameterIndex++) {
                 //controle of lijn een xml element is of whitespace
                 if (isElementNode(parameterList.item(parameterIndex))) {
+
                     if (parameterList.item(parameterIndex).getAttributes().getNamedItem("name").getNodeValue().equals(parameter)) {
-                        NodeList parameterWaarden = parameterList.item(parameterIndex).getChildNodes();
-                        for (int waardenIndex = 0; waardenIndex < parameterWaarden.getLength(); waardenIndex++) {
-                            if (isElementNode(parameterWaarden.item(waardenIndex)) && parameterWaarden.item(waardenIndex).getNodeName().equals(parameterWaarde)) {
-                                if (parameterWaarden.item(waardenIndex).hasChildNodes()) {
-                                    return parameterWaarden.item(waardenIndex).getChildNodes().item(0).getNodeValue();
-                                } else {
-                                    return "";
-                                }
-                            }
-                        }
+                        return parameterList.item((parameterIndex));
                     }
                 }
             }
         }
-        return "";
+
+        return null;
+    }
+
+    private String getParameterWaarde(String parameterWaarde, NodeList parameterWaarden) {
+        String result = "";
+        for (int waardenIndex = 0; waardenIndex < parameterWaarden.getLength(); waardenIndex++) {
+            if (isElementNode(parameterWaarden.item(waardenIndex)) && parameterWaarden.item(waardenIndex).getNodeName().equals(parameterWaarde)) {
+                if (parameterWaarden.item(waardenIndex).hasChildNodes()) {
+                    result = parameterWaarden.item(waardenIndex).getChildNodes().item(0).getNodeValue();
+                }
+            }
+        }
+        return result;
     }
 
     public int getConfigIntValue(String parameter, String parameterWaarde) {
