@@ -1,3 +1,6 @@
+<script src="/js/spin.min.js"></script>
+<script src="/js/loading.js"></script>
+
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -14,7 +17,8 @@
         </div>
         <div class="collapse navbar-collapse the-icons">
             <ul class="nav navbar-nav">
-                <li ng-repeat="parameter in parameters" ng-class="{active: isActiveParameter($index)}" ng-click="selectParameter($index)">
+                <li ng-repeat="parameter in parameters" ng-class="{active: isActiveParameter($index)}"
+                    ng-click="selectParameter($index)">
                     <a ng-class="{'icon-ok-circle': isActiveParameter($index)}">{{parameter}}</a>
                 </li>
             </ul>
@@ -23,11 +27,16 @@
 </nav>
 
 <div class="row">
-    <div class="col-md-11">
+    <div class="col-md-11" ng-show="!graphLoaded">
+        <div id="loading" class="loading"></div>
+    </div>
+    <div class="col-md-11" ng-show="graphLoaded">
         <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
-        <div ui-slider="{range: true}" min="0" max="{{sliderMaxValue}}" step="1" use-decimals ng-model="sliderValues"></div>
+        <div ui-slider="{range: true}" min="0" max="{{sliderMaxValue}}" step="1" use-decimals
+             ng-model="sliderValues"></div>
         {{updateGraph(sliderValues)}}
     </div>
+
     <div class="col-md-1">
         <div class="navbar navbar-default the-icons text-center icons">
             <ul class="nav navbar-nav">
@@ -37,4 +46,22 @@
             <div class="clearfix"></div>
         </div>
     </div>
+    <div ng-controller="InfoController">
+        <div class="col-md-9">
+            <div id="map_canvas" ui-map="myMap" class="map"
+                 ui-event="{'map-idle': 'onMapIdle()'}"
+                 ui-options="mapOptions">
+
+                <div ng-repeat="marker in myMarkers" ui-map-marker="myMarkers[$index]"
+                     ui-event="{'map-click': 'clickedMarker(marker)'}">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3 metadata">
+            <p class="navbar navbar-default ">Meta data van backend voor session {{sessionId}}</p>
+        </div>
+    </div>
 </div>
+
+

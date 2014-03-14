@@ -7,7 +7,8 @@
 
 .icons {
     padding: 15px 0 5px;
-    font-size: 1.6em;
+    font-size: 1.8em;
+    height: 415px;
 }
 
 .session {
@@ -55,19 +56,50 @@ a:hover {
     padding: 20px 5px 5px 5px;
 }
 
-
-.alerts{
-    -webkit-transition:all linear 0.5;
-    -moz-transition:all linear 0.5s;
-    -ms-transition:all linear 0.5s;
-    -o-transition:all linear 0.5s;
-    transition:all linear 0.5s;
-    opacity:1;
+.alerts {
+    -webkit-transition: all linear 0.5;
+    -moz-transition: all linear 0.5s;
+    -ms-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    opacity: 1;
 }
 
 .alerts.ng-hide-add {
     opacity: 1;
 }
+
 .alerts.ng-hide-remove {
     opacity: 0;
+}
+
+.footer {
+    margin: 30px auto;
+    padding-top: 5px;
+    border-top: 1px solid #dddddd;
+}
+
+.loading {
+    height: 400px;
+    width: 100%;
+    position: relative;
+    display: block;
+    border: 1px #ccc solid;
+    padding-left: 50%;
+    padding-top: 200px;
+}
+
+.map {
+    height: 300px;
+    margin-top: 10px;
+}
+
+.metadata {
+    margin-top: 10px;
+    height: 300px;
+}
+.metadata p {
+    padding: 10px;
+    height: 100%;
+
 }

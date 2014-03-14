@@ -16,4 +16,8 @@ angular.module("fastrada.services", []).
         this.deleteSession = function (id) {
             return $http.delete('api/sessions/delete/' + id);
         };
+
+        this.getGpsData = function (id) {
+            return $http.get('api/sessions/gps/' + id);
+        };
     }]);

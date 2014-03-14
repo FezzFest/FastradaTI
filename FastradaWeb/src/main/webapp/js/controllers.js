@@ -6,7 +6,7 @@ function HomeController($scope, SessionData) {
             return true;
 
         return false;
-    }
+    };
 
     var getData = function () {
         SessionData.getSessions().success(function (d) {
@@ -16,7 +16,7 @@ function HomeController($scope, SessionData) {
                 $scope.visuals.push(false);
             });
         });
-    }
+    };
     getData();
 
     $scope.showMessage = function (value) {
@@ -33,18 +33,20 @@ function HomeController($scope, SessionData) {
     };
 
     $scope.delete = function (id) {
-        console.log("going to delete " + id);
         SessionData.deleteSession(id).then(function () {
+            toastr.success("Successfully deleted session " + id);
             getData();
         });
 
     };
 }
 
-function SessionDetailController($scope, $routeParams, SessionData, $q) {
-//    $scope.sliderValues = [0, 500];
-
+function SessionDetailController($scope, $routeParams, SessionData) {
     var parameter;
+
+    $scope.graphLoaded = false;
+    $scope.showWarning = false;
+
 
     SessionData.getSessionParameters($routeParams.sessionId).success(function (d) {
         $scope.parameters = d;
@@ -63,14 +65,9 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
 
 
     // chart variables
-    var rawD1;
-    var rawD2;
     var result = [];
     var resultRows = [];
-    var minSeconds = 0;
     var maxSeconds = 0;
-
-//    $scope.sliderMaxValue = 100;
 
     $scope.sessionId = $routeParams.sessionId;
 
@@ -84,10 +81,12 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
 
     $scope.chart = {
         "type": 'AreaChart',
-        "cssStyle": "height:400px; width:100%;border: 1px #ccc solid",
+        "cssStyle": "height:400px; width:100%;",
         "data": [],
         "options": {
-            "legend": {position: 'top'},
+            "legend": {
+                position: 'top'
+            },
             "pointSize": 0,
             "title": "Temperature",
             "isStacked": "true",
@@ -119,11 +118,12 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
             }
         },
         "displayed": true,
-        "view": {columns: [0, 1]}
+        "view": {
+            columns: [0, 1]
+        }
     }
     ;
 
-    //herschreven voor slider
     $scope.updateGraph = function (sliderValues) {
         $scope.chart.data.rows = [];
 
@@ -151,8 +151,7 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
                 {
                     "id": "seconds",
                     "label": "Seconds",
-                    "type": "number",
-                    "p": {}
+                    "type": "number"
                 }
             ],
             "rows": [
@@ -163,9 +162,7 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
         var formattedTime = 0;
 
         resultRows = [];
-
         var asCounter = 0;
-
         var axisColors = ['#3366cc', '#dc3912']
 
         $scope.chart.options.vAxes = {};
@@ -238,16 +235,13 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
                 {
                     "id": parameterNames[asCounter],
                     "label": parameterNames[asCounter],
-                    "type": "number",
-                    "p": {}
+                    "type": "number"
                 });
 
             result.rows = resultRows;
 
 
             $scope.chart.options.vAxes[asCounter] = {
-//                minValue: minYValue,
-//                    maxValue: maxYValue,
                 label: parameterNames[asCounter],
                 textColor: axisColors[asCounter]
 
@@ -261,6 +255,7 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
 
         $scope.chart.data = result;
         $scope.chart.options.title = parameter;
+        $scope.graphLoaded = true;
     };
 
     $scope.random500Data = function () {
@@ -279,17 +274,19 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
         var rawDataLijst = [];
         var counter = 0;
 
+        // recursief door alle parameters
         var getParameterValue = function (parameterName) {
-            SessionData.getSessionParameter($scope.sessionId, parameterName).then(function (raw) {
-                rawDataLijst[counter] = raw.data;
-                counter++;
-                if ($scope.parameters[counter] != null) {
-                    getParameterValue($scope.parameters[counter]);
-                }
-                else {
-                    $scope.createGraphData(rawDataLijst, $scope.parameters);
-                }
-            })
+            SessionData.getSessionParameter($scope.sessionId, parameterName)
+                .then(function (raw) {
+                    rawDataLijst[counter] = raw.data;
+                    counter++;
+                    if ($scope.parameters[counter] != null) {
+                        getParameterValue($scope.parameters[counter]);
+                    }
+                    else {
+                        $scope.createGraphData(rawDataLijst, $scope.parameters);
+                    }
+                })
         };
 
         getParameterValue($scope.parameters[counter]);
@@ -297,16 +294,56 @@ function SessionDetailController($scope, $routeParams, SessionData, $q) {
 
     $scope.selectParameter = function (parameterIndex) {
         var index = $scope.chart.view.columns.indexOf(parameterIndex + 1);
+        var maxParametersShown = 2;
 
-        if (index != -1) {
-            if ($scope.chart.view.columns.length == 3)
+        if (index != -1) { // parameter al in de lijst
+            if ($scope.chart.view.columns.length == maxParametersShown + 1) // max aantal parameters
                 $scope.chart.view.columns.splice(index, 1);
+            else
+                toastr.warning("The graph requires at least one parameter.")
         } else {
-            if ($scope.chart.view.columns.length < 3) {
+            if ($scope.chart.view.columns.length < maxParametersShown + 1) {
                 $scope.chart.view.columns.push(parameterIndex + 1);
+            } else {
+                toastr.warning("You can only show 2 parameters at the same time.")
             }
         }
     };
 
+}
+
+function InfoController($scope, $routeParams, SessionData) {
+    $scope.sessionId = $routeParams.sessionId;
+
+//    $scope.session =
+
+    $scope.poly = [new google.maps.LatLng(51.761946, 4.511737), new google.maps.LatLng(51.217408, 4.416611)];
+
+    SessionData.getGpsData($scope.sessionId).success(function (data) {
+        console.log(data);
+        $scope.poly = [];
+        angular.forEach(data, function (oneLine) {
+            $scope.poly.push(new google.maps.LatLng(oneLine.coordinate.latitude, oneLine.coordinate.longitude));
+        });
+    });
+
+    $scope.mapOptions = {
+        center: new google.maps.LatLng(51.061946, 4.511737),
+        zoom: 11,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+//    var polylineCoords = [new google.maps.LatLng(51.761946, 4.511737), new google.maps.LatLng(51.217408, 4.416611)];
+
+    $scope.onMapIdle = function () {
+        $scope.polyline = new google.maps.Polyline({
+            path: $scope.poly,
+            strokeColor: "#0000FF",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            map: $scope.myMap
+        });
+
+    }
 
 }

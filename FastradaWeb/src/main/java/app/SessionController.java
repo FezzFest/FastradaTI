@@ -101,23 +101,4 @@ public class SessionController {
     public List<GpsValue> getGpsFromSession(@PathVariable("id") Integer sessionId) {
         return fastradaDAO.getGpsById(sessionId);
     }
-
-/*    @RequestMapping(method = RequestMethod.POST, consumes = {"application/json"})
-    @ResponseStatus(HttpStatus.CREATED)
-    public HttpEntity<?> create(@RequestBody Book book, @Value("#{request.requestURL}") StringBuffer parentUri) {
-        book = this.bookRepository.save(book);
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(childLocation(parentUri, book.getId()));
-        return new HttpEntity<Object>(headers);
-    }*/
-
-
-/*    @RequestMapping(value = "/{id}/{parameter}", method = RequestMethod.GET)
-    public @ResponseBody Book find(@PathVariable("id") Integer id) {
-        Book book = this.bookRepository.findById(id);
-        if (book == null) {
-            throw new BookNotFoundException(id);
-        }
-        return book;
-    }*/
 }

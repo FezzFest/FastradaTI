@@ -95,7 +95,6 @@ describe('Controllers', function () {
             $httpBackend.expectGET("/api/sessions/0").respond({});
             $httpBackend.expectGET("/api/sessions/0/speed").respond({});
 
-
             ctrl = $controller('SessionDetailController', {$scope: scope, $routeParams: params, SessionData: session});
         }));
 
