@@ -69,7 +69,7 @@ public class TestLocationController extends ActivityUnitTestCase<SplashActivity>
         Thread.sleep(1000);
 
         // Parse location
-        InputStream stream = activity.getResources().openRawResource(R.raw.config);
+        InputStream stream = getClass().getClassLoader().getResourceAsStream("config.xml");
         ConfigController config = new ConfigController(stream);
         ByteCalculateController byteCalculator = new ByteCalculateController(config);
         Map<String, Double> map = byteCalculator.calculatePacket(locationResult);

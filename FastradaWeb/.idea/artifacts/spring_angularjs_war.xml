@@ -1,15 +1,12 @@
 <component name="ArtifactManager">
   <artifact type="war" build-on-make="true" name="spring-angularjs:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="ROOT.war">
+    <root id="archive" name="spring-angularjs.war">
       <element id="artifact" artifact-name="spring-angularjs:war exploded" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="lib">
           <element id="library" level="project" name="DataInterpreter" />
         </element>
-      </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/src/main/META-INF/MANIFEST.MF" />
       </element>
     </root>
   </artifact>

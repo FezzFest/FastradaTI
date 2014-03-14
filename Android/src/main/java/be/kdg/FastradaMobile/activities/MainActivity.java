@@ -57,7 +57,6 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getActionBar().hide();
 
-
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
 
@@ -113,7 +112,7 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
 
     }
 
-    private void updateUiByPrefs(){
+    private void updateUiByPrefs() {
         final LinearLayout imageView = (LinearLayout) findViewById(R.id.linearImageView);
         rpmLimiter = Integer.parseInt(prefs.getString("pref_max_RPM", Constants.DEF_MAX_RPM));
 
@@ -388,11 +387,11 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
             recreate();
         } else if (key.equals("pref_gauge_style")) {
             recreate();
-        } else if (key.equals("pref_max_speed")){
+        } else if (key.equals("pref_max_speed")) {
             recreate();
-        } else if (key.equals("pref_max_RPM")){
+        } else if (key.equals("pref_max_RPM")) {
             recreate();
-        } else if (key.equals("pref_UI_topLayout_X") ||key.equals("pref_UI_topLayout_Y") ||key.equals("pref_UI_bottomLayout_X") ||key.equals("pref_UI_bottomLayout_Y") ||key.equals("pref_UI_gaugeViewPort_X") ||key.equals("pref_UI_gaugeViewPort_Y") ||key.equals("pref_UI_leftLayout_X") ||key.equals("pref_UI_leftLayout_Y") ||key.equals("pref_UI_rightLayout_X") ||key.equals("pref_UI_rightLayout_Y") ||key.equals("pref_UI_gaugeViewLand_X") ||key.equals("pref_UI_gaugeViewLand_Y")){
+        } else if (key.equals("pref_UI_topLayout_X") || key.equals("pref_UI_topLayout_Y") || key.equals("pref_UI_bottomLayout_X") || key.equals("pref_UI_bottomLayout_Y") || key.equals("pref_UI_gaugeViewPort_X") || key.equals("pref_UI_gaugeViewPort_Y") || key.equals("pref_UI_leftLayout_X") || key.equals("pref_UI_leftLayout_Y") || key.equals("pref_UI_rightLayout_X") || key.equals("pref_UI_rightLayout_Y") || key.equals("pref_UI_gaugeViewLand_X") || key.equals("pref_UI_gaugeViewLand_Y")) {
             updateUiByPrefs();
             recreate();
         }

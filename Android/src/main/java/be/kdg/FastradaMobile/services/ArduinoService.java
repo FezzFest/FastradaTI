@@ -7,6 +7,7 @@ import be.kdg.FastradaMobile.controllers.*;
 import dataInterpreter.ByteCalculateController;
 import dataInterpreter.ConfigController;
 
+import java.io.InputStream;
 import java.util.Map;
 
 /**
@@ -20,7 +21,8 @@ public class ArduinoService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         InputDataController inputDataController = new InputDataController(getApplicationContext());
-        ConfigController config = new ConfigController(getApplicationContext().getResources().openRawResource(R.raw.config));
+        InputStream stream = getClass().getClassLoader().getResourceAsStream("config.xml");
+        ConfigController config = new ConfigController(stream);
         UserInterfaceController userInterface = UserInterfaceController.getInstance();
         BufferController buffer = BufferController.getInstance();
         ByteCalculateController byteCalculateController = new ByteCalculateController(config);

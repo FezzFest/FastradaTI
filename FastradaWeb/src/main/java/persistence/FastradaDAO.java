@@ -182,8 +182,8 @@ public class FastradaDAO implements Serializable {
 
     public List<GpsValue> getGpsById(Integer sessionId) {
         List<GpsValue> returnGpsValues = new ArrayList<>();
-        Map<Date, Double> latitudes = new HashMap<>();
-        Map<Date, Double> longitudes = new HashMap<>();
+        Map<Date, Double> latitudes = new TreeMap<>();
+        Map<Date, Double> longitudes = new TreeMap<>();
         String cqlSelectLatitudes = "SELECT time, value FROM S" + sessionId + " WHERE parameter = 'latitude' ALLOW FILTERING;";
         String cqlSelectLongitudes = "SELECT time, value FROM S" + sessionId + " WHERE parameter = 'longitude' ALLOW FILTERING;";
 
@@ -201,6 +201,7 @@ public class FastradaDAO implements Serializable {
                 returnGpsValues.add(gpsValue);
             }
         }
+
         return returnGpsValues;
     }
 }

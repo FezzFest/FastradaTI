@@ -3,6 +3,8 @@ import dataInterpreter.Parameter;
 import dataInterpreter.Sensor;
 import org.junit.Test;
 
+import java.io.InputStream;
+
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -11,7 +13,8 @@ import static org.junit.Assert.assertTrue;
 public class TestConfigController {
     @Test
     public void testGetSensor100Config() throws Exception {
-        ConfigController controller = new ConfigController("src/main/resources/testconfig.xml");
+        InputStream stream = getClass().getClassLoader().getResourceAsStream("config.xml");
+        ConfigController controller = new ConfigController(stream);
 
         Sensor sensor = controller.getSensor(256);
 

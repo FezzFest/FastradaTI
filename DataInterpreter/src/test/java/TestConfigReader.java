@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,8 @@ public class TestConfigReader {
 
     @Before
     public void initializeTestConfigReader() throws FileNotFoundException {
-        reader = new ConfigReader("src/main/resources/testconfig.xml");
+        InputStream stream = getClass().getClassLoader().getResourceAsStream("config.xml");
+        reader = new ConfigReader(stream);
     }
 
     @Test(expected = FileNotFoundException.class)
