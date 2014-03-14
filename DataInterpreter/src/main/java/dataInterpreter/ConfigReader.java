@@ -59,7 +59,6 @@ public class ConfigReader {
 
     public String getConfigStringValue(String parameter, String parameterWaarde) {
         if (document == null) {
-            //TODO raise error
             return "";
         }
 
