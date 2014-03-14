@@ -59,7 +59,14 @@
 
         </div>
         <div class="col-md-3 metadata">
-            <p class="navbar navbar-default ">Meta data van backend voor session {{sessionId}}</p>
+            <div class="navbar navbar-default ">
+                <p>{{session.sessionName}}</p>
+
+                <p>{{session.date | date:'MMM d, y h:mm:ss a'}}</p>
+
+            <p>@ {{session.trackName}}</p>
+
+            <p>{{session.comment}}</p></div>
         </div>
     </div>
 </div>

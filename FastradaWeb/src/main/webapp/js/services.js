@@ -20,4 +20,7 @@ angular.module("fastrada.services", []).
         this.getGpsData = function (id) {
             return $http.get('api/sessions/gps/' + id);
         };
+        this.getSessionMetaData = function (id) {
+            return $http.get('api/sessions/metadata/' + id);
+        };
     }]);

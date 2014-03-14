@@ -346,4 +346,7 @@ function InfoController($scope, $routeParams, SessionData) {
 
     }
 
+        SessionData.getSessionMetaData($scope.sessionId).success(function (metaData) {
+                $scope.session = metaData;
+        });
 }
