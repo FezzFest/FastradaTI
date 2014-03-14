@@ -325,6 +325,9 @@ function InfoController($scope, $routeParams, SessionData) {
         angular.forEach(data, function (oneLine) {
             $scope.poly.push(new google.maps.LatLng(oneLine.coordinate.latitude, oneLine.coordinate.longitude));
         });
+        if($scope.poly.Length<0){
+            $scope.mapOptions.center = $scope.poly[0];
+        }
     });
 
     $scope.mapOptions = {
