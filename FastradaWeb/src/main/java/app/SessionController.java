@@ -22,7 +22,6 @@ import java.util.Map;
 public class SessionController {
     FastradaDAO fastradaDAO = new FastradaDAO();
 
-    //TODO concurrent request not allowed
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     @ResponseBody
     public SessionId getNewSessionId(@RequestBody String sessionDataString) {
@@ -42,6 +41,12 @@ public class SessionController {
     @ResponseBody
     public List<String> getParametersBySessionId(@PathVariable("id") Integer id) {
         return fastradaDAO.getParametersBySessionId(id);
+    }
+
+    @RequestMapping(value = "/metadata/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public SessionData getSessionData(@PathVariable("id") Integer id) {
+        return fastradaDAO.getSessionData(id);
     }
 
     @RequestMapping(value = "/{id}/{parameter}", method = RequestMethod.GET)
@@ -78,12 +83,12 @@ public class SessionController {
 
             // Get session ID
             ByteBuffer sessionBuffer = ByteBuffer.allocate(bSessionId.length);
-            sessionBuffer.put(bSessionId,0,bSessionId.length).flip();
+            sessionBuffer.put(bSessionId, 0, bSessionId.length).flip();
             int sessionId = sessionBuffer.getInt();
 
             // Get timestamp
             ByteBuffer timestampBuffer = ByteBuffer.allocate(bTimestamp.length);
-            timestampBuffer.put(bTimestamp,0,bTimestamp.length).flip();
+            timestampBuffer.put(bTimestamp, 0, bTimestamp.length).flip();
             long timestamp = timestampBuffer.getLong();
 
             // Parse packet data

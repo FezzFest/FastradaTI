@@ -44,8 +44,7 @@ public class FastradaDAO implements Serializable {
         return CONNECTION_SUCCESFULL;
     }
 
-    public int createNextSession(SessionData sessionData) {
-        //TODO iterate over all fields from SessionData
+    public synchronized int createNextSession(SessionData sessionData) {
         int sessionId = 0;
         String name = sessionData.getSessionName();
         String track = sessionData.getTrackName();
@@ -56,7 +55,6 @@ public class FastradaDAO implements Serializable {
         PreparedStatement insertStatement = session.prepare("INSERT INTO metadata" + "(sessionid, parameter, value) " + "VALUES (?, ?, ?);");
         BoundStatement boundStatement = new BoundStatement(insertStatement);
 
-        //TODO get max sessionId refactoren
         String cqlStatement = "SELECT sessionid FROM metadata;";
         for (Row row : session.execute(cqlStatement)) {
             if (Integer.parseInt(row.getString(0)) >= sessionId) {
@@ -87,31 +85,35 @@ public class FastradaDAO implements Serializable {
             ids.add(Integer.parseInt(row.getString(0)));
         }
         for (Integer id : ids) {
-            String cqlSelectData = "SELECT parameter, value FROM metadata WHERE sessionid='" + id + "';";
-            SessionData sessionData = new SessionData();
-            for (Row row : session.execute(cqlSelectData)) {
-                switch (row.getString("parameter")) {
-                    case "sessionName":
-                        sessionData.setSessionName(row.getString("value"));
-                        break;
-                    case "trackName":
-                        sessionData.setTrackName(row.getString("value"));
-                        break;
-                    case "vehicleName":
-                        sessionData.setVehicleName(row.getString("value"));
-                        break;
-                    case "comment":
-                        sessionData.setComment(row.getString("value"));
-                        break;
-                    case "date":
-                        sessionData.setDate(Long.parseLong(row.getString("value")));
-                        break;
-                }
-            }
-            sessionData.setSessionId(id);
-            sessions.add(sessionData);
+            sessions.add(getSessionData(id));
         }
         return sessions;
+    }
+
+    public SessionData getSessionData(int id) {
+        String cqlSelectData = "SELECT parameter, value FROM metadata WHERE sessionid='" + id + "';";
+        SessionData sessionData = new SessionData();
+        for (Row row : session.execute(cqlSelectData)) {
+            switch (row.getString("parameter")) {
+                case "sessionName":
+                    sessionData.setSessionName(row.getString("value"));
+                    break;
+                case "trackName":
+                    sessionData.setTrackName(row.getString("value"));
+                    break;
+                case "vehicleName":
+                    sessionData.setVehicleName(row.getString("value"));
+                    break;
+                case "comment":
+                    sessionData.setComment(row.getString("value"));
+                    break;
+                case "date":
+                    sessionData.setDate(Long.parseLong(row.getString("value")));
+                    break;
+            }
+        }
+        sessionData.setSessionId(id);
+        return sessionData;
     }
 
     public List<String> getParametersBySessionId(int sessionId) {
@@ -172,26 +174,26 @@ public class FastradaDAO implements Serializable {
     }
 
     public List<GpsValue> getGpsById(Integer sessionId) {
-         List<GpsValue> returnGpsValues = new ArrayList<>();
-         Map<Date, Double> latitudes = new HashMap<>();
-         Map<Date, Double> longitudes = new HashMap<>();
-         String cqlSelectLatitudes = "SELECT time, value FROM S" + sessionId + " WHERE parameter = 'latitude' ALLOW FILTERING;";
-         String cqlSelectLongitudes = "SELECT time, value FROM S" + sessionId + " WHERE parameter = 'longitude' ALLOW FILTERING;";
+        List<GpsValue> returnGpsValues = new ArrayList<>();
+        Map<Date, Double> latitudes = new HashMap<>();
+        Map<Date, Double> longitudes = new HashMap<>();
+        String cqlSelectLatitudes = "SELECT time, value FROM S" + sessionId + " WHERE parameter = 'latitude' ALLOW FILTERING;";
+        String cqlSelectLongitudes = "SELECT time, value FROM S" + sessionId + " WHERE parameter = 'longitude' ALLOW FILTERING;";
 
-         for (Row row : session.execute(cqlSelectLatitudes)) {
-             latitudes.put(row.getDate(0), row.getDouble(1));
-         }
+        for (Row row : session.execute(cqlSelectLatitudes)) {
+            latitudes.put(row.getDate(0), row.getDouble(1));
+        }
 
-         for (Row row : session.execute(cqlSelectLongitudes)) {
-             longitudes.put(row.getDate(0), row.getDouble(1));
-         }
+        for (Row row : session.execute(cqlSelectLongitudes)) {
+            longitudes.put(row.getDate(0), row.getDouble(1));
+        }
 
-         for (Map.Entry<Date, Double> dateDoubleEntry : latitudes.entrySet()) {
-             if (longitudes.containsKey(dateDoubleEntry.getKey())) {
-                 GpsValue gpsValue = new GpsValue(dateDoubleEntry.getKey().getTime(), new Coordinate(dateDoubleEntry.getValue(), longitudes.get(dateDoubleEntry.getKey())));
-                 returnGpsValues.add(gpsValue);
-             }
-         }
-         return returnGpsValues;
-     }
+        for (Map.Entry<Date, Double> dateDoubleEntry : latitudes.entrySet()) {
+            if (longitudes.containsKey(dateDoubleEntry.getKey())) {
+                GpsValue gpsValue = new GpsValue(dateDoubleEntry.getKey().getTime(), new Coordinate(dateDoubleEntry.getValue(), longitudes.get(dateDoubleEntry.getKey())));
+                returnGpsValues.add(gpsValue);
+            }
+        }
+        return returnGpsValues;
+    }
 }
