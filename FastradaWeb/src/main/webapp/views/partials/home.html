@@ -12,7 +12,7 @@
                         <div class="caption">
                             <div class="the-icons delete">
                                 <span class="icon-cancel-circled" ng-click="setVisual($index)"></span>
-                                <span class="alerts" ng-show="showMessage($index)">Are you sure? <button class="btn btn-sm btn-primary" ng-click="delete($index)">yes</button> <button class="btn btn-info  btn-sm" ng-click="setVisual($index)">cancel</button></span>
+                                <span class="alerts" ng-show="showMessage($index)">Are you sure? <button class="btn btn-sm btn-primary" ng-click="delete(session.sessionId)">yes</button> <button class="btn btn-info  btn-sm" ng-click="setVisual($index)">cancel</button></span>
                             </div>
                             <a href="#/sessiondetail/{{session.sessionId}}">
                             <h3 class="text-primary">{{session.sessionName}}</h3>
