@@ -66,7 +66,7 @@ function HomeController($scope, SessionData, SessionIdFactory, $rootScope) {
     };
 }
 
-function SessionDetailController($scope, $routeParams, SessionData,SessionIdFactory, $rootScope,$q) {
+function SessionDetailController($scope, $routeParams, SessionData, SessionIdFactory, $rootScope, $q) {
     var parameter;
 
     SessionIdFactory.set($routeParams.sessionId);
@@ -74,7 +74,7 @@ function SessionDetailController($scope, $routeParams, SessionData,SessionIdFact
 
     $scope.graphLoaded = false;
     $scope.showWarning = false;
-
+    $scope.hasData = true;
 
     SessionData.getSessionParameters($routeParams.sessionId).success(function (d) {
         $scope.parameters = d;
@@ -84,18 +84,47 @@ function SessionDetailController($scope, $routeParams, SessionData,SessionIdFact
 
     $scope.chartTypes = ['LineChart', 'AreaChart', 'ColumnChart', 'BarChart', 'Table']; //'PieChart',
 
-
     // chart variables
     var result = [];
     var resultRows = [];
     var maxSeconds = 0;
+    var standardEmptyChart = {
+        "cols": [
+            {
+                "id": "seconds",
+                "label": "Seconds",
+                "type": "number"
+            },
+            {
+                "id": "empty",
+                "label": "empty",
+                "type": "number"
+            }
+        ],
+        "rows": [
+            {
+                'c': [
+                    {"v": 0 },
+                    {"v": 0}
+                ]
+            },
+            {
+                'c': [
+                    {"v": 0 },
+                    {"v": 0}
+                ]
+            }
+        ]
+    };
 
     $scope.sessionId = $routeParams.sessionId;
 
     $scope.isActiveParameter = function (parameterIndex) {
-        var index = $scope.chart.view.columns.indexOf(parameterIndex + 1);
-        if (index != -1)
-            return true;
+        if ($scope.chart.view != null) {
+            var index = $scope.chart.view.columns.indexOf(parameterIndex + 1);
+            if (index != -1)
+                return true;
+        }
 
         return false;
     };
@@ -138,10 +167,7 @@ function SessionDetailController($scope, $routeParams, SessionData,SessionIdFact
                 "title": "Seconds"
             }
         },
-        "displayed": true,
-        "view": {
-            columns: [0, 1]
-        }
+        "displayed": true
     }
     ;
 
@@ -274,9 +300,24 @@ function SessionDetailController($scope, $routeParams, SessionData,SessionIdFact
         $scope.sliderValues = [0, maxSeconds];
         $scope.sliderMaxValue = maxSeconds;
 
-        $scope.chart.data = result;
-        $scope.chart.options.title = parameter;
-        $scope.graphLoaded = true;
+        if (result.rows.length > 0) {
+            $scope.chart.data = result;
+            $scope.chart.options.title = parameter;
+            $scope.chart.view = {
+                columns: [0, 1]
+            };
+
+            $scope.graphLoaded = true;
+            $scope.hasData = true;
+        } else {
+            $scope.chart.view = null;
+            $scope.hasData = false;
+            $scope.chart.data = standardEmptyChart;
+            $scope.chart.options.title = parameter;
+            $scope.graphLoaded = false;
+
+            toastr.warning("No chartdata found!");
+        }
     };
 
     $scope.random500Data = function () {
@@ -295,14 +336,14 @@ function SessionDetailController($scope, $routeParams, SessionData,SessionIdFact
         var rawDataLijst = [];
         var promises = [];
 
-        for(var parameterIndex = 0; parameterIndex<$scope.parameters.length;parameterIndex++){
-           promises[parameterIndex] = SessionData.getSessionParameter($scope.sessionId, $scope.parameters[parameterIndex]);
+        for (var parameterIndex = 0; parameterIndex < $scope.parameters.length; parameterIndex++) {
+            promises[parameterIndex] = SessionData.getSessionParameter($scope.sessionId, $scope.parameters[parameterIndex]);
         }
 
-        $q.all(promises).then(function (result){
+        $q.all(promises).then(function (result) {
 
-            for(var resultIndex = 0; resultIndex<result.length;resultIndex++){
-                rawDataLijst[resultIndex]= result[resultIndex].data;
+            for (var resultIndex = 0; resultIndex < result.length; resultIndex++) {
+                rawDataLijst[resultIndex] = result[resultIndex].data;
             }
 
             $scope.createGraphData(rawDataLijst, $scope.parameters);
@@ -310,19 +351,22 @@ function SessionDetailController($scope, $routeParams, SessionData,SessionIdFact
     };
 
     $scope.selectParameter = function (parameterIndex) {
-        var index = $scope.chart.view.columns.indexOf(parameterIndex + 1);
-        var maxParametersShown = 2;
+        if ($scope.chart.view != null) {
 
-        if (index != -1) { // parameter al in de lijst
-            if ($scope.chart.view.columns.length == maxParametersShown + 1) // max aantal parameters
-                $scope.chart.view.columns.splice(index, 1);
-            else
-                toastr.warning("The graph requires at least one parameter.")
-        } else {
-            if ($scope.chart.view.columns.length < maxParametersShown + 1) {
-                $scope.chart.view.columns.push(parameterIndex + 1);
+            var index = $scope.chart.view.columns.indexOf(parameterIndex + 1);
+            var maxParametersShown = 2;
+
+            if (index != -1) { // parameter al in de lijst
+                if ($scope.chart.view.columns.length == maxParametersShown + 1) // max aantal parameters
+                    $scope.chart.view.columns.splice(index, 1);
+                else
+                    toastr.warning("The graph requires at least one parameter.")
             } else {
-                toastr.warning("You can only show 2 parameters at the same time.")
+                if ($scope.chart.view.columns.length < maxParametersShown + 1) {
+                    $scope.chart.view.columns.push(parameterIndex + 1);
+                } else {
+                    toastr.warning("You can only show 2 parameters at the same time.")
+                }
             }
         }
     };
@@ -344,12 +388,10 @@ function InfoController($scope, $routeParams, SessionData) {
         angular.forEach(data, function (oneLine) {
             $scope.poly.push(new google.maps.LatLng(oneLine.coordinate.latitude, oneLine.coordinate.longitude));
         });
-        if($scope.poly.length>0){
+        if ($scope.poly.length > 0) {
             $scope.mapOptions.center = $scope.poly[0];
         }
     });
-
-//    var polylineCoords = [new google.maps.LatLng(51.761946, 4.511737), new google.maps.LatLng(51.217408, 4.416611)];
 
     $scope.onMapIdle = function () {
         $scope.polyline = new google.maps.Polyline({
@@ -362,7 +404,7 @@ function InfoController($scope, $routeParams, SessionData) {
 
     }
 
-        SessionData.getSessionMetaData($scope.sessionId).success(function (metaData) {
-                $scope.session = metaData;
-        });
+    SessionData.getSessionMetaData($scope.sessionId).success(function (metaData) {
+        $scope.session = metaData;
+    });
 }
