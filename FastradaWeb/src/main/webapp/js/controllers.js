@@ -293,31 +293,6 @@ function SessionDetailController($scope, $routeParams, SessionData,SessionIdFact
 
     var getData = function () {
         var rawDataLijst = [];
-       // var counter = 0;
-
-        // recursief door alle parameters
-//        var getParameterValue = function (parameterName) {
-//            SessionData.getSessionParameter($scope.sessionId, parameterName)
-//                .then(function (raw) {
-//                    rawDataLijst[counter] = raw.data;
-//                    counter++;
-//                    if ($scope.parameters[counter] != null) {
-//                        getParameterValue($scope.parameters[counter]);
-//                    }
-//                    else {
-//                        $scope.createGraphData(rawDataLijst, $scope.parameters);
-//                    }
-//                })
-//        };
-
-//        var getParameterValue = function (parameterName, rawDataIndex) {
-//           var promise = SessionData.getSessionParameter($scope.sessionId, parameterName)
-//                .success(function (raw) {
-//                    rawDataLijst[rawDataIndex] = raw.data;
-//                })
-//            return promise;
-//        };
-
         var promises = [];
 
         for(var parameterIndex = 0; parameterIndex<$scope.parameters.length;parameterIndex++){
@@ -332,8 +307,6 @@ function SessionDetailController($scope, $routeParams, SessionData,SessionIdFact
 
             $scope.createGraphData(rawDataLijst, $scope.parameters);
         })
-
-        //getParameterValue($scope.parameters[counter]);
     };
 
     $scope.selectParameter = function (parameterIndex) {
@@ -371,7 +344,7 @@ function InfoController($scope, $routeParams, SessionData) {
         angular.forEach(data, function (oneLine) {
             $scope.poly.push(new google.maps.LatLng(oneLine.coordinate.latitude, oneLine.coordinate.longitude));
         });
-        if($scope.poly.Length>0){
+        if($scope.poly.length>0){
             $scope.mapOptions.center = $scope.poly[0];
         }
     });
