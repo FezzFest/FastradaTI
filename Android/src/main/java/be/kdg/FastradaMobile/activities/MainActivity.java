@@ -44,6 +44,7 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
     private int streamId;
     private int rpmLimiter;
     private boolean alarmPlaying;
+    int id = 0;
 
     /**
      * Called when the activity is first created.
@@ -279,15 +280,15 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
         viewGroups[0] = linearLayout1;
         viewGroups[1] = linearLayout2;
 
-        int id = 0;
+
         int eventAction = event.getAction();
         switch (eventAction) {
             case MotionEvent.ACTION_DOWN:
                 // Show ActionBar
                 getActionBar().show();
                 hideActionBar(Constants.AB_TIMEOUT);
+                 id = 0;
 
-                id = 0;
                 for (LinearLayout UIelement : viewGroups) {
                     if (X > UIelement.getX() && X < UIelement.getX() + UIelement.getWidth() && Y > UIelement.getY() && Y < UIelement.getY() + UIelement.getHeight()) {
                         break;
