@@ -5,8 +5,8 @@ package be.kdg.FastradaMobile;
  */
 public class Constants {
     public static final String TAG = "Fastrada";
-    public static final String DEF_SERVER_ADDR = "http://carlo.duckdns.org";
-    public static final String DEF_SERVER_PORT = "18080";
+    public static final String DEF_SERVER_ADDR = "http://82.146.123.213";
+    public static final String DEF_SERVER_PORT = "24701";
     public static final String DEF_ARDUINO_PORT = "9000";
     public static final String DEF_MAX_RPM = "10000";
     public static final String DEF_MAX_SPEED = "250";

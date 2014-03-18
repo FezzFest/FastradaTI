@@ -79,28 +79,24 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
             int maxSpeed = Integer.parseInt(prefs.getString("pref_max_speed", Constants.DEF_MAX_SPEED));
             speed.setNeedleEnabled(maxSpeed);
         }
-        speed.setFixedTargetValue(195);
 
         // RPM indicator
         rpmIndicator = (TextView) findViewById(R.id.dashboard_rpm_units);
         rpmDescription = (TextView) findViewById(R.id.dashboard_rpm_description);
-        rpmIndicator.setText("4042 RPM");
 
         // Gear indicator
         gearIndicator = (TextView) findViewById(R.id.dashboard_gear_units);
         gearDescription = (TextView) findViewById(R.id.dashboard_gear_description);
-        gearIndicator.setText("1");
 
         // Temperature indicator
         tempIndicator = (TextView) findViewById(R.id.dashboard_temperature_units);
         tempDescription = (TextView) findViewById(R.id.dashboard_temperature_description);
-        tempIndicator.setText("103 °C");
 
         final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
-                //update the view
+                // Update view
                 showRPM(bufferController.getRpm());
                 showTemp(bufferController.getTemperature());
                 tempIndicator.setText(String.format("%.1f °C", bufferController.getTemperature()));
@@ -109,6 +105,7 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
                 handler.postDelayed(this, 50);
             }
         });
+        updateUiByPrefs();
     }
 
     private void updateUiByPrefs() {
