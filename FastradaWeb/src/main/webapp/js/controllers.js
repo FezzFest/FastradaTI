@@ -301,6 +301,7 @@ function SessionDetailController($scope, $routeParams, SessionData, SessionIdFac
         $scope.sliderMaxValue = maxSeconds;
 
         if (result.rows.length > 0) {
+
             $scope.chart.data = result;
             $scope.chart.options.title = parameter;
             $scope.chart.view = {
@@ -389,7 +390,7 @@ function InfoController($scope, $routeParams, SessionData) {
             $scope.poly.push(new google.maps.LatLng(oneLine.coordinate.latitude, oneLine.coordinate.longitude));
         });
         if ($scope.poly.length > 0) {
-            $scope.mapOptions.center = $scope.poly[0];
+            $scope.myMap.panTo($scope.poly[0]);
         }
     });
 
