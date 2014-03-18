@@ -28,7 +28,8 @@
 
 <div class="row">
     <div class="col-md-11" ng-show="!graphLoaded">
-        <div id="loading" class="loading"></div>
+        <div ng-show="hasData" id="loading" class="loading"></div>
+        <div class="navbar navbar-default" ng-show="!hasData"><p class="nodataError">No chart data found.</p></div>
     </div>
     <div class="col-md-11" ng-show="graphLoaded">
         <div google-chart chart="chart" style="{{chart.cssStyle}}"/>

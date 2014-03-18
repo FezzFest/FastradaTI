@@ -1,17 +1,22 @@
-function MetaDataController($scope, SessionData,SessionIdFactory){
+function MetaDataController($scope, SessionData, SessionIdFactory) {
     $scope.showMetaData = false;
 
-    $scope.$on("sessionIdChanged",function(event,args) {
-    if(SessionIdFactory.get()!=null){
-    SessionData.getSessionMetaData(SessionIdFactory.get()).success(function (metaData){
-        $scope.session = metaData;
-        $scope.showMetaData = true;
-    })
-    }
+    $scope.$on("sessionIdChanged", function (event, args) {
+        if (SessionIdFactory.get() != null) {
+            SessionData.getSessionMetaData(SessionIdFactory.get()).success(function (metaData) {
+                $scope.session = metaData;
+                $scope.showMetaData = true;
+            })
+        }
         else {
-        $scope.session = null;
-        $scope.showMetaData = false;
-    }
+            $scope.session = {
+                sessionName: '',
+                date: '',
+                trackName: '',
+                comment: ''
+            };
+            $scope.showMetaData = false;
+        }
     });
 }
 
@@ -366,7 +371,7 @@ function InfoController($scope, $routeParams, SessionData) {
         angular.forEach(data, function (oneLine) {
             $scope.poly.push(new google.maps.LatLng(oneLine.coordinate.latitude, oneLine.coordinate.longitude));
         });
-        if($scope.poly.length>0){
+        if($scope.poly.Length>0){
             $scope.mapOptions.center = $scope.poly[0];
         }
     });

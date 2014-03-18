@@ -97,6 +97,19 @@ a:hover {
 .metadata {
     padding-top: 10px;
 }
+
 .metadata p {
-    padding: 5px;
+    padding: 0px;
+}
+
+.metadata p.comment {
+    margin-top: 93px;
+}
+
+.metadata span {
+    font-weight: bold;
+}
+
+.nodataError {
+    padding: 10px;
 }

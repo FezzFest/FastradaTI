@@ -13,7 +13,7 @@
 <div class="container">
 
     <div class="page-header row">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <a href="#/">
                 <img src="img/fastradaLogo.png" alt="Fastrada" class="pull-left logo"/>
 
@@ -23,15 +23,18 @@
 
             </a>
         </div>
-        <div class="col-md-4 metadata" ng-controller="MetaDataController" ng-show="showMetaData">
-            <div >
-                <p>{{session.sessionName}}</p>
+        <div ng-controller="MetaDataController" ng-show="showMetaData">
+            <div class="col-md-3 metadata">
+                <div>
+                    <h2>{{session.sessionName}}</h2>
 
-                <p>{{session.date | date:'d MMM y - H:mm:ss'}}</p>
+                    <p>{{session.date | date:'d MMM y - H:mm:ss'}}</p>
 
-                <p>{{session.trackName}}</p>
-
-                <p>{{session.comment}}</p>
+                    <p><span>Track:</span><br/>{{session.trackName}}</p>
+                </div>
+            </div>
+            <div class="col-md-3 metadata">
+                <p class="comment"><span>Comment:</span><br/>{{session.comment}}</p>
             </div>
         </div>
     </div>
