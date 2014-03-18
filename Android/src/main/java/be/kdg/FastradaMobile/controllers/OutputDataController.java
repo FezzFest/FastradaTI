@@ -60,10 +60,10 @@ public class OutputDataController {
                 dos.write((byte[]) params);
             }
 
-           /* // Log
+            // Log
             Log.d(Constants.TAG, "URL: " + s);
             Log.d(Constants.TAG, "Params: " + params);
-            Log.d(Constants.TAG, "Response code: " + conn.getResponseCode());*/
+            Log.d(Constants.TAG, "Response code: " + conn.getResponseCode());
 
             InputStreamReader isr = new InputStreamReader(conn.getInputStream());
             BufferedReader in = new BufferedReader(isr);

@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -9,37 +10,46 @@ import java.util.List;
  * Created by Jonathan on 12/02/14.
  */
 public class RunFromMemory {
-    private static final String IP_ADDRESS = "192.168.43.1";
-    private static DatagramSocket datagramSocket;
+    private DatagramSocket datagramSocket;
+    private JLabel packetsLabel;
+    private int packets;
 
-    public static void main(String[] args) throws InterruptedException, IOException {
-        datagramSocket = new DatagramSocket();
-        List<byte[]> id100Packets = makePacketsId100(0, 10000, 0, 10000, -20, 110);
-        List<byte[]> id101Packets = makePacketsId101(0, 255, 0, 6);
-        List<byte[]> id102Packets = makePacketsId102(0, 255);
+    public RunFromMemory(JLabel packetsLabel) {
+        this.packetsLabel = packetsLabel;
+    }
 
-        while (true) {
-            for (int i = 0; i < 3000; i++) {
-                sendPacket(id100Packets.get(i));
-                Thread.sleep(2);
-                sendPacket(id101Packets.get(i));
-                Thread.sleep(2);
-                sendPacket(id102Packets.get(i));
-                Thread.sleep(2);
+    public void start() {
+        try {
+            datagramSocket = new DatagramSocket();
+            List<byte[]> id100Packets = makePacketsId100(0, 10000, 0, 10000, -20, 110);
+            List<byte[]> id101Packets = makePacketsId101(0, 255, 0, 6);
+            List<byte[]> id102Packets = makePacketsId102(0, 255);
+
+            while (true) {
+                for (int i = 0; i < 3000; i++) {
+                    sendPacket(id100Packets.get(i));
+                    Thread.sleep(Constants.PACKET_DELAY);
+                    sendPacket(id101Packets.get(i));
+                    Thread.sleep(Constants.PACKET_DELAY);
+                    sendPacket(id102Packets.get(i));
+                    Thread.sleep(Constants.PACKET_DELAY);
+                }
+
+                for (int i = 2999; i > 0; i--) {
+                    sendPacket(id100Packets.get(i));
+                    Thread.sleep(Constants.PACKET_DELAY);
+                    sendPacket(id101Packets.get(i));
+                    Thread.sleep(Constants.PACKET_DELAY);
+                    sendPacket(id102Packets.get(i));
+                    Thread.sleep(Constants.PACKET_DELAY);
+                }
             }
-
-            for (int i = 2999; i > 0; i--) {
-                sendPacket(id100Packets.get(i));
-                Thread.sleep(2);
-                sendPacket(id101Packets.get(i));
-                Thread.sleep(2);
-                sendPacket(id102Packets.get(i));
-                Thread.sleep(2);
-            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
-    private static List<byte[]> makePacketsId100(double rpmStart, double rpmEnd, double throttleStart, double throttleEnd, double tempStart, double tempEnd) {
+    private List<byte[]> makePacketsId100(double rpmStart, double rpmEnd, double throttleStart, double throttleEnd, double tempStart, double tempEnd) {
         List<byte[]> packets = new ArrayList<byte[]>();
         double rpmStep = (rpmEnd - rpmStart) / 3000;
         double throttleStep = (throttleEnd - throttleStart) / 3000;
@@ -58,7 +68,7 @@ public class RunFromMemory {
         return packets;
     }
 
-    private static List<byte[]> makePacketsId101(double speedStart, double speedEnd, double gearStart, double gearEnd) {
+    private List<byte[]> makePacketsId101(double speedStart, double speedEnd, double gearStart, double gearEnd) {
         List<byte[]> packets = new ArrayList<byte[]>();
         double speedStep = (speedEnd - speedStart) / 3000;
         double gearStep = (gearEnd - gearStart) / 3000;
@@ -73,7 +83,7 @@ public class RunFromMemory {
         return packets;
     }
 
-    private static List<byte[]> makePacketsId102(double fuelStart, double fuelEnd) {
+    private List<byte[]> makePacketsId102(double fuelStart, double fuelEnd) {
         List<byte[]> packets = new ArrayList<byte[]>();
         double fuelStep = (fuelEnd - fuelStart) / 3000;
         for (int i = 0; i < 3000; i++) {
@@ -84,7 +94,16 @@ public class RunFromMemory {
         return packets;
     }
 
-    public static byte[] intToByteArray(int a) {
+    private void sendPacket(byte[] stream) throws IOException {
+        InetAddress address = InetAddress.getByName(Constants.IP_ADDRESS);
+        DatagramPacket packet = new DatagramPacket(stream, stream.length, address, 9000);
+        datagramSocket.send(packet);
+
+        packets++;
+        updatePacketCount();
+    }
+
+    private byte[] intToByteArray(int a) {
         return new byte[]{
                 (byte) ((a >> 24) & 0xFF),
                 (byte) ((a >> 16) & 0xFF),
@@ -93,9 +112,7 @@ public class RunFromMemory {
         };
     }
 
-    private static void sendPacket(byte[] stream) throws IOException {
-        InetAddress address = InetAddress.getByName(IP_ADDRESS); // IP-adres van de ontvanger hier zetten
-        DatagramPacket packet = new DatagramPacket(stream, stream.length, address, 9000);
-        datagramSocket.send(packet);
+    private void updatePacketCount() {
+        packetsLabel.setText(Integer.toString(packets));
     }
 }
