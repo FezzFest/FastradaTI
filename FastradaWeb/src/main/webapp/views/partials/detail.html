@@ -47,7 +47,7 @@
         </div>
     </div>
     <div ng-controller="InfoController">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div id="map_canvas" ui-map="myMap" class="map"
                  ui-event="{'map-idle': 'onMapIdle()'}"
                  ui-options="mapOptions">
@@ -57,16 +57,6 @@
                 </div>
             </div>
 
-        </div>
-        <div class="col-md-3 metadata">
-            <div class="navbar navbar-default ">
-                <p>{{session.sessionName}}</p>
-
-                <p>{{session.date | date:'MMM d, y h:mm:ss a'}}</p>
-
-            <p>@ {{session.trackName}}</p>
-
-            <p>{{session.comment}}</p></div>
         </div>
     </div>
 </div>

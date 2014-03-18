@@ -11,16 +11,30 @@
 </head>
 <body>
 <div class="container">
-    <a href="#/">
-        <div class="page-header">
-            <img src="img/fastradaLogo.png" alt="Fastrada" class="pull-left logo"/>
 
-            <h1 class="logo_text">Fastrada</h1>
+    <div class="page-header row">
+        <div class="col-md-8">
+            <a href="#/">
+                <img src="img/fastradaLogo.png" alt="Fastrada" class="pull-left logo"/>
 
-            <h3 class="subtext">Racing green</h3>
-            <span class="clearfix"></span>
+                <h1 class="logo_text">Fastrada</h1>
+
+                <h3 class="subtext">Racing green</h3>
+
+            </a>
         </div>
-    </a>
+        <div class="col-md-4 metadata" ng-controller="MetaDataController" ng-show="showMetaData">
+            <div >
+                <p>{{session.sessionName}}</p>
+
+                <p>{{session.date | date:'d MMM y - H:mm:ss'}}</p>
+
+                <p>{{session.trackName}}</p>
+
+                <p>{{session.comment}}</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 

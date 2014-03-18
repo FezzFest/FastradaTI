@@ -1,5 +1,25 @@
-function HomeController($scope, SessionData) {
+function MetaDataController($scope, SessionData,SessionIdFactory){
+    $scope.showMetaData = false;
+
+    $scope.$on("sessionIdChanged",function(event,args) {
+    if(SessionIdFactory.get()!=null){
+    SessionData.getSessionMetaData(SessionIdFactory.get()).success(function (metaData){
+        $scope.session = metaData;
+        $scope.showMetaData = true;
+    })
+    }
+        else {
+        $scope.session = null;
+        $scope.showMetaData = false;
+    }
+    });
+}
+
+function HomeController($scope, SessionData, SessionIdFactory, $rootScope) {
     $scope.sessions = [];
+
+    SessionIdFactory.set(null);
+    $rootScope.$broadcast('sessionIdChanged');
 
     $scope.hasSessions = function () {
         if ($scope.sessions.length > 0)
@@ -41,8 +61,11 @@ function HomeController($scope, SessionData) {
     };
 }
 
-function SessionDetailController($scope, $routeParams, SessionData) {
+function SessionDetailController($scope, $routeParams, SessionData,SessionIdFactory, $rootScope,$q) {
     var parameter;
+
+    SessionIdFactory.set($routeParams.sessionId);
+    $rootScope.$broadcast('sessionIdChanged');
 
     $scope.graphLoaded = false;
     $scope.showWarning = false;
@@ -50,13 +73,6 @@ function SessionDetailController($scope, $routeParams, SessionData) {
 
     SessionData.getSessionParameters($routeParams.sessionId).success(function (d) {
         $scope.parameters = d;
-
-        if ($routeParams.parameterName == null) {
-            parameter = $scope.parameters[0];
-        }
-        else {
-            parameter = $routeParams.parameterName;
-        }
 
         getData();
     });
@@ -88,7 +104,7 @@ function SessionDetailController($scope, $routeParams, SessionData) {
                 position: 'top'
             },
             "pointSize": 0,
-            "title": "Temperature",
+            "title": "",
             "isStacked": "true",
             "fill": 20,
             "displayExactValues": true,
@@ -272,24 +288,47 @@ function SessionDetailController($scope, $routeParams, SessionData) {
 
     var getData = function () {
         var rawDataLijst = [];
-        var counter = 0;
+       // var counter = 0;
 
         // recursief door alle parameters
-        var getParameterValue = function (parameterName) {
-            SessionData.getSessionParameter($scope.sessionId, parameterName)
-                .then(function (raw) {
-                    rawDataLijst[counter] = raw.data;
-                    counter++;
-                    if ($scope.parameters[counter] != null) {
-                        getParameterValue($scope.parameters[counter]);
-                    }
-                    else {
-                        $scope.createGraphData(rawDataLijst, $scope.parameters);
-                    }
-                })
-        };
+//        var getParameterValue = function (parameterName) {
+//            SessionData.getSessionParameter($scope.sessionId, parameterName)
+//                .then(function (raw) {
+//                    rawDataLijst[counter] = raw.data;
+//                    counter++;
+//                    if ($scope.parameters[counter] != null) {
+//                        getParameterValue($scope.parameters[counter]);
+//                    }
+//                    else {
+//                        $scope.createGraphData(rawDataLijst, $scope.parameters);
+//                    }
+//                })
+//        };
 
-        getParameterValue($scope.parameters[counter]);
+//        var getParameterValue = function (parameterName, rawDataIndex) {
+//           var promise = SessionData.getSessionParameter($scope.sessionId, parameterName)
+//                .success(function (raw) {
+//                    rawDataLijst[rawDataIndex] = raw.data;
+//                })
+//            return promise;
+//        };
+
+        var promises = [];
+
+        for(var parameterIndex = 0; parameterIndex<$scope.parameters.length;parameterIndex++){
+           promises[parameterIndex] = SessionData.getSessionParameter($scope.sessionId, $scope.parameters[parameterIndex]);
+        }
+
+        $q.all(promises).then(function (result){
+
+            for(var resultIndex = 0; resultIndex<result.length;resultIndex++){
+                rawDataLijst[resultIndex]= result[resultIndex].data;
+            }
+
+            $scope.createGraphData(rawDataLijst, $scope.parameters);
+        })
+
+        //getParameterValue($scope.parameters[counter]);
     };
 
     $scope.selectParameter = function (parameterIndex) {
@@ -313,28 +352,24 @@ function SessionDetailController($scope, $routeParams, SessionData) {
 }
 
 function InfoController($scope, $routeParams, SessionData) {
+
+    $scope.mapOptions = {
+        center: new google.maps.LatLng(51.061946, 4.511737),
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
     $scope.sessionId = $routeParams.sessionId;
 
-//    $scope.session =
-
-    $scope.poly = [new google.maps.LatLng(51.761946, 4.511737), new google.maps.LatLng(51.217408, 4.416611)];
-
     SessionData.getGpsData($scope.sessionId).success(function (data) {
-        console.log(data);
         $scope.poly = [];
         angular.forEach(data, function (oneLine) {
             $scope.poly.push(new google.maps.LatLng(oneLine.coordinate.latitude, oneLine.coordinate.longitude));
         });
-        if($scope.poly.Length<0){
+        if($scope.poly.Length>0){
             $scope.mapOptions.center = $scope.poly[0];
         }
     });
-
-    $scope.mapOptions = {
-        center: new google.maps.LatLng(51.061946, 4.511737),
-        zoom: 11,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
 
 //    var polylineCoords = [new google.maps.LatLng(51.761946, 4.511737), new google.maps.LatLng(51.217408, 4.416611)];
 

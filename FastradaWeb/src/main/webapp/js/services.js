@@ -1,5 +1,16 @@
-angular.module("fastrada.services", []).
-    service('SessionData', ['$http', function ($http) {
+angular.module("fastrada.services", [])
+    .factory('SessionIdFactory', [function(){
+        var sessionId = null;
+        return {
+            get:function(){
+                return sessionId;
+            },
+            set:function(newId){
+                sessionId = newId;
+            }
+        }
+    }])
+    .service('SessionData', ['$http', function ($http) {
 
         this.getSessions = function () {
             return $http.get('/api/sessions');
