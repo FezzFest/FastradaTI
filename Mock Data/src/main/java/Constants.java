@@ -3,5 +3,6 @@
  */
 public class Constants {
     public static final String IP_ADDRESS = "192.168.43.1";
-    public static final int PACKET_DELAY = 50;
+    public static final int PACKET_DELAY = 25;
+    public static final int PACKET_NO = 300;
 }

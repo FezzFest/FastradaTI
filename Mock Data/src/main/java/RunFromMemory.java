@@ -26,7 +26,7 @@ public class RunFromMemory {
             List<byte[]> id102Packets = makePacketsId102(0, 255);
 
             while (true) {
-                for (int i = 0; i < 3000; i++) {
+                for (int i = 0; i < Constants.PACKET_NO; i++) {
                     sendPacket(id100Packets.get(i));
                     Thread.sleep(Constants.PACKET_DELAY);
                     sendPacket(id101Packets.get(i));
@@ -35,7 +35,7 @@ public class RunFromMemory {
                     Thread.sleep(Constants.PACKET_DELAY);
                 }
 
-                for (int i = 2999; i > 0; i--) {
+                for (int i = Constants.PACKET_NO-1; i > 0; i--) {
                     sendPacket(id100Packets.get(i));
                     Thread.sleep(Constants.PACKET_DELAY);
                     sendPacket(id101Packets.get(i));
@@ -51,10 +51,10 @@ public class RunFromMemory {
 
     private List<byte[]> makePacketsId100(double rpmStart, double rpmEnd, double throttleStart, double throttleEnd, double tempStart, double tempEnd) {
         List<byte[]> packets = new ArrayList<byte[]>();
-        double rpmStep = (rpmEnd - rpmStart) / 3000;
-        double throttleStep = (throttleEnd - throttleStart) / 3000;
-        double tempStep = (tempEnd - tempStart) / 3000;
-        for (int i = 0; i < 3000; i++) {
+        double rpmStep = (rpmEnd - rpmStart) / Constants.PACKET_NO;
+        double throttleStep = (throttleEnd - throttleStart) / Constants.PACKET_NO;
+        double tempStep = (tempEnd - tempStart) / Constants.PACKET_NO;
+        for (int i = 0; i < Constants.PACKET_NO; i++) {
             byte[] rpmBytes = intToByteArray((int) (rpmStart += rpmStep));
             int throttle = (int) (throttleStart / 0.0015259);
             byte[] throttleBytes = intToByteArray(throttle);
@@ -70,9 +70,9 @@ public class RunFromMemory {
 
     private List<byte[]> makePacketsId101(double speedStart, double speedEnd, double gearStart, double gearEnd) {
         List<byte[]> packets = new ArrayList<byte[]>();
-        double speedStep = (speedEnd - speedStart) / 3000;
-        double gearStep = (gearEnd - gearStart) / 3000;
-        for (int i = 0; i < 3000; i++) {
+        double speedStep = (speedEnd - speedStart) / Constants.PACKET_NO;
+        double gearStep = (gearEnd - gearStart) / Constants.PACKET_NO;
+        for (int i = 0; i < Constants.PACKET_NO; i++) {
             int speed = (int) (speedStart / 0.00549324);
             byte[] speedBytes = intToByteArray(speed);
             speedStart += speedStep;
@@ -85,8 +85,8 @@ public class RunFromMemory {
 
     private List<byte[]> makePacketsId102(double fuelStart, double fuelEnd) {
         List<byte[]> packets = new ArrayList<byte[]>();
-        double fuelStep = (fuelEnd - fuelStart) / 3000;
-        for (int i = 0; i < 3000; i++) {
+        double fuelStep = (fuelEnd - fuelStart) / Constants.PACKET_NO;
+        for (int i = 0; i < Constants.PACKET_NO; i++) {
             byte[] fuelBytes = intToByteArray((int) (fuelStart += fuelStep));
             byte[] packet = {(byte) 0x01, (byte) 0x02, fuelBytes[2], fuelBytes[3], (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
             packets.add(packet);

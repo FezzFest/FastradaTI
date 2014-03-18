@@ -43,13 +43,13 @@ public class TestCassandraDB {
 
     @Test
     public void testGetASessionId() {
-        SessionData run1 = new SessionData("Run1", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        SessionData run1 = new SessionData("Belgian ecology Championship", "Spa Francorchamps", "Fastrada Mobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
         Assert.assertEquals("Next session id must be integer >= 0", true, fastradaDAO.createNextSession(run1) >= 0);
     }
 
     @Test
     public void testUniqueSessionId() {
-        SessionData run1 = new SessionData("Run2", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        SessionData run1 = new SessionData("World ecology Championship", "Circuit Zolder", "Fastrada Mobiel", "Nog beter weer als de vorige rit", System.currentTimeMillis());
         boolean unique = true;
         List<SessionData> sessionDatas = fastradaDAO.getAllSessionsData();
 
@@ -65,8 +65,8 @@ public class TestCassandraDB {
 
     @Test
     public void testCreate2Sessions() {
-        SessionData run1 = new SessionData("Run3", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
-        SessionData run2 = new SessionData("Run4", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        SessionData run1 = new SessionData("Interschool Championship", "Circuito del Jarama", "FastradaMobiel", "Nieuwe banden opgezet", System.currentTimeMillis());
+        SessionData run2 = new SessionData("Formula 1 WC", "Circuito de Monsanto", "FastradaMobiel", "Palmbomen op het stand", System.currentTimeMillis());
         int sessionId1 = fastradaDAO.createNextSession(run1);
         int sessionId2 = fastradaDAO.createNextSession(run2);
 
@@ -75,10 +75,12 @@ public class TestCassandraDB {
 
     @Test
     public void testGetSingleSessionParam() {
-        SessionData run = new SessionData("Run5", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        SessionData run = new SessionData("Stress testing car", "Nürburgring", "FastradaMobiel", "Against Bugatti Veyron", System.currentTimeMillis());
         int sessionId = fastradaDAO.createNextSession(run);
         String insertCql = "INSERT INTO s" + sessionId + "(time, parameter, value) values(dateOf(now()),'" + "speed" + "',25);";
+
         session.execute(insertCql);
+
         String parameter = fastradaDAO.getParametersBySessionId(sessionId).get(0);
 
         Assert.assertEquals("Returned parameter must be speed", "speed", parameter);
@@ -107,24 +109,24 @@ public class TestCassandraDB {
     }
 
     @Test
-       public void testGpsCoordinate() throws InterruptedException {
-           SessionData run1 = new SessionData("Run7", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
-           int sessionId = fastradaDAO.createNextSession(run1);
-           long time = System.currentTimeMillis();
-           double latitude = 51.222998;
-           double longitude = 4.508343;
+    public void testGpsCoordinate() throws InterruptedException {
+        SessionData run1 = new SessionData("Run7", "Spa Francorchamps", "FastradaMobiel", "Zalig ritje met mooi weer", System.currentTimeMillis());
+        int sessionId = fastradaDAO.createNextSession(run1);
+        long time = System.currentTimeMillis();
+        double latitude = 51.222998;
+        double longitude = 4.508343;
 
-           String insertCoordinate = "INSERT INTO s" + sessionId + "(time, parameter, value) values(" + time + ",'" + "latitude" + "'," + latitude + ");";
-           String insertCoordinate2 = "INSERT INTO s" + sessionId + "(time, parameter, value) values(" + time + ",'" + "longitude" + "'," + longitude + ");";
+        String insertCoordinate = "INSERT INTO s" + sessionId + "(time, parameter, value) values(" + time + ",'" + "latitude" + "'," + latitude + ");";
+        String insertCoordinate2 = "INSERT INTO s" + sessionId + "(time, parameter, value) values(" + time + ",'" + "longitude" + "'," + longitude + ");";
 
-           session.execute(insertCoordinate);
-           session.execute(insertCoordinate2);
+       session.execute(insertCoordinate);
+        session.execute(insertCoordinate2);
 
-           List<GpsValue> receivedGpsValues = fastradaDAO.getGpsById(sessionId);
-           double sum = receivedGpsValues.get(0).getCoordinate().getLatitude() + receivedGpsValues.get(0).getCoordinate().getLongitude();
+        List<GpsValue> receivedGpsValues = fastradaDAO.getGpsById(sessionId);
+        double sum = receivedGpsValues.get(0).getCoordinate().getLatitude() + receivedGpsValues.get(0).getCoordinate().getLongitude();
 
-           Assert.assertEquals("Gps coordinates must be the same as inserted", sum, latitude + longitude, 0);
-       }
+        Assert.assertEquals("Gps coordinates must be the same as inserted", sum, latitude + longitude, 0);
+    }
 
 
 }
