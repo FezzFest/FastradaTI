@@ -109,8 +109,6 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
                 handler.postDelayed(this, 50);
             }
         });
-        updateUiByPrefs();
-
     }
 
     private void updateUiByPrefs() {
