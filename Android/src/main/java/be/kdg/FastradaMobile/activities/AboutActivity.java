@@ -1,6 +1,5 @@
 package be.kdg.FastradaMobile.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.util.Linkify;
 import android.view.MotionEvent;
@@ -8,11 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import be.kdg.FastradaMobile.R;
+import com.actionbarsherlock.app.SherlockActivity;
 
 /**
  * Created by Peter Van Akelyen on 26/02/14.
  */
-public class AboutActivity extends Activity {
+public class AboutActivity extends SherlockActivity {
     private int clicks = 0;
 
     @Override

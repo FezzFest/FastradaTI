@@ -4,14 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.*;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 import be.kdg.FastradaMobile.R;
 
 public class SettingsActivity extends PreferenceActivity {
-
     private SharedPreferences prefs;
 
     @Override
@@ -21,7 +17,6 @@ public class SettingsActivity extends PreferenceActivity {
 
         // Listeners
         addResetUIListener();
-        addGaugeListener();
         addWiFiListener();
         addAboutListener();
     }
@@ -29,37 +24,27 @@ public class SettingsActivity extends PreferenceActivity {
     private void addResetUIListener() {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = prefs.edit();
-        //Inserts 0 into X and Y values preferences
-        Preference stylePreference = (Preference) findPreference("pref_reset_UI");
-        stylePreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
 
-                editor.putString("pref_UI_topLayout_X", "" + "0");
-                editor.putString("pref_UI_topLayout_Y", "" + "0");
-                editor.putString("pref_UI_bottomLayout_X", "" + "0");
-                editor.putString("pref_UI_bottomLayout_Y", "" + "0");
-                editor.putString("pref_UI_gaugeViewPort_X", "" + "0");
-                editor.putString("pref_UI_gaugeViewPort_Y", "" + "0");
-                editor.putString("pref_UI_leftLayout_X", "" + "0");
-                editor.putString("pref_UI_leftLayout_Y", "" + "0");
-                editor.putString("pref_UI_rightLayout_X", "" + "0");
-                editor.putString("pref_UI_rightLayout_Y", "" + "0");
-                editor.putString("pref_UI_gaugeViewLand_X", "" + "0");
-                editor.putString("pref_UI_gaugeViewLand_Y", "" + "0");
-                editor.commit();
-                Toast.makeText(SettingsActivity.this, "UI Reset", Toast.LENGTH_LONG).show();
-                return true;
-            }
-        });
-    }
-
-    private void addGaugeListener() {
-        Preference stylePreference = findPreference("pref_gauge_style");
+        Preference stylePreference = findPreference("pref_reset_UI");
         if (stylePreference != null) {
-            stylePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            stylePreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                public boolean onPreferenceClick(Preference preference) {
+                    editor.putString("pref_UI_topLayout_X", "" + "0");
+                    editor.putString("pref_UI_topLayout_Y", "" + "0");
+                    editor.putString("pref_UI_bottomLayout_X", "" + "0");
+                    editor.putString("pref_UI_bottomLayout_Y", "" + "0");
+                    editor.putString("pref_UI_gaugeViewPort_X", "" + "0");
+                    editor.putString("pref_UI_gaugeViewPort_Y", "" + "0");
+                    editor.putString("pref_UI_leftLayout_X", "" + "0");
+                    editor.putString("pref_UI_leftLayout_Y", "" + "0");
+                    editor.putString("pref_UI_rightLayout_X", "" + "0");
+                    editor.putString("pref_UI_rightLayout_Y", "" + "0");
+                    editor.putString("pref_UI_gaugeViewLand_X", "" + "0");
+                    editor.putString("pref_UI_gaugeViewLand_Y", "" + "0");
+                    editor.commit();
+
+                    Toast.makeText(SettingsActivity.this, "All elements have been reset", Toast.LENGTH_SHORT).show();
 
                     return true;
                 }

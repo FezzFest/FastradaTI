@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="ActionBarSherlock" />
         <module name="FastradaMobile" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ActionBarSherlock" target="1.6" />
       <module name="FastradaMobile" target="1.6" />
     </bytecodeTargetLevel>
   </component>

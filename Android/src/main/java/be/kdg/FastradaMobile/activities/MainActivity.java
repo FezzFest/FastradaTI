@@ -1,6 +1,5 @@
 package be.kdg.FastradaMobile.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,10 +7,7 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.Vibrator;
+import android.os.*;
 import android.preference.PreferenceManager;
 
 import android.view.*;
@@ -22,9 +18,12 @@ import be.kdg.FastradaMobile.Constants;
 import be.kdg.FastradaMobile.R;
 import be.kdg.FastradaMobile.controllers.UserInterfaceController;
 import be.kdg.FastradaMobile.services.CommunicationService;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import org.codeandmagic.android.gauge.GaugeView;
 
-public class MainActivity extends Activity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class MainActivity extends SherlockActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static final int GREEN_LED_PORTRAIT = 8;
     private static final int GREEN_LED_LAND = 14;
     private static final int YELLOW_LED_PORTRAIT = 2;
@@ -38,13 +37,14 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
     private TextView gearDescription;
     private TextView tempIndicator;
     private TextView tempDescription;
-    private UserInterfaceController bufferController;
+    private UserInterfaceController interfaceController;
     private SoundPool sp;
     private int soundId;
     private int streamId;
     private int rpmLimiter;
     private boolean alarmPlaying;
-    int id = 0;
+    private boolean isGingerbread = true;
+    private int id = 0;
 
     /**
      * Called when the activity is first created.
@@ -54,15 +54,25 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        // Check what version of Android we are running
+        if (Build.VERSION.SDK_INT >= 11) {
+            isGingerbread = false;
+        }
+
         // Fullscreen w/ hidden ActionBar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getActionBar().hide();
+        getSupportActionBar().hide();
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.registerOnSharedPreferenceChangeListener(this);
+        if (!isGingerbread) {
+            prefs.registerOnSharedPreferenceChangeListener(this);
+        }
+        interfaceController = UserInterfaceController.getInstance();
 
-        setPositionUIElements();
-        bufferController = UserInterfaceController.getInstance();
+        // Set UI elements to their default position
+        if (!isGingerbread) {
+            setUIElementsPosition();
+        }
 
         // Keeps the screen on while activity is running
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -97,11 +107,11 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
             @Override
             public void run() {
                 // Update view
-                showRPM(bufferController.getRpm());
-                showTemp(bufferController.getTemperature());
-                tempIndicator.setText(String.format("%.1f °C", bufferController.getTemperature()));
-                speed.setFixedTargetValue(bufferController.getSpeed());
-                gearIndicator.setText(bufferController.getGear() + "");
+                showRPM(interfaceController.getRpm());
+                showTemp(interfaceController.getTemperature());
+                tempIndicator.setText(String.format("%.1f °C", interfaceController.getTemperature()));
+                speed.setFixedTargetValue(interfaceController.getSpeed());
+                gearIndicator.setText(interfaceController.getGear() + "");
                 handler.postDelayed(this, 50);
             }
         });
@@ -219,7 +229,7 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getSupportMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
@@ -275,67 +285,70 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
         viewGroups[0] = linearLayout1;
         viewGroups[1] = linearLayout2;
 
-
         int eventAction = event.getAction();
         switch (eventAction) {
             case MotionEvent.ACTION_DOWN:
                 // Show ActionBar
-                getActionBar().show();
+                getSupportActionBar().show();
                 hideActionBar(Constants.AB_TIMEOUT);
-                 id = 0;
 
-                for (LinearLayout UIelement : viewGroups) {
-                    if (X > UIelement.getX() && X < UIelement.getX() + UIelement.getWidth() && Y > UIelement.getY() && Y < UIelement.getY() + UIelement.getHeight()) {
-                        break;
+                if (!isGingerbread) {
+                    id = 0;
+                    for (LinearLayout UIelement : viewGroups) {
+                        if (X > UIelement.getX() && X < UIelement.getX() + UIelement.getWidth() && Y > UIelement.getY() && Y < UIelement.getY() + UIelement.getHeight()) {
+                            break;
+                        }
+                        id++;
                     }
-                    id++;
-                }
-                if (id == 2) {
-                    if (X > gaugeView.getX() && X < gaugeView.getX() + gaugeView.getWidth() && Y > gaugeView.getY() && Y < gaugeView.getY() + gaugeView.getHeight()) {
-                        break;
+                    if (id == 2) {
+                        if (X > gaugeView.getX() && X < gaugeView.getX() + gaugeView.getWidth() && Y > gaugeView.getY() && Y < gaugeView.getY() + gaugeView.getHeight()) {
+                            break;
+                        }
+                        id++;
                     }
-                    id++;
                 }
 
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (longPressed) {
+                if (longPressed && !isGingerbread) {
                     if (id < 2) {
                         viewGroups[id].setX(X - viewGroups[id].getWidth() / 2);
                         viewGroups[id].setY(Y - viewGroups[id].getHeight() / 2);
                     } else if (id == 2) {
                         gaugeView.setX(X - gaugeView.getWidth() / 2);
                         gaugeView.setY(Y - gaugeView.getWidth() / 2);
-
                     }
                 }
+
                 break;
             case MotionEvent.ACTION_UP:
-                longPressed = false;
-                SharedPreferences.Editor editor = prefs.edit();
-                if (getResources().getConfiguration().orientation == 1) {
-                    editor.putString("pref_UI_topLayout_X", "" + viewGroups[0].getTranslationX());
-                    editor.putString("pref_UI_topLayout_Y", "" + viewGroups[0].getTranslationY());
-                    editor.putString("pref_UI_bottomLayout_X", "" + viewGroups[1].getTranslationX());
-                    editor.putString("pref_UI_bottomLayout_Y", "" + viewGroups[1].getTranslationY());
-                    editor.putString("pref_UI_gaugeViewPort_X", "" + gaugeView.getTranslationX());
-                    editor.putString("pref_UI_gaugeViewPort_Y", "" + gaugeView.getTranslationY());
-                } else {
-                    editor.putString("pref_UI_leftLayout_X", "" + viewGroups[0].getTranslationX());
-                    editor.putString("pref_UI_leftLayout_Y", "" + viewGroups[0].getTranslationY());
-                    editor.putString("pref_UI_rightLayout_X", "" + viewGroups[1].getTranslationX());
-                    editor.putString("pref_UI_rightLayout_Y", "" + viewGroups[1].getTranslationY());
-                    editor.putString("pref_UI_gaugeViewLand_X", "" + gaugeView.getTranslationX());
-                    editor.putString("pref_UI_gaugeViewLand_Y", "" + gaugeView.getTranslationY());
-                }
+                if (!isGingerbread) {
+                    longPressed = false;
+                    SharedPreferences.Editor editor = prefs.edit();
+                    if (getResources().getConfiguration().orientation == 1) {
+                        editor.putString("pref_UI_topLayout_X", "" + viewGroups[0].getTranslationX());
+                        editor.putString("pref_UI_topLayout_Y", "" + viewGroups[0].getTranslationY());
+                        editor.putString("pref_UI_bottomLayout_X", "" + viewGroups[1].getTranslationX());
+                        editor.putString("pref_UI_bottomLayout_Y", "" + viewGroups[1].getTranslationY());
+                        editor.putString("pref_UI_gaugeViewPort_X", "" + gaugeView.getTranslationX());
+                        editor.putString("pref_UI_gaugeViewPort_Y", "" + gaugeView.getTranslationY());
+                    } else {
+                        editor.putString("pref_UI_leftLayout_X", "" + viewGroups[0].getTranslationX());
+                        editor.putString("pref_UI_leftLayout_Y", "" + viewGroups[0].getTranslationY());
+                        editor.putString("pref_UI_rightLayout_X", "" + viewGroups[1].getTranslationX());
+                        editor.putString("pref_UI_rightLayout_Y", "" + viewGroups[1].getTranslationY());
+                        editor.putString("pref_UI_gaugeViewLand_X", "" + gaugeView.getTranslationX());
+                        editor.putString("pref_UI_gaugeViewLand_Y", "" + gaugeView.getTranslationY());
+                    }
 
-                editor.commit();
+                    editor.commit();
+                }
         }
 
         return true;
     }
 
-    private void setPositionUIElements() {
+    private void setUIElementsPosition() {
         GaugeView gaugeView = (GaugeView) findViewById(R.id.dashboard_speed_gauge);
         if (getResources().getConfiguration().orientation == 1) {
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.dashboard_top);
@@ -367,14 +380,14 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
 
             @Override
             public void onFinish() {
-                getActionBar().hide();
+                getSupportActionBar().hide();
             }
         }.start();
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        //If a shared preference is changed, check if MainActivity needs UI refresh.
+        // If a shared preference is changed, check if MainActivity needs UI refresh.
         if (key.equals("pref_UI_RPM")) {
             recreate();
         } else if (key.equals("pref_UI_engineGear")) {
@@ -392,5 +405,4 @@ public class MainActivity extends Activity implements SharedPreferences.OnShared
             recreate();
         }
     }
-
 }

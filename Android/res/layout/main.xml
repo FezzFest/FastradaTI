@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:gauge="http://schemas.android.com/apk/res/be.kdg.FastradaMobile"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
-    android:background="#404141">
+                xmlns:gauge="http://schemas.android.com/apk/res/be.kdg.FastradaMobile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:background="#404141">
 
     <LinearLayout
         android:id="@+id/dashboard_top"
@@ -21,7 +21,7 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@android:color/white"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/dashboard_rpm_description"
@@ -31,7 +31,7 @@
             android:textColor="@android:color/white"
             android:textSize="12sp"
             android:text="@string/engine_rpm"
-            android:layout_weight="100" />
+            android:layout_weight="100"/>
 
         <LinearLayout
             android:id="@+id/linearImageView"
@@ -47,110 +47,122 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView1"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView2"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView3"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView4"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView5"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView6"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView7"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView8"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView9"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView10"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView11"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/imageView12"
                 android:maxHeight="27dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="27dp"
-                android:src="@drawable/led_gray" />
+                android:src="@drawable/led_gray"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -164,7 +176,7 @@
         gauge:showNeedle="false"
         gauge:showRanges="false"
         gauge:showText="true"
-        gauge:textUnit="km/h" />
+        gauge:textUnit="km/h"/>
 
     <LinearLayout
         android:id="@+id/dashboard_bottom"
@@ -188,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/dashboard_gear_description"
@@ -196,7 +208,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="12sp"
-                android:text="@string/engine_gear" />
+                android:text="@string/engine_gear"/>
         </LinearLayout>
 
         <LinearLayout
@@ -212,7 +224,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:gravity="right" />
+                android:gravity="right"/>
 
             <TextView
                 android:id="@+id/dashboard_temperature_description"
@@ -221,7 +233,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="12sp"
                 android:text="@string/temperature_alarm"
-                android:gravity="right" />
+                android:gravity="right"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
