@@ -288,10 +288,6 @@ public class MainActivity extends SherlockActivity implements SharedPreferences.
         int eventAction = event.getAction();
         switch (eventAction) {
             case MotionEvent.ACTION_DOWN:
-                // Show ActionBar
-                getSupportActionBar().show();
-                hideActionBar(Constants.AB_TIMEOUT);
-
                 if (!isGingerbread) {
                     id = 0;
                     for (LinearLayout UIelement : viewGroups) {
@@ -322,6 +318,10 @@ public class MainActivity extends SherlockActivity implements SharedPreferences.
 
                 break;
             case MotionEvent.ACTION_UP:
+                // Show ActionBar
+                getSupportActionBar().show();
+                hideActionBar(Constants.AB_TIMEOUT);
+
                 if (!isGingerbread) {
                     longPressed = false;
                     SharedPreferences.Editor editor = prefs.edit();

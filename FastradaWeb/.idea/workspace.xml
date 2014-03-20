@@ -1,0 +1,1608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="spring-angularjs:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="176392f7-4793-4b49-b269-3e8e012ebb13" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_bottom_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_bottom_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_bottom_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_bottom_solid_inverse_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_bottom_solid_inverse_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_bottom_solid_inverse_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_bottom_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_bottom_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_bottom_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_bottom_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_bottom_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_bottom_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_bottom_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_bottom_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_bottom_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_share_pack_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_share_pack_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_share_pack_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_share_pack_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_share_pack_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_share_pack_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_solid_shadow_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_solid_shadow_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_solid_shadow_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_stacked_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_stacked_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_stacked_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_stacked_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_stacked_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_stacked_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_stacked_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_stacked_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_stacked_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_stacked_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_stacked_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_stacked_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ab_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ab_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ab_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__btn_cab_done_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__btn_cab_done_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__btn_cab_done_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__btn_cab_done_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__btn_cab_done_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__btn_cab_done_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__btn_cab_done_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__btn_cab_done_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__btn_cab_done_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__btn_cab_done_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__btn_cab_done_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__btn_cab_done_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__btn_cab_done_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__btn_cab_done_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__btn_cab_done_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__btn_cab_done_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__btn_cab_done_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__btn_cab_done_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__cab_background_bottom_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__cab_background_bottom_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__cab_background_bottom_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__cab_background_bottom_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__cab_background_bottom_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__cab_background_bottom_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__cab_background_top_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__cab_background_top_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__cab_background_top_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__cab_background_top_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__cab_background_top_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__cab_background_top_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_clear_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_clear_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_clear_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_clear_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_clear_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_voice_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_voice_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_voice_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__list_activated_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__list_activated_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__list_activated_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__list_divider_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__list_divider_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__list_divider_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__list_divider_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__list_divider_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__list_divider_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__list_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__list_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__list_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__list_longpressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__list_longpressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__list_longpressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__list_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__list_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__list_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__list_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__list_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__list_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__list_selector_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__list_selector_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__list_selector_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__list_selector_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__list_selector_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__list_selector_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__menu_dropdown_panel_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__menu_dropdown_panel_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__menu_dropdown_panel_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__menu_dropdown_panel_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__menu_dropdown_panel_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__menu_dropdown_panel_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__progress_bg_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__progress_bg_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__progress_bg_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__progress_bg_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__progress_bg_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__progress_bg_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__progress_primary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__progress_primary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__progress_primary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__progress_primary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__progress_primary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__progress_primary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__progress_secondary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__progress_secondary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__progress_secondary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__progress_secondary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__progress_secondary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__progress_secondary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__spinner_48_inner_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__spinner_48_inner_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__spinner_48_inner_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__spinner_48_outer_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__spinner_48_outer_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__spinner_48_outer_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__spinner_ab_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__spinner_ab_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__spinner_ab_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__spinner_ab_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__spinner_ab_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__spinner_ab_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__spinner_ab_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__spinner_ab_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__spinner_ab_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__spinner_ab_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__spinner_ab_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__spinner_ab_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__spinner_ab_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__spinner_ab_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__spinner_ab_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__spinner_ab_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__spinner_ab_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__spinner_ab_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__spinner_ab_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__spinner_ab_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__spinner_ab_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__spinner_ab_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__spinner_ab_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__spinner_ab_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__tab_selected_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__tab_selected_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__tab_selected_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__tab_selected_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__tab_selected_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__tab_selected_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__tab_selected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__tab_selected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__tab_selected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__tab_unselected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__tab_unselected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__tab_unselected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__textfield_search_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__textfield_search_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__textfield_search_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__textfield_search_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__textfield_search_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__textfield_search_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__textfield_search_right_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__textfield_search_right_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__textfield_search_right_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__textfield_search_right_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__textfield_search_right_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__textfield_search_right_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__textfield_search_right_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__textfield_search_right_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__textfield_search_right_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__textfield_search_right_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__textfield_search_right_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__textfield_search_right_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__textfield_search_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__textfield_search_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__textfield_search_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__textfield_search_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__textfield_search_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__textfield_search_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-hdpi/abs__toast_frame.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-mdpi/abs__toast_frame.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-xhdpi/abs__toast_frame.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/libs/android-support-v4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/AbsActionBarView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/app/ActionBar.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/ActionBarContainer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/ActionBarContextView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/app/ActionBarImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/ActionBarSherlock.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/ActionBarSherlock.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/ActionBarSherlockCompat.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/ActionBarSherlockNative.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/ActionBarView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/app/ActionBarWrapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/ActionMenu.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/ActionMenuItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/ActionMenuItemView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/ActionMenuPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/ActionMenuView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/view/ActionMode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/view/ActionProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/ActionProviderWrapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/widget/ActivityChooserModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/widget/ActivityChooserView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/Animator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/AnimatorListenerAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/view/animation/AnimatorProxy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/AnimatorSet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/BaseMenuPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/gen/com/actionbarsherlock/BuildConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/CapitalizingButton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/CapitalizingTextView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/view/CollapsibleActionView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/CollapsibleActionViewWrapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/FloatEvaluator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/FloatKeyframeSet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/IcsAbsSpinner.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/IcsAdapterView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/IcsColorDrawable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/IcsLinearLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/IcsListPopupWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/IcsProgressBar.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/IcsSpinner.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/IcsToast.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/IcsView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/IntEvaluator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/IntKeyframeSet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/Keyframe.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/KeyframeSet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/ListMenuItemView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/gen/com/actionbarsherlock/Manifest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__backport_util_concurrent_backport_util_concurrent_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__classworlds_classworlds_1_1_alpha_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__com_google_android_android_4_0_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__com_google_android_support_v4_r7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__com_googlecode_catch_exception_catch_exception_1_0_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__com_ximpleware_vtd_xml_2_11.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__junit_junit_4_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__nekohtml_nekohtml_1_9_6_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__nekohtml_xercesMinimal_1_9_6_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_ant_ant_1_8_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_8_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_maven_ant_tasks_2_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_maven_artifact_2_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_maven_artifact_manager_2_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_maven_error_diagnostics_2_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_maven_model_2_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_maven_plugin_registry_2_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_maven_profile_2_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_maven_project_2_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_maven_repository_metadata_2_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_maven_settings_2_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_wagon_wagon_file_1_0_beta_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_lightweight_1_0_beta_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_shared_1_0_beta_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_apache_maven_wagon_wagon_provider_api_1_0_beta_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_codehaus_plexus_plexus_container_default_1_0_alpha_9_stable_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_codehaus_plexus_plexus_interpolation_1_11.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_1_5_15.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_easytesting_fest_assert_core_2_0M10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_easytesting_fest_reflect_1_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_easytesting_fest_util_1_2_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_mockito_mockito_core_1_8_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_objenesis_objenesis_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_ow2_asm_asm_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_ow2_asm_asm_analysis_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_ow2_asm_asm_commons_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_ow2_asm_asm_tree_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_ow2_asm_asm_util_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_robolectric_robolectric_2_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/Maven__org_xerial_sqlite_jdbc_3_7_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/view/Menu.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/MenuBuilder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/view/MenuInflater.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/view/MenuItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/MenuItemImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/MenuItemWrapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/MenuPopupHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/MenuPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/MenuView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/MenuWrapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/widget/NineFrameLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/widget/NineHorizontalScrollView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/widget/NineLinearLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/view/NineViewGroup.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/ObjectAnimator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/PopupWindowCompat.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/PropertyValuesHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/gen/com/actionbarsherlock/R.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/ResourcesCompat.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/test/com/actionbarsherlock/internal/ResourcesCompatTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/ScrollingTabContainerView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/widget/SearchView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/widget/ShareActionProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/app/SherlockActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/app/SherlockDialogFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/app/SherlockExpandableListActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/app/SherlockFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/app/SherlockFragmentActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/app/SherlockListActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/app/SherlockListFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/app/SherlockPreferenceActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/StandaloneActionMode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/view/SubMenu.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/SubMenuBuilder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/menu/SubMenuWrapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/widget/SuggestionsAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/widget/TabsLinearLayout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/TypeEvaluator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/nineoldandroids/animation/ValueAnimator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/View_HasStateListenerSupport.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/internal/view/View_OnAttachStateChangeListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/android/support/v4/app/Watson.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/src/com/actionbarsherlock/view/Window.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__action_bar_home.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__action_bar_tab.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__action_bar_tab_bar_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__action_bar_title_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__action_menu_item_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__action_menu_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__action_mode_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__action_mode_close_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout-large/abs__action_mode_close_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__activated_background_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__activated_background_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__activity_chooser_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__activity_chooser_view_list_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values/abs__attrs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values/abs__bools.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-sw600dp/abs__bools.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-w480dp/abs__bools.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__btn_cab_done_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__btn_cab_done_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values/abs__colors.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values/abs__config.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-w480dp/abs__config.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-land/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-large-hdpi-1024x600/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-large-land-hdpi-1024x600/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-large-land-mdpi-1024x600/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-large-mdpi-1024x600/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-sw600dp/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-w360dp/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-w500dp/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-w600dp/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-xlarge/abs__dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__ic_clear.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__ic_clear_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__ic_menu_moreoverflow_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__ic_menu_moreoverflow_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values/abs__ids.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__item_background_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__item_background_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__list_menu_item_checkbox.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__list_menu_item_icon.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__list_menu_item_radio.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__list_selector_background_transition_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__list_selector_background_transition_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__list_selector_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__list_selector_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__popup_menu_item_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/color/abs__primary_text_disable_only_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/color/abs__primary_text_disable_only_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/color/abs__primary_text_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/color/abs__primary_text_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__progress_horizontal_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__progress_horizontal_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__progress_medium_holo.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable-v11/abs__progress_medium_holo.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__screen_action_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout-xlarge/abs__screen_action_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__screen_action_bar_overlay.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout-xlarge/abs__screen_action_bar_overlay.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__screen_simple.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__screen_simple_overlay_action_mode.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__search_dropdown_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__search_dropdown_item_icons_2line.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__search_dropdown_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__search_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/abs__simple_dropdown_hint.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__spinner_ab_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__spinner_ab_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values/abs__strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values/abs__styles.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-v14/abs__styles.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__tab_indicator_ab_holo.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__textfield_searchview_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__textfield_searchview_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__textfield_searchview_right_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/drawable/abs__textfield_searchview_right_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values/abs__themes.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-v11/abs__themes.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/values-v14/abs__themes.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/.idea/libraries/android_support_v4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/build.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/lint.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/project.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/sherlock_spinner_dropdown_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout-v14/sherlock_spinner_dropdown_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout/sherlock_spinner_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/ActionBarSherlock/res/layout-v14/sherlock_spinner_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/res/values/styles.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Android/res/values-v11/styles.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../DataInterpreter/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/AboutActivity.java" afterPath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/AboutActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../Android/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/FastradaMobile.iml" afterPath="$PROJECT_DIR$/../Android/FastradaMobile.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/MainActivity.java" afterPath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/SessionActivity.java" afterPath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/SessionActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/SettingsActivity.java" afterPath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/SettingsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/SplashActivity.java" afterPath="$PROJECT_DIR$/../Android/src/main/java/be/kdg/FastradaMobile/activities/SplashActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/.idea/compiler.xml" afterPath="$PROJECT_DIR$/../Android/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/.idea/encodings.xml" afterPath="$PROJECT_DIR$/../Android/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/res/layout/main.xml" afterPath="$PROJECT_DIR$/../Android/res/layout/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/.idea/misc.xml" afterPath="$PROJECT_DIR$/../Android/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/.idea/modules.xml" afterPath="$PROJECT_DIR$/../Android/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/project.properties" afterPath="$PROJECT_DIR$/../Android/project.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/res/xml/settings.xml" afterPath="$PROJECT_DIR$/../Android/res/xml/settings.xml" />
+    </list>
+    <ignored path="spring-angularjs.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="spring-angularjs" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="330" column="56" selection-start="9668" selection-end="9668" vertical-scroll-proportion="-1.4948806" vertical-offset="6486" max-vertical-offset="7072">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/persistence/FastradaDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/services.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/controllers.js" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\apache-maven-3.2.1-bin\apache-maven-3.2.1" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="spring-angularjs" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="spring-angularjs" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="Undo Check Out" />
+    <OptionsSetting value="true" id="Get Latest Version" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FastradaWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FastradaWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FastradaWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FastradaWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FastradaWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FastradaWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FastradaWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DataInterpreter" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.30704898" />
+    <property name="options.lastSelected" value="MavenSettings" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Unnamed">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails" singleton="true">
+      <module name="" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.52" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_spring-angularjs" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9081" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browserFamily" value="FIREFOX" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" output_log_level="null" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browserFamily" value="FIREFOX" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="LOCAL" value="false" />
+      <deployment />
+      <server-settings>
+        <data>
+          <option name="transportHostId" />
+        </data>
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9090" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.52" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="spring-angularjs:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_spring-angularjs" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9081" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="spring-angularjs:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
+    </list>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="176392f7-4793-4b49-b269-3e8e012ebb13" name="Default" comment="" />
+      <created>1394805211842</created>
+      <updated>1394805211842</updated>
+      <workItem from="1394805204023" duration="8404000" />
+      <workItem from="1395144029891" duration="606000" />
+      <workItem from="1395145559725" duration="303000" />
+      <workItem from="1395147911126" duration="1166000" />
+      <workItem from="1395269780753" duration="70000" />
+    </task>
+    <task id="LOCAL-00001" summary="Fixed timestamp issue with GPS and removed unnecessary config.xml files.&#10;">
+      <created>1394833191253</created>
+      <updated>1394833191253</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fixed the mess of everyone">
+      <created>1395148472340</created>
+      <updated>1395148472340</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11424000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <MESSAGE value="Fixed timestamp issue with GPS and removed unnecessary config.xml files.&#10;" />
+    <MESSAGE value="Fixed the mess of everyone" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the mess of everyone" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="314" column="0" selection-start="9568" selection-end="9568" vertical-scroll-proportion="0.0" vertical-offset="5338" max-vertical-offset="6715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="35" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="714" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/partials/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="314" column="0" selection-start="9568" selection-end="9568" vertical-scroll-proportion="0.0" vertical-offset="5338" max-vertical-offset="6715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="35" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="714" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/partials/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="314" column="0" selection-start="9534" selection-end="9534" vertical-scroll-proportion="0.0" vertical-offset="5321" max-vertical-offset="6120">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="35" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="527" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/partials/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="664" max-vertical-offset="1360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="905" selection-end="905" vertical-scroll-proportion="0.18035714" vertical-offset="443" max-vertical-offset="1003" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/GpsValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="71" selection-end="71" vertical-scroll-proportion="0.1450512" vertical-offset="0" max-vertical-offset="586">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/persistence/FastradaDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="196" column="0" selection-start="8167" selection-end="8167" vertical-scroll-proportion="0.68237346" vertical-offset="2771" max-vertical-offset="3434">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/angular-resource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7871" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/slider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2312" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/partials/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.27422303" vertical-offset="150" max-vertical-offset="697" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/SessionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="42" selection-start="3051" selection-end="3051" vertical-scroll-proportion="-0.06806283" vertical-offset="1110" max-vertical-offset="1683">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/api-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="586">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="586" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/loading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="586" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="251005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="38488" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/googlemaps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="586" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/ng-google-chart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3978" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="35" selection-start="444" selection-end="444" vertical-scroll-proportion="0.21672355" vertical-offset="128" max-vertical-offset="714" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/partials/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="664" max-vertical-offset="1360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="21" selection-start="969" selection-end="969" vertical-scroll-proportion="0.36177474" vertical-offset="247" max-vertical-offset="3281">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="330" column="56" selection-start="9668" selection-end="9668" vertical-scroll-proportion="-1.4948806" vertical-offset="6486" max-vertical-offset="7072">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>spring-angularjs:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.30704898" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>spring-angularjs</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.google.code.gson:gson:2.2.4</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.30704898" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+
