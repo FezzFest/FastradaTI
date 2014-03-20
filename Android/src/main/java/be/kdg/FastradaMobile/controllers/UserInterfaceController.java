@@ -24,13 +24,13 @@ public class UserInterfaceController {
     }
 
     public void setValue(String paramName, double value) {
-        if (paramName.equals("Vehicle_Speed")) {
+        if (paramName.equals("Speed")) {
             speed = (int) (value + 0.5);
         } else if (paramName.equals("Gear")) {
             gear = (int) (value + 0.5);
         } else if (paramName.equals("RPM")) {
             rpm = (int) (value + 0.5);
-        } else if (paramName.equals("Engine_Temp")) {
+        } else if (paramName.equals("Engine Temperature")) {
             temperature = value;
         }
     }
